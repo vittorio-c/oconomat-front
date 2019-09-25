@@ -16,7 +16,3 @@
 |/signup|Page d'inscription|
 
 <!-- |/logout|Déconnexion| -->
-
-
-
-

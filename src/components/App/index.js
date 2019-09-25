@@ -2,6 +2,8 @@
  * Import
  */
 import React from 'react';
+import { BrowserRouter as Router, Route, Link,Redirect} from "react-router-dom";
+
 import { connect } from 'react-redux';
 
 /**
@@ -11,23 +13,59 @@ import { connect } from 'react-redux';
 import ClicCounter from 'src/components/ClicCounter';
 
 // Styles et assets
-import './app.sass';
+import './app.sass'; 
+
+import Form from  '../Form/index.js';
 
 /**
  * Code
  */
-const App = ({ greeting, handleChange }) => (
+const App = ({}) => (
   <div id="app">
-    <h1 id="app-title">Modèle React</h1>
-    <input
-      type="text"
-      id="app-content"
-      value={greeting}
-      onChange={handleChange}
-    />
-    <ClicCounter label="Clic-me!" />
+    <Router>
+    <div> 
+      <Link to="/form">
+      <button> redirect to form </button> 
+      </Link> 
+        <ul>
+          <li>
+          <Link to= "/">Accueil</Link>
+          </li>
+          <li>
+          <Link to= "/contact">Contact</Link>
+          </li>
+          <li> 
+          <Link to= "/recipe">Recettes</Link>
+          </li>
+        </ul>  
+      <Route exact path ="/" component={Accueil}/> 
+      <Route  path ="/contact" component={Contact}/> 
+      <Route path ="/recipe" component={Recipe}/>  
+      <Route path="/form" component={Form}/> 
+       
+      
+      </div>
+     
+    
+    </Router>
   </div>
-);
+); 
+
+const Accueil=() =>{
+  return (<h2> Voici ma page accueil</h2> )
+} 
+
+const Contact=() =>{
+  return (<h2> Voici ma page de contact </h2> )
+} 
+
+const Recipe=() =>{
+  return (<h2> Voici ma page de recettes </h2>)  
+}
+
+
+
+
 
 /**
  * Export
