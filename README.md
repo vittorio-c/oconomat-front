@@ -2,8 +2,7 @@
 
 ## routes-front
 
-| nom de la route | où mène la route |
-|path|name|
+| path |name |
 | :---------------| :--------------: |
 |/|Page d'accueil|
 |/account|Espace personnel |
