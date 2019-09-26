@@ -6,6 +6,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 
+
 /**
  * Local import
  */
@@ -20,6 +21,7 @@ import kastore from 'src/store';
 const reactRootElement = <Provider store={kastore}>
   <AppContainer />
 </Provider>;
+
 
 const renderingArea = document.querySelector('#root');
 render(reactRootElement, renderingArea);
