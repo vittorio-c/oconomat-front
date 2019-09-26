@@ -24,7 +24,7 @@ class Form extends React.Component {
     <form onSubmit={this.renderRedirect} method="post" action="">
     <input type="text" placeholder="username" name="username"/> 
     <input type="password" placeholder="mdp" name="mdp"/> 
-     <input type="submit" value="envoyer"/>
+    <input type="submit" value="envoyer"/>
 
     </form>
     

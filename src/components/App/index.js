@@ -10,8 +10,7 @@ import { connect } from 'react-redux';
  * Local import
  */
 // Composants enfants éventuels
-import ClicCounter from 'src/components/ClicCounter';
-
+import Home from 'src/components/Home';
 // Styles et assets
 import './app.sass'; 
 
@@ -29,17 +28,17 @@ const App = ({}) => (
       </Link> 
         <ul>
           <li>
-          <Link to= "/">Accueil</Link>
+            <Link to= "/">Accueil</Link>
           </li>
           <li>
-          <Link to= "/contact">Contact</Link>
+            <Link to= "/contact">Contact</Link>
           </li>
           <li> 
-          <Link to= "/recipe">Recettes</Link>
+            <Link to= "/recipe">Recettes</Link>
           </li>
         </ul>  
-      <Route exact path ="/" component={Accueil}/> 
-      <Route  path ="/contact" component={Contact}/> 
+      <Route exact path ="/" component={Home}/> 
+      <Route path ="/contact" component={Contact}/> 
       <Route path ="/recipe" component={Recipe}/>  
       <Route path="/form" component={Form}/> 
        
@@ -51,9 +50,7 @@ const App = ({}) => (
   </div>
 ); 
 
-const Accueil=() =>{
-  return (<h2> Voici ma page accueil</h2> )
-} 
+
 
 const Contact=() =>{
   return (<h2> Voici ma page de contact </h2> )
