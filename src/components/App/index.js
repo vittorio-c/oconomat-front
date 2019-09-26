@@ -20,7 +20,7 @@ import Form from  '../Form/index.js';
  * Code
  */
 const App = ({}) => (
-  <div id="app">
+  <div className=" container-fluid">
     <Router>
     <div> 
       <Link to="/form">
