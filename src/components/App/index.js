@@ -41,7 +41,7 @@ const App = ({}) => (
       <Route exact path ="/" component={Accueil}/> 
       <Route  path ="/contact" component={Contact}/> 
       <Route path ="/recipe" component={Recipe}/>  
-      <Route path="/form" component={Form}/> 
+     
        
       
       </div>
