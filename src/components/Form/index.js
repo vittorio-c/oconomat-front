@@ -10,27 +10,29 @@ class Form extends React.Component {
 
    
 
-    renderRedirect=() => { 
-        
-        return <Redirect to="/objectifs"/>
+    renderRedirect=(event) => {   
+        event.preventDefault(); 
+        this.props.history.push('/objectifs')
         
     }
 
     render (){
     return( 
-    
-    <div> 
-    
-    <form onSubmit={this.renderRedirect} method="post" action="">
-    <input type="text" placeholder="username" name="username"/> 
-    <input type="password" placeholder="mdp" name="mdp"/> 
-     <input type="submit" value="envoyer"/>
+    <Router> 
+     
+     <div> 
+       <form onSubmit={this.renderRedirect} method="post" action="">
+       <input type="text" placeholder="username" name="username"/> 
+       <input type="password" placeholder="mdp" name="mdp"/> 
+       <input type="submit" value="envoyer"/> 
+      
 
-    </form>
+     </form>
     
-
     
-    </div> 
+    
+     </div> 
+    </Router> 
    
     )
     }

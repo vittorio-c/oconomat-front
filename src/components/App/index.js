@@ -16,13 +16,49 @@ import ClicCounter from 'src/components/ClicCounter';
 import './app.sass'; 
 
 import Form from  '../Form/index.js';
+import MaPageObjectifs from '../Objectifs/index.js';
 
 /**
  * Code
  */
-const App = ({}) => (
-  <div id="app">
-    <Router>
+const App = () =>  {
+  const maClasse='yes'
+  if(maClasse=='no'){
+  return( <div id="app"> 
+      
+    <div> 
+      <Link to="/form">
+      <button className='none'> redirect to form </button> 
+      </Link> 
+        <ul>
+          <li>
+          <Link className="none" to= "/">Accueil</Link>
+          </li>
+          <li>
+          <Link className="none" to= "/contact">Contact</Link>
+          </li>
+          <li> 
+          <Link className="none" to= "/recipe">Recettes</Link>
+          </li>
+        </ul>  
+       
+      <Route exact path ="/" component={Accueil}/> 
+      <Route  path ="/contact" component={Contact}/> 
+      <Route path ="/recipe" component={Recipe}/>  
+      <Route path="/form" component={Form}/> 
+      <Route path="/objectifs" component={MaPageObjectifs}/>
+      
+      
+      </div>
+     
+    
+    
+  </div>)
+} 
+else{
+  return( <div id="app"> 
+    <Router> 
+      
     <div> 
       <Link to="/form">
       <button> redirect to form </button> 
@@ -38,18 +74,21 @@ const App = ({}) => (
           <Link to= "/recipe">Recettes</Link>
           </li>
         </ul>  
+       
       <Route exact path ="/" component={Accueil}/> 
       <Route  path ="/contact" component={Contact}/> 
       <Route path ="/recipe" component={Recipe}/>  
       <Route path="/form" component={Form}/> 
-       
+      <Route path="/objectifs" component={MaPageObjectifs}/>
       
       </div>
      
     
     </Router>
-  </div>
-); 
+  </div>)
+ } 
+};
+
 
 const Accueil=() =>{
   return (<h2> Voici ma page accueil</h2> )
