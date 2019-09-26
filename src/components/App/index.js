@@ -42,9 +42,7 @@ const App = ({}) => (
       <Route  path ="/contact" component={Contact}/> 
       <Route path ="/recipe" component={Recipe}/>  
      
-       
-      
-      </div>
+    </div>
      
     
     </Router>
