@@ -1,7 +1,5 @@
-/**
- * Import
- */
 import React from 'react';
+
 import Header from '../Header/index.js';
 
 
@@ -10,15 +8,17 @@ import Header from '../Header/index.js';
 // Styles and assets
 
 import './app.sass'; 
+import Footer from '../Footer/index.js';
+import Inscription from '../SignUp/index.js'
+import Connexion from '../SignIn/index.js';
+import Recettes from '../Recettes/index.js';
 
 
 
-
-// AppContainer will return the Header
 const AppContainer=() =>{
-  return <Header/> 
+    return (<div id="app"> <Connexion/> <Inscription/> <Recettes/>
+    <Footer/> </div>)
 }
 
-
-// We export the connected componant 
 export default AppContainer;
+
