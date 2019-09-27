@@ -88,9 +88,7 @@ const Explanations = () => {
             <h3 className= 'text-center font-weight-bold mt-4'>
                 C'est facile Pourquoi ne pas commencer maintenant ?
             </h3>
-            <button type="button" className = "btn btn-success btn-md btn-block mt-3">
-                Je commence maintenant
-            </button>
+            <a className ="btn btn-success btn-md btn-block mt-3" href="/SignUp" role="button">Je commence maintenant</a>
         </div>
     )
 } 
