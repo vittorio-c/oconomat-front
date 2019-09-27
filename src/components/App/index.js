@@ -14,52 +14,15 @@ import Home from 'src/components/Home';
 // Styles et assets
 import './app.sass'; 
 
-import Form from  '../Form/index.js';
-
 /**
  * Code
  */
 const App = ({}) => (
   <div className=" container-fluid">
-    <Router>
-    <div> 
-      <Link to="/form">
-      <button> redirect to form </button> 
-      </Link> 
-        <ul>
-          <li>
-            <Link to= "/">Accueil</Link>
-          </li>
-          <li>
-            <Link to= "/contact">Contact</Link>
-          </li>
-          <li> 
-            <Link to= "/recipe">Recettes</Link>
-          </li>
-        </ul>  
-      <Route exact path ="/" component={Home}/> 
-      <Route path ="/contact" component={Contact}/> 
-      <Route path ="/recipe" component={Recipe}/>  
-      <Route path="/form" component={Form}/> 
-       
-      
-      </div>
-     
-    
-    </Router>
+
+    <Home />
   </div>
 ); 
-
-
-
-const Contact=() =>{
-  return (<h2> Voici ma page de contact </h2> )
-} 
-
-const Recipe=() =>{
-  return (<h2> Voici ma page de recettes </h2>)  
-}
-
 
 
 
