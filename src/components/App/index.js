@@ -16,7 +16,7 @@ import Recettes from '../Recettes/index.js';
 
 
 const AppContainer=() =>{
-    return (<div id="app"> <Connexion/> <Inscription/> <Recettes/>
+    return (<div id="app"> <Header/> <Connexion/> <Inscription/> <Recettes/>
     <Footer/> </div>)
 }
 
