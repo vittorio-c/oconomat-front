@@ -10,64 +10,23 @@ import { connect } from 'react-redux';
  * Local import
  */
 // Composants enfants éventuels
-import ClicCounter from 'src/components/ClicCounter';
-
+import Home from 'src/components/Home';
+import Objectives from 'src/components/Objectives';
+import MarketList from 'src/components/MarketList';
 // Styles et assets
 import './app.sass'; 
-
-import Form from  '../Form/index.js';
 
 /**
  * Code
  */
 const App = ({}) => (
-  <div id="app">
-    <Router>
-    <div> 
-      <Link to="/form">
-      <button> redirect to form </button> 
-      </Link> 
-        <ul>
-          <li>
-          <Link to= "/">Accueil</Link>
-          </li>
-          <li>
-          <Link to= "/contact">Contact</Link>
-          </li>
-          <li> 
-          <Link to= "/recipe">Recettes</Link>
-          </li>
-        </ul>  
-      <Route exact path ="/" component={Accueil}/> 
-      <Route  path ="/contact" component={Contact}/> 
-      <Route path ="/recipe" component={Recipe}/>  
-     
-    </div>
-     
-    
-    </Router>
+  <div className="container-fluid">
+  <Home />
+  <Objectives />
+  <MarketList />
+
   </div>
-); 
-
-const Accueil=() =>{
-  return (<h2> Voici ma page accueil</h2> )
-} 
-
-const Contact=() =>{
-  return (<h2> Voici ma page de contact </h2> )
-} 
-
-const Recipe=() =>{
-  return (<h2> Voici ma page de recettes </h2>)  
-}
-
-
-
-
-
-/**
- * Export
- */
+)
 
 // Étape 1 : on définit des stratégies de connexion au store de l'app.
 const connectionStrategies = connect(
