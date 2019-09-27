@@ -7,14 +7,10 @@ import './style.sass'
 const Home = () => {
     return (
         <main>
-            <div className ="main-frame">
+            <div className ="bg-light">
                 <Logo />
                 <Steps />
-                <FormExplanations />
-                <BudgetExplanations />
-                <RecipesExplanations />
-                <BuyingExplanations />
-                <FinalMessageButton />
+                <Explanations />
             </div>
         </main>
     )
@@ -22,11 +18,11 @@ const Home = () => {
 
 const Logo = () => {
     return(
-    <div className ='food-image img-thumbnail mt-3 text-center text-light'>
+    <div className ='food-image img-thumbnail mt-3 text-light pt-4'>
         <div className = "in-image-text">
-            <p className='m-3 '>Une panne d'inspiration ?</p>
+            <h2 className='m-3 '>Une panne d'inspiration ?</h2>
             <h1 className='m-3 font-weight-bold'>OCONOMAT</h1>
-            <p className='m-3 '>vous propose des repas en respectant votre budget</p>
+            <h3 className='m-3 '>vous propose des repas en respectant votre budget</h3>
         </div>
     </div>
     )
@@ -63,53 +59,29 @@ const Steps = () => {
     )
 }
 
-const FormExplanations = () => {
+const Explanations = () => {
     return(
         <div>
-            <p className= 'text-center font-weight-bold'>Inscrivez vous via le formulaire</p>
+            <h3 className= 'text-center font-weight-bold'>Inscrivez vous via le formulaire</h3>
             <img src="src/ressources/pictures/form.png" className="img-fluid" alt="Responsive image"></img>
-        </div>
-    )
-} 
-
-const BudgetExplanations = () => {
-    return(
-        <div>
-            <p className= 'text-center font-weight-bold'>Définissez le budget de la semaine dans la rubrique Mes objectifs</p>
+        
+            <h3 className= 'text-center font-weight-bold mt-4'>Définissez le budget de la semaine dans la rubrique Mes objectifs</h3>
             <img src="src/ressources/pictures/objectives.png" className="img-fluid" alt="Responsive image"></img>
-        </div>
-    )
-}
-
-const RecipesExplanations = () => {
-    return(
-        <div>
-            <p className= 'text-center font-weight-bold'>Decouvrez vos recettes</p>
+            <h3 className= 'text-center font-weight-bold mt-4'>Decouvrez vos recettes</h3>
             <img src="src/ressources/pictures/recipe.png" className="img-fluid" alt="Responsive image"></img>
-        </div>
-    )
-}
-
-const BuyingExplanations = () => {
-    return(
-        <div>
-            <p className= 'text-center font-weight-bold'>Achetez vos ingredients en suivant votre liste de course</p>
+   
+            <h3 className= 'text-center font-weight-bold mt-4'>Achetez vos ingredients en suivant votre liste de course</h3>
             <img src="src/ressources/pictures/list.png" className=" img-center img-fluid" alt="Responsive image"></img>
-        </div>
-    )
-}
-
-const FinalMessageButton = () => {
-    return(
-        <div>
-            <p className= 'text-center font-weight-bold'>
+ 
+            <h3 className= 'text-center font-weight-bold mt-4'>
                 C'est facile Pourquoi ne pas commencer maintenant ?
-            </p>
+            </h3>
             <button type="button" className = "btn btn-success btn-md btn-block mt-3">
                 Je commence maintenant
             </button>
         </div>
     )
-}
+} 
+
 
 export default Home ;

@@ -11,6 +11,8 @@ import { connect } from 'react-redux';
  */
 // Composants enfants éventuels
 import Home from 'src/components/Home';
+import Objectives from 'src/components/Objectives';
+import MarketList from 'src/components/MarketList';
 // Styles et assets
 import './app.sass'; 
 
@@ -18,9 +20,10 @@ import './app.sass';
  * Code
  */
 const App = ({}) => (
-  <div className=" container-fluid">
-
-    <Home />
+  <div className="container-fluid">
+  <Home />
+  <Objectives />
+  <MarketList />
   </div>
 ); 
 
