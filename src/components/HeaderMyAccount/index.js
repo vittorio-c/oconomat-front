@@ -11,12 +11,6 @@ const Header =() =>{
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Se connecter</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">S'inscrire</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="#">Mes objectifs</a>
                     </li>
                     <li class="nav-item">
@@ -24,9 +18,6 @@ const Header =() =>{
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Ma liste de course</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Deconnexion</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>
