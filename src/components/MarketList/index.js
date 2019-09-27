@@ -43,6 +43,29 @@ const MarketList = () => {
                     </tr>
                 </tbody>
                 </table>
+                <button type="button" className="btn btn-danger btn-block" data-toggle="modal" data-target="#exampleModal">
+                    Nettoyer votre liste
+                </button>
+
+                <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog" role="document">
+                    <div className="modal-content">
+                    <div className="modal-header">
+                        <h5 className="modal-title" id="exampleModalLabel">Etes vous sûr?</h5>
+                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div className="modal-body">
+                    Vous allez supprimer votre liste de course actuelle !
+                    </div>
+                    <div className="modal-footer">
+                        <button type="button" className="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                        <button type="button" className="btn btn-danger btn-block">Supprimer la liste</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
             </div>
         </main>
         <footer>
