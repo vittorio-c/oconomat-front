@@ -24,15 +24,9 @@ const App = ({}) => (
   <Home />
   <Objectives />
   <MarketList />
+
   </div>
-); 
-
-
-
-
-/**
- * Export
- */
+)
 
 // Étape 1 : on définit des stratégies de connexion au store de l'app.
 const connectionStrategies = connect(
