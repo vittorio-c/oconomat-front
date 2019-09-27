@@ -5150,7 +5150,7 @@ postcss-value-parser@^3.0.0, postcss-value-parser@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-3.3.1.tgz#9ff822547e2893213cf1c30efa51ac5fd1ba8281"
 
-postcss-value-parser@^4.0.0:
+postcss-value-parser@^4.0.0, postcss-value-parser@^4.0.1:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-4.0.2.tgz#482282c09a42706d1fc9a069b73f44ec08391dc9"
 
@@ -5732,6 +5732,13 @@ ret@~0.1.10:
 retry@^0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/retry/-/retry-0.12.0.tgz#1b42a6266a21f07421d1b0b54b7dc167b01c013b"
+
+rfs@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/rfs/-/rfs-9.0.0.tgz#d2b2e64b188680689f4d87e663a9c8999d3a3ea0"
+  integrity sha512-luQAS3MPCRNHeTTwLm0pDC3WAflnZEPdiWkn87U3Z4GsA13/jUhQw5dogtHN8p2INfWKCNfyR5vlaDPgbxo//A==
+  dependencies:
+    postcss-value-parser "^4.0.1"
 
 rgb-regex@^1.0.1:
   version "1.0.1"
