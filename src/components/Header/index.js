@@ -1,6 +1,10 @@
 import React from 'react';
 import './Header.sass';
 
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+
+
 const Header =() =>{
     return  <div className="Header">
         <nav className="navbar navbar-expand-md navbar-light">
@@ -11,19 +15,19 @@ const Header =() =>{
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Se connecter</a>
+                        <a class="nav-link" href="/SignIn">Se connecter</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">S'inscrire</a>
+                        <a class="nav-link" href="/SignUp">S'inscrire</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Mes objectifs</a>
+                        <a class="nav-link" href="/Objectives">Mes objectifs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Mes recettes</a>
+                        <a class="nav-link" href="/Recipes">Mes recettes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Ma liste de course</a>
+                        <a class="nav-link" href="/MarketList">Ma liste de course</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Deconnexion</a>

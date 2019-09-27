@@ -21,9 +21,21 @@ import SignUp from 'src/components/SignUp';
 
 const AppContainer=() =>{
     return (
+
+        
+        <Router>
         <div id="app">
-         <Recipes />
-        </div>)
+
+          <Route exact path="/" component={Home} />
+          <Route path="/Objectives" component={Objectives} />
+          <Route path="/Recipes" component={Recipes} />
+          <Route path="/MarketList" component={MarketList} />
+          <Route path="/SignIn" component={SignIn} />
+          <Route path="/SignUp" component={SignUp} />
+
+        </div>
+      </Router>
+    )
 }
 
 export default AppContainer;
