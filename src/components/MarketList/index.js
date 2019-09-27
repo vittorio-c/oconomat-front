@@ -1,9 +1,15 @@
 /* import './style.sass' */
 import React from 'react';
 
+import Header from '../Header/index.js';
+import Footer from 'src/components/Footer';
 
 const MarketList = () => {
     return (
+        <div>
+        <header>
+            <Header />
+        </header>
         <main>
             <div className ="main-frame">
                 <h2 className="pt-4 pb-4 text-center">Ma liste de course</h2>
@@ -39,6 +45,11 @@ const MarketList = () => {
                 </table>
             </div>
         </main>
+        <footer>
+            <Footer />
+        </footer>
+    </div>
+        
     )
 }
 

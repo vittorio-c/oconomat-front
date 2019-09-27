@@ -1,15 +1,20 @@
 import React from 'react' 
 import './app.sass';
 
+import Header from '../Header/index.js';
+import Footer from 'src/components/Footer';
+
 const Inscription =()=>{
-    return(<div className="container white">
+    return(
+      <div>
+    <header>
+      <Header />
+    </header>
+
+    <main>  
+      <div className="container white">
         <div className="header"> 
            <div className="row"> 
-             <div className="col-sm-3">
-                 
-                     <img src="src/Images/logo.png" className="img-fluid" alt="image-fluid"/> 
-                 
-             </div> 
              <div className="offset-sx-6 col-sm-3 offset-sm-6">
                 <button type="button" className="col-xs-12 col-sm-8 btn btn-primary yellow"> Retour Accueil</button>
              </div> 
@@ -69,7 +74,13 @@ const Inscription =()=>{
         
     
     
-    </div>)
+      </div>
+    </main>
+    <footer>
+    <Footer />
+    </footer>
+    </div>
+    )
 } 
 
 export default Inscription

@@ -2,17 +2,29 @@
 import React from 'react';
 
 
+
+import Header from '../Header/index.js';
+import Footer from 'src/components/Footer';
+
 /* Import du fichier Sass */
 import './style.sass'
 const Home = () => {
     return (
-        <main>
-            <div className ="bg-light">
-                <Logo />
-                <Steps />
-                <Explanations />
-            </div>
-        </main>
+        <div>
+            <header>
+                <Header />
+            </header>
+            <main>
+                <div className ="bg-light">
+                    <Logo />
+                    <Steps />
+                    <Explanations />
+                </div>
+            </main>
+            <footer>
+                <Footer />
+            </footer>
+        </div>
     )
 }
 
@@ -63,15 +75,15 @@ const Explanations = () => {
     return(
         <div>
             <h3 className= 'text-center font-weight-bold'>Inscrivez vous via le formulaire</h3>
-            <img src="src/ressources/pictures/form.png" className="img-fluid" alt="Responsive image"></img>
+            <img src="src/ressources/pictures/form.png" className="img-fluid img" alt="Responsive image"></img>
         
             <h3 className= 'text-center font-weight-bold mt-4'>Définissez le budget de la semaine dans la rubrique Mes objectifs</h3>
-            <img src="src/ressources/pictures/objectives.png" className="img-fluid" alt="Responsive image"></img>
+            <img src="src/ressources/pictures/objectives.png" className="img-fluid img" alt="Responsive image"></img>
             <h3 className= 'text-center font-weight-bold mt-4'>Decouvrez vos recettes</h3>
-            <img src="src/ressources/pictures/recipe.png" className="img-fluid" alt="Responsive image"></img>
+            <img src="src/ressources/pictures/recipe.png" className="img-fluid img" alt="Responsive image"></img>
    
             <h3 className= 'text-center font-weight-bold mt-4'>Achetez vos ingredients en suivant votre liste de course</h3>
-            <img src="src/ressources/pictures/list.png" className=" img-center img-fluid" alt="Responsive image"></img>
+            <img src="src/ressources/pictures/list.png" className=" img-center img-fluid img" alt="Responsive image"></img>
  
             <h3 className= 'text-center font-weight-bold mt-4'>
                 C'est facile Pourquoi ne pas commencer maintenant ?

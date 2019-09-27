@@ -1,6 +1,7 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-import Header from '../Header/index.js';
+
 
 
 
@@ -8,16 +9,21 @@ import Header from '../Header/index.js';
 // Styles and assets
 
 import './app.sass'; 
-import Footer from '../Footer/index.js';
-import Inscription from '../SignUp/index.js'
-import Connexion from '../SignIn/index.js';
-import Recettes from '../Recettes/index.js';
-
+import Header from '../Header/index.js';
+import Home from 'src/components/Home';
+import Footer from 'src/components/Footer';
+import Recipes from 'src/components/Recipes';
+import MarketList from 'src/components/MarketList'
+import Objectives from 'src/components/Objectives';
+import SignIn from 'src/components/SignIn';
+import SignUp from 'src/components/SignUp';
 
 
 const AppContainer=() =>{
-    return (<div id="app"> <Header/> <Connexion/> <Inscription/> <Recettes/>
-    <Footer/> </div>)
+    return (
+        <div id="app">
+         <Recipes />
+        </div>)
 }
 
 export default AppContainer;
