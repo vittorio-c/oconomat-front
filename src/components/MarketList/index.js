@@ -24,22 +24,22 @@ const MarketList = () => {
                 </thead>
                 <tbody>
                     <tr>
-                    <th scope="row">1</th>
-                    <td>Blanc de dinde</td>
-                    <td><span className= 'font-weight-bold'>500</span> grammes</td>
-                    <td><button className="btn btn-success btn-sm fa fa-shopping-cart"/></td>
+                    <th scope="row" className ='align-middle'>1</th>
+                    <td className= 'align-middle'>Blanc de dinde</td>
+                    <td className= 'align-middle'><span className= 'font-weight-bold'>500</span> grammes</td>
+                    <td><button className="aling-middle btn btn-success btn-lg btn-block fa fa-check-square"/></td>
                     </tr>
                     <tr>
-                    <th scope="row">2</th>
-                    <td>Courgette</td>
-                    <td><span className= 'font-weight-bold'>2</span> pièces</td>
-                    <td><button className="btn btn-success btn-sm fa fa-shopping-cart"/></td>
+                    <th scope="row" className ='align-middle'>2</th>
+                    <td className= 'align-middle'>Courgette</td>
+                    <td className='align-middle'><span className='font-weight-bold'>2</span> pièces</td>
+                    <td><button className="aling-middle btn btn-success btn-lg btn-block fa fa-check-square"/></td>
                     </tr>
                     <tr>
-                    <th scope="row">3</th>
-                    <td>Eau</td>
-                    <td><span className= 'font-weight-bold'>1,5</span> kg</td>
-                    <td><button className="btn btn-success btn-sm fa fa-shopping-cart"/></td>
+                    <th scope="row" className='align-middle'>3</th>
+                    <td className= 'align-middle'>Eau</td>
+                    <td className='align-middle'><span className= 'font-weight-bold'>1,5</span> kg</td>
+                    <td><button className="aling-middle btn btn-success btn-lg btn-block fa fa-check-square"/></td>
                     </tr>
                 </tbody>
                 </table>
