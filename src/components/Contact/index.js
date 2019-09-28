@@ -2,7 +2,7 @@
 import React from 'react';
 /* Import du fichier Sass */
 import './Contact.sass'
-import "~rfs/scss";
+
 
 const Contact = () => {
     return (
