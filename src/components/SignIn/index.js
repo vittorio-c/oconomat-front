@@ -11,56 +11,26 @@ const Connexion =() => {
         <header>
           <Header />
         </header>
-        <div className="container white">
-      <div className="header"> 
-        <div className="row"> 
-          <div className="col-sm-3">
-              
-              
-          </div> 
-          <div className="offset-sx-6 col-sm-3 offset-sm-6">
-              <button type="button" className="col-xs-12 col-sm-8 btn btn-primary yellow"> Retour Accueil</button>
-          </div> 
-            <div className="col bg-image">
-              <div className="col-6 offset-3 box">
-            <div className="col-sm-6 offset-sm-3 d-flex justify-content-center form-cont"> 
-          
-            <form className="d-flex flex-column">
-              
-              <div className="form-group">
-                  <label htmlFor="votre email" className="white-form-label"> Votre Email</label> 
-                  <input type="email" className="form-control rounded-left rounded-right" name="email"/>
-              
-              
+      
+            <form className="">
+            <h2 className='text-center font-weight-bolder text-warning'>Connexion</h2>
+              <div className="form-group mt-4">
+                  <input type="email" className="form-control rounded-left rounded-right" name="email" placeholder="Your mail here"/>             
               </div> 
-
               <div className="form-group">
-                  <label htmlFor="votre email" className="white-form-label"> Votre MDP</label> 
-                  <input type="password" className="form-control rounded-left rounded-right" name="email"/>
-              
-              
+                  <input type="password" className="form-control rounded-left rounded-right" name="password" placeholder="Your password here"/>
               </div> 
 
 
               
 
-              <button type="submit" className="btn btn-primary green">Envoyer</button>
+              <button type="submit" className="btn btn-success btn-block mt-5">Envoyer</button>
 
               
 
 
                 </form> 
-              </div>
-            </div>
-            </div>
-          </div>
 
-      
-        </div> 
-      
-
-
-  </div>
   <footer>
       <Footer />
   </footer>

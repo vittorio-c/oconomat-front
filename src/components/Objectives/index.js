@@ -25,7 +25,8 @@ const Objectives = () => {
 
 const ObjectivesForm = () => (
     <div>
-      <h2 className="pt-4 text-center">Mes objectifs</h2>
+    
+      <h2 className="text-center font-weight-bold text-warning">Mes objectifs</h2>
       <form>
         <div className="form-group row pt-4">
           <div className="col-sm-10">

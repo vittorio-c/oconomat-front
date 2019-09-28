@@ -7,79 +7,53 @@ import Footer from 'src/components/Footer';
 const Inscription =()=>{
     return(
       <div>
-    <header>
-      <Header />
-    </header>
+          <header>
+            <Header />
+          </header>
 
-    <main>  
-      <div className="container white">
-        <div className="header"> 
-           <div className="row"> 
-             <div className="offset-sx-6 col-sm-3 offset-sm-6">
-                <button type="button" className="col-xs-12 col-sm-8 btn btn-primary yellow"> Retour Accueil</button>
-             </div> 
-              <div className="col bg-image">
-                <div className="col-6 offset-3 box">
-              <div className="col-sm-6 offset-sm-3 d-flex justify-content-center form-cont"> 
-            
-               <form className="d-flex flex-column">
-                  <div className="form-group">
-                    <label htmlFor="votre-nom" className="white-form-label"> Votre Nom</label> 
-                    <input type="text" className="form-control rounded-left rounded-right" name="lastname"/>
+        <main>  
+            <div className="container white">
+      <h2 className='text-center font-weight-bolder text-warning'>Inscription</h2>
+                    <form className="d-flex flex-column">
 
-                
-                </div> 
+                        <div className="form-group mt-4">
+                          <input type="text" className="form-control rounded-left rounded-right" name="lastname" placeholder ='Your lastname'/>
+                      </div> 
 
-                <div className="form-group">
-                    <label htmlFor="votre prenom" className="white-form-label"> Votre Prenom</label>
-                    <input type="text" className="form-control rounded-left rounded-right" name="firstname"/>
-                
-                </div> 
+                      <div className="form-group">
+                          <input type="text" className="form-control rounded-left rounded-right" name="firstname" placeholder ='Your firstname'/>
+                      
+                      </div> 
 
-                <div className="form-group">
-                    <label htmlFor="votre email" className="white-form-label"> Votre Email</label> 
-                    <input type="email" className="form-control rounded-left rounded-right" name="email"/>
-                
-                
-                </div> 
+                      <div className="form-group">
+                          <input type="email" className="form-control rounded-left rounded-right" name="email" placeholder ='Your email'/>
+                      
+                      </div> 
 
-                <div className="form-group">
-                    <label htmlFor="votre email" className="white-form-label"> Votre MDP</label> 
-                    <input type="password" className="form-control rounded-left rounded-right" name="email"/>
-                
-                
-                </div> 
+                      <div className="form-group">
+                          <input type="password" className="form-control rounded-left rounded-right" name="email" placeholder ='Your password'/>
+                      
+                      </div> 
+
+                      <div className="form-group">
+                          <input type="password" className="form-control rounded-left rounded-right mb-4" name="email" placeholder ='Confirm your password'/>
+                      
+                      
+                      </div> 
+
+                      <button type="submit" className="btn btn-success btn-block">Envoyer</button>
+
+                      
 
 
-                <div className="form-group">
-                    <label htmlFor="votre email" className="white-form-label"> Confirmation MDP</label> 
-                    <input type="password" className="form-control radius" name="email"/>
-                
-                
-                </div> 
+                        </form> 
+                      </div>
 
-                <button type="submit" className="btn btn-primary green">Envoyer</button>
-
-                
-
-
-                  </form> 
-                </div>
-              </div>
-              </div>
-            </div>
-
-        
-           </div> 
-        
-    
-    
+        </main>
+          <footer>
+            <Footer />
+          </footer>
       </div>
-    </main>
-    <footer>
-    <Footer />
-    </footer>
-    </div>
     )
 } 
 

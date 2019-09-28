@@ -12,7 +12,7 @@ const MarketList = () => {
         </header>
         <main>
             <div className ="main-frame">
-                <h2 className="pt-4 pb-4 text-center">Ma liste de course</h2>
+                <h2 className="pt-4 pb-4 text-center font-weight-bolder text-warning">Ma liste de course</h2>
                 <table className="table ">
                 <thead className="thead-light">
                     <tr>

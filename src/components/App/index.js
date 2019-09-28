@@ -34,6 +34,7 @@ const AppContainer=() =>{
           <Route path="/SignIn" component={SignIn} />
           <Route path="/SignUp" component={SignUp} />
           <Route component={NoFound} />
+          
         </Switch>
         </div>
       </Router>
