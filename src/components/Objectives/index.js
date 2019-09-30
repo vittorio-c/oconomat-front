@@ -1,7 +1,7 @@
 /* import './style.sass' */
 import React from 'react';
 
-import Header from '../HeaderMyAccount';
+import HeaderMyAccount from '../HeaderMyAccount';
 import Footer from 'src/components/Footer';
 
 /* Import du fichier Sass */
@@ -11,7 +11,7 @@ const Objectives = () => {
         <main>
             <div className ="main-frame">
                 <header>
-                  <Header/>
+                  <HeaderMyAccount/>
                 </header>
 
                 <ObjectivesForm />
