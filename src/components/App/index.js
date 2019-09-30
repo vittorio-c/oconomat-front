@@ -1,7 +1,13 @@
 import React from 'react';
+<<<<<<< HEAD
 import { BrowserRouter as Router, Route,Switch,Redirect, Link } from "react-router-dom";
 
 
+=======
+import HeaderBackToHomePage from '../HeaderBackToHomePage/index.js';
+import Recipe from '../Recipe/index.js';
+import Footer from '../Footer/index.js';
+>>>>>>> 86641baeba52f7ad30ade1ec8fd06b1945992523
 
 
 
@@ -9,6 +15,7 @@ import { BrowserRouter as Router, Route,Switch,Redirect, Link } from "react-rout
 // Styles and assets
 
 import './app.sass'; 
+<<<<<<< HEAD
 import Home from 'src/components/Home';
 import Recipes from 'src/components/Recipes';
 import MarketList from 'src/components/MarketList'
@@ -37,6 +44,18 @@ const AppContainer=() =>{
         </div>
       </Router>
     )
+=======
+
+
+
+
+
+
+
+const AppContainer=() =>{
+    return (<div id="app"> <HeaderBackToHomePage/> <Recipe/>
+    <Footer/> </div>)
+>>>>>>> 86641baeba52f7ad30ade1ec8fd06b1945992523
 }
 
 export default AppContainer;
