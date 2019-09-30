@@ -7,6 +7,8 @@ import Objectives from 'src/components/Objectives';
 import SignIn from 'src/components/SignIn';
 import SignUp from 'src/components/SignUp';
 import NoFound from 'src/components/NoFound';
+import Account from 'src/components/Account'; 
+import Contact from 'src/components/Contact';
 
 
 
@@ -23,13 +25,15 @@ const AppContainer=() => {
         <Router>
         <div id="app">
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Home} /> 
+          <Route path="/contact" component={Contact} />
           <Route path="/Objectives" component={Objectives} />
           <Route path="/Recipes" component={Recipes} />
           <Route path="/MarketList" component={MarketList} />
           <Route path="/SignIn" component={SignIn} />
-          <Route path="/SignUp" component={SignUp} />
-          <Route component={NoFound} />
+          <Route path="/SignUp" component={SignUp} /> 
+          <Route path="/Account" component={Account} /> 
+          <Route component={NoFound} /> 
           
         </Switch>
         </div>

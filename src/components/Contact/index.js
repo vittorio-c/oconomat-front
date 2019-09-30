@@ -1,11 +1,17 @@
 /* import './style.sass' */
 import React from 'react';
 /* Import du fichier Sass */
-import './Contact.sass'
+import './Contact.sass';
+import HeaderVisitor from 'src/components/HeaderVisitor';
+import { BrowserRouter as Router, Route,Switch,Redirect, Link } from "react-router-dom";
+
 
 
 const Contact = () => {
-    return (
+    return ( 
+        <div> 
+            <HeaderVisitor/> 
+            <RetourAccueil/>
         <main>
             <div className ='food-image img-thumbnail mt-3'>
                 <div className="contact-zone">
@@ -23,8 +29,12 @@ const Contact = () => {
                 </div>
             </div>
         </main>
+        </div>
     )
 }
 
+const RetourAccueil = () => {
+    return (<Link to="/"><button class="btn btn-primary col-md-3 offset-md-5"> Retour A l'accueil </button></Link>)
+}
 
 export default Contact;

@@ -3,17 +3,21 @@ import React from 'react';
 import HeaderMyAccount from '../HeaderMyAccount';
 import Footer from 'src/components/Footer';
 
+import { BrowserRouter as Router, Route,Switch,Redirect, Link } from "react-router-dom";
 import './app.sass';
 import Carousel from 'react-bootstrap/Carousel'
 
 const Recettes=() => {
     return (
-      <div>
+      <div className="container white">
       <header>
         <HeaderMyAccount />
-      </header>
+      </header> 
+      <LinkToUserPage/> 
       <main>
-          <div className="container white">
+          
+          
+          
             <h2 className="col-sm-6 offset-sm-4 "> Liste de vos Recettes Pour la Semaine </h2>  
             
             <div className=" col-xs-12 col-md-8 offset-md-2 recipe-box">
@@ -67,13 +71,18 @@ const Recettes=() => {
             </div>
 
         
-        </div>
+        
     </main>
     <footer>
-      <Footer />
+      <Footer/>
     </footer>
     </div>
     )
+} 
+
+
+const LinkToUserPage =() => {
+  return <div> <Link to="/Account"><button class="btn btn-primary col-md-3 offset-md-5 margin-top"> Retour A Mon Compte </button> </Link>  </div>
 }
 
 export default Recettes;

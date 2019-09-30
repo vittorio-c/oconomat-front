@@ -2,16 +2,17 @@
 import React from 'react';
 
 
-import Header from '../HeaderMyAccount';
-import Footer from 'src/components/Footer';
+import HeaderMyAccount from '../HeaderMyAccount';
+import Footer from 'src/components/Footer'; 
 import { BrowserRouter as Router, Route,Switch,Redirect, Link } from "react-router-dom";
 
 const MarketList = () => {
     return (
-        <div>
-        <header>
-            <Header />
-        </header>
+        <div className="container white">
+       
+            <HeaderMyAccount /> 
+            <LinkToUserPage/> 
+        
         <main> 
             <div className ="main-frame">
                 <h2 className="pt-4 pb-4 text-center font-weight-bolder text-warning">Ma liste de course</h2>
@@ -68,14 +69,18 @@ const MarketList = () => {
                     </div>
                 </div>
                 </div>
-            </div>
+            </div> 
         </main>
-        <footer>
+      
             <Footer />
-        </footer>
+        
     </div>
         
     )
+} 
+
+const LinkToUserPage = () => {
+    return <Link to="/Account"> Retour A Mon Compte </Link>
 }
 
 export default MarketList ;

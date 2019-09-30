@@ -7,12 +7,14 @@ import Footer from 'src/components/Footer';
 
 /* Import du fichier Sass */
 import './style.sass'
+import HeaderMyAccount from 'src/components/HeaderMyAccount';
+import { BrowserRouter as Router, Route,Switch,Redirect, Link } from "react-router-dom";
 const Account = () => {
     return (
         <main>
             <div className ="main-frame">
                 <header>
-                  <Header/>
+                  <HeaderMyAccount/>
                 </header>
                     <AccountInfo />
                 <footer>
