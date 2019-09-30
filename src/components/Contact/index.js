@@ -17,27 +17,29 @@ import { BrowserRouter as Router, Route,Switch,Redirect, Link } from "react-rout
 
 const Contact = () => {
     return ( 
-        <div> 
-            <HeaderVisitor/> 
-            <RetourAccueil/>
-        <main>
-            <div className ='food-image img-thumbnail mt-3'>
-                <div className="contact-zone">
-                    <div className = "in-image-text">
-                        <h2 className='m-3'>Nous Contacter</h2>
-                         <div className="mail-adress">
+        <div>
+          <header>
+              <HeaderVisitor/>
+          </header>
+          <RetourAccueil/>
+          <main>
+            <div className ='Contact-background mt-3'>
+            <div className="ContactBlock">
+                    <h2>Nous Contacter</h2>
+                    <div className="contact-box">
+                        <h4>
                             contact@Oconomat.com
-                        </div>
-                        <div className="postal-adress">
+                        </h4>
+                        <h4>
                             Oconomat <br/>
                             23 rue du General Leclerc <br/>
                             75 008 Paris <br/>
-                        </div>
+                        </h4> 
                     </div>
                 </div>
             </div>
         </main>
-         <Footer/>
+        <Footer/>
         </div>
     )
 }
