@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Header from '../HeaderVisitor';
+import Header from '../HeaderMyAccount';
 import Footer from 'src/components/Footer';
 
 import './app.sass';

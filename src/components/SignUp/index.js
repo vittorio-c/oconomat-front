@@ -3,8 +3,10 @@ import './app.sass';
 
 import Header from '../HeaderVisitor';
 import Footer from 'src/components/Footer';
+import Objectives from 'src/components/Objectives'
+import {connect} from 'react-redux';
 
-const Inscription =()=>{
+const InscriptionStatic =({testSubmit})=>{
     return(
       <div>
           <header>
@@ -13,8 +15,8 @@ const Inscription =()=>{
 
         <main>  
             <div className="container white">
-      <h2 className='text-center font-weight-bolder text-warning'>Inscription</h2>
-                    <form className="d-flex flex-column">
+         <h2 className='text-center font-weight-bolder text-warning'>Inscription</h2>
+                    <form className="d-flex flex-column" onSubmit={testSubmit}>
 
                         <div className="form-group mt-4">
                           <input type="text" className="form-control rounded-left rounded-right" name="lastname" placeholder ='Your lastname'/>
@@ -56,5 +58,32 @@ const Inscription =()=>{
       </div>
     )
 } 
+
+
+const connectionStrategies = connect(
+    // 1er argument : stratégie de lecture (dans le state privé global)
+    (state, ownProps) => { 
+      
+      return {
+        letters: state.letters,
+        storedValues: state.storedValues
+      };
+    },
+  
+    // 2d argument : stratégie d'écriture (dans le state privé global)
+    (dispatch, ownProps) => {
+      return {
+       testSubmit:(event) =>{
+           event.preventDefault(); 
+           ownProps.history.push('/Objectives');
+                 
+       },
+      };
+    },
+  );
+  
+  // Étape 2 : on applique ces stratégies à un composant spécifique.
+  const Inscription = connectionStrategies(InscriptionStatic);
+
 
 export default Inscription

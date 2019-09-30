@@ -1,12 +1,14 @@
 /* import './style.sass' */
 import React from 'react';
+import Header from '../HeaderMyAccount';
 /* Import du fichier Sass */
 import './Recipe.sass'
 
 
 const Recipe = () => {
     return (
-        <main>
+        <main> 
+           
             <div className="recipe-page">
                     <h2 className='m-3'>Voici votre recette</h2>
                          <div className="recipe-detail">

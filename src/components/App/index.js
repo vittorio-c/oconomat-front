@@ -17,11 +17,9 @@ import NoFound from 'src/components/NoFound';
 import './app.sass'; 
 
 
-
-const AppContainer=() =>{
+const AppContainer=() => {
     return (
 
-        
         <Router>
         <div id="app">
         <Switch>
