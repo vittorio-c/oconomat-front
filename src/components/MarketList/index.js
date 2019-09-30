@@ -80,7 +80,7 @@ const MarketList = () => {
 } 
 
 const LinkToUserPage = () => {
-    return <Link to="/Account"> Retour A Mon Compte </Link>
+    return <div> <Link to="/Account"><button class="btn btn-primary col-md-3 offset-md-5 margin-top"> Retour A Mon Compte </button> </Link> </div>
 }
 
 export default MarketList ;
