@@ -7,7 +7,7 @@ import Objectives from 'src/components/Objectives';
 import SignIn from 'src/components/SignIn';
 import SignUp from 'src/components/SignUp';
 import NoFound from 'src/components/NoFound';
-
+import Account from 'src/components/Account';
 
 
 
@@ -26,6 +26,8 @@ const AppContainer=() =>{
         <div id="app">
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route path="/Account" component={Account} />
+
           <Route path="/Objectives" component={Objectives} />
           <Route path="/Recipes" component={Recipes} />
           <Route path="/MarketList" component={MarketList} />
