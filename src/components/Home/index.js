@@ -3,6 +3,9 @@ import React from 'react';
 
 
 
+import Header from '../HeaderVisitor';
+import Footer from 'src/components/Footer';
+
 /* Import du fichier Sass */
 import './style.sass'
 const Home = () => {

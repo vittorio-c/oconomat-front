@@ -1,7 +1,7 @@
 import React from 'react'
 import './app.sass'
 
-import Header from '../Header/index.js';
+import Header from '../HeaderVisitor';
 import Footer from 'src/components/Footer';
 
 const Connexion =() => {
