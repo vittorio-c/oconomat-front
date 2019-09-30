@@ -8,6 +8,7 @@ import SignIn from 'src/components/SignIn';
 import SignUp from 'src/components/SignUp';
 import NoFound from 'src/components/NoFound';
 import Contact from 'src/components/Contact';
+import Recipe from 'src/components/Recipe';
 
 
 
@@ -33,6 +34,7 @@ const AppContainer=() =>{
           <Route path="/SignIn" component={SignIn} />
           <Route path="/SignUp" component={SignUp} />
           <Route path="/Contact" component={Contact} />
+          <Route path="/Recipe" component={Recipe} />
           <Route component={NoFound} />
           
         </Switch>

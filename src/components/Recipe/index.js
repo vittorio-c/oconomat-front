@@ -1,11 +1,16 @@
 /* import './style.sass' */
 import React from 'react';
 /* Import du fichier Sass */
+import HeaderBackToHomePage from '../HeaderBackToHomePage';
 import './Recipe.sass'
-
+import Footer from 'src/components/Footer';
 
 const Recipe = () => {
     return (
+        <div>
+        <header>
+          <HeaderBackToHomePage />
+        </header>
         <main>
             <div className="recipe-page">
                     <h2 className='m-3'>Voici votre recette</h2>
@@ -62,7 +67,11 @@ const Recipe = () => {
                             </div>
                         </div>
             </div>
-        </main>
+            </main>
+        <footer>
+      <Footer />
+  </footer>
+  </div>
     )
 }
 
