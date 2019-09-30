@@ -2,10 +2,22 @@
 import React from 'react';
 /* Import du fichier Sass */
 import './Contact.sass'
+import HeaderBackToHomePage from '../HeaderBackToHomePage';
+import Footer from 'src/components/Footer';
+
+//import HeaderBackToHomePage from '../HeaderBackToHomePage';
+//import Footer from 'src/components/Footer';
+
+
+
 
 
 const Contact = () => {
     return (
+        <div>
+        <header>
+          <HeaderBackToHomePage />
+        </header>
         <main>
             <div className ='food-image img-thumbnail mt-3'>
                 <div className="contact-zone">
@@ -23,6 +35,10 @@ const Contact = () => {
                 </div>
             </div>
         </main>
+        <footer>
+      <Footer />
+  </footer>
+  </div>
     )
 }
 
