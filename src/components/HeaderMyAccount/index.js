@@ -24,10 +24,10 @@ const HeaderMyAccount =() =>{
                         <a className="nav-link" href="/MarketList">Ma liste de course</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Deconnexion</a>
+                        <a className="nav-link" href="/">Deconnexion</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Contact</a>
+                        <a className="nav-link" href="/Contact">Contact</a>
                     </li>
                 </ul>
             </div>

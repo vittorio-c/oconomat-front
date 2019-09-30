@@ -1,14 +1,14 @@
 /* import './style.sass' */
 import React from 'react';
 
-import Header from '../HeaderVisitor';
+import HeaderMyAccount from '../HeaderMyAccount';
 import Footer from 'src/components/Footer';
 
 const MarketList = () => {
     return (
         <div>
         <header>
-            <Header />
+            <HeaderMyAccount/>
         </header>
         <main>
             <div className ="main-frame">

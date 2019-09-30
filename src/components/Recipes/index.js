@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Header from '../HeaderVisitor';
+import HeaderMyAccount from '../HeaderMyAccount';
 import Footer from 'src/components/Footer';
 
 import './app.sass';
@@ -10,7 +10,7 @@ const Recettes=() => {
     return (
       <div>
       <header>
-        <Header />
+        <HeaderMyAccount/>
       </header>
       <main>
           <div className="container white">
