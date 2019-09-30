@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../HeaderBackToHomePage/index.js';
+import HeaderBackToHomePage from '../HeaderBackToHomePage/index.js';
 import Recipe from '../Recipe/index.js';
 import Footer from '../Footer/index.js';
 
@@ -17,7 +17,7 @@ import './app.sass';
 
 
 const AppContainer=() =>{
-    return (<div id="app"> <Header/> <Recipe/>
+    return (<div id="app"> <HeaderBackToHomePage/> <Recipe/>
     <Footer/> </div>)
 }
 
