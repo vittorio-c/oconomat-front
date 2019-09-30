@@ -19,16 +19,14 @@ import Account from 'src/components/Account';
 import './app.sass'; 
 
 
-
-const AppContainer=() =>{
+const AppContainer=() => {
     return (
 
-        
         <Router>
         <div id="app">
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/Account" component={Account} />
+          <Route exact path="/" component={Home} /> 
+          <Route path="/contact" component={Contact} />
           <Route path="/Objectives" component={Objectives} />
           <Route path="/Recipes" component={Recipes} />
           <Route path="/MarketList" component={MarketList} />

@@ -1,17 +1,19 @@
+
 /* import './style.sass' */
 import React from 'react';
 
-import Header from '../HeaderVisitor';
 import Footer from 'src/components/Footer';
 
 /* Import du fichier Sass */
 import './style.sass'
+import HeaderMyAccount from 'src/components/HeaderMyAccount';
+
 const Account = () => {
     return (
         <main>
             <div className ="main-frame">
                 <header>
-                  <Header/>
+                  <HeaderMyAccount/>
                 </header>
                     <AccountInfo />
                 <footer>

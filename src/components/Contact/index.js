@@ -3,7 +3,10 @@ import React from 'react';
 /* Import du fichier Sass */
 import './Contact.sass'
 import HeaderBackToHomePage from '../HeaderBackToHomePage';
+import HeaderVisitor from 'src/components/HeaderVisitor';
 import Footer from 'src/components/Footer';
+import { BrowserRouter as Router, Route,Switch,Redirect, Link } from "react-router-dom";
+
 
 //import HeaderBackToHomePage from '../HeaderBackToHomePage';
 //import Footer from 'src/components/Footer';
@@ -13,11 +16,10 @@ import Footer from 'src/components/Footer';
 
 
 const Contact = () => {
-    return (
-        <div>
-        <header>
-          <HeaderBackToHomePage />
-        </header>
+    return ( 
+        <div> 
+            <HeaderVisitor/> 
+            <RetourAccueil/>
         <main>
             <div className ='food-image img-thumbnail mt-3'>
                 <div className="contact-zone">
@@ -35,12 +37,13 @@ const Contact = () => {
                 </div>
             </div>
         </main>
-        <footer>
-      <Footer />
-  </footer>
-  </div>
+         <Footer/>
+        </div>
     )
 }
 
+const RetourAccueil = () => {
+    return (<Link to="/"><button class="btn btn-primary col-md-3 offset-md-5"> Retour A l'accueil </button></Link>)
+}
 
 export default Contact;

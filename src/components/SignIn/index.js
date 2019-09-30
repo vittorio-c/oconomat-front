@@ -6,15 +6,16 @@ import Footer from 'src/components/Footer';
 import {connect} from 'react-redux';
 import Objectives from 'src/components/Objectives';
 import { BrowserRouter as Router, Route,Switch,Redirect, Link } from "react-router-dom";
+import Account from 'src/components/Account';
 
 
 const ConnexionStatic =({testSubmit}) => {
 
     return(
-      <div>
-        <header>
-          <Header/>
-        </header>
+      <div className="container white">
+        
+        <Header/>
+        
       
         <form className="d-flex flex-column" onSubmit={testSubmit}>
             <h2 className='text-center font-weight-bolder text-warning'>Connexion</h2>
@@ -32,9 +33,9 @@ const ConnexionStatic =({testSubmit}) => {
 
         </form> 
 
-  <footer>
-      <Footer />
-  </footer>
+ 
+      <Footer/>
+  
   </div>
   )
 } 
@@ -55,7 +56,7 @@ const connectionStrategies = connect(
       return {
        testSubmit:(event) =>{
            event.preventDefault(); 
-           ownProps.history.push('/Objectives');
+           ownProps.history.push('/Account');
                  
        },
       };

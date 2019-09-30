@@ -1,5 +1,6 @@
 /* import './style.sass' */
 import React from 'react';
+import Header from '../HeaderMyAccount';
 /* Import du fichier Sass */
 import HeaderBackToHomePage from '../HeaderBackToHomePage';
 import './Recipe.sass'
