@@ -3,20 +3,20 @@ import './HeaderVisitor.sass';
 const HeaderVisitor =() =>{
     return  <div className="Header">
         <nav className="navbar navbar-expand-md navbar-light">
-            <a class="navbar-brand" href="#"><img src="src/ressources/pictures/logoOconomat.png" className="img-fluid" alt="Responsive image"></img></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <a className="navbar-brand" href="#"><img src="src/ressources/pictures/logoOconomat.png" className="img-fluid" alt="Responsive image"></img></a>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Se connecter</a>
+            <div className="collapse navbar-collapse" id="navbarNav">
+                <ul className="navbar-nav">
+                    <li className="nav-item">
+                        <a className="nav-link" href="signin">Se connecter</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">S'inscrire</a>
+                    <li className="nav-item">
+                        <a className="nav-link" href="/signup">S'inscrire</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                    <li className="nav-item">
+                        <a className="nav-link" href="/contact">Contact</a>
                     </li>
                 </ul>
             </div>
