@@ -1,8 +1,10 @@
 /* import './style.sass' */
 import React from 'react';
 
-import Header from '../HeaderVisitor';
+
+import Header from '../HeaderMyAccount';
 import Footer from 'src/components/Footer';
+import { BrowserRouter as Router, Route,Switch,Redirect, Link } from "react-router-dom";
 
 const MarketList = () => {
     return (
@@ -10,7 +12,7 @@ const MarketList = () => {
         <header>
             <Header />
         </header>
-        <main>
+        <main> 
             <div className ="main-frame">
                 <h2 className="pt-4 pb-4 text-center font-weight-bolder text-warning">Ma liste de course</h2>
                 <table className="table ">
