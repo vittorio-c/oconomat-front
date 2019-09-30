@@ -15,12 +15,6 @@ const HeaderMyAccount =() =>{
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <a className="nav-link" href="/SignIn">Se connecter</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="/SignUp">S'inscrire</a>
-                    </li>
-                    <li className="nav-item">
                         <a className="nav-link" href="/Objectives">Mes objectifs</a>
                     </li>
                     <li className="nav-item">
