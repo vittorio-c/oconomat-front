@@ -1,7 +1,7 @@
 import React from 'react';
-import './Header.sass';
+import './HeaderVisitor.sass';
 
-const Header =() =>{
+const HeaderVisitor =() =>{
     return  <div className="Header">
         <nav className="navbar navbar-expand-md navbar-light">
             <a class="navbar-brand" href="#"><img src="src/ressources/pictures/logoOconomat.png" className="img-fluid" alt="Responsive image"></img></a>
@@ -29,7 +29,7 @@ const Header =() =>{
 https://getbootstrap.com/docs/4.3/components/buttons/
 */
 
-export default Header;
+export default HeaderVisitor;
 
 
 
