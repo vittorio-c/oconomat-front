@@ -25,7 +25,7 @@ const AppContainer=() => {
         <Router>
         <div id="app">
         <Switch>
-          <Route exact path="http://ec2-3-86-6-98.compute-1.amazonaws.com/projet-Oconomat-front/" component={Home} /> 
+          <Route exact path="http://ec2-3-86-6-98.compute-1.amazonaws.com/projet-Oconomat-front/dist" component={Home} /> 
           <Route path="/contact" component={Contact} />
           <Route path="/Objectives" component={Objectives} />
           <Route path="/Recipes" component={Recipes} />
