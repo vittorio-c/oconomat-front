@@ -19,28 +19,23 @@ const Contact = () => {
                  <HeaderVisitor/>
             </header>
             <main>
-            <div className ='contact-background'>
-            <h2>lol</h2>
-            <h2>lol</h2>
-            <h2>lol</h2>
-            <h2>lol</h2>
-            <h2>lol</h2>
-            <h2>lol</h2>
-            <h2>lol</h2>
-            <h2>lol</h2>
-            <h2>lol</h2>
-            <h2>lol</h2>
+            <div className ='contactpage-background'>
+                <div className="nomansland">
+                <div className="contact-zone">
+                    <h1 className="contact-title">Nous contacter</h1>
+                    <p className="contact mt-4">contact@Oconomat.fr</p>
+                    <p className="contact mt-4">25 avenue du 
+                    <br/>General Leclerc
+                    <br/>75 008 Paris
+                    </p>
+                </div>
+                </div>
             </div>
             </main>
             <footer>
                 <Footer/>
             </footer>
-         </div>
+        </div>
     )
 }
-/*
-const RetourAccueil = () => {
-    return (<Link to="/"><button class="btn btn-primary col-md-3 offset-md-5"> Retour A l'accueil </button></Link>)
-}
-*/
 export default Contact;

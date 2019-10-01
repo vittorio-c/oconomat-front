@@ -29,10 +29,10 @@ const Home = () => {
 const Logo = () => {
     return(
     <div className ='food-image img-thumbnail mt-3 text-light pt-4'>
-        <div className = "in-image-text">
-            <h2 className='m-3 '>Une panne d'inspiration ?</h2>
-            <h1 className='m-3 font-weight-bold'>OCONOMAT</h1>
-            <h3 className='m-3 '>vous propose des repas en respectant votre budget</h3>
+        <div className = "text-box">
+            <h2 className='home-catch-sentence m-3 '>Une panne d'inspiration ?</h2>
+            <h1 className='home-title'>OCONOMAT</h1>
+            <h3 className='home-catch-sentence m-3 '>vous propose des repas en respectant votre budget</h3>
         </div>
     </div>
     )
@@ -52,7 +52,7 @@ const Steps = () => {
                     <tr>
                     <th scope="row" className = "text-warning font-weight-bold display-4" >2</th>
                     <td ><span className ="font-weight-bold">Faites vos courses.</span>
-                    <p className="font-italic">Oconomat vous fourni une liste de course déjà tout prête avec les ingredients dont vous aurez besoin pour la semaine.</p>
+                    <th className="font-italic">Oconomat vous fourni une liste de course déjà tout prête avec les ingredients dont vous aurez besoin pour la semaine.</th>
                     </td>
                     </tr>
                     <tr>
@@ -86,7 +86,9 @@ const Explanations = () => {
             <h3 className= 'text-center font-weight-bold mt-4'>
                 C'est facile Pourquoi ne pas commencer maintenant ?
             </h3>
-            <a className ="btn btn-success btn-md btn-block mt-3" href="/SignUp" role="button">Je commence maintenant</a>
+            <div className="box">
+            <a className ="start btn btn-success btn-md mt-3 center-block" href="/SignUp" role="button">Je commence maintenant</a>
+            </div>
         </div>
     )
 } 

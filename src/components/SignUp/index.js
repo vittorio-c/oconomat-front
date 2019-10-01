@@ -17,7 +17,7 @@ const InscriptionStatic =({testSubmit})=>{
             <form className="d-flex flex-column" onSubmit={testSubmit}>
             <div className="formBlock">
                     
-                    <h2>Inscription</h2>
+                    <h2 className="inscription-title">Inscription</h2>
                         <div className="form-group mt-4">
                           <input type="text" className="form-control rounded-left rounded-right" name="lastname" placeholder ='Your lastname'/>
                         </div> 
@@ -33,7 +33,7 @@ const InscriptionStatic =({testSubmit})=>{
                         <div className="form-group">
                           <input type="password" className="form-control rounded-left rounded-right mb-4" name="email" placeholder ='Confirm your password'/>
                         </div>
-                        <button class="btn" type="submit">Envoyer</button>
+                        <button className="validation btn" type="submit">Envoyer</button>
                         </div>
                     </form> 
                     

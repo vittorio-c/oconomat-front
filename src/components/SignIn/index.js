@@ -22,7 +22,7 @@ const ConnexionStatic =({testSubmit}) => {
                   <form className="d-flex flex-column" onSubmit={testSubmit}>
                       
                       <div className="formBlock">
-                      <h2>Connexion</h2>
+                      <h2 className="connection-title">Connexion</h2>
                       <div className="form-group mt-4">
                           <input type="email" className="form-control rounded-left rounded-right" name="email" placeholder="Your mail here"/>             
                       </div> 
@@ -30,7 +30,7 @@ const ConnexionStatic =({testSubmit}) => {
                           <input type="password" className="form-control rounded-left rounded-right" name="password" placeholder="Your password here"/>
                       </div> 
 
-                      <button class="btn" type="submit">Envoyer</button>
+                      <button className="validation btn" type="submit">Envoyer</button>
                       </div>
               
 
