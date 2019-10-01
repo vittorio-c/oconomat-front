@@ -6,6 +6,7 @@ const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 // Config pour le devServer
 const host = 'localhost';
@@ -13,9 +14,11 @@ const port = 3000;
 
 const devMode = process.env.NODE_ENV !== 'production';
 
+
+
 // Config de Webpack
 module.exports = {
-  // Passe le build par dèfaut en déeveloppement
+  // Passe le build par dèfaut en développement
   mode: 'development',
   // Expose le dossier src/ pour les imports
   resolve: {
@@ -40,7 +43,7 @@ module.exports = {
     chunkFilename: 'vendors.js',
     // Cible des bundles
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
+    publicPath: 'http://ec2-3-86-6-98.compute-1.amazonaws.com/projet-Oconomat-front/dist/',
   },
   // Optimisation pour le build
   optimization: {
@@ -135,5 +138,8 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
+    new CopyPlugin([
+      { from: 'src/ressources/pictures', to: 'src/ressources/pictures' },
+    ]),
   ],
 };
