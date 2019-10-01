@@ -11,21 +11,14 @@ import './Objectives.sass'
 const Objectives = () => {
     return (
         <main>
-            <div className ="container white">
-                
-                  <HeaderMyAccount/> 
-                  <LinkToUserPage/>
-                  <ObjectivesForm />
-                  <Footer />
-               
+            <div>
+                <HeaderMyAccount/>
+                <ObjectivesForm />
+                <Footer/>
             </div>
         </main>
     )
 } 
-
-const LinkToUserPage =() => {
-  return <div> <Link to="/Account"><button class="btn btn-primary col-md-3 offset-md-5 margin-top"> Retour A Mon Compte </button> </Link> </div>
-}
 
 const ObjectivesForm = () => (
     <div>

@@ -9,14 +9,12 @@ import Carousel from 'react-bootstrap/Carousel'
 
 const Recettes=() => {
     return (
-      <div className="container white">
+      <div>
       <header>
         <HeaderMyAccount />
-      </header> 
-      <LinkToUserPage/> 
+      </header>
       <main>
-          <h2 className="recipes-title col-sm-6 offset-sm-4 "> Liste de vos Recettes Pour la Semaine </h2>  
-            
+          <h2 className="recipes-title col-sm-6 offset-sm-4 ">Liste de vos Recettes Pour la Semaine</h2>  
             <div className=" col-xs-12 col-md-8 offset-md-2 recipe-box">
             <Carousel>
           <Carousel.Item>
@@ -62,10 +60,5 @@ const Recettes=() => {
     </div>
     )
 } 
-
-
-const LinkToUserPage =() => {
-  return <div> <Link to="/Account"><button class="btn btn-primary col-md-3 offset-md-5 margin-top"> Retour A Mon Compte </button> </Link>  </div>
-}
 
 export default Recettes;
