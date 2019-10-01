@@ -25,16 +25,16 @@ const AppContainer=() => {
         <Router>
         <div id="app">
         <Switch>
-          <Route exact path="/" component={Home} /> 
-          <Route exact path="/contact" component={Contact} />
-          <Route exact path="/Objectives" component={Objectives} />
-          <Route exact path="/Recipes" component={Recipes} />
-          <Route exact path="/MarketList" component={MarketList} />
-          <Route exact path="/SignIn" component={SignIn} />
-          <Route exact path="/SignUp" component={SignUp} />
-          <Route exact path="/Contact" component={Contact} />
-          <Route exact path="/Recipe" component={Recipe} /> 
-          <Route exact path="/Account" component={Account} />
+          <Route exact path="projet-Oconomat-front/dist/" component={Home} /> 
+          <Route exact path="projet-Oconomat-front/contact" component={Contact} />
+          <Route exact path="projet-Oconomat-front/Objectives" component={Objectives} />
+          <Route exact path="projet-Oconomat-front/Recipes" component={Recipes} />
+          <Route exact path="projet-Oconomat-front/MarketList" component={MarketList} />
+          <Route exact path="projet-Oconomat-front/SignIn" component={SignIn} />
+          <Route exact path="projet-Oconomat-front/SignUp" component={SignUp} />
+          <Route exact path="projet-Oconomat-front/Contact" component={Contact} />
+          <Route exact path="projet-Oconomat-front/Recipe" component={Recipe} /> 
+          <Route exact path="projet-Oconomat-front/Account" component={Account} />
           <Route component={NoFound} />
           
         </Switch>
