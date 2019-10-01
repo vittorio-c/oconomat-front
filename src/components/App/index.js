@@ -25,7 +25,7 @@ const AppContainer=() => {
         <Router>
         <div id="app">
         <Switch>
-          <Route exact path="projet-Oconomat-front/dist/" component={Home} /> 
+          <Route exact path="/" component={Home} /> 
           <Route exact path="projet-Oconomat-front/contact" component={Contact} />
           <Route exact path="projet-Oconomat-front/Objectives" component={Objectives} />
           <Route exact path="projet-Oconomat-front/Recipes" component={Recipes} />
