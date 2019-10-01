@@ -20,9 +20,9 @@ import kastore from 'src/store';
  */ 
 
 
-const reactRootElement = <Router><Provider store={kastore}>
+const reactRootElement = <Provider store={kastore}>
   <AppContainer />
-</Provider></Router>;
+</Provider>;
 
 
 const renderingArea = document.querySelector('#root');
