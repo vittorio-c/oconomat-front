@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route,Switch,Redirect, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route,Switch} from "react-router-dom";
 import Home from 'src/components/Home';
 import Recipes from 'src/components/Recipes';
 import MarketList from 'src/components/MarketList'
@@ -25,12 +25,12 @@ const AppContainer=() => {
         <Router>
         <div id="app">
         <Switch>
-          <Route path="ec2-3-86-6-98.compute-1.amazonaws.com/projet-Oconomat-front/dist/" component={Home} /> 
+          <Route exact path="/" component={Home} /> 
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/Objectives" component={Objectives} />
           <Route exact path="/Recipes" component={Recipes} />
           <Route exact path="/MarketList" component={MarketList} />
-          <Route exact path="t/SignIn" component={SignIn} />
+          <Route exact path="/SignIn" component={SignIn} />
           <Route exact path="/SignUp" component={SignUp} />
           <Route exact path="/Contact" component={Contact} />
           <Route exact path="/Recipe" component={Recipe} /> 
