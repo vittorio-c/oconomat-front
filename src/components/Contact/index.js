@@ -2,14 +2,11 @@
 import React from 'react';
 /* Import du fichier Sass */
 import './Contact.sass'
-import HeaderBackToHomePage from '../HeaderBackToHomePage';
 import HeaderVisitor from 'src/components/HeaderVisitor';
 import Footer from 'src/components/Footer';
 import { BrowserRouter as Router, Route,Switch,Redirect, Link } from "react-router-dom";
 
 
-//import HeaderBackToHomePage from '../HeaderBackToHomePage';
-//import Footer from 'src/components/Footer';
 
 
 
@@ -18,34 +15,32 @@ import { BrowserRouter as Router, Route,Switch,Redirect, Link } from "react-rout
 const Contact = () => {
     return ( 
         <div>
-          <header>
-              <HeaderVisitor/>
-          </header>
-          <RetourAccueil/>
-          <main>
-            <div className ='Contact-background mt-3'>
-            <div className="ContactBlock">
-                    <h2>Nous Contacter</h2>
-                    <div className="contact-box">
-                        <h4>
-                            contact@Oconomat.com
-                        </h4>
-                        <h4>
-                            Oconomat <br/>
-                            23 rue du General Leclerc <br/>
-                            75 008 Paris <br/>
-                        </h4> 
-                    </div>
-                </div>
+            <header>
+                 <HeaderVisitor/>
+            </header>
+            <main>
+            <div className ='contact-background'>
+            <h2>lol</h2>
+            <h2>lol</h2>
+            <h2>lol</h2>
+            <h2>lol</h2>
+            <h2>lol</h2>
+            <h2>lol</h2>
+            <h2>lol</h2>
+            <h2>lol</h2>
+            <h2>lol</h2>
+            <h2>lol</h2>
             </div>
-        </main>
-        <Footer/>
-        </div>
+            </main>
+            <footer>
+                <Footer/>
+            </footer>
+         </div>
     )
 }
-
+/*
 const RetourAccueil = () => {
     return (<Link to="/"><button class="btn btn-primary col-md-3 offset-md-5"> Retour A l'accueil </button></Link>)
 }
-
+*/
 export default Contact;

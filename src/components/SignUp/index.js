@@ -3,7 +3,6 @@ import './SignUp.sass';
 
 import Header from '../HeaderVisitor';
 import Footer from 'src/components/Footer';
-import Objectives from 'src/components/Objectives'
 import {connect} from 'react-redux';
 
 const InscriptionStatic =({testSubmit})=>{

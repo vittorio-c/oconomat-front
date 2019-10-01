@@ -37,11 +37,6 @@ const ConnexionStatic =({testSubmit}) => {
 
                   </form> 
               </div>
- 
-          
-  
-         
-
           </main>
           <footer>
               <Footer />
