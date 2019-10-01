@@ -1,5 +1,6 @@
 const initialState = {
-  greetingMessage: 'Bonjour depuis le store !'
+  recipes:[],
+  hello: 'hello world'
 };
 
 const defaultAction = {};
@@ -9,8 +10,13 @@ const reducer = (state = initialState, action = defaultAction) => {
     case 'UPDATE_INPUT_VALUE': {
       return {
         ...state,
-        greetingMessage: action.value
+        recipes:action.value
       }
+    }
+
+    case 'Show-Recipes' : { 
+      console.log('RECIPES FETCHED')
+      return{...state,recipes:action.value} 
     }
     default: {
       // return state;

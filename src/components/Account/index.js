@@ -6,7 +6,8 @@ import Footer from 'src/components/Footer';
 
 /* Import du fichier Sass */
 import './style.sass'
-import HeaderMyAccount from 'src/components/HeaderMyAccount';
+import HeaderMyAccount from 'src/components/HeaderMyAccount'; 
+import {connect} from 'react-redux';
 
 const Account = () => {
     return (
@@ -41,6 +42,8 @@ const AccountInfo = () => (
         </div>
       </form>
     </div>
-)
+)  
+
+
 
 export default Account ;
