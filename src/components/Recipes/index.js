@@ -4,7 +4,7 @@ import HeaderMyAccount from '../HeaderMyAccount';
 import Footer from 'src/components/Footer';
 
 import { BrowserRouter as Router, Route,Switch,Redirect, Link } from "react-router-dom";
-import './app.sass';
+import './Recipes.sass';
 import Carousel from 'react-bootstrap/Carousel'
 
 const Recettes=() => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import './app.sass';
+import './Footer.sass';
 
 const Footer =() =>{
     return <div className="footer"> 

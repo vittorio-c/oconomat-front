@@ -1,13 +1,11 @@
 /* import './style.sass' */
 import React from 'react';
-
-
-
 import Header from '../HeaderVisitor';
 import Footer from 'src/components/Footer';
 
 /* Import du fichier Sass */
-import './style.sass'
+import './Home.sass'
+
 const Home = () => {
     return (
         <div>

@@ -5,7 +5,7 @@ import React from 'react';
 import Footer from 'src/components/Footer';
 
 /* Import du fichier Sass */
-import './style.sass'
+import './Account.sass'
 import HeaderMyAccount from 'src/components/HeaderMyAccount';
 
 const Account = () => {

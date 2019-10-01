@@ -6,7 +6,7 @@ import Footer from 'src/components/Footer';
 import { BrowserRouter as Router, Route,Switch,Redirect, Link } from "react-router-dom";
 
 /* Import du fichier Sass */
-import './style.sass'
+import './Objectives.sass'
 
 const Objectives = () => {
     return (
