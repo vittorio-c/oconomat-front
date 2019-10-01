@@ -6,7 +6,7 @@ import MarketList from 'src/components/MarketList'
 import Objectives from 'src/components/Objectives';
 import SignIn from 'src/components/SignIn';
 import SignUp from 'src/components/SignUp';
-import NoFound from 'src/components/NoFound';
+import NoFound from 'src/components/Home';
 import Contact from 'src/components/Contact';
 import Recipe from 'src/components/Recipe';
 import Account from 'src/components/Account';
