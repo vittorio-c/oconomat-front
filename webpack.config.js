@@ -43,7 +43,7 @@ module.exports = {
     chunkFilename: 'vendors.js',
     // Cible des bundles
     path: path.resolve(__dirname, 'dist'),
-    publicPath: 'projet-Oconomat-front/dist/',
+    publicPath: './',
   },
   // Optimisation pour le build
   optimization: {
