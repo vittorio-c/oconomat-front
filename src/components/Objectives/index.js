@@ -22,15 +22,12 @@ const Objectives = () => {
 
 const ObjectivesForm = () => (
     <div>
-    
-      <h2 className="text-center font-weight-bold text-warning col-md-3 offset-md-5">Mes objectifs</h2>
-      <form>
-        <div className="form-group row pt-4 col-md-6 offset-md-4">
-          <div className="col-sm-10">
-            <input type="email" className="form-control form-control-sm" id="colFormLabelLg" placeholder="Votre budget à la semaine en €"/>
-            <button className='btn btn-block btn-success mt-4 mb-5'>Valider</button>
-          </div> 
-        </div>
+    <h2 className="objectives-title">Mes objectifs</h2> 
+      <form className="form-space">
+      <input type="email" className="form-control form-control-sm" id="colFormLabelLg" placeholder="Votre budget à la semaine en €"/>
+          <div className="button-box">
+              <button className="objectives-validation btn btn-md mt-3 center-block" type="submit">Valider</button>
+          </div>
       </form>
     </div>
 )
