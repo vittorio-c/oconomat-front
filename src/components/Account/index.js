@@ -41,6 +41,8 @@ const AccountInfo = () => (
         </form>
       </div>
     </div>
-)
+)  
+
+
 
 export default Account ;

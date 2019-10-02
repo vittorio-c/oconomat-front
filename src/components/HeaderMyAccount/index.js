@@ -1,11 +1,12 @@
 import React from 'react';
-import './HeaderMyAccount.sass';
+import './HeaderMyAccount.sass'; 
+import {connect} from 'react-redux';
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 
 
-const HeaderMyAccount =() =>{
+const HeaderMyAccountStatic =({getRecipes}) =>{
     return  <div className="Header">
         <nav className="navbar navbar-expand-md navbar-light">
             <a className="navbar-brand" href="/Account"><img src="src/ressources/pictures/logoOconomat.png" className="img-fluid" alt="Responsive image"></img></a>
@@ -15,16 +16,16 @@ const HeaderMyAccount =() =>{
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <a className="nav-link" href="/Objectives">Mes objectifs</a>
+                        <a className="nav-link">Mes objectifs</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/Recipes">Mes recettes</a>
+                        <a className="nav-link"  onClick={getRecipes}>Mes recettes</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/MarketList">Ma liste de course</a>
+                        <a className="nav-link">Ma liste de course</a>
                     </li>
                     <li className="nav-item">
-                       <Link to="/"> <a className="nav-link" href="#">Deconnexion</a> </Link> 
+                       <Link to="/"> <a className="nav-link">Deconnexion</a> </Link> 
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="/ContactLogged">Contact</a>
@@ -36,11 +37,47 @@ const HeaderMyAccount =() =>{
 } 
 
 /* informations from Bootstrap's documentation 
-https://getbootstrap.com/docs/4.3/components/buttons/
+https://getbootstrap.com/docs/4.3/components/buttons/ 
+
+
 */
 
-export default HeaderMyAccount;
-
-
+const connectionStrategies = connect(
+    // 1er argument : stratégie de lecture (dans le state privé global)
+    (state, ownProps) => { 
+      console.log(state.recipes)
+      //console.log(state.recipes);
+      return {
+        recipes:state.recipes
+      };
+    },
+  
+    // 2d argument : stratégie d'écriture (dans le state privé global)
+    (dispatch, ownProps) => {
+      return {
+        sayHello: () => {
+          console.log('hello')
+        },
+        getRecipes:() => { 
+         console.log('recipes fetched')
+          const url ='http://api.oconomat.fr/api/menu/2'
+          axios.get(url).then((response)=>{ 
+          var recipes=response.data.recipes
+          const action={type:'Show-Recipes',value:recipes} 
+          dispatch(action);
+          
+  
+          })
+        }
+      };
+    },
+  );
+  
+  // Étape 2 : on applique ces stratégies à un composant spécifique.
+  const HeaderMyAccount = connectionStrategies(HeaderMyAccountStatic);
+  
+  // Étape 3 : on exporte le composant connecté qui a été généré
+  
+  export default HeaderMyAccount
 
 /* <a type ='button' className='btn btn-success' href='/'>Accueil</a> */

@@ -2,7 +2,7 @@ import React from 'react';
 
 import HeaderMyAccount from '../HeaderMyAccount';
 import Footer from 'src/components/Footer';
-
+import {connect} from 'react-redux';
 import { BrowserRouter as Router, Route,Switch,Redirect, Link } from "react-router-dom";
 import './Recipes.sass';
 import Carousel from 'react-bootstrap/Carousel'
@@ -59,5 +59,33 @@ const RecipesMain = () => {
     </div>
     }
 
+
+
+const connectionStrategies = connect(
+  // 1er argument : stratégie de lecture (dans le state privé global)
+  (state, ownProps) => { 
+    console.log(state.recipes)
+    
+    //console.log(state.recipes);
+    return {
+      recipes:state.recipes
+    };
+  },
+
+  // 2d argument : stratégie d'écriture (dans le state privé global)
+  (dispatch, ownProps) => {
+    return {
+      sayHello: () => {
+        console.log('hello')
+      }
+      
+    };
+  },
+);
+
+// Étape 2 : on applique ces stratégies à un composant spécifique.
+const Recettes = connectionStrategies(RecettesStatic);
+
+// Étape 3 : on exporte le composant connecté qui a été généré
 
 export default Recettes;
