@@ -25,7 +25,7 @@ const AppContainer=() => {
         <Router>
         <div id="app">
         <Switch>
-          <Route exact path="" component={Home} /> 
+          <Route exact path="/" component={Home} /> 
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/Objectives" component={Objectives} />
           <Route exact path="/Recipes" component={Recipes} />
