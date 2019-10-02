@@ -2,17 +2,12 @@
 import React from 'react';
 import HeaderMyAccount from '../HeaderMyAccount';
 /* Import du fichier Sass */
-import HeaderBackToHomePage from '../HeaderBackToHomePage';
 import './Recipe.sass'
-import Footer from 'src/components/Footer';
 import {connect} from 'react-redux';
 
 const RecipeMain = ({recipe}) => {
     return (
         <div>
-        <header>
-          <HeaderBackToHomePage />
-        </header>
         <main> 
             {recipe.data!=undefined ? 
             <div className="recipe-page">
@@ -49,9 +44,6 @@ const RecipeMain = ({recipe}) => {
                 </div>
             : <h2> Recipe Loading </h2>}
             </main>
-        <footer>
-      <Footer />
-  </footer>
   </div>
     )
 }

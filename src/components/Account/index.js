@@ -12,9 +12,6 @@ const Account = () => {
     return (
             <body className ="Site">
                 <div className="Site-content">
-                    <div className="App-header">
-                        <HeaderMyAccount/>
-                    </div>
                     <main className="main">
                         <AccountInfo />
                     </main>

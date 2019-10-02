@@ -1,11 +1,8 @@
 /* import './style.sass' */
 import React from 'react';
-import HeaderBackToHomePage from 'src/components/HeaderBackToHomePage';
-import Footer from 'src/components/Footer';
 
 /* Import du fichier Sass */
 import './Contact.sass'
-import { BrowserRouter as Router, Route,Switch,Redirect, Link } from "react-router-dom";
 
 // CODE 
 
@@ -13,14 +10,10 @@ const Contact = () => {
     return (
         <body className ="Site">
             <div className="Site-content">
-                <div className="App-header">
-                    <HeaderBackToHomePage/>
-                </div>
                 <main className="main">
                     <Contactpage/>
                 </main>
             </div>
-            <Footer />
         </body>
             
     )

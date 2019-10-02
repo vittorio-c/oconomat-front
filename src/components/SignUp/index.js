@@ -1,22 +1,16 @@
 import React from 'react' 
 import './SignUp.sass';
 
-import HeaderVisitor from '../HeaderVisitor';
-import Footer from 'src/components/Footer';
 import {connect} from 'react-redux';
 
 const InscriptionStatic =({testSubmit})=>{
   return (
     <body className ="Site">
           <div className="Site-content">
-              <div className="App-header">
-                  <HeaderVisitor/>
-              </div>
               <main className="main">
                   <InscriptionStaticPage testSubmit={testSubmit}/>
               </main>
           </div>
-          <Footer />
       </body>
     )
 } 

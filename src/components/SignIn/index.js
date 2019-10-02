@@ -1,11 +1,8 @@
 import React from 'react'
 import './SignIn.sass'
 
-import Header from '../HeaderVisitor';
-import Footer from 'src/components/Footer'; 
 import {connect} from 'react-redux';
 import Objectives from 'src/components/Objectives';
-import { BrowserRouter as Router, Route,Switch,Redirect, Link } from "react-router-dom";
 import Account from 'src/components/Account';
 import HeaderVisitor from '../HeaderVisitor';
 
@@ -15,14 +12,10 @@ const ConnexionStatic =({testSubmit}) => {
     return(
       <body className ="Site">
           <div className="Site-content">
-              <div className="App-header">
-                  <HeaderVisitor/>
-              </div>
               <main className="main">
                   <ConnexionStaticPage/>
               </main>
           </div>
-          <Footer />
       </body>
    )
 } 

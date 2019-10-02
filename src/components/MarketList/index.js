@@ -2,22 +2,14 @@
 import React from 'react';
 
 
-import HeaderMyAccount from '../HeaderMyAccount';
-import Footer from 'src/components/Footer'; 
-import { BrowserRouter as Router, Route,Switch,Redirect, Link } from "react-router-dom";
-
 const MarketList = () => {
     return (
         <body className ="Site">
             <div className="Site-content">
-                <div className="App-header">
-                    <HeaderMyAccount/>
-                </div>
                 <main className="main">
                     <MarketListMain />
                 </main>
             </div>
-            <Footer />
         </body>
     )
 } 

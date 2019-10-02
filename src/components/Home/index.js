@@ -1,7 +1,5 @@
 /* import './style.sass' */
 import React from 'react';
-import HeaderVisitor from '../HeaderVisitor';
-import Footer from 'src/components/Footer';
 
 /* Import du fichier Sass */
 import './Home.sass'
@@ -10,14 +8,10 @@ const Home = () => {
     return (
         <body className ="Site">
           <div className="Site-content">
-              <div className="App-header">
-                  <HeaderVisitor/>
-              </div>
               <main className="main">
                   <HomePage/>
               </main>
           </div>
-          <Footer />
       </body>
     )
 }

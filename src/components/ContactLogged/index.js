@@ -1,11 +1,9 @@
 /* import './style.sass' */
 import React from 'react';
-import HeaderLoggedBackToMyAccountPage from 'src/components/HeaderLoggedBackToMyAccountPage';
-import Footer from 'src/components/Footer';
+
 
 /* Import du fichier Sass */
 import './ContactLogged.sass'
-import { BrowserRouter as Router, Route,Switch,Redirect, Link } from "react-router-dom";
 
 // CODE 
 
@@ -13,14 +11,10 @@ const ContactLogged = () => {
     return (
         <body className ="Site">
             <div className="Site-content">
-                <div className="App-header">
-                    <HeaderLoggedBackToMyAccountPage/>
-                </div>
                 <main className="main">
                     <ContactLoggedMain/>
                 </main>
             </div>
-            <Footer />
         </body>
             
     )

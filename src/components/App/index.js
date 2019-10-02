@@ -11,8 +11,8 @@ import Contact from 'src/components/Contact';
 import ContactLogged from 'src/components/ContactLogged';
 import Recipe from 'src/components/Recipe';
 import Account from 'src/components/Account';
-
-
+import HeaderSuper from 'src/components/HeaderSuper';
+import Footer from 'src/components/Footer';
 
 
 // Styles and assets
@@ -22,8 +22,9 @@ import './app.sass';
 
 const AppContainer=() => {
     return (
-
+      
         <Router>
+        <HeaderSuper />
         <div id="app">
         <Switch>
           <Route exact path="/" component={Home} /> 
@@ -37,9 +38,9 @@ const AppContainer=() => {
           <Route exact path="/Recipe" component={Recipe} /> 
           <Route exact path="/Account" component={Account} />
           <Route component={NoFound} />
-          
         </Switch>
         </div>
+        <Footer />
       </Router>
     )
 }

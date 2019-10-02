@@ -1,7 +1,5 @@
 import React from 'react';
 
-import HeaderMyAccount from '../HeaderMyAccount';
-import Footer from 'src/components/Footer';
 import {connect} from 'react-redux';
 import { BrowserRouter as Router, Route,Switch,Redirect, Link } from "react-router-dom";
 import './Recipes.sass';
@@ -13,14 +11,10 @@ const RecettesStatic = ({recipes,findRecipe}) => {
     return (
         <body className ="Site">
             <div className="Site-content">
-                <div className="App-header">
-                    <HeaderMyAccount/>
-                </div>
                 <main className="main">
                     <RecipesMain recipes={recipes} findRecipe={findRecipe}/>
                 </main>
             </div>
-            <Footer />
         </body>
     )
 } 

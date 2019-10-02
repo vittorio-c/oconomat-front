@@ -1,9 +1,6 @@
 /* import './style.sass' */
 import React from 'react';
 
-import HeaderMyAccount from '../HeaderMyAccount';
-import Footer from 'src/components/Footer';
-import { BrowserRouter as Router, Route,Switch,Redirect, Link } from "react-router-dom";
 
 /* Import du fichier Sass */
 import './Objectives.sass'
@@ -12,14 +9,10 @@ const Objectives = () => {
     return (
         <body className ="Site">
                 <div className="Site-content">
-                    <div className="App-header">
-                        <HeaderMyAccount/>
-                    </div>
                     <main className="main">
                         <ObjectivesForm />
                     </main>
                 </div>
-                <Footer />
             </body>
         
     )
