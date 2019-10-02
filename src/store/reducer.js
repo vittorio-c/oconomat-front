@@ -1,5 +1,6 @@
 const initialState = {
   recipes:[],
+  recipe:[]
 
 };
 
@@ -11,6 +12,12 @@ const reducer = (state = initialState, action = defaultAction) => {
       return {
         ...state,
         recipes:action.value
+      }
+    } 
+    
+    case 'See-Recipe' :{
+      return {
+        ...state,recipe:action.value
       }
     }
 

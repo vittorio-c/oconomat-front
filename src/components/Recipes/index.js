@@ -77,16 +77,15 @@ const connectionStrategies = connect(
     
     //console.log(state.recipes);
     return {
-      recipes:state.recipes
+      recipes:state.recipes,
+      recipe:state.recipe
     };
   },
 
   // 2d argument : stratégie d'écriture (dans le state privé global)
   (dispatch, ownProps) => {
     return {
-      sayHello: () => {
-        console.log('hello')
-      },
+      
       findRecipe:(id,recipes) =>{
         const url = recipes[id] 
         axios.get(url).then((response)=>{
