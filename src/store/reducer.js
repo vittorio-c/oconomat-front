@@ -1,6 +1,6 @@
 const initialState = {
   recipes:[],
-  hello: 'hello world'
+
 };
 
 const defaultAction = {};
