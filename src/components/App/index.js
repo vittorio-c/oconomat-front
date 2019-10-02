@@ -26,15 +26,15 @@ const AppContainer=() => {
         <div id="app">
         <Switch>
           <Route exact path="" component={Home} /> 
-          <Route exact path="/contact" component={Contact} />
-          <Route exact path="/Objectives" component={Objectives} />
-          <Route exact path="/Recipes" component={Recipes} />
-          <Route exact path="/MarketList" component={MarketList} />
-          <Route exact path="/SignIn" component={SignIn} />
-          <Route exact path="/SignUp" component={SignUp} />
-          <Route exact path="/Contact" component={Contact} />
-          <Route exact path="/Recipe" component={Recipe} /> 
-          <Route exact path="/Account" component={Account} />
+          <Route exact path="contact" component={Contact} />
+          <Route exact path="Objectives" component={Objectives} />
+          <Route exact path="Recipes" component={Recipes} />
+          <Route exact path="MarketList" component={MarketList} />
+          <Route exact path="SignIn" component={SignIn} />
+          <Route exact path="SignUp" component={SignUp} />
+          <Route exact path="Contact" component={Contact} />
+          <Route exact path="Recipe" component={Recipe} /> 
+          <Route exact path="Account" component={Account} />
           <Route component={NoFound} />
           
         </Switch>
