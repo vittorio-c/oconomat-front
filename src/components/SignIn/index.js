@@ -1,5 +1,5 @@
 import React from 'react'
-import './app.sass'
+import './SignIn.sass'
 
 import Header from '../HeaderVisitor';
 import Footer from 'src/components/Footer'; 
@@ -7,39 +7,44 @@ import {connect} from 'react-redux';
 import Objectives from 'src/components/Objectives';
 import { BrowserRouter as Router, Route,Switch,Redirect, Link } from "react-router-dom";
 import Account from 'src/components/Account';
+import HeaderVisitor from '../HeaderVisitor';
 
 
 const ConnexionStatic =({testSubmit}) => {
 
     return(
-      <div className="container white">
-        
-        <Header/>
-        
-      
-        <form className="d-flex flex-column" onSubmit={testSubmit}>
-            <h2 className='text-center font-weight-bolder text-warning'>Connexion</h2>
-              <div className="form-group mt-4">
-                  <input type="email" className="form-control rounded-left rounded-right" name="email" placeholder="Your mail here"/>             
-              </div> 
-              <div className="form-group">
-                  <input type="password" className="form-control rounded-left rounded-right" name="password" placeholder="Your password here"/>
-              </div> 
-
-              <button type="submit" className="btn btn-success btn-block mt-5">Envoyer</button>
-
-              
-
-
-        </form> 
-
- 
-      <Footer/>
-  
-  </div>
-  )
+      <body className ="Site">
+          <div className="Site-content">
+              <div className="App-header">
+                  <HeaderVisitor/>
+              </div>
+              <main className="main">
+                  <ConnexionStaticPage/>
+              </main>
+          </div>
+          <Footer />
+      </body>
+   )
 } 
 
+const ConnexionStaticPage =({testSubmit}) => {
+    return <div className ='food-background mt-3'>
+    <form className="d-flex flex-column" onSubmit={testSubmit}>
+        
+        <div className="formBlock">
+        <h2 className="connection-title">Connexion</h2>
+        <div className="form-group mt-4">
+            <input type="email" className="form-control rounded-left rounded-right" name="email" placeholder="Your mail here"/>             
+        </div> 
+        <div className="form-group">
+            <input type="password" className="form-control rounded-left rounded-right" name="password" placeholder="Your password here"/>
+        </div> 
+
+        <button className="validation btn" type="submit">Envoyer</button>
+        </div>
+    </form> 
+</div>
+}
 
 const connectionStrategies = connect(
     // 1er argument : stratégie de lecture (dans le state privé global)

@@ -1,23 +1,23 @@
 /* import './style.sass' */
 import React from 'react';
-import HeaderBackToHomePage from 'src/components/HeaderBackToHomePage';
+import HeaderLoggedBackToMyAccountPage from 'src/components/HeaderLoggedBackToMyAccountPage';
 import Footer from 'src/components/Footer';
 
 /* Import du fichier Sass */
-import './Contact.sass'
+import './ContactLogged.sass'
 import { BrowserRouter as Router, Route,Switch,Redirect, Link } from "react-router-dom";
 
 // CODE 
 
-const Contact = () => {
+const ContactLogged = () => {
     return (
         <body className ="Site">
             <div className="Site-content">
                 <div className="App-header">
-                    <HeaderBackToHomePage/>
+                    <HeaderLoggedBackToMyAccountPage/>
                 </div>
                 <main className="main">
-                    <Contactpage/>
+                    <ContactLoggedMain/>
                 </main>
             </div>
             <Footer />
@@ -29,7 +29,7 @@ const Contact = () => {
 
 // The Contactpage const is called up in the page
 
-const Contactpage = () => {
+const ContactLoggedMain = () => {
     return <div className ='contactpage-background'>
     <div className="nomansland">
     <div className="contact-zone">
@@ -44,4 +44,4 @@ const Contactpage = () => {
 </div>
 }
 
-export default Contact;
+export default ContactLogged;

@@ -1,63 +1,57 @@
 import React from 'react' 
-import './app.sass';
+import './SignUp.sass';
 
-import Header from '../HeaderVisitor';
+import HeaderVisitor from '../HeaderVisitor';
 import Footer from 'src/components/Footer';
-import Objectives from 'src/components/Objectives'
 import {connect} from 'react-redux';
 
 const InscriptionStatic =({testSubmit})=>{
-    return(
-      <div>
-          <header>
-            <Header />
-          </header>
-
-        <main>  
-            <div className="container white">
-         <h2 className='text-center font-weight-bolder text-warning'>Inscription</h2>
-                    <form className="d-flex flex-column" onSubmit={testSubmit}>
-
-                        <div className="form-group mt-4">
-                          <input type="text" className="form-control rounded-left rounded-right" name="lastname" placeholder ='Your lastname'/>
-                      </div> 
-
-                      <div className="form-group">
-                          <input type="text" className="form-control rounded-left rounded-right" name="firstname" placeholder ='Your firstname'/>
-                      
-                      </div> 
-
-                      <div className="form-group">
-                          <input type="email" className="form-control rounded-left rounded-right" name="email" placeholder ='Your email'/>
-                      
-                      </div> 
-
-                      <div className="form-group">
-                          <input type="password" className="form-control rounded-left rounded-right" name="email" placeholder ='Your password'/>
-                      
-                      </div> 
-
-                      <div className="form-group">
-                          <input type="password" className="form-control rounded-left rounded-right mb-4" name="email" placeholder ='Confirm your password'/>
-                      
-                      
-                      </div> 
-
-                      <button type="submit" className="btn btn-success btn-block">Envoyer</button>
-
-                      
-
-
-                        </form> 
-                      </div>
-
-        </main>
-          <footer>
-            <Footer />
-          </footer>
-      </div>
+  return (
+    <body className ="Site">
+          <div className="Site-content">
+              <div className="App-header">
+                  <HeaderVisitor/>
+              </div>
+              <main className="main">
+                  <InscriptionStaticPage/>
+              </main>
+          </div>
+          <Footer />
+      </body>
     )
 } 
+
+const InscriptionStaticPage =({testSubmit}) => {
+  return <div className ='food-background mt-3'>
+  <form className="d-flex flex-column" onSubmit={testSubmit}>
+  <div className="formBlock">
+          
+          <h2 className="inscription-title">Inscription</h2>
+              <div className="form-group mt-4">
+                <input type="text" className="form-control rounded-left rounded-right" name="lastname" placeholder ='Your lastname'/>
+              </div> 
+              <div className="form-group">
+                <input type="text" className="form-control rounded-left rounded-right" name="firstname" placeholder ='Your firstname'/>
+              </div> 
+              <div className="form-group">
+                <input type="email" className="form-control rounded-left rounded-right" name="email" placeholder ='Your email'/>
+              </div> 
+              <div className="form-group">
+                <input type="password" className="form-control rounded-left rounded-right" name="email" placeholder ='Your password'/>
+              </div>
+              <div className="form-group">
+                <input type="password" className="form-control rounded-left rounded-right mb-4" name="email" placeholder ='Confirm your password'/>
+              </div>
+              <button className="validation btn" type="submit">Envoyer</button>
+              </div>
+          </form> 
+          
+  </div>
+}
+
+
+
+
 
 
 const connectionStrategies = connect(
