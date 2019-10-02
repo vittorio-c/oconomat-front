@@ -1,8 +1,6 @@
 import React from 'react';
-import { Button,FormControl,Form,Nav,Navbar,NavDropdown, } from 'react-bootstrap';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Button,Nav,Navbar } from 'react-bootstrap';
 
-import './HeaderSuper.sass';
 
 const HeaderSuper =() =>{
     return  <div className="Header sticky-top">
@@ -10,9 +8,9 @@ const HeaderSuper =() =>{
         <Navbar bg="light" expand="lg">
         <Navbar.Brand href="/">Oconomat</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse id="basic-navbar-nav" className ='clearfix'>
 
-            <Nav className="mr-auto">
+            <Nav  className="mr-auto">
                 <Nav.Link href="/">Accueil</Nav.Link>
                 <Nav.Link href="/account">Mon compte</Nav.Link>
                 <Nav.Link href="/objectives">Mes objectifs</Nav.Link>
@@ -22,13 +20,12 @@ const HeaderSuper =() =>{
                 <Nav.Link href="/signup">S'inscrire</Nav.Link>
                 <Nav.Link href="/contact">Contact</Nav.Link>
                 
+                <div  className ='btn-group text-center align-bottom float-right'>
+                        <Nav.Link href="/signup"><Button className='btn btn-sm' variant="outline-success">Inscription</Button></Nav.Link>
+                        <Nav.Link href="/signin"><Button className='btn btn-sm' variant="outline-success">Connexion</Button></Nav.Link>
+                        <Nav.Link href="/"><Button className='btn btn-sm' variant="outline-danger">Déconnexion</Button></Nav.Link> 
+                </div>
             </Nav>
-            <div className ='float-right text-center'>
-                    <Nav.Link href="/"><Button className='btn btn-center' variant="outline-success">Inscription</Button></Nav.Link>
-                    <Nav.Link href="/"><Button className='btn btn-center' variant="outline-danger">Déconnexion</Button></Nav.Link>
-                    <Nav.Link href="/signin"><Button className='btn btn-center' variant="outline-success">Connexion</Button></Nav.Link>
-            </div>
-            
         </Navbar.Collapse>
         </Navbar>
     </div>         
