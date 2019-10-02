@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './HeaderSuper.sass';
 
 const HeaderSuper =() =>{
-    return  <div className="Header">
+    return  <div className="Header sticky-top">
 
         <Navbar bg="light" expand="lg">
         <Navbar.Brand href="/">Oconomat</Navbar.Brand>
