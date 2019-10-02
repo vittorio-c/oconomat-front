@@ -13,7 +13,7 @@ const ConnexionStatic =({testSubmit}) => {
       <body className ="Site">
           <div className="Site-content">
               <main className="main">
-                  <ConnexionStaticPage/>
+                  <ConnexionStaticPage testSubmit={testSubmit}/>
               </main>
           </div>
       </body>

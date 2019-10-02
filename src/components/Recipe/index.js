@@ -11,7 +11,7 @@ const RecipeMain = ({recipe}) => {
         <main> 
             {recipe.data!=undefined ? 
             <div className="recipe-page">
-                {console.log(recipe.data)}
+                
                     <h2 className='recipe-page-title m-3'>Voici votre recette</h2>
                          <div className="recipe-detail">
                             <div className="recipe-name">
