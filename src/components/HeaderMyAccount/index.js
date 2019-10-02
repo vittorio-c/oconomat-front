@@ -27,7 +27,7 @@ const HeaderMyAccount =() =>{
                        <Link to="/"> <a className="nav-link" href="#">Deconnexion</a> </Link> 
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/Contact">Contact</a>
+                        <a className="nav-link" href="/ContactLogged">Contact</a>
                     </li>
                 </ul>
             </div>

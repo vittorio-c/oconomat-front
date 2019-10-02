@@ -10,13 +10,18 @@ import './Objectives.sass'
 
 const Objectives = () => {
     return (
-        <main>
-            <div>
-                <HeaderMyAccount/>
-                <ObjectivesForm />
-                <Footer/>
-            </div>
-        </main>
+        <body className ="Site">
+                <div className="Site-content">
+                    <div className="App-header">
+                        <HeaderMyAccount/>
+                    </div>
+                    <main className="main">
+                        <ObjectivesForm />
+                    </main>
+                </div>
+                <Footer />
+            </body>
+        
     )
 } 
 

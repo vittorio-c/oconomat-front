@@ -8,6 +8,7 @@ import SignIn from 'src/components/SignIn';
 import SignUp from 'src/components/SignUp';
 import NoFound from 'src/components/NoFound';
 import Contact from 'src/components/Contact';
+import ContactLogged from 'src/components/ContactLogged';
 import Recipe from 'src/components/Recipe';
 import Account from 'src/components/Account';
 
@@ -32,7 +33,7 @@ const AppContainer=() => {
           <Route path="/MarketList" component={MarketList} />
           <Route path="/SignIn" component={SignIn} />
           <Route path="/SignUp" component={SignUp} />
-          <Route path="/Contact" component={Contact} />
+          <Route path="/ContactLogged" component={ContactLogged} />
           <Route path="/Recipe" component={Recipe} /> 
           <Route path="/Account" component={Account} />
           <Route component={NoFound} />

@@ -1,6 +1,6 @@
 /* import './style.sass' */
 import React from 'react';
-import Header from '../HeaderVisitor';
+import HeaderVisitor from '../HeaderVisitor';
 import Footer from 'src/components/Footer';
 
 /* Import du fichier Sass */
@@ -8,22 +8,27 @@ import './Home.sass'
 
 const Home = () => {
     return (
-        <div>
-            <header>
-                <Header />
-            </header>
-            <main>
-                <div className ="bg-light">
-                    <Logo />
-                    <Steps />
-                    <Explanations />
-                </div>
-            </main>
-            <footer>
-                <Footer />
-            </footer>
-        </div>
+        <body className ="Site">
+          <div className="Site-content">
+              <div className="App-header">
+                  <HeaderVisitor/>
+              </div>
+              <main className="main">
+                  <HomePage/>
+              </main>
+          </div>
+          <Footer />
+      </body>
     )
+}
+
+const HomePage = () => {
+    return <div className ="bg-light">
+    <Logo />
+    <Steps />
+    <Explanations />
+</div>
+
 }
 
 const Logo = () => {

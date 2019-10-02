@@ -1,50 +1,57 @@
 import React from 'react' 
 import './SignUp.sass';
 
-import Header from '../HeaderVisitor';
+import HeaderVisitor from '../HeaderVisitor';
 import Footer from 'src/components/Footer';
 import {connect} from 'react-redux';
 
 const InscriptionStatic =({testSubmit})=>{
-    return(
-      <div>
-          <header>
-            <Header />
-          </header>
-
-        <main>  
-            <div className ='food-background mt-3'>
-            <form className="d-flex flex-column" onSubmit={testSubmit}>
-            <div className="formBlock">
-                    
-                    <h2 className="inscription-title">Inscription</h2>
-                        <div className="form-group mt-4">
-                          <input type="text" className="form-control rounded-left rounded-right" name="lastname" placeholder ='Your lastname'/>
-                        </div> 
-                        <div className="form-group">
-                          <input type="text" className="form-control rounded-left rounded-right" name="firstname" placeholder ='Your firstname'/>
-                        </div> 
-                        <div className="form-group">
-                          <input type="email" className="form-control rounded-left rounded-right" name="email" placeholder ='Your email'/>
-                        </div> 
-                        <div className="form-group">
-                          <input type="password" className="form-control rounded-left rounded-right" name="email" placeholder ='Your password'/>
-                        </div>
-                        <div className="form-group">
-                          <input type="password" className="form-control rounded-left rounded-right mb-4" name="email" placeholder ='Confirm your password'/>
-                        </div>
-                        <button className="validation btn" type="submit">Envoyer</button>
-                        </div>
-                    </form> 
-                    
-            </div>
-          </main>
-          <footer>
-            <Footer />
-          </footer>
-      </div>
+  return (
+    <body className ="Site">
+          <div className="Site-content">
+              <div className="App-header">
+                  <HeaderVisitor/>
+              </div>
+              <main className="main">
+                  <InscriptionStaticPage/>
+              </main>
+          </div>
+          <Footer />
+      </body>
     )
 } 
+
+const InscriptionStaticPage =({testSubmit}) => {
+  return <div className ='food-background mt-3'>
+  <form className="d-flex flex-column" onSubmit={testSubmit}>
+  <div className="formBlock">
+          
+          <h2 className="inscription-title">Inscription</h2>
+              <div className="form-group mt-4">
+                <input type="text" className="form-control rounded-left rounded-right" name="lastname" placeholder ='Your lastname'/>
+              </div> 
+              <div className="form-group">
+                <input type="text" className="form-control rounded-left rounded-right" name="firstname" placeholder ='Your firstname'/>
+              </div> 
+              <div className="form-group">
+                <input type="email" className="form-control rounded-left rounded-right" name="email" placeholder ='Your email'/>
+              </div> 
+              <div className="form-group">
+                <input type="password" className="form-control rounded-left rounded-right" name="email" placeholder ='Your password'/>
+              </div>
+              <div className="form-group">
+                <input type="password" className="form-control rounded-left rounded-right mb-4" name="email" placeholder ='Confirm your password'/>
+              </div>
+              <button className="validation btn" type="submit">Envoyer</button>
+              </div>
+          </form> 
+          
+  </div>
+}
+
+
+
+
 
 
 const connectionStrategies = connect(
