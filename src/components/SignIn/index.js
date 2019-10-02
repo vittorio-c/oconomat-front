@@ -33,7 +33,7 @@ const ConnexionStaticPage =({testSubmit}) => {
             <input type="password" className="form-control rounded-left rounded-right" name="password" placeholder="Your password here"/>
         </div> 
 
-        <button className="validation btn" type="submit">Envoyer</button>
+        <button className="validation btn btn-lg" type="submit">Envoyer</button>
         </div>
     </form> 
 </div>
