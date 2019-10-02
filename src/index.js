@@ -20,7 +20,7 @@ import kastore from 'src/store';
  */ 
 
 
-const reactRootElement = <Router><Provider store={kastore}>
+const reactRootElement =<Router><Provider store={kastore}>
   <AppContainer />
 </Provider></Router>;
 
