@@ -24,6 +24,7 @@ const HeaderSuper =() =>{
                 
             </Nav>
             <div className ='float-right text-center'>
+                    <Nav.Link href="/"><Button className='btn btn-center' variant="outline-success">Inscription</Button></Nav.Link>
                     <Nav.Link href="/"><Button className='btn btn-center' variant="outline-danger">Déconnexion</Button></Nav.Link>
                     <Nav.Link href="/signin"><Button className='btn btn-center' variant="outline-success">Connexion</Button></Nav.Link>
             </div>
