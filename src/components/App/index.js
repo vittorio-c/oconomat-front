@@ -33,7 +33,7 @@ const AppContainer=() => {
           <Route exact path="/MarketList" component={MarketList} />
           <Route exact path="/SignIn" component={SignIn} />
           <Route exact path="/SignUp" component={SignUp} />
-          <Route exact path="/Contact" component={Contact} />
+          <Route exact path="/ContactLogged" component={ContactLogged} />
           <Route exact path="/Recipe" component={Recipe} /> 
           <Route exact path="/Account" component={Account} />
           <Route component={NoFound} />
