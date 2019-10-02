@@ -19,7 +19,7 @@ const ConnexionStatic =({testSubmit}) => {
                   <HeaderVisitor/>
               </div>
               <main className="main">
-                  <ConnexionStaticPage/>
+                  <ConnexionStaticPage testSubmit={testSubmit}/>
               </main>
           </div>
           <Footer />

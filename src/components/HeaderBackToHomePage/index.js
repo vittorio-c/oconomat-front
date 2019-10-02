@@ -12,7 +12,7 @@ const HeaderBackToHomePage =() =>{
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <Link to="/"><a className="nav-link">Accueil</a></Link>
+                        <Link to="/Account"><a className="nav-link">Retour a mon Profil </a> </Link>
                     </li>
                 </ul>
             </div>
