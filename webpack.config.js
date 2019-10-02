@@ -142,4 +142,8 @@ module.exports = {
       { from: 'src/ressources/pictures', to: 'src/ressources/pictures' },
     ]),
   ],
-};
+}
+
+
+
+;
