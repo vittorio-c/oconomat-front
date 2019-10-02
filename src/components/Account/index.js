@@ -16,7 +16,6 @@ const Account = () => {
                         <AccountInfo />
                     </main>
                 </div>
-                <Footer />
              </body>
     )
 }
