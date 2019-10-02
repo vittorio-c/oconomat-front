@@ -1,6 +1,7 @@
 import React from 'react';
 import './HeaderMyAccount.sass'; 
 import {connect} from 'react-redux';
+import axios from 'axios';
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
@@ -16,13 +17,13 @@ const HeaderMyAccountStatic =({getRecipes}) =>{
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <a className="nav-link">Mes objectifs</a>
+                        <Link to="/Objectives"><a className="nav-link">Mes objectifs</a> </Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link"  onClick={getRecipes}>Mes recettes</a>
+                        <Link to="/Recipes"> <a className="nav-link"  onClick={getRecipes}>Mes recettes</a> </Link> 
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link">Ma liste de course</a>
+                       <Link to="/MarketList"> <a className="nav-link">Ma liste de course</a> </Link>
                     </li>
                     <li className="nav-item">
                        <Link to="/"> <a className="nav-link">Deconnexion</a> </Link> 
@@ -55,9 +56,7 @@ const connectionStrategies = connect(
     // 2d argument : stratégie d'écriture (dans le state privé global)
     (dispatch, ownProps) => {
       return {
-        sayHello: () => {
-          console.log('hello')
-        },
+       
         getRecipes:() => { 
          console.log('recipes fetched')
           const url ='http://api.oconomat.fr/api/menu/2'

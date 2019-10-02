@@ -13,7 +13,7 @@ const InscriptionStatic =({testSubmit})=>{
                   <HeaderVisitor/>
               </div>
               <main className="main">
-                  <InscriptionStaticPage/>
+                  <InscriptionStaticPage testSubmit={testSubmit}/>
               </main>
           </div>
           <Footer />
