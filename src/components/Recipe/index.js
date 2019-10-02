@@ -35,31 +35,14 @@ const RecipeMain = ({recipe}) => {
                                 </ul>
                             </div>
                             <div className="recipe-steps">
-                                <ol>
-                                    <li>
-                                        <h3 className="steps">Etape 1</h3>
-                                        <p>Mélangez au fouet la farine, la levure, les yaourts et les yaourts de lait. Fouettez jusqu'à ce qu'il n'y ait plus de grumeaux.</p>
-                                    </li>
-                                    <li>
-                                        <h3 className="steps">Etape 2</h3>
-                                        <p>Cassez les oeufs dans un récipient à part et battez-les à l'aide d'une fourchette. Versez le tout dans la préparation. Mélangez bien.</p>
-                                    </li>
-                                    <li>
-                                        <h3 className="steps">Etape 3</h3>
-                                        <p>Ajoutez ensuite le sel et l'huile d'olive</p>
-                                    </li>
-                                    <li>
-                                        <h3 className="steps">Etape 4</h3>
-                                        <p>Donnez un dernier coup de fouet et cuisez chaque pancakes dans un petit poêle (1 pancake = une louche de préparation).</p>
-                                    </li>
-                                    <li>
-                                        <h3 className="steps">Etape 5</h3>
-                                        <p>Une fois les pancakes cuits, mettez-les dans une assiette, et disposez une boule de glace vanille sur le dessus, avec les amandes effilées et du sirop d'érable.</p>
-                                    </li>
-                                    <li>
-                                        <h3 className="steps">Etape 6</h3>
-                                        <p>Servez les pancakes.</p>
-                                    </li>   
+                                <ol> 
+                                    {recipe.data.recipeSteps.map(function(element,index){
+                                        return <div><h3 className="steps"> Etape {index+1}</h3> 
+                                            
+                                            <p> {element.content} </p> </div>
+                                        
+                                    })}
+                                 
                                 </ol> 
                             </div>
                         </div>
