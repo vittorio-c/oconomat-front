@@ -27,7 +27,7 @@ const HomePage = () => {
 
 const Logo = () => {
     return(
-    <div className ='food-image img-thumbnail mt-3 text-light pt-4'>
+    <div className ='food-image img-thumbnail text-light pt-4'>
         <div className = "text-box">
             <h2 className='home-catch-sentence m-3 '>Une panne d'inspiration ?</h2>
             <h1 className='home-title'>OCONOMAT</h1>
