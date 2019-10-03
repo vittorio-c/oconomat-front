@@ -17,7 +17,6 @@ const HeaderSuper =() =>{
                 <Nav.Link href="/recipes">Mes recettes</Nav.Link>
                 <Nav.Link href="/MarketList">Ma liste de course</Nav.Link>
                 <Nav.Link href="/recipe">Mes recettes</Nav.Link>
-                <Nav.Link href="/signup">S'inscrire</Nav.Link>
                 <Nav.Link href="/contact">Contact</Nav.Link>
                 
                 <div  className ='btn-group text-center align-bottom float-right'>
