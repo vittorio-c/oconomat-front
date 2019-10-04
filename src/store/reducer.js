@@ -4,42 +4,56 @@ const initialState = {
   emailState:'',
   passwordState:'',
   connectedUser : false,
-  tokkenUser :{}
+  tokkenUser :{},
+  inputValueFirstName:{},
+  inputValueLastName:{},
+  inputValueEmail:{},
+  inputValueMDP:{},
+  inputValueMDPConfirm:{},
+  inputValues: []
+  
+
 };
 
 const defaultAction = {};
 
 const reducer = (state = initialState, action = defaultAction) => {
-  switch (action.type) {
+  switch (action.type) { 
 
-    case 'ENTER_PASSWORD' : {
-      console.log("password saisi")
-      return {
-        ...state,
-        passwordState:{password:action.value}
-      }
+    case 'Insert-Input-FirstName':{
+      return {...state,inputValueFirstName:{firstname:action.value}}
+    }
+
+    case 'Insert-Input-LastName': {
+      return {...state,inputValueLastName:{lastname:action.value}}
+    }
+
+    case 'Insert-Input-Email': {
+      return {...state,inputValueEmail:{email:action.value}}
     } 
-    case 'ENTER_EMAIL' : {
-      console.log("mot de passe saisi")
-      return {
-        ...state,
-        emailState:{email:action.value}
-      }
+
+    case 'Insert-Input-MDP': { 
+      return {...state,inputValueMDP:{password:action.value}}
+    }  
+
+    case 'Confirm-Input-MDP': {
+      return {...state,inputValueMDPConfirm:{passwordConfirm:action.value}}
+    }
+
+   
+    case 'Submit-Form': { 
+      
+      return {...state,
+        inputValues:[state.inputValueFirstName,state.inputValueLastName,state.inputValueEmail,state.inputValueMDP]}
+        
     } 
-  case 'VALID_FORM' : {
-      console.log("Validation du formulaire")
+    
+    case 'Get-Values' :{
       return {
-        ...state,
-        passwordState:state.passwordState,
-        emailState:state.emailState
+        ...state.inputValues
       }
-    } 
-    case 'UPDATE_INPUT_VALUE': {
-      return {
-        ...state,
-        recipes:action.value
-      }
-    } 
+    }
+  
     
     case 'See-Recipe' :{
       return {
@@ -50,8 +64,9 @@ const reducer = (state = initialState, action = defaultAction) => {
     case 'Show-Recipes' : { 
       console.log('RECIPES FETCHED')
       return{...state,recipes:action.value} 
-    }
-    
+    } 
+
+   
     default: {
       // return state;
       // Dans le cas où on ne comprend pas quelle est l'action à
