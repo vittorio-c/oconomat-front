@@ -5,7 +5,7 @@ const initialState = {
   inputValueLastName:{},
   inputValueEmail:{},
   inputValueMDP:{},
-  inputValueConfirmMDP:{},
+  inputValueMDPConfirm:{},
   inputValues: []
   
 
@@ -30,15 +30,17 @@ const reducer = (state = initialState, action = defaultAction) => {
 
     case 'Insert-Input-MDP': { 
       return {...state,inputValueMDP:{password:action.value}}
-    } 
+    }  
 
-    case 'Insert-Input-MDP-Confirm': {
-      return {...state,inputValueConfirmMDP:{passwordConfirm:action.value}}
+    case 'Confirm-Input-MDP': {
+      return {...state,inputValueMDPConfirm:{passwordConfirm:action.value}}
     }
+
+   
     case 'Submit-Form': { 
       
       return {...state,
-        inputValues:[state.inputValueFirstName,state.inputValueLastName,state.inputValueEmail,state.inputValueMDP,state.inputValueConfirmMDP]}
+        inputValues:[state.inputValueFirstName,state.inputValueLastName,state.inputValueEmail,state.inputValueMDP]}
         
     } 
     

@@ -1,17 +1,18 @@
 import React from 'react' 
 import './SignUp.sass';
+import axios from 'axios'
 
 import {connect} from 'react-redux';
 
-const InscriptionStatic =({insertInputFirstName,insertInputLastName,insertInputEmail,insertMDP,insertMDPConfirm,onFormSubmitManipulateArray,inputValueFirstName,inputValueLastName,inputValueEmail,inputValueMDP,inputValueConfirmMDP})=>{
+const InscriptionStatic =({insertInputFirstName,insertInputLastName,insertInputEmail,insertMDP,insertMDPConfirm,onFormSubmitManipulateArray,inputValueFirstName,inputValueLastName,inputValueEmail,inputValueMDP,inputValueMDPConfirm})=>{
   return (
-    <body className ="Site">
-          <div className="Site-content">
+    
+          <div className="Site-content Site">
               <main className="main">
-                  <InscriptionStaticPage insertInputFirstName={insertInputFirstName} insertInputLastName={insertInputLastName} insertInputEmail={insertInputEmail} insertMDP={insertMDP} insertMDPConfirm={insertMDPConfirm} onFormSubmitManipulateArray={()=>{onFormSubmitManipulateArray(inputValueFirstName,inputValueLastName,inputValueEmail,inputValueMDP,inputValueConfirmMDP, event)}}/>
+                  <InscriptionStaticPage insertInputFirstName={insertInputFirstName} insertInputLastName={insertInputLastName} insertInputEmail={insertInputEmail} insertMDP={insertMDP} insertMDPConfirm={insertMDPConfirm} onFormSubmitManipulateArray={()=>{onFormSubmitManipulateArray(inputValueFirstName,inputValueLastName,inputValueEmail,inputValueMDP,inputValueMDPConfirm, event)}}/>
               </main>
           </div>
-      </body>
+      
     )
 } 
 
@@ -32,10 +33,12 @@ const InscriptionStaticPage =({insertInputFirstName,insertInputLastName,insertIn
               </div> 
               <div className="form-group">
                 <input type="password" onChange={insertMDP} className="form-control rounded-left rounded-right" name="password" placeholder ='Your password'/>
-              </div>
+              </div> 
+
               <div className="form-group">
-                <input type="password" onChange={insertMDPConfirm} className="form-control rounded-left rounded-right mb-4" name="password-confirm" placeholder ='Confirm your password'/>
+                <input type="password" onChange={insertMDPConfirm} className="form-control rounded-left rounded-right" name="passwordConfirm" placeholder ='confirm password'/>
               </div>
+              
               <button className="validation btn" type="submit">Envoyer</button>
               </div>
           </form> 
@@ -60,8 +63,8 @@ const connectionStrategies = connect(
         inputValueLastName:state.inputValueLastName,
         inputValueEmail:state.inputValueEmail,
         inputValueMDP:state.inputValueMDP,
-        inputValueConfirmMDP:state.inputValueConfirmMDP,
-        newObj:state.newObj
+        inputValueMDPConfirm:state.inputValueMDPConfirm
+        
        
       };
     },
@@ -91,17 +94,49 @@ const connectionStrategies = connect(
          const action={type:'Insert-Input-MDP',value:event.target.value} 
          dispatch(action)
        },
-
-       insertMDPConfirm:(event) => { 
-        console.log('change detected')
-        const action={type:'Insert-Input-MDP-Confirm',value:event.target.value} 
-        dispatch(action)
-      },
-      onFormSubmitManipulateArray:(inputValueFirstName,inputValueLastName,inputValueEmail,inputValueMDP,inputValueConfirmMDP,event) => { 
+       insertMDPConfirm:(event) =>{
+         const action={type:'Confirm-Input-MDP',value:event.target.value}
+         dispatch(action);
+       },
+       
+// var inputValues = new FormData();
+      
+      onFormSubmitManipulateArray:(inputValueFirstName,inputValueLastName,inputValueEmail,inputValueMDP,inputValueMDPConfirm,event) => { 
         event.preventDefault();
-        console.log([
-          inputValueFirstName,inputValueLastName,inputValueEmail,inputValueMDP,inputValueConfirmMDP
-        ])
+        var inputValues=[inputValueFirstName,inputValueLastName,inputValueEmail,inputValueMDP,inputValueMDPConfirm];
+        console.log(inputValues);
+        var stringifyInput=JSON.stringify(inputValues);
+        var formData= new FormData();
+        formData.set('firstname',inputValueFirstName.firstname);
+        formData.set('lastname',inputValueLastName.lastname);
+        formData.set('email',inputValueEmail.email);
+        formData.set('password',inputValueMDP.password);
+        formData.set('passwordConfirm',inputValueMDPConfirm.passwordConfirm)
+       
+        //console.log(inputValues);
+        //console.log(inputValueFirstName);
+        //console.log(inputValueLastName);
+        //console.log(inputValueEmail);
+        //console.log(inputValueMDP);
+
+        //var request = new XMLHttpRequest();
+       // request.open("POST", "http://api.oconomat.fr/api/register");
+        //request.send(formData);
+
+        axios({
+          method: 'post',
+          url: 'https://api.oconomat.fr/api/register',
+          data: formData
+      })
+      .then(function (reponse) {
+          //On traite la suite une fois la réponse obtenue 
+          console.log(reponse);
+      })
+      .catch(function (erreur) {
+          //On traite ici les erreurs éventuellement survenues
+          console.log(erreur);
+      });
+        
        
         
        

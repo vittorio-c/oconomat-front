@@ -21,9 +21,9 @@ import './app.sass';
 
 
 const AppContainer=() => {
+  
     return (
-      
-        <Router>
+        <div>
         <HeaderSuper />
         <div id="app">
         <Switch>
@@ -41,8 +41,11 @@ const AppContainer=() => {
         </Switch>
         </div>
         <Footer />
-      </Router>
+      </div>
+     
     )
+
+    
 }
 
 export default AppContainer;
