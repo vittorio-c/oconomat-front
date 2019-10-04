@@ -5,9 +5,9 @@ import { Button,Nav,Navbar } from 'react-bootstrap';
 const HeaderSuper =() =>{
     return  <div className="Header sticky-top">
 
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="dark" expand="lg" variant="dark">
         <Navbar.Brand href="/">Oconomat</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav navbar-expand-xl" />
         <Navbar.Collapse id="basic-navbar-nav" className ='clearfix'>
 
             <Nav  className="mr-auto">
@@ -17,7 +17,6 @@ const HeaderSuper =() =>{
                 <Nav.Link href="/recipes">Mes recettes</Nav.Link>
                 <Nav.Link href="/MarketList">Ma liste de course</Nav.Link>
                 <Nav.Link href="/recipe">Mes recettes</Nav.Link>
-                <Nav.Link href="/signup">S'inscrire</Nav.Link>
                 <Nav.Link href="/contact">Contact</Nav.Link>
                 
                 <div  className ='btn-group text-center align-bottom float-right'>

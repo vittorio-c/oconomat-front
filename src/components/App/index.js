@@ -13,6 +13,7 @@ import Recipe from 'src/components/Recipe';
 import Account from 'src/components/Account';
 import HeaderSuper from 'src/components/HeaderSuper';
 import Footer from 'src/components/Footer';
+import TestLog from 'src/components/TestLog';
 
 
 // Styles and assets
@@ -24,23 +25,24 @@ const AppContainer=() => {
     return (
       
         <Router>
-        <HeaderSuper />
         <div id="app">
-        <Switch>
-          <Route exact path="/" component={Home} /> 
-          <Route exact path="/contact" component={Contact} />
-          <Route exact path="/Objectives" component={Objectives} />
-          <Route exact path="/Recipes" component={Recipes} />
-          <Route exact path="/MarketList" component={MarketList} />
-          <Route exact path="/SignIn" component={SignIn} />
-          <Route exact path="/SignUp" component={SignUp} />
-          <Route exact path="/ContactLogged" component={ContactLogged} />
-          <Route exact path="/Recipe" component={Recipe} /> 
-          <Route exact path="/Account" component={Account} />
-          <Route component={NoFound} />
-        </Switch>
-        </div>
+        <HeaderSuper />
+            <Switch>
+              <Route exact path="/" component={Home} /> 
+              <Route exact path="/test" component={TestLog} /> 
+              <Route exact path="/contact" component={Contact} />
+              <Route exact path="/Objectives" component={Objectives} />
+              <Route exact path="/Recipes" component={Recipes} />
+              <Route exact path="/MarketList" component={MarketList} />
+              <Route exact path="/SignIn" component={SignIn} />
+              <Route exact path="/SignUp" component={SignUp} />
+              <Route exact path="/ContactLogged" component={ContactLogged} />
+              <Route exact path="/Recipe" component={Recipe} /> 
+              <Route exact path="/Account" component={Account} />
+              <Route component={NoFound} />
+            </Switch>
         <Footer />
+        </div>
       </Router>
     )
 }
