@@ -6,13 +6,11 @@ import './Home.sass'
 
 const Home = () => {
     return (
-        <body className ="Site">
           <div className="Site-content">
               <main className="main">
                   <HomePage/>
               </main>
           </div>
-      </body>
     )
 }
 
@@ -45,14 +43,14 @@ const Steps = () => {
             </thead>
                 <tbody>
                     <tr>
-                    <th scope="row" className = "text-warning font-weight-bold display-4">1</th>
-                    <th scope="col" className ="font-weight-bold">Oconomat vous propose des petits-déjeuners, des déjeuners et des dîners pendant 7 jours.</th>
+                        <th scope="row" className = "text-warning font-weight-bold display-4">1</th>
+                        <th scope="col" className ="font-weight-bold">Oconomat vous propose des petits-déjeuners, des déjeuners et des dîners pendant 7 jours.</th>
                     </tr>
                     <tr>
-                    <th scope="row" className = "text-warning font-weight-bold display-4" >2</th>
-                    <td ><span className ="font-weight-bold">Faites vos courses.</span>
-                    <th className="font-italic">Oconomat vous fourni une liste de course déjà tout prête avec les ingredients dont vous aurez besoin pour la semaine.</th>
-                    </td>
+                        <th scope="row" className = "text-warning font-weight-bold display-4" >2</th>
+                        <td ><span className ="font-weight-bold">Faites vos courses.</span>
+                            <th className="font-italic">Oconomat vous fourni une liste de course déjà tout prête avec les ingredients dont vous aurez besoin pour la semaine.</th>
+                        </td>
                     </tr>
                     <tr>
                     <th scope="row" className = "text-warning font-weight-bold display-4">3</th>

@@ -1,9 +1,6 @@
 
 /* import './style.sass' */
 import React from 'react';
-import HeaderMyAccount from 'src/components/HeaderMyAccount';
-
-import Footer from 'src/components/Footer';
 
 /* Import du fichier Sass */
 import './Account.sass'

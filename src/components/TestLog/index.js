@@ -88,9 +88,29 @@ const connectionStrategies = connect(
               }).catch((error)=>{
                 console.log(error)
               }); 
+           /* {
+    "email":"moreno.franck@gmail.com",
+    "password":"titan"
+}  */
+          /*
+          const action={
+              type:'VALID_FORM',
+              passwordState: event.target.value
+            };
+            dispatch(action);
+            */
         }
       }
     }
+    /* // Send a POST request
+axios({
+  method: 'post',
+  url: '/user/12345',
+  data: {
+    firstName: 'Fred',
+    lastName: 'Flintstone'
+  }
+}); */
   )
   
   // Étape 2 : on applique ces stratégies à un composant spécifique.
