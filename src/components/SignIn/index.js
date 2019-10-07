@@ -64,7 +64,7 @@ const connectionStrategies = connect(
           event.preventDefault(); 
           console.log('hello world');
           var formValues=[emailState,passwordState];
-          var formValuesJson=JSON.stringify(formValues);
+          
           
           var formData = new FormData();
           console.log(emailState.email);
@@ -86,6 +86,7 @@ const connectionStrategies = connect(
               }).then((response)=>{
                 console.log(response)
               }).catch((error)=>{
+                console.log('failure')
                 console.log(error)
               }); 
         }
