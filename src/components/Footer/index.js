@@ -2,7 +2,7 @@ import React from 'react';
 import './Footer.sass';
 
 const Footer =() =>{
-    return <div className="footer fixed-bottom"> 
+    return <div className="footer sticky-bottom"> 
 
        
             <div className="row ">

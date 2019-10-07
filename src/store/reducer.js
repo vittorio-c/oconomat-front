@@ -10,8 +10,9 @@ const initialState = {
   inputValueEmail:{},
   inputValueMDP:{},
   inputValueMDPConfirm:{},
-  inputValues: []
-  
+  inputValues: [],
+  checkedBox : false,
+  buttonClass : "btn btn-success btn-lg btn-block fa fa-square",
 
 };
 
@@ -105,7 +106,13 @@ const reducer = (state = initialState, action = defaultAction) => {
           console.log('RECIPES FETCHED')
           return{...state,recipes:action.value} 
         }
-    
+
+       /*   case 'CHECKED' : {
+          console.log("cliqué !")
+          return {
+            ...state,
+          }
+        }   */
     default: {
       // return state;
       // Dans le cas où on ne comprend pas quelle est l'action à
