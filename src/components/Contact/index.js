@@ -8,13 +8,14 @@ import './Contact.sass'
 
 const Contact = () => {
     return (
-        <body className ="Site">
+          <main>
             <div className="Site-content">
                 <main className="main">
                     <Contactpage/>
                 </main>
             </div>
-        </body>
+        </main>
+      
             
     )
 } 

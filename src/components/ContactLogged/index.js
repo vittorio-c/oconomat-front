@@ -9,13 +9,13 @@ import './ContactLogged.sass'
 
 const ContactLogged = () => {
     return (
-        <body className ="Site">
+    
             <div className="Site-content">
                 <main className="main">
                     <ContactLoggedMain/>
                 </main>
             </div>
-        </body>
+       
             
     )
 } 

@@ -36,7 +36,8 @@ const connectionStrategies = connect(
       //console.log(state.recipes);
       return {
         emailState:state.emailState,
-        passwordState:state.passwordState
+        passwordState:state.passwordState,
+        currentUser:state.currentUser
       };
     },
   
@@ -84,7 +85,10 @@ const connectionStrategies = connect(
                  headers:{'content-type':'application/json'}
                  
               }).then((response)=>{
-                console.log(response)
+                const action={type:'Persist-User',value:response.data};
+                dispatch(action) 
+                ownProps.history.push('/Account')
+                
               }).catch((error)=>{
                 console.log(error)
               }); 

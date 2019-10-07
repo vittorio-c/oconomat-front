@@ -10,7 +10,8 @@ const initialState = {
   inputValueEmail:{},
   inputValueMDP:{},
   inputValueMDPConfirm:{},
-  inputValues: []
+  inputValues: [],
+  currentUser:{}
   
 
 };
@@ -88,6 +89,10 @@ const reducer = (state = initialState, action = defaultAction) => {
             emailState:state.emailState
           }
         } 
+
+      case 'Persist-User' : {
+        return{...state,currentUser:action.value}
+      }
         case 'UPDATE_INPUT_VALUE': {
           return {
             ...state,

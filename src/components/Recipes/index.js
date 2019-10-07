@@ -9,13 +9,14 @@ import axios from 'axios'
 
 const RecettesStatic = ({recipes,findRecipe}) => {
     return (
-        <body className ="Site">
+        <main>
             <div className="Site-content">
                 <main className="main">
                     <RecipesMain recipes={recipes} findRecipe={findRecipe}/>
                 </main>
             </div>
-        </body>
+        </main>
+       
     )
 } 
 

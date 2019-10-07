@@ -104,33 +104,27 @@ const connectionStrategies = connect(
       onFormSubmitManipulateArray:(inputValueFirstName,inputValueLastName,inputValueEmail,inputValueMDP,inputValueMDPConfirm,event) => { 
         event.preventDefault();
         var inputValues=[inputValueFirstName,inputValueLastName,inputValueEmail,inputValueMDP,inputValueMDPConfirm];
-        console.log(inputValues);
+       
         var stringifyInput=JSON.stringify(inputValues);
         var formData= new FormData();
+        console.log('hello world')
         formData.set('firstname',inputValueFirstName.firstname);
         formData.set('lastname',inputValueLastName.lastname);
         formData.set('email',inputValueEmail.email);
         formData.set('password',inputValueMDP.password);
         formData.set('passwordConfirm',inputValueMDPConfirm.passwordConfirm)
        
-        //console.log(inputValues);
-        //console.log(inputValueFirstName);
-        //console.log(inputValueLastName);
-        //console.log(inputValueEmail);
-        //console.log(inputValueMDP);
-
-        //var request = new XMLHttpRequest();
-       // request.open("POST", "http://api.oconomat.fr/api/register");
-        //request.send(formData);
 
         axios({
           method: 'post',
           url: 'https://api.oconomat.fr/api/register',
           data: formData
       })
-      .then(function (reponse) {
+      .then(function (response) {
           //On traite la suite une fois la réponse obtenue 
-          console.log(reponse);
+          console.log('hello world')
+          console.log(response)
+          
       })
       .catch(function (erreur) {
           //On traite ici les erreurs éventuellement survenues

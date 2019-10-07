@@ -7,13 +7,14 @@ import './Objectives.sass'
 
 const Objectives = () => {
     return (
-        <body className ="Site">
+            <main>
                 <div className="Site-content">
                     <main className="main">
                         <ObjectivesForm />
                     </main>
                 </div>
-            </body>
+            </main>
+           
         
     )
 } 
