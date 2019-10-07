@@ -2,14 +2,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import data from './data';
-console.log(data)
 
 
 
-const Ingredients = ({doCheck,buttonClass,textClass}) => {
+
+const Ingredients = ({doCheck,buttonClass,textClass,stockBase,...ingredient}) => {
 
     return(
         data.map(function(ingredient) {
+            
             return (
 
                 <tr className = {textClass} key = {ingredient.position}>
@@ -26,13 +27,12 @@ const Ingredients = ({doCheck,buttonClass,textClass}) => {
                             {ingredient.measure}
                     </td>
                     <td>
-                        <button onClick= {doCheck} className={ingredient.done+' '+buttonClass }/>
+                        <button onClick= {doCheck} className={buttonClass}/>
                     </td>
                 </tr>
                 
             )
-    })
-
+        })
 )
 }
 
@@ -42,7 +42,7 @@ const Ingredients = ({doCheck,buttonClass,textClass}) => {
 
 
 
-const MarketList = ({doCheck,buttonClass,textClass}) => {
+const MarketList = ({doCheck,buttonClass,textClass,stockBase}) => {
     return (
             <div className="Site-content">
                 <main className="main">
@@ -50,7 +50,7 @@ const MarketList = ({doCheck,buttonClass,textClass}) => {
                 <h2 className="pt-4 pb-4 text-center font-weight-bolder text-warning">Ma liste de course</h2>
                 <table className="table ">
                     <thead className="thead-light">
-                        <tr>
+                        <tr className = {textClass}>
                             <th scope="col">#</th>
                             <th scope="col">Nom</th>
                             <th scope="col">Quantité</th>
@@ -59,7 +59,7 @@ const MarketList = ({doCheck,buttonClass,textClass}) => {
                     </thead>
                     <tbody>
                    
-                <Ingredients doCheck = {doCheck} buttonClass = {buttonClass} textClass = {textClass}/>
+                <Ingredients doCheck = {doCheck} buttonClass = {buttonClass} textClass = {textClass} stockBase = {stockBase}/>
                         
                     </tbody>
                 </table>
@@ -108,13 +108,20 @@ const connectionStrategies = connect(
     // 2d argument : stratégie d'écriture (dans le state privé global)
     (dispatch,ownProps) => {
       return {
+          stockBase:() => {
+        const action = {
+            type:'STOCK',
+            marketList : {...ingredient}
+        }
+        dispatch(action)
+          },
         doCheck:(event) => {
           event.preventDefault();
-          console.log(event.currentTarget.parentNode);
+          
            const action = {
             type:'CHECKED',
             buttonClass : event.target.className = "btn btn-success btn-lg btn-block fa fa-check-square disabled",
-            textClass :  event.currentTarget.parentNode.parentNode.className = 'bg-secondary'
+            textClass :  event.currentTarget.parentNode.parentNode.className = 'bg-dark text-light'
           }; 
            dispatch(action); 
         }

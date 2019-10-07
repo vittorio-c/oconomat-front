@@ -13,6 +13,8 @@ const initialState = {
   inputValues: [],
   checkedBox : false,
   buttonClass : "btn btn-success btn-lg btn-block fa fa-square",
+  marketList : [],
+  textClass:''
 
 };
 
@@ -107,12 +109,21 @@ const reducer = (state = initialState, action = defaultAction) => {
           return{...state,recipes:action.value} 
         }
 
-       /*   case 'CHECKED' : {
+/*           case 'CHECKED' : {
           console.log("cliqué !")
           return {
             ...state,
+            buttonClass : event.target.className = "btn btn-success btn-lg btn-block fa fa-check-square disabled",
+            textClass :  "modified"
           }
-        }   */
+        }    */
+        case 'STOCK' : {
+          console.log("cliqué !")
+          return {
+            ...state,
+            marketList: {...ingredient}
+          }
+        }  
     default: {
       // return state;
       // Dans le cas où on ne comprend pas quelle est l'action à
