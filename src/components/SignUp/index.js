@@ -26,7 +26,7 @@ const InscriptionStaticPage =({insertInputFirstName,insertInputLastName,insertIn
                 <input type="text" onChange={insertInputLastName} className="form-control rounded-left rounded-right" name="lastname" placeholder ='Your lastname'/>
               </div> 
               <div className="form-group">
-                <input type="text" onChange={insertInputFirstName}className="form-control rounded-left rounded-right" name="firstname" placeholder ='Your firstname'/>
+                <input type="text" onChange={insertInputFirstName} className="form-control rounded-left rounded-right" name="firstname" placeholder ='Your firstname'/>
               </div> 
               <div className="form-group">
                 <input type="email" onChange={insertInputEmail} className="form-control rounded-left rounded-right" name="email" placeholder ='Your email'/>

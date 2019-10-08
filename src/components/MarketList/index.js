@@ -6,11 +6,10 @@ import data from './data';
 
 
 
-const Ingredients = ({doCheck,buttonClass,textClass,stockBase,...ingredient}) => {
+const Ingredients = ({doCheck,buttonClass,textClass,stockBase}) => {
 
     return(
-        data.map(function(ingredient) {
-            
+        data.map(function(ingredient) {   
             return (
 
                 <tr className = {textClass} key = {ingredient.position}>
@@ -58,7 +57,7 @@ const MarketList = ({doCheck,buttonClass,textClass,stockBase}) => {
                         </tr>
                     </thead>
                     <tbody>
-                   
+                    <p>{buttonClass}</p>
                 <Ingredients doCheck = {doCheck} buttonClass = {buttonClass} textClass = {textClass} stockBase = {stockBase}/>
                         
                     </tbody>
@@ -82,6 +81,7 @@ const MarketList = ({doCheck,buttonClass,textClass,stockBase}) => {
                 <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Annuler</button>
                 <button type="button" className="btn btn-danger btn-block">Supprimer la liste</button>
+
                 </div>
                 </div>
                 </div>

@@ -62,18 +62,8 @@ const connectionStrategies = connect(
         },
         submitForm:(emailState,passwordState,event) =>{
           event.preventDefault(); 
-          console.log('hello world');
-          var formValues=[emailState,passwordState];
-          var formValuesJson=JSON.stringify(formValues);
-          
-          var formData = new FormData();
-          console.log(emailState.email);
-          console.log(passwordState.password);
-           formData.set('email',emailState.email)
-           formData.set('password',passwordState.password);
-          
-
                 // Send a POST request
+
             axios({
                  method: 'post',
                  url: 'http://api.oconomat.fr/api/login_check',
@@ -81,8 +71,7 @@ const connectionStrategies = connect(
                    email:emailState.email,
                    password:passwordState.password
                   },
-                 headers:{'content-type':'application/json'}
-                 
+                                 
               }).then((response)=>{
                 console.log(response)
               }).catch((error)=>{

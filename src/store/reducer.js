@@ -12,9 +12,8 @@ const initialState = {
   inputValueMDPConfirm:{},
   inputValues: [],
   checkedBox : false,
-  buttonClass : "btn btn-success btn-lg btn-block fa fa-square",
+  buttonClass : "Coucou c'est lol",
   marketList : [],
-  textClass:''
 
 };
 
@@ -82,7 +81,7 @@ const reducer = (state = initialState, action = defaultAction) => {
             ...state,
             emailState:{email:action.value}
           }
-        } 
+        }
       case 'VALID_FORM' : {
           console.log("Validation du formulaire")
           return {
@@ -109,14 +108,13 @@ const reducer = (state = initialState, action = defaultAction) => {
           return{...state,recipes:action.value} 
         }
 
-/*           case 'CHECKED' : {
+/*            case 'CHECKED' : {
           console.log("cliqué !")
           return {
             ...state,
             buttonClass : event.target.className = "btn btn-success btn-lg btn-block fa fa-check-square disabled",
-            textClass :  "modified"
-          }
-        }    */
+            textClass :  'blabla'}
+        }     */
         case 'STOCK' : {
           console.log("cliqué !")
           return {
