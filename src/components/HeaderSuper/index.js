@@ -8,7 +8,7 @@ import './HeaderSuper.sass';
 
 const HeaderSuperStatic =({getRecipes,helloWorld,disconnectUser}) => {
 
-    if (sessionStorage.jwtToken === ''){
+    if (sessionStorage.jwtToken === '' || sessionStorage.jwtToken === undefined ){
      
         return  <div className="app">
         <nav className="navbar navbar-expand-md navbar-light background-img nav-height">
