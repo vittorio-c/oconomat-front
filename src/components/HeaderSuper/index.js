@@ -9,6 +9,7 @@ import './HeaderSuper.sass';
 const HeaderSuperStatic =({getRecipes,helloWorld,disconnectUser}) => {
 
     if (sessionStorage.jwtToken === ''){
+     
         return  <div className="app">
         <nav className="navbar navbar-expand-md navbar-light background-img nav-height">
             <Link to="/Account"><a className="navbar-brand"><img src="src/ressources/pictures/logoOconomat.png" className="img-fluid d-sm-none d-md-block" alt="Responsive image"></img></a></Link>
@@ -35,7 +36,6 @@ const HeaderSuperStatic =({getRecipes,helloWorld,disconnectUser}) => {
     </div>   
 
     } else
-
     return  <div className="app">
         <nav className="navbar navbar-expand-md navbar-light background-img nav-height">
             <Link to="/Account"><a className="navbar-brand"><img src="src/ressources/pictures/logoOconomat.png" className="img-fluid d-sm-none d-md-block" alt="Responsive image"></img></a></Link>
@@ -123,9 +123,11 @@ const connectionStrategies = connect(
       return {
 
         disconnectUser:()=>{
+            document.location.reload();
             sessionStorage.setItem('firstname','');
             sessionStorage.setItem('id','');
             sessionStorage.setItem('jwtToken','');
+            
         },
         
         helloWorld:() => { 
