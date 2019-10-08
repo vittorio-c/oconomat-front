@@ -78,10 +78,11 @@ const connectionStrategies = connect(
                  sessionStorage.setItem('jwtToken', response.data.payload.token); 
                  sessionStorage.setItem('firstname',response.data.firstname);
                  sessionStorage.setItem('id',response.data.id);
-                 document.location.reload()
+                   
                 //resolve();
                 
-                ownProps.history.push('/Account') 
+                ownProps.history.push('/Account') ;
+                document.location.reload();
               }).catch((error)=>{
                 console.log('failure')
                 console.log(error)
