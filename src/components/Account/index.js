@@ -11,7 +11,7 @@ const AccountInfoStatic = ({currentUser}) => {
    
     return (
               <main> 
-                  {console.log(currentUser)}
+                  {console.log(sessionStorage)}
                 <div className="Site-content">
                     <main className="main">
                         <AccountInfo currentUser={currentUser} />
@@ -25,16 +25,16 @@ const AccountInfoStatic = ({currentUser}) => {
 const AccountInfo = ({currentUser}) => ( 
 
     <div className="AccountInfoMain"> 
-    {console.log(currentUser)}
+    
       <h2 className="MyAccount-title">Mon compte</h2>
       <div className="AccountBackground">
         <form>
           <div className="Account-info row pt-4">
             <div className="col-lg-10 container">
                 <img src ='src/ressources/pictures/default-avatar.png' className ='avatar-img img-fluid rounded float-left'></img>
-                <p className='user mt-2 mb-1'>User : <span>John Doe</span></p>
+                <p className='user mt-2 mb-1'>User : <span> {sessionStorage.getItem('firstname')} </span> </p>
                 <p className='password mb-1'>Password : <span>*********</span></p>
-                <p className ='objectif mb-1'>Objectif : <span>100 €</span></p>
+                <p className ='objectif mb-1'>Objectif : <span>0 £</span></p>
                 <button className='change-password btn'>Changer mot de passe</button> 
             </div> 
           </div>
@@ -46,7 +46,7 @@ const AccountInfo = ({currentUser}) => (
 const connectionStrategies = connect(
     // 1er argument : stratégie de lecture (dans le state privé global)
     (state, ownProps) => { 
-     
+     console.log(state);
       console.log(state.currentUser)
       //console.log(state.recipes);
       return {

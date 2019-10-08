@@ -22,6 +22,7 @@ const RecettesStatic = ({recipes,findRecipe}) => {
 
 const RecipesMain = ({recipes,findRecipe}) => {
     return <div className="recipes-main">
+      
         <h2 className="recipes-title col-sm-6 offset-sm-3 ">Liste de vos Recettes Pour la Semaine</h2>  
         <div className="col-xs-12 col-md-8 offset-md-2 recipe-box">
         <Carousel> 
@@ -30,7 +31,7 @@ const RecipesMain = ({recipes,findRecipe}) => {
             <img className="d-block w-100 max-height" src="src/ressources/pictures/pancakes.jpg"/>
         <Carousel.Caption>
         <h3 className="recipes-name-title">Pancakes</h3> 
-        <button className="details-btn btn" onClick={()=>{findRecipe(index,recipes)}}> <Link to="/Recipe">  <a >Details</a> </Link> </button> 
+        <Link to="/Recipe"> <button className="details-btn btn" onClick={()=>{findRecipe(index,recipes)}}>   <a >Details</a>  </button> </Link>
         <p className="text-black">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
         </Carousel.Item>
@@ -68,7 +69,7 @@ const RecipesMain = ({recipes,findRecipe}) => {
 const connectionStrategies = connect(
   // 1er argument : stratégie de lecture (dans le state privé global)
   (state, ownProps) => { 
-    console.log(state.recipes)
+    
     
     //console.log(state.recipes);
     return {
@@ -81,13 +82,16 @@ const connectionStrategies = connect(
   (dispatch, ownProps) => {
     return {
       
-      findRecipe:(id,recipes) =>{
-        const url = recipes[id] 
-        axios.get(url).then((response)=>{
+      findRecipe:(id,recipes) =>{ 
+        const url = recipes[id].url;
+        var token=sessionStorage.getItem('jwtToken')
+        axios.get(url,{headers:{'Authorization':`bearer ${token}`}}).then((response)=>{ 
           const action={type:'See-Recipe',value:response};
           dispatch(action);
         })
       }
+      
+    
       
     };
   },

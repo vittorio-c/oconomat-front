@@ -2,6 +2,7 @@ import React from 'react'
 
 import { connect } from 'react-redux';
 import  axios  from 'axios';
+import { resolve } from 'path';
 
 
 const TestLog =({submitForm,submitEmail,submitPassword,emailState,passwordState}) => {
@@ -63,12 +64,12 @@ const connectionStrategies = connect(
         },
         submitForm:(emailState,passwordState,event) =>{
           event.preventDefault(); 
-          console.log('hello world');
+          //console.log('hello world');
           var formValues=[emailState,passwordState];
           var formValuesJson=JSON.stringify(formValues);
           
           var formData = new FormData();
-          console.log(emailState.email);
+         // console.log(emailState.email);
           console.log(passwordState.password);
            formData.set('email',emailState.email)
            formData.set('password',passwordState.password);
@@ -85,8 +86,14 @@ const connectionStrategies = connect(
                  headers:{'content-type':'application/json'}
                  
               }).then((response)=>{
+                console.log(response);
                 const action={type:'Persist-User',value:response.data};
-                dispatch(action) 
+                dispatch(action)
+                 sessionStorage.setItem('jwtToken', response.data.payload.token); 
+                 sessionStorage.setItem('firstname',response.data.firstname);
+                 sessionStorage.setItem('id',response.data.id);
+
+                resolve();
                 ownProps.history.push('/Account')
                 
               }).catch((error)=>{
