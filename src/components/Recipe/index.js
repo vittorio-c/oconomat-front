@@ -54,7 +54,7 @@ const connectionStrategies = connect(
     // 1er argument : stratégie de lecture (dans le state privé global)
     (state, ownProps) => { 
      
-      
+      console.log(state.recipe);
       //console.log(state.recipes);
       return {
         recipes:state.recipes,

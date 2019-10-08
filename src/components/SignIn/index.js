@@ -2,6 +2,7 @@ import React from 'react'
 
 import { connect } from 'react-redux';
 import  axios  from 'axios';
+import { resolve } from 'path';
 
 
 const TestLog =({submitForm,submitEmail,submitPassword,emailState,passwordState}) => {
@@ -36,7 +37,8 @@ const connectionStrategies = connect(
       //console.log(state.recipes);
       return {
         emailState:state.emailState,
-        passwordState:state.passwordState
+        passwordState:state.passwordState,
+        currentUser:state.currentUser
       };
     },
   
@@ -71,7 +73,16 @@ const connectionStrategies = connect(
                   },
                                  
               }).then((response)=>{
-                console.log(response)
+                console.log(response);
+                const action={type:'Persist-User',value:response.data};
+                dispatch(action)
+                 sessionStorage.setItem('jwtToken', response.data.payload.token); 
+                 sessionStorage.setItem('firstname',response.data.firstname);
+                 sessionStorage.setItem('id',response.data.id);
+
+                resolve();
+                ownProps.history.push('/Account')
+                
               }).catch((error)=>{
                 console.log('failure')
                 console.log(error)

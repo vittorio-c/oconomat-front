@@ -3,7 +3,8 @@
 // de React !
 import { createStore } from 'redux';
 
-import reducer from 'src/store/reducer';
+import reducer from 'src/store/reducer'; 
+
 
 // On crée LE store de CETTE application. Un castor sympa :)
 const kastore = createStore(

@@ -14,6 +14,7 @@ const initialState = {
   checkedBox : false,
   buttonClass : "Coucou c'est lol",
   marketList : [],
+  currentUser: {}
 
 };
 
@@ -90,6 +91,10 @@ const reducer = (state = initialState, action = defaultAction) => {
             emailState:state.emailState
           }
         } 
+
+      case 'Persist-User' : {
+        return{...state,currentUser:action.value}
+      }
         case 'UPDATE_INPUT_VALUE': {
           return {
             ...state,
