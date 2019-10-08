@@ -62,8 +62,6 @@ const connectionStrategies = connect(
         },
         submitForm:(emailState,passwordState,event) =>{
           event.preventDefault(); 
-                // Send a POST request
-
             axios({
                  method: 'post',
                  url: 'http://api.oconomat.fr/api/login_check',
@@ -75,6 +73,7 @@ const connectionStrategies = connect(
               }).then((response)=>{
                 console.log(response)
               }).catch((error)=>{
+                console.log('failure')
                 console.log(error)
               }); 
         }
