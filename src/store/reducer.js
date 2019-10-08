@@ -3,7 +3,6 @@ const initialState = {
   recipe:[],
   emailState:'',
   passwordState:'',
-  connectedUser : false,
   tokkenUser :{},
   inputValueFirstName:{},
   inputValueLastName:{},
@@ -11,8 +10,6 @@ const initialState = {
   inputValueMDP:{},
   inputValueMDPConfirm:{},
   inputValues: [],
-  checkedBox : false,
-  buttonClass : "Coucou c'est lol",
   marketList : [],
   currentUser: {}
 

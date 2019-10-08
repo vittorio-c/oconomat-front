@@ -4,14 +4,13 @@ import { connect } from 'react-redux';
 import  axios  from 'axios';
 import { resolve } from 'path';
 
-
 const TestLog =({submitForm,submitEmail,submitPassword,emailState,passwordState}) => {
 
     return(
           <div className="Site-content">
               <main className="main">
               <div className ='food-background mt-3'>
-              <form action='/' method ='post' className="d-flex flex-column" onSubmit={()=>{submitForm(emailState,passwordState,event)}} >
+              <form action='#' method ='post' className="d-flex flex-column" onSubmit={()=>{submitForm(emailState,passwordState,event)}} >
                   
                   <div className="formBlock">
                   <h2 className="connection-title">Connexion</h2>
@@ -63,7 +62,7 @@ const connectionStrategies = connect(
             dispatch(action);
         },
         submitForm:(emailState,passwordState,event) =>{
-          event.preventDefault(); 
+           event.preventDefault();  
             axios({
                  method: 'post',
                  url: 'http://api.oconomat.fr/api/login_check',
@@ -73,16 +72,14 @@ const connectionStrategies = connect(
                   },
                                  
               }).then((response)=>{
-                console.log(response);
+                /* console.log(response); */
                 const action={type:'Persist-User',value:response.data};
                 dispatch(action)
                  sessionStorage.setItem('jwtToken', response.data.payload.token); 
                  sessionStorage.setItem('firstname',response.data.firstname);
                  sessionStorage.setItem('id',response.data.id);
-
                 resolve();
                 ownProps.history.push('/Account')
-                
               }).catch((error)=>{
                 console.log('failure')
                 console.log(error)

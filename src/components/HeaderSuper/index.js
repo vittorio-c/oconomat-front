@@ -7,7 +7,34 @@ import './HeaderSuper.sass';
 
 
 const HeaderSuperStatic =({getRecipes,helloWorld,disconnectUser}) => {
-   
+
+    if (sessionStorage.jwtToken === ''){
+        return  <div className="app">
+        <nav className="navbar navbar-expand-md navbar-light background-img nav-height">
+            <Link to="/Account"><a className="navbar-brand"><img src="src/ressources/pictures/logoOconomat.png" className="img-fluid d-sm-none d-md-block" alt="Responsive image"></img></a></Link>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse margin-bottom" id="navbarNav">
+                <ul className="navbar-nav"> 
+                    <li className="nav-item">
+                        <Link to="/"> <nav> <a className="nav-link btn btn-default"> <button class="btn btn-small btn-info"> Accueil </button></a> </nav> </Link>
+                    </li>
+                    <li className="nav-item">
+                    <Link to="/ContactLogged"> <nav><a className="nav-link btn btn-default"> <button class="btn btn-small btn-info"> Contact </button> </a> </nav></Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to="/SignIn"> <nav><a className="nav-link btn btn-default"> <button class="btn btn-small btn-info">  Connexion </button> </a> </nav></Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to="/SignUp"> <nav><a className="nav-link btn btn-default"> <button class="btn btn-small btn-info"> Inscription </button> </a> </nav> </Link>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>   
+
+    } else
 
     return  <div className="app">
         <nav className="navbar navbar-expand-md navbar-light background-img nav-height">
@@ -17,7 +44,7 @@ const HeaderSuperStatic =({getRecipes,helloWorld,disconnectUser}) => {
             </button>
             <div className="collapse navbar-collapse margin-bottom" id="navbarNav">
                 <ul className="navbar-nav"> 
-                <li className="nav-item">
+                    <li className="nav-item">
                         <Link to="/"> <nav> <a className="nav-link btn btn-default"> <button class="btn btn-small btn-info"> Accueil </button></a> </nav> </Link>
                     </li>
                  
@@ -28,7 +55,7 @@ const HeaderSuperStatic =({getRecipes,helloWorld,disconnectUser}) => {
                         <Link to="/Recipes"> <nav> <a className="nav-link btn btn-default" > <button class="btn btn-small btn-info" onClick={getRecipes}> Mes recettes </button> </a> </nav> </Link> 
                     </li>
                     <li className="nav-item">
-                       <Link to="/MarketList"> <nav><a className="nav-link btn btn-default"> <button class="btn btn-small btn-info">  Ma liste de course </button> </a> </nav> </Link>
+                       <Link to="/MarketList"> <nav><a className="nav-link btn btn-default"> <button class="btn btn-small btn-info"> Ma liste de course</button> </a> </nav> </Link>
                     </li>
                     <li className="nav-item">
                        <Link to="/"> <nav><a className="nav-link btn btn-default"> <button class="btn btn-small btn-info" onClick={disconnectUser}> Deconnexion </button> </a> </nav> </Link> 
@@ -38,13 +65,6 @@ const HeaderSuperStatic =({getRecipes,helloWorld,disconnectUser}) => {
                     </li>
                     <li className="nav-item">
                         <Link to="/ContactLogged"> <nav><a className="nav-link btn btn-default"> <button class="btn btn-small btn-info"> Contact </button> </a> </nav></Link>
-                    </li>
-
-                    <li className="nav-item">
-                        <Link to="/SignIn"> <nav><a className="nav-link btn btn-default"> <button class="btn btn-small btn-info">  Connexion </button> </a> </nav></Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/SignUp"> <nav><a className="nav-link btn btn-default"> <button class="btn btn-small btn-info"> Inscription </button> </a> </nav> </Link>
                     </li>
                 </ul>
             </div>
