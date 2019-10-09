@@ -4,68 +4,32 @@ import {connect} from 'react-redux';
 import { BrowserRouter as Router, Route,Switch,Link,Redirect} from "react-router-dom";
 import axios from 'axios'
 import './HeaderSuper.sass';
-
+/* onClick={() =>{document.location.reload() } } */
 
 const HeaderSuperStatic =({getRecipes,disconnectUser}) => {
 
     if (sessionStorage.jwtToken === '' || sessionStorage.jwtToken === undefined ){
      
-        return <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Oconomat</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li className="nav-item">
-                <Link to="/"> <nav> <a className="nav-link"> Accueil</a> </nav> </Link>
-            </li>
-            <li className="nav-item">
-                <Link to="/Contact"> <nav><a className="nav-link">Contact</a> </nav></Link>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <Link to="/SignUp"> <nav> <button class="btn btn-outline-success my-2 my-sm-0"> Inscription </button> </nav></Link>
-            <Link to="/SignIn"> <nav> <button class="btn btn-outline-success my-2 my-sm-0"> Connexion </button> </nav></Link>
-          </form>
-        </div>
-      </nav>  
+        return <div class="sticky-top d-flex justify-content-around navbar-dark bg-dark ">
+            
+            <Link to="/">  <button className=" btn fa fa-home fa-2x my-1"></button>  </Link>
+            <Link to="/Contact"> <button className="btn fa fa-phone fa-2x my-1"> </button></Link>
+            <Link to="/SignUp"> <button class="btn fa fa-file-signature fa-2x my-1"></button></Link>
+            <Link to="/SignIn">  <button class="btn fa fa-plug fa-2x my-1"> </button></Link>
+      </div>  
 
     } else
-    return <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Oconomat</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li className="nav-item">
-            <Link to="/"> <nav> <a className="nav-link"> Accueil</a> </nav> </Link>
-        </li>
-        <li className="nav-item">
-            <Link to="/Contact"> <nav><a className="nav-link">Contact</a> </nav></Link>
-        </li>
-        <li className="nav-item">
-        <Link to="/Objectives"> <nav> <a className="nav-link btn btn-default">Mes objectifs</a> </nav> </Link>
-        </li>
-        <li className="nav-item">
-            <Link to="/Recipes"> <nav> <a onClick={getRecipes} className="nav-link btn btn-default" >  Mes recettes </a> </nav> </Link> 
-        </li>
-        <li className="nav-item">
-        <Link to="/MarketList"> <nav><a className="nav-link "> Ma liste de course </a> </nav> </Link>
-        </li>
-        <li className="nav-item">
-            <Link to="/account"> <nav><a className="nav-link btn btn-default"> Mon Compte </a>  </nav></Link>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-      <Link to="/"> <nav><a className="nav-link btn btn-default"> <button class="btn btn-outline-danger my-2 my-sm-0" onClick={disconnectUser}> Deconnexion </button> </a> </nav> </Link> 
-        
-      </form>
-    </div>
-  </nav>    
+    return <div class="sticky-top d-flex justify-content-around navbar-dark bg-dark">
+
+    <Link to="/"><button className="btn fa fa-home my-1"></button></Link>
+    <Link to="/Contact"> <button className="btn fa fa-phone my-1"></button></Link>
+    <Link to="/Objectives"> <button class="btn fa fa-bullseye my-1"> </button></Link>
+
+    <Link to="/Recipes"> <button onClick={getRecipes} class="btn fa fa-book-open my-1"> </button> </Link> 
+    <Link to="/MarketList"> <button class="btn fa fa-list-ol my-1"> </button></Link>
+    <Link to="/account"> <button class="btn fa fa-cogs my-1"> </button></Link>
+    <Link to="/"> <button onClick={disconnectUser} class="bg-danger btn fa fa-list-ol my-1"> </button> </Link> 
+   </div>
     {/*}
 
         <Navbar bg="dark" expand="lg" variant="dark">
