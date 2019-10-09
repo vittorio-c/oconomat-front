@@ -12,10 +12,10 @@ const HeaderSuperStatic =({getRecipes,disconnectUser}) => {
      
         return <div class="sticky-top d-flex justify-content-around navbar-dark bg-dark ">
             
-            <Link to="/">  <button className=" btn fa fa-home fa-2x my-1"></button>  </Link>
-            <Link to="/Contact"> <button className="btn fa fa-phone fa-2x my-1"> </button></Link>
-            <Link to="/SignUp"> <button class="btn fa fa-file-signature fa-2x my-1"></button></Link>
-            <Link to="/SignIn">  <button class="btn fa fa-plug fa-2x my-1"> </button></Link>
+            <Link to="/">  <button className=" btn btn-light fa fa-home fa-2x my-1"></button>  </Link>
+            <Link to="/Contact"> <button className="btn btn-light fa fa-phone fa-2x my-1"> </button></Link>
+            <Link to="/SignUp"> <button class="btn btn-light fa fa-file-signature fa-2x my-1"></button></Link>
+            <Link to="/SignIn">  <button class="btn btn-light fa fa-plug fa-2x my-1"> </button></Link>
       </div>  
 
     } else
