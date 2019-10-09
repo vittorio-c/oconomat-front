@@ -1,7 +1,7 @@
 /* import './style.sass' */
 import React from 'react';
 import {connect} from 'react-redux';
-import { axios } from 'axios';
+import  axios  from 'axios';
 
 
 /* Import du fichier Sass */
@@ -56,19 +56,19 @@ const connectionStrategies = connect(
           axios({
                method: 'post',
                url: 'http://api.oconomat.fr/api/objectif/menu/generate',
-              /*   headers:{
+              headers:{
                 'Authorization':`bearer ${token}`,
                 }, 
                 data: {
-                  budget:100/* objectivesState.objectives */
+                  budget:57
                 },  
 
-               ).then((response)=>{
+              }).then((response)=>{
                console.log(response); 
-               const action = {
-                type:'ENTER_OBJECTIVES',
-                value : event.target.value
-              };
+               //const action = {
+                //type:'ENTER_OBJECTIVES',
+                //value : event.target.value
+              //};
               dispatch(action)
 
                  
