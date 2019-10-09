@@ -75,14 +75,14 @@ const connectionStrategies = connect(
                 /* console.log(response); */
                 const action={type:'Persist-User',value:response.data};
                 dispatch(action)
-                document.location.reload(); 
+
                  sessionStorage.setItem('jwtToken', response.data.payload.token);
                  sessionStorage.setItem('firstname',response.data.firstname);
                  sessionStorage.setItem('lastname',response.data.lastname);
                  sessionStorage.setItem('id',response.data.id);
                  sessionStorage.setItem('budget',response.data.budget);
                  ownProps.history.push('/Account');
-
+                 document.location.reload(); 
                  
                 
                 //resolve();
