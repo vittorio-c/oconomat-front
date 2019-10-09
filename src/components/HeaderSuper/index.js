@@ -22,7 +22,7 @@ const HeaderSuperStatic =({getRecipes,disconnectUser}) => {
                 <Link to="/"> <nav> <a className="nav-link"> Accueil</a> </nav> </Link>
             </li>
             <li className="nav-item">
-                <Link to="/ContactLogged"> <nav><a className="nav-link">Contact</a> </nav></Link>
+                <Link to="/Contact"> <nav><a className="nav-link">Contact</a> </nav></Link>
             </li>
           </ul>
           <form class="form-inline my-2 my-lg-0">
@@ -45,7 +45,7 @@ const HeaderSuperStatic =({getRecipes,disconnectUser}) => {
             <Link to="/"> <nav> <a className="nav-link"> Accueil</a> </nav> </Link>
         </li>
         <li className="nav-item">
-            <Link to="/ContactLogged"> <nav><a className="nav-link">Contact</a> </nav></Link>
+            <Link to="/Contact"> <nav><a className="nav-link">Contact</a> </nav></Link>
         </li>
         <li className="nav-item">
         <Link to="/Objectives"> <nav> <a className="nav-link btn btn-default">Mes objectifs</a> </nav> </Link>

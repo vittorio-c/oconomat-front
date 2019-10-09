@@ -21,7 +21,7 @@ import './app.sass';
 
 
 const AppContainer=() => {
-  
+  if (sessionStorage.jwtToken === '' || sessionStorage.jwtToken === undefined ){
     return (
       
         <Router>
@@ -30,14 +30,8 @@ const AppContainer=() => {
             <Switch>
               <Route exact path="/" component={Home} /> 
               <Route exact path="/contact" component={Contact} />
-              <Route exact path="/Objectives" component={Objectives} />
-              <Route exact path="/Recipes" component={Recipes} />
-              <Route exact path="/MarketList" component={MarketList} />
               <Route exact path="/SignIn" component={SignIn} />
               <Route exact path="/SignUp" component={SignUp} />
-              <Route exact path="/ContactLogged" component={ContactLogged} />
-              <Route exact path="/Recipe" component={Recipe} /> 
-              <Route exact path="/Account" component={Account} />
               <Route component={NoFound} />
             </Switch>
         <Footer />
@@ -46,6 +40,26 @@ const AppContainer=() => {
     )
 
     
+} else 
+return (
+      
+    <Router>
+    <div id="app">
+    <HeaderSuper />
+        <Switch>
+          <Route exact path="/" component={Home} /> 
+          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/Objectives" component={Objectives} />
+          <Route exact path="/Recipes" component={Recipes} />
+          <Route exact path="/MarketList" component={MarketList} />
+          <Route exact path="/Recipe" component={Recipe} /> 
+          <Route exact path="/Account" component={Account} />
+          <Route component={NoFound} />
+        </Switch>
+    <Footer />
+    </div>
+  </Router>
+)
 }
 
 export default AppContainer;

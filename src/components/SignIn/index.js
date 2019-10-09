@@ -77,6 +77,7 @@ const connectionStrategies = connect(
                 dispatch(action)
                  sessionStorage.setItem('jwtToken', response.data.payload.token); 
                  sessionStorage.setItem('firstname',response.data.firstname);
+                 sessionStorage.setItem('lastname',response.data.lastname);
                  sessionStorage.setItem('id',response.data.id);
                  sessionStorage.setItem('budget',response.data.budget);
                  console.log(sessionStorage.getItem('jwtToken'));
