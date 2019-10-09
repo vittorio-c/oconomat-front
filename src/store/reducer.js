@@ -11,8 +11,8 @@ const initialState = {
   inputValueMDPConfirm:{},
   inputValues: [],
   marketList : [],
-  currentUser: {}
-
+  currentUser: {},
+  objectives : 0
 };
 
 const defaultAction = {};
@@ -134,6 +134,9 @@ const reducer = (state = initialState, action = defaultAction) => {
             marketList: {...ingredient}
           }
         }  
+        case 'OBJECTIVES_UPDATE' :{
+          console.log('modification de l\'input objectives')
+        }
     default: {
       // return state;
       // Dans le cas où on ne comprend pas quelle est l'action à

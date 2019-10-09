@@ -7,12 +7,12 @@ import  axios  from 'axios';
 /* Import du fichier Sass */
 import './Objectives.sass'
 
-const ObjectivesStatic = ({submitObjectives}) => {
+const ObjectivesStatic = ({submitObjectives,objectivesInputUpdate}) => {
     return (
             <main>
                 <div className="Site-content">
                     <main className="main">
-                        <ObjectivesForm submitObjectives = {submitObjectives} />
+                        <ObjectivesForm submitObjectives = {submitObjectives} objectivesInputUpdate ={objectivesInputUpdate}/>
                     </main>
                 </div>
             </main>
@@ -21,11 +21,11 @@ const ObjectivesStatic = ({submitObjectives}) => {
     )
 } 
 
-const ObjectivesForm = ({submitObjectives}) => (
+const ObjectivesForm = ({submitObjectives,objectivesInputUpdate}) => (
     <div>
     <h2 className="objectives-title">Mes objectifs</h2> 
       <form className="form-space">
-      <input type="number" className="form-control form-control-sm" id="colFormLabelLg" placeholder="Votre budget à la semaine en €"/>
+      <input onChange = {objectivesInputUpdate} type="number" className="form-control form-control-sm" id="colFormLabelLg" placeholder="Votre budget à la semaine en €"/>
           <div className="button-box">
               <button onClick = {submitObjectives} className="objectives-validation btn btn-md mt-3 center-block" type="submit">Valider</button>
           </div>
@@ -40,7 +40,7 @@ const connectionStrategies = connect(
   (state, ownProps) => { 
     //console.log(state.recipes);
     return {
-      objectivesState:state.objectivesState,
+      objectivesState:state.objectives,
       currentUser:state.currentUser
     };
   },
@@ -48,6 +48,14 @@ const connectionStrategies = connect(
   // 2d argument : stratégie d'écriture (dans le state privé global)
   (dispatch,ownProps) => {
     return {
+      objectivesInputUpdate:(event) => {
+        event.preventDefault();
+        const action = {
+          type:'OBJECTIVES_UPDATE',
+          objectivesInput :event.target.value 
+          }
+        }
+      }
       submitObjectives:(event) => {
         console.log('SUBMITOBJECTIVES')
          event.preventDefault(); 
@@ -60,20 +68,12 @@ const connectionStrategies = connect(
                 'Authorization':`bearer ${token}`,
                 }, 
                 data: {
-                  budget:57
+                  budget:state.objectives
                 },  
 
               }).then((response)=>{
                console.log(response); 
-               //const action = {
-                //type:'ENTER_OBJECTIVES',
-                //value : event.target.value
-              //};
-              dispatch(action)
 
-                 
-              //resolve();
-              
               ownProps.history.push('/Account') ;
             }).catch((error)=>{
               console.log('failure')
@@ -81,7 +81,6 @@ const connectionStrategies = connect(
             }); 
       }
     }
-  }
 )
 
 // Étape 2 : on applique ces stratégies à un composant spécifique.
