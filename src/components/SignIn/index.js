@@ -81,8 +81,9 @@ const connectionStrategies = connect(
                  sessionStorage.setItem('lastname',response.data.lastname);
                  sessionStorage.setItem('id',response.data.id);
                  sessionStorage.setItem('budget',response.data.budget);
+                
                  ownProps.history.push('/Account');
-                 document.location.reload(); 
+                  document.location.reload(); 
                  
                 
                 //resolve();

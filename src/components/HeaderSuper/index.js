@@ -20,18 +20,18 @@ const HeaderSuperStatic =({getRecipes,disconnectUser}) => {
 
     } else
     return(<div> 
-        <div class="sticky-top d-flex justify-content-around navbar-dark bg-dark">
 
-        <Link to="/"><button className="btn btn-light fa fa-home my-1"></button></Link>
-        <Link to="/Contact"> <button className="btn btn-light fa fa-phone my-1"></button></Link>
-        <Link to="/"> <button onClick={disconnectUser} class="bg-danger btn btn-dark fa fa-times-circle my-1"> </button> </Link> 
 
-    </div>
+       
+
+
     <div class="sticky-top d-flex justify-content-around navbar-dark bg-dark">
+        <Link to="/Contact"> <button className="btn btn-light fa fa-phone my-1"></button></Link>
         <Link to="/account"> <button class="btn btn-light fa fa-cogs my-1"> </button></Link>
         <Link to="/Objectives"> <button class="btn btn-light fa fa-bullseye my-1"> </button></Link>
         <Link to="/Recipes"> <button onClick={getRecipes} class="btn btn-light fa fa-book-open my-1 "> </button> </Link> 
         <Link to="/MarketList"> <button class="btn btn-light fa fa-shopping-cart my-1"> </button></Link>
+        <Link to="/"> <button onClick={disconnectUser} class="bg-danger btn btn-dark fa fa-times-circle my-1"> </button> </Link> 
        
    </div>
    </div>)
