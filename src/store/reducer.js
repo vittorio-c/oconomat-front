@@ -113,12 +113,12 @@ const reducer = (state = initialState, action = defaultAction) => {
         }
 
 
-        case 'ENTER-OBJECTIVES' : {
+       /*  case 'ENTER-OBJECTIVES' : {
           console.log('objectif saisi !')
           return{...state,
             objectives:action.value
           }
-        }
+        } */
 
 /*            case 'CHECKED' : {
           console.log("cliqué !")
@@ -134,8 +134,12 @@ const reducer = (state = initialState, action = defaultAction) => {
             marketList: {...ingredient}
           }
         }  
-        case 'OBJECTIVES_UPDATE' :{
-          console.log('modification de l\'input objectives')
+        case 'OBJECTIVES_UPDATE' : {
+          console.log('modification de l\'input objectives');
+          return{...state,
+            objectives: event.target.value
+
+          } 
         }
     default: {
       // return state;

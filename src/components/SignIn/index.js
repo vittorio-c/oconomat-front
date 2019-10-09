@@ -78,6 +78,13 @@ const connectionStrategies = connect(
                  sessionStorage.setItem('jwtToken', response.data.payload.token); 
                  sessionStorage.setItem('firstname',response.data.firstname);
                  sessionStorage.setItem('id',response.data.id);
+                 if(sessionStorage.getItem('budget')!=undefined){
+                  sessionStorage.setItem('budget',sessionStorage.getItem('budget'))
+                 } 
+                 else{
+                   sessionStorage.setItem('budget',0)
+                 } 
+
                    
                 //resolve();
                 

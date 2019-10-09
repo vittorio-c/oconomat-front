@@ -40,7 +40,7 @@ const connectionStrategies = connect(
   (state, ownProps) => { 
     //console.log(state.recipes);
     return {
-      objectivesState:state.objectives,
+      objectives:state.objectives,
       currentUser:state.currentUser
     };
   },
@@ -54,35 +54,49 @@ const connectionStrategies = connect(
           type:'OBJECTIVES_UPDATE',
           objectivesInput :event.target.value 
           }
-        }
-      }
+          dispatch(action);
+        },
+      
       submitObjectives:(event) => {
-        console.log('SUBMITOBJECTIVES')
          event.preventDefault(); 
          var token = sessionStorage.getItem('jwtToken'); 
-         console.log(token);
-          axios({
+          console.log(token); 
+           axios({
                method: 'post',
                url: 'http://api.oconomat.fr/api/objectif/menu/generate',
               headers:{
                 'Authorization':`bearer ${token}`,
                 }, 
                 data: {
-                  budget:state.objectives
+                  budget:150
                 },  
-
               }).then((response)=>{
-               console.log(response); 
+                const idUser = response.data.user.id
 
+                console.log('mon user '+idUser);
               ownProps.history.push('/Account') ;
             }).catch((error)=>{
               console.log('failure')
               console.log(error)
-            }); 
-      }
+            }), 
+            axios({
+              method: 'get',
+              url: 'http://api.oconomat.fr/api/objectif/budget/last/'+ sessionStorage.id,
+            headers:{
+              'Authorization':`bearer ${token}`,
+              }, 
+            }).then((response1)=>{
+              console.log(response1.data)
+              sessionStorage.setItem('budget',response1.data);
+            ownProps.history.push('/Account') ;
+          }).catch((error)=>{
+            console.log('failure')
+            console.log(error)
+          })
+      },
     }
+  }
 )
-
 // Étape 2 : on applique ces stratégies à un composant spécifique.
 const Objectives = connectionStrategies(ObjectivesStatic);
 

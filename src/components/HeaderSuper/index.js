@@ -123,11 +123,12 @@ const connectionStrategies = connect(
       return {
 
         disconnectUser:()=>{
+            
             document.location.reload();
             sessionStorage.setItem('firstname','');
             sessionStorage.setItem('id','');
             sessionStorage.setItem('jwtToken','');
-            
+               
         },
         
         helloWorld:() => { 
