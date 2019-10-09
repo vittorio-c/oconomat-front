@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import  axios  from 'axios';
 import { resolve } from 'path';
 
-const TestLog =({submitForm,submitEmail,submitPassword,emailState,passwordState}) => {
+const SignIn =({submitForm,submitEmail,submitPassword,emailState,passwordState}) => {
 
     return(
           <div className="Site-content">
@@ -93,12 +93,12 @@ const connectionStrategies = connect(
   )
   
   // Étape 2 : on applique ces stratégies à un composant spécifique.
-  const TestLogContainer = connectionStrategies(TestLog);
+  const SignInContainer = connectionStrategies(SignIn);
   
   // Étape 3 : on exporte le composant connecté qui a été généré 
   
 
-  export default TestLogContainer; 
+  export default SignInContainer; 
        
     
     

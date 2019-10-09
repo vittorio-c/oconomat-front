@@ -13,7 +13,6 @@ import Recipe from 'src/components/Recipe';
 import Account from 'src/components/Account';
 import HeaderSuper from 'src/components/HeaderSuper';
 import Footer from 'src/components/Footer';
-import TestLog from 'src/components/TestLog';
 
 
 // Styles and assets
@@ -30,7 +29,6 @@ const AppContainer=() => {
         <HeaderSuper />
             <Switch>
               <Route exact path="/" component={Home} /> 
-              <Route exact path="/test" component={TestLog} /> 
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/Objectives" component={Objectives} />
               <Route exact path="/Recipes" component={Recipes} />

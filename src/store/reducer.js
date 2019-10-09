@@ -107,7 +107,17 @@ const reducer = (state = initialState, action = defaultAction) => {
     
         case 'Show-Recipes' : { 
           console.log('RECIPES FETCHED')
-          return{...state,recipes:action.value} 
+          return{...state,
+            recipes:action.value
+          } 
+        }
+
+
+        case 'ENTER-OBJECTIVES' : {
+          console.log('objectif saisi !')
+          return{...state,
+            objectives:action.value
+          }
         }
 
 /*            case 'CHECKED' : {
