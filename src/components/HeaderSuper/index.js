@@ -26,9 +26,9 @@ const HeaderSuperStatic =({getRecipes,disconnectUser}) => {
     <Link to="/Objectives"> <button class="btn fa fa-bullseye my-1"> </button></Link>
 
     <Link to="/Recipes"> <button onClick={getRecipes} class="btn fa fa-book-open my-1"> </button> </Link> 
-    <Link to="/MarketList"> <button class="btn fa fa-list-ol my-1"> </button></Link>
+    <Link to="/MarketList"> <button class="btn fa fa-shopping-cart my-1"> </button></Link>
     <Link to="/account"> <button class="btn fa fa-cogs my-1"> </button></Link>
-    <Link to="/"> <button onClick={disconnectUser} class="bg-danger btn fa fa-list-ol my-1"> </button> </Link> 
+    <Link to="/"> <button onClick={disconnectUser} class="bg-danger btn fa fa-times-circle my-1"> </button> </Link> 
    </div>
     {/*}
 
