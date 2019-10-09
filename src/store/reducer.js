@@ -10,9 +10,7 @@ const initialState = {
   inputValueMDP:{},
   inputValueMDPConfirm:{},
   inputValues: [],
-  marketList : [],
-  currentUser: {},
-  objectives : 0
+  objectives : ''
 };
 
 const defaultAction = {};
@@ -67,21 +65,21 @@ const reducer = (state = initialState, action = defaultAction) => {
     } 
     
         case 'ENTER_PASSWORD' : {
-          console.log("password saisi")
+         /*  console.log("password saisi") */
           return {
             ...state,
             passwordState:{password:action.value}
           }
         } 
         case 'ENTER_EMAIL' : {
-          console.log("mot de passe saisi")
+          /* console.log("mot de passe saisi") */
           return {
             ...state,
             emailState:{email:action.value}
           }
         }
       case 'VALID_FORM' : {
-          console.log("Validation du formulaire")
+         /*  console.log("Validation du formulaire") */
           return {
             ...state,
             passwordState:state.passwordState,
@@ -106,7 +104,7 @@ const reducer = (state = initialState, action = defaultAction) => {
         }
     
         case 'Show-Recipes' : { 
-          console.log('RECIPES FETCHED')
+          /* console.log('RECIPES FETCHED') */
           return{...state,
             recipes:action.value
           } 
@@ -128,17 +126,20 @@ const reducer = (state = initialState, action = defaultAction) => {
             textClass :  'blabla'}
         }     */
         case 'STOCK' : {
-          console.log("cliqué !")
           return {
             ...state,
             marketList: {...ingredient}
           }
         }  
         case 'OBJECTIVES_UPDATE' : {
-          console.log('modification de l\'input objectives');
           return{...state,
-            objectives: event.target.value
-
+            objectives: event.target.value,
+          } 
+        }
+        case 'RESET_OBJECTIVES' : {
+         /*  console.log('remise à zero de l\'objectif'); */
+          return{...state,
+            objectives: '',
           } 
         }
     default: {

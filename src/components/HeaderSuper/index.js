@@ -6,70 +6,66 @@ import axios from 'axios'
 import './HeaderSuper.sass';
 
 
-const HeaderSuperStatic =({getRecipes,helloWorld,disconnectUser}) => {
+const HeaderSuperStatic =({getRecipes,disconnectUser}) => {
 
     if (sessionStorage.jwtToken === '' || sessionStorage.jwtToken === undefined ){
      
-        return  <div className="app">
-        <nav className="navbar navbar-expand-md navbar-light background-img nav-height">
-            <Link to="/Account"><a className="navbar-brand"><img src="src/ressources/pictures/logoOconomat.png" className="img-fluid d-sm-none d-md-block" alt="Responsive image"></img></a></Link>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse margin-bottom" id="navbarNav">
-                <ul className="navbar-nav"> 
-                    <li className="nav-item">
-                        <Link to="/"> <nav> <a className="nav-link btn btn-default"> <button class="btn btn-small btn-info"> Accueil </button></a> </nav> </Link>
-                    </li>
-                    <li className="nav-item">
-                    <Link to="/ContactLogged"> <nav><a className="nav-link btn btn-default"> <button class="btn btn-small btn-info"> Contact </button> </a> </nav></Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/SignIn"> <nav><a className="nav-link btn btn-default"> <button class="btn btn-small btn-info">  Connexion </button> </a> </nav></Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/SignUp"> <nav><a className="nav-link btn btn-default"> <button class="btn btn-small btn-info"> Inscription </button> </a> </nav> </Link>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>   
+        return <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Oconomat</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li className="nav-item">
+                <Link to="/"> <nav> <a className="nav-link"> Accueil</a> </nav> </Link>
+            </li>
+            <li className="nav-item">
+                <Link to="/ContactLogged"> <nav><a className="nav-link">Contact</a> </nav></Link>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <Link to="/SignUp"> <nav> <button class="btn btn-outline-success my-2 my-sm-0"> Inscription </button> </nav></Link>
+            <Link to="/SignIn"> <nav> <button class="btn btn-outline-success my-2 my-sm-0"> Connexion </button> </nav></Link>
+          </form>
+        </div>
+      </nav>  
 
     } else
-    return  <div className="app">
-        <nav className="navbar navbar-expand-md navbar-light background-img nav-height">
-            <Link to="/Account"><a className="navbar-brand"><img src="src/ressources/pictures/logoOconomat.png" className="img-fluid d-sm-none d-md-block" alt="Responsive image"></img></a></Link>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse margin-bottom" id="navbarNav">
-                <ul className="navbar-nav"> 
-                    <li className="nav-item">
-                        <Link to="/"> <nav> <a className="nav-link btn btn-default"> <button class="btn btn-small btn-info"> Accueil </button></a> </nav> </Link>
-                    </li>
-                 
-                    <li className="nav-item">
-                        <Link to="/Objectives"> <nav> <a className="nav-link btn btn-default"> <button class="btn btn-small btn-info"> Mes objectifs </button></a> </nav> </Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/Recipes"> <nav> <a className="nav-link btn btn-default" > <button class="btn btn-small btn-info" onClick={getRecipes}> Mes recettes </button> </a> </nav> </Link> 
-                    </li>
-                    <li className="nav-item">
-                       <Link to="/MarketList"> <nav><a className="nav-link btn btn-default"> <button class="btn btn-small btn-info"> Ma liste de course</button> </a> </nav> </Link>
-                    </li>
-                    <li className="nav-item">
-                       <Link to="/"> <nav><a className="nav-link btn btn-default"> <button class="btn btn-small btn-info" onClick={disconnectUser}> Deconnexion </button> </a> </nav> </Link> 
-                    </li> 
-                    <li className="nav-item">
-                        <Link to="/account"> <nav><a className="nav-link btn btn-default"> <button class="btn btn-small btn-info"> Mon Compte </button>  </a>  </nav></Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/ContactLogged"> <nav><a className="nav-link btn btn-default"> <button class="btn btn-small btn-info"> Contact </button> </a> </nav></Link>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>   
+    return <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Oconomat</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li className="nav-item">
+            <Link to="/"> <nav> <a className="nav-link"> Accueil</a> </nav> </Link>
+        </li>
+        <li className="nav-item">
+            <Link to="/ContactLogged"> <nav><a className="nav-link">Contact</a> </nav></Link>
+        </li>
+        <li className="nav-item">
+        <Link to="/Objectives"> <nav> <a className="nav-link btn btn-default">Mes objectifs</a> </nav> </Link>
+        </li>
+        <li className="nav-item">
+            <Link to="/Recipes"> <nav> <a onClick={getRecipes} className="nav-link btn btn-default" >  Mes recettes </a> </nav> </Link> 
+        </li>
+        <li className="nav-item">
+        <Link to="/MarketList"> <nav><a className="nav-link "> Ma liste de course </a> </nav> </Link>
+        </li>
+        <li className="nav-item">
+            <Link to="/account"> <nav><a className="nav-link btn btn-default"> Mon Compte </a>  </nav></Link>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+      <Link to="/"> <nav><a className="nav-link btn btn-default"> <button class="btn btn-outline-danger my-2 my-sm-0" onClick={disconnectUser}> Deconnexion </button> </a> </nav> </Link> 
+        
+      </form>
+    </div>
+  </nav>    
     {/*}
 
         <Navbar bg="dark" expand="lg" variant="dark">

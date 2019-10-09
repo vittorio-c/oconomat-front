@@ -78,23 +78,37 @@ const connectionStrategies = connect(
                  sessionStorage.setItem('jwtToken', response.data.payload.token); 
                  sessionStorage.setItem('firstname',response.data.firstname);
                  sessionStorage.setItem('id',response.data.id);
-                 if(sessionStorage.getItem('budget')!=undefined){
-                  sessionStorage.setItem('budget',sessionStorage.getItem('budget'))
-                 } 
-                 else{
-                   sessionStorage.setItem('budget',0)
-                 } 
-
-                   
-                //resolve();
+                 sessionStorage.setItem('budget',response.data.budget);
+                 console.log(sessionStorage.getItem('jwtToken'));
+                 ownProps.history.push('/Account');
+                 document.location.reload();
+                 
                 
-                ownProps.history.push('/Account') ;
-                document.location.reload();
+                //resolve();
+
               }).catch((error)=>{
                 console.log('failure')
                 console.log(error)
-              }); 
-        }
+              })
+             /*
+              axios({
+                method: 'get',
+                url: 'http://api.oconomat.fr/api/objectif/budget/last/'+ sessionStorage.getItem('id'),
+              headers:{
+                'Authorization':`bearer ${sessionStorage.getItem('jwtToken')}`,
+                }, 
+              }).then((response1)=>{
+                console.log("seconde requete axios"+response1)
+                sessionStorage.setItem('budget',response1.data);
+                document.location.reload();
+                ownProps.history.push('/Account') ;
+            }).catch((error)=>{
+              console.log('failure')
+              console.log(error)
+            })
+            */
+            
+        },
       }
     }
   )

@@ -11,7 +11,6 @@ const AccountInfoStatic = ({currentUser}) => {
    
     return (
               <main> 
-                  {console.log(sessionStorage)}
                 <div className="Site-content">
                     <main className="main">
                         <AccountInfo currentUser={currentUser} />
@@ -46,10 +45,7 @@ const AccountInfo = ({currentUser}) => (
 const connectionStrategies = connect(
     // 1er argument : stratégie de lecture (dans le state privé global)
     (state, ownProps) => { 
-     console.log(state);
-      console.log(state.currentUser)
-      //console.log(state.recipes);
-      return {
+        return {
         currentUser:state.currentUser
       };
     },
