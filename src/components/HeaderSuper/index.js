@@ -10,31 +10,29 @@ const HeaderSuperStatic =({getRecipes,disconnectUser}) => {
 
     if (sessionStorage.jwtToken === '' || sessionStorage.jwtToken === undefined ){
      
-        return <div class="sticky-top d-flex justify-content-around navbar-dark bg-dark ">
+        return <div className="sticky-top d-flex justify-content-around navbar-dark bg-dark ">
             
             <Link to="/">  <button className=" btn btn-light fa fa-home fa-2x my-1"></button>  </Link>
             <Link to="/Contact"> <button className="btn btn-light fa fa-phone fa-2x my-1"> </button></Link>
-            <Link to="/SignUp"> <button class="btn btn-light fa fa-file-signature fa-2x my-1"></button></Link>
-            <Link to="/SignIn">  <button class="btn btn-light fa fa-plug fa-2x my-1"> </button></Link>
+            <Link to="/SignUp"> <button className="btn btn-light fa fa-file-signature fa-2x my-1"></button></Link>
+            <Link to="/SignIn">  <button className="btn btn-light fa fa-plug fa-2x my-1"> </button></Link>
       </div>  
 
     } else
-    return(<div> 
-
-
-       
-
-
-    <div class="sticky-top d-flex justify-content-around navbar-dark bg-dark">
-        <Link to="/Contact"> <button className="btn btn-light fa fa-phone my-1"></button></Link>
-        <Link to="/account"> <button class="btn btn-light fa fa-cogs my-1"> </button></Link>
-        <Link to="/Objectives"> <button class="btn btn-light fa fa-bullseye my-1"> </button></Link>
-        <Link to="/Recipes"> <button onClick={getRecipes} class="btn btn-light fa fa-book-open my-1 "> </button> </Link> 
-        <Link to="/MarketList"> <button class="btn btn-light fa fa-shopping-cart my-1"> </button></Link>
-        <Link to="/"> <button onClick={disconnectUser} class="bg-danger btn btn-dark fa fa-times-circle my-1"> </button> </Link> 
-       
-   </div>
-   </div>)
+    return(
+      <div> 
+        <form>
+          <div className="sticky-top d-flex justify-content-around navbar-dark bg-dark">
+              <Link to="/Contact"> <button className="btn btn-light fa fa-phone my-1"></button></Link>
+              <Link to="/account"> <button className="btn btn-light fa fa-cogs my-1"> </button></Link>
+              <Link to="/Objectives"> <button className="btn btn-light fa fa-bullseye my-1"> </button></Link>
+              <Link to="/Recipes"> <button onClick={getRecipes} className="btn btn-light fa fa-book-open my-1 "> </button> </Link> 
+              <Link to="/MarketList"> <button className="btn btn-light fa fa-shopping-cart my-1"> </button></Link>
+              <Link to="/"> <button onClick={disconnectUser} className="bg-danger btn btn-dark fa fa-times-circle my-1"> </button> </Link> 
+          </div>
+        </form>
+      </div>
+   )
     {/*}
 
         <Navbar bg="dark" expand="lg" variant="dark">
@@ -90,10 +88,11 @@ const connectionStrategies = connect(
         disconnectUser:()=>{
             
             document.location.reload();
-            sessionStorage.setItem('firstname','');
+            sessionStorage.clear();
+ /*            sessionStorage.setItem('firstname','');
             sessionStorage.setItem('id','');
-            sessionStorage.setItem('jwtToken','');
-               
+            sessionStorage.setItem('jwtToken',''); */
+            ownProps.history.push('/') ;
         },
         
         helloWorld:() => { 
@@ -114,8 +113,6 @@ const connectionStrategies = connect(
               
           })
         
-          
-  
         }
       };
     },
