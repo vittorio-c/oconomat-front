@@ -1,8 +1,9 @@
 import React from 'react'
-
 import { connect } from 'react-redux';
 import  axios  from 'axios';
 import { resolve } from 'path';
+
+import './SignIn.sass'
 
 const SignIn =({submitForm,submitEmail,submitPassword,emailState,passwordState}) => {
 
@@ -20,6 +21,9 @@ const SignIn =({submitForm,submitEmail,submitPassword,emailState,passwordState})
                   <div className="form-group">
                       <input type="password" onChange = {submitPassword} className="form-control rounded-left rounded-right" name='password' placeholder="Your password here"/>
                   </div> 
+                  <div className="forgotten-password">
+                    <a href="/ForgottenPassword">Mot de passe oublié</a>
+                  </div>
                   <button className="validation btn btn-lg" type="submit" >Envoyer</button>
                   </div>
               </form> 
