@@ -1,8 +1,9 @@
 import React from 'react' 
 import './SignUp.sass';
 import axios from 'axios'
-
 import {connect} from 'react-redux';
+
+import './SignUp.sass'
 
 const InscriptionStatic =({insertInputFirstName,insertInputLastName,insertInputEmail,insertMDP,insertMDPConfirm,onFormSubmitManipulateArray,inputValueFirstName,inputValueLastName,inputValueEmail,inputValueMDP,inputValueMDPConfirm})=>{
   return (
@@ -23,20 +24,20 @@ const InscriptionStaticPage =({insertInputFirstName,insertInputLastName,insertIn
           
           <h2 className="inscription-title">Inscription</h2>
               <div className="form-group mt-4">
-                <input type="text" onChange={insertInputLastName} className="form-control rounded-left rounded-right" name="lastname" placeholder ='Your lastname'/>
+                <input type="text" onChange={insertInputLastName} className="form-control rounded-left rounded-right" name="lastname" placeholder ='Nom'/>
               </div> 
               <div className="form-group">
-                <input type="text" onChange={insertInputFirstName} className="form-control rounded-left rounded-right" name="firstname" placeholder ='Your firstname'/>
+                <input type="text" onChange={insertInputFirstName} className="form-control rounded-left rounded-right" name="firstname" placeholder ='Prenom'/>
               </div> 
               <div className="form-group">
-                <input type="email" onChange={insertInputEmail} className="form-control rounded-left rounded-right" name="email" placeholder ='Your email'/>
+                <input type="email" onChange={insertInputEmail} className="form-control rounded-left rounded-right" name="email" placeholder ='Email'/>
               </div> 
               <div className="form-group">
-                <input type="password" onChange={insertMDP} className="form-control rounded-left rounded-right" name="password" placeholder ='Your password'/>
+                <input type="password" onChange={insertMDP} className="form-control rounded-left rounded-right" name="password" placeholder ='Mot de passe'/>
               </div> 
 
               <div className="form-group">
-                <input type="password" onChange={insertMDPConfirm} className="form-control rounded-left rounded-right" name="passwordConfirm" placeholder ='confirm password'/>
+                <input type="password" onChange={insertMDPConfirm} className="form-control rounded-left rounded-right" name="passwordConfirm" placeholder ='Confirmer mot de passe'/>
               </div>
               
               <button className="validation btn" type="submit">Envoyer</button>

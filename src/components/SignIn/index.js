@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import  axios  from 'axios';
 import { resolve } from 'path';
 
+import './SignIn.sass'
+
 const SignIn =({submitForm,submitEmail,submitPassword,emailState,passwordState}) => {
 
     return(

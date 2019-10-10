@@ -1,11 +1,10 @@
 import React from 'react';
-
 import {connect} from 'react-redux';
 import { BrowserRouter as Router, Route,Switch,Redirect, Link } from "react-router-dom";
-import './Recipes.sass';
 import Carousel from 'react-bootstrap/Carousel'
 import axios from 'axios' 
 
+import './Recipes.sass';
 
 const RecettesStatic = ({recipes,findRecipe}) => {
     return (
@@ -23,7 +22,7 @@ const RecettesStatic = ({recipes,findRecipe}) => {
 const RecipesMain = ({recipes,findRecipe}) => {
     return <div className="recipes-main">
       
-        <h2 className="recipes-title col-sm-6 offset-sm-3 ">Liste de vos Recettes Pour la Semaine</h2>  
+        <center><h2 className="recipes-title col-sm-6 offset-sm-3 ">Liste de vos Recettes Pour la Semaine</h2></center> 
         <div className="col-xs-12 col-md-8 offset-md-2 recipe-box">
         <Carousel> 
         {recipes.map(function(recipe,index){  
