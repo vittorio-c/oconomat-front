@@ -10,6 +10,7 @@ const RecipeMain = ({recipe}) => {
         <div>
         <main> 
             {recipe.data!=undefined ? 
+            
             <div className="recipe-page">
                 
                     <h2 className='recipe-page-title m-3'>Voici votre recette</h2>
@@ -18,7 +19,7 @@ const RecipeMain = ({recipe}) => {
                                  <h3>{recipe.data.title} </h3>
                             </div>
                             <div className="recipe-image">
-                                <img src="src/ressources/pictures/pancakes.jpg" className="img-fluid" alt="Responsive image">
+                                <img src={recipe.data.image} className="img-fluid" alt="Responsive image">
                                 </img>
                             </div>
                             <div className="recipe-ingredients">

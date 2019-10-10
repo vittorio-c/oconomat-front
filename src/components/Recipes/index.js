@@ -20,19 +20,34 @@ const RecettesStatic = ({recipes,findRecipe}) => {
     )
 } 
 
-const RecipesMain = ({recipes,findRecipe}) => {
+const RecipesMain = ({recipes,findRecipe}) => { 
+    if(recipes.length>0){
+   var prices=recipes.map(function(recipe){
+       return recipe.price
+   }) 
+
+   var reducer=(accumulator,currentValue)=>{
+       return accumulator+currentValue
+   } 
+
+   console.log(prices.reduce(reducer));
+}
+   
     return <div className="recipes-main">
-      
+        
         <h2 className="recipes-title col-sm-6 offset-sm-3 ">Liste de vos Recettes Pour la Semaine</h2>  
-        <div className="col-xs-12 col-md-8 offset-md-2 recipe-box">
+        <div className="col-xs-12 col-md-8 offset-md-2 recipe-box"> 
+    
         <Carousel> 
         {recipes.map(function(recipe,index){  
+           
         return <Carousel.Item>
-            <img className="d-block w-100 max-height" src="src/ressources/pictures/pancakes.jpg"/>
+            <img className="d-block w-100 max-height" src={recipe.image}/>
         <Carousel.Caption>
-        <h3 className="recipes-name-title">Pancakes</h3> 
+        <h3 className="recipes-name-title">{recipe.title} </h3> 
         <Link to="/Recipe"> <button className="details-btn btn" onClick={()=>{findRecipe(index,recipes)}}>   <a >Details</a>  </button> </Link>
-        <p className="text-black">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        <p className="text-black">A manger pour le {recipe.type}</p> 
+        <p className="text-black"> Prix: {recipe.price} £ </p>
         </Carousel.Caption>
         </Carousel.Item>
         })} 
@@ -69,7 +84,7 @@ const RecipesMain = ({recipes,findRecipe}) => {
 const connectionStrategies = connect(
   // 1er argument : stratégie de lecture (dans le state privé global)
   (state, ownProps) => { 
-    
+    {console.log(state.recipes)};
     
     //console.log(state.recipes);
     return {
