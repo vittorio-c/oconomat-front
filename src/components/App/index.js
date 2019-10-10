@@ -8,7 +8,6 @@ import SignIn from 'src/components/SignIn';
 import SignUp from 'src/components/SignUp';
 import NoFound from 'src/components/NoFound';
 import Contact from 'src/components/Contact';
-import ContactLogged from 'src/components/ContactLogged';
 import Recipe from 'src/components/Recipe';
 import Account from 'src/components/Account';
 import HeaderSuper from 'src/components/HeaderSuper';
