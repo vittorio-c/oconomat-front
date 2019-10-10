@@ -89,6 +89,7 @@ const connectionStrategies = connect(
             
             document.location.reload();
             sessionStorage.clear();
+            ownProps.history.push('/');
  /*            sessionStorage.setItem('firstname','');
             sessionStorage.setItem('id','');
             sessionStorage.setItem('jwtToken',''); */
