@@ -1,6 +1,5 @@
 /* import './style.sass' */
 import React from 'react';
-import HeaderMyAccount from '../HeaderMyAccount';
 /* Import du fichier Sass */
 import './Recipe.sass'
 import {connect} from 'react-redux';

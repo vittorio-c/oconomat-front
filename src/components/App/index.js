@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route,Switch} from "react-router-dom";
 import Home from 'src/components/Home';
-import DashBoard from 'src/components/DashBoard';
 import Recipes from 'src/components/Recipes';
 import MarketList from 'src/components/MarketList'
 import SignIn from 'src/components/SignIn';
@@ -11,11 +10,12 @@ import Contact from 'src/components/Contact';
 import Recipe from 'src/components/Recipe';
 import HeaderSuper from 'src/components/HeaderSuper';
 import Footer from 'src/components/Footer';
-
+import DashBoard from '../DashBoard';
 
 // Styles and assets
 
 import './app.sass'; 
+
 
 
 const AppContainer=() => {
@@ -48,11 +48,9 @@ return (
           <Route exact path="/" component={Home} /> 
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/dashboard" component={DashBoard} />
-          <Route exact path="/objectives" component={Objectives} />
           <Route exact path="/recipes" component={Recipes} />
           <Route exact path="/marketlist" component={MarketList} />
           <Route exact path="/recipe" component={Recipe} /> 
-          <Route exact path="/account" component={Account} />
           <Route component={NoFound} />
         </Switch>
     <Footer />
