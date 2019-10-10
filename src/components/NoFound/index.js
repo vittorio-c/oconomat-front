@@ -16,8 +16,6 @@ const NoFound = () => {
                 <p className = 'pt-4 pb-4 text-center font-weight-bolder text-warning display-4'>loading</p>
                 <p className = 'pt-4 pb-4 text-center font-weight-bolder text-warning display-4'>please</p>
                 <p className = 'pt-4 pb-4 text-center font-weight-bolder text-warning display-4'>wait</p>
-
-
             </div>
         )
     }
