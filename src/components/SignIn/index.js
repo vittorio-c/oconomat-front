@@ -17,10 +17,10 @@ const SignIn =({submitForm,submitEmail,submitPassword,emailState,passwordState})
                   <div className="formBlock">
                   <h2 className="connection-title">Connexion</h2>
                   <div className="form-group mt-4">
-                      <input type="email" onChange = {submitEmail} className="form-control rounded-left rounded-right" name='email' placeholder="Your mail here"/>             
+                      <input type="email" onChange = {submitEmail} className="form-control rounded-left rounded-right" name='email' placeholder="Votre email"/>             
                   </div> 
                   <div className="form-group">
-                      <input type="password" onChange = {submitPassword} className="form-control rounded-left rounded-right" name='password' placeholder="Your password here"/>
+                      <input type="password" onChange = {submitPassword} className="form-control rounded-left rounded-right" name='password' placeholder="Votre mot de passe"/>
                   </div> 
                   <button className="validation btn btn-lg" type="submit" >Envoyer</button>
                   </div>
