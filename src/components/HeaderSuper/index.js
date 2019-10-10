@@ -92,7 +92,7 @@ const connectionStrategies = connect(
  /*            sessionStorage.setItem('firstname','');
             sessionStorage.setItem('id','');
             sessionStorage.setItem('jwtToken',''); */
-            ownProps.history.push('/') ;
+            /* ownProps.history.push('/') ; */
         },
         
         helloWorld:() => { 
