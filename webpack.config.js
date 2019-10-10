@@ -133,7 +133,7 @@ module.exports = {
       chunkFilename: '[id].css',
     }),
     new CopyPlugin([
-      { from: 'src/ressources/pictures', to: 'dist/src/ressources/pictures' }
+      { from: 'src/ressources/pictures', to: '/src/ressources/pictures' }
     ])
   ],
 }
