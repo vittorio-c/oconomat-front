@@ -24,7 +24,7 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
     if(recipes.length!=0){ 
     
     return <div className="recipes-main"> 
-    <h2 className="recipes-title col-sm-6 offset-sm-3 ">Liste de vos Recettes Pour la Semaine</h2>  
+    <h2 className="recipes-title col-sm-6">Liste de vos Recettes Pour la Semaine Test </h2>  
     
 
      <div class="row">
