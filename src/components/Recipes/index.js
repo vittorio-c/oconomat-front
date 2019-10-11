@@ -56,7 +56,7 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
 
         })} 
         </Carousel>  
-        :<h3 className="recipes-title"> Vieullez Choisir</h3> }
+        :<h3 className="recipes-title"> Veuillez Choisir</h3> }
       
      </div>
  
