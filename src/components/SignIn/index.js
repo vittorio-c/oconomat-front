@@ -80,40 +80,18 @@ const connectionStrategies = connect(
                 const action={type:'Persist-User',value:response.data};
                 dispatch(action)
 
-                 sessionStorage.setItem('jwtToken', response.data.payload.token);
-                 sessionStorage.setItem('firstname',response.data.firstname);
-                 sessionStorage.setItem('lastname',response.data.lastname);
-                 sessionStorage.setItem('id',response.data.id);
-                 sessionStorage.setItem('budget',response.data.budget);
+                sessionStorage.setItem('jwtToken', response.data.payload.token);
+                sessionStorage.setItem('firstname',response.data.firstname);
+                sessionStorage.setItem('lastname',response.data.lastname);
+                sessionStorage.setItem('id',response.data.id);
+                sessionStorage.setItem('budget',response.data.budget);
                 
-                 ownProps.history.push('/Account');
-                  document.location.reload(); 
-                 
-                
-                //resolve();
-
+                ownProps.history.push('/dashboard');
+                document.location.reload(); 
               }).catch((error)=>{
                 console.log('failure')
                 console.log(error)
               })
-             /*
-              axios({
-                method: 'get',
-                url: 'http://api.oconomat.fr/api/objectif/budget/last/'+ sessionStorage.getItem('id'),
-              headers:{
-                'Authorization':`bearer ${sessionStorage.getItem('jwtToken')}`,
-                }, 
-              }).then((response1)=>{
-                console.log("seconde requete axios"+response1)
-                sessionStorage.setItem('budget',response1.data);
-                document.location.reload();
-                ownProps.history.push('/Account') ;
-            }).catch((error)=>{
-              console.log('failure')
-              console.log(error)
-            })
-            */
-            
         },
       }
     }

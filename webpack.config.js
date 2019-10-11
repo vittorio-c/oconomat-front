@@ -5,6 +5,7 @@ const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 // Config pour le devServer
 const host = 'localhost';
 const port = 3000;
@@ -131,6 +132,9 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
+    new CopyPlugin([
+      { from: 'src/ressources/pictures', to: 'src/ressources/pictures' }
+    ])
   ],
 }
 
