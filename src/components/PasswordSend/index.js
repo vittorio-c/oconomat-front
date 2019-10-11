@@ -18,7 +18,7 @@ const PasswordSend =() => {
 
 const PasswordSendPage = () => {
   return <div className ='food-background mt-3'>
-    <form className="d-flex flex-column" onSubmit={onFormSubmitManipulateArray}>
+    <form className="d-flex flex-column">
         <div className="formBlock">
             <h2 className="inscription-title">Nous vous avons envoyé votre nouveau mot de passe</h2>
             <div className="form-group mt-4">
@@ -28,7 +28,7 @@ const PasswordSendPage = () => {
                     </p>
                     <p>
                         Vous pouvez vous connecter en utilisant votre nouveau mot de passe en cliquant 
-                        <a href="/SignIn">ici</a>
+                        <a className="link" href="/SignIn">ici</a>
                     </p>
                 </div>
             </div>

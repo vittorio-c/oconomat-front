@@ -31,7 +31,7 @@ const ForgottenPasswordStaticPage =({insertInputEmail,onFormSubmitManipulateArra
                         N'oubliez pas de verifier vos spams.
                     </p>
                 </div>
-                <button className="validation btn" type="submit" href="/PasswordSend">Envoyer</button>
+                <button className="validation btn" type="submit"><a href="/PasswordSend">Envoyer</a></button>
             </div>
          </div>
     </form>      
