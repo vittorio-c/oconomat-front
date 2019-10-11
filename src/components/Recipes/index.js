@@ -33,16 +33,9 @@ const RecipesMain = ({recipes,findRecipe}) => {
 }
    
     return <div className="recipes-main">
-<<<<<<< HEAD
-        
-        <h2 className="recipes-title col-sm-6 offset-sm-3 ">Liste de vos Recettes Pour la Semaine</h2>  
-        <div className="col-xs-12 col-md-8 offset-md-2 recipe-box"> 
-    
-=======
       
         <center><h2 className="recipes-title col-sm-6 offset-sm-3 ">Liste de vos Recettes Pour la Semaine</h2></center> 
         <div className="col-xs-12 col-md-8 offset-md-2 recipe-box">
->>>>>>> image-optimisation
         <Carousel> 
         {recipes.map(function(recipe,index){  
            
