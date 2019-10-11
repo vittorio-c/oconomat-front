@@ -6,12 +6,12 @@ import axios from 'axios'
 
 import './Recipes.sass';
 
-const RecettesStatic = ({recipes,findRecipe}) => {
+const RecettesStatic = ({recipes,findRecipe,getStateType,recipeType}) => {
     return (
         <main>
             <div className="Site-content">
                 <main className="main">
-                    <RecipesMain recipes={recipes} findRecipe={findRecipe}/>
+                    <RecipesMain recipes={recipes} findRecipe={findRecipe} getStateType={getStateType} recipeType={recipeType}/>
                 </main>
             </div>
         </main>
@@ -19,26 +19,30 @@ const RecettesStatic = ({recipes,findRecipe}) => {
     )
 } 
 
-const RecipesMain = ({recipes,findRecipe}) => { 
-    if(recipes.length>0){
-   var prices=recipes.map(function(recipe){
-       return recipe.price
-   }) 
+const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType}) => { 
 
-   var reducer=(accumulator,currentValue)=>{
-       return accumulator+currentValue
-   } 
+    if(recipes.length!=0){ 
+    
+    return <div className="recipes-main"> 
+    <h2 className="recipes-title col-sm-6 offset-sm-3 ">Liste de vos Recettes Pour la Semaine</h2>  
+    
 
-   console.log(prices.reduce(reducer));
-}
+     <div class="row">
+        <div class="col-sm-12 col-md-4"> <button class="btn btn-warning" onClick={getStateType}> petit déjeuner  </button></div> 
+        <div class="col-sm-12 col-md-4"> <button class="btn btn-warning" onClick={getStateType}> déjeuner  </button></div>
+        <div class="col-sm-12 col-md-4"> <button class="btn btn-warning" onClick={getStateType}> dîner </button></div>
+     
+     </div>
+
    
-    return <div className="recipes-main">
-      
-        <center><h2 className="recipes-title col-sm-6 offset-sm-3 ">Liste de vos Recettes Pour la Semaine</h2></center> 
-        <div className="col-xs-12 col-md-8 offset-md-2 recipe-box">
+        
+        <div className="col-xs-12 col-md-8 offset-md-2 recipe-box"> 
+        {recipeType.length!=0 ?
+       
         <Carousel> 
         {recipes.map(function(recipe,index){  
-           
+         if(recipe.type==recipeType.trim()){
+         
         return <Carousel.Item>
             <img className="d-block w-100 max-height" src={recipe.image}/>
         <Carousel.Caption>
@@ -48,34 +52,27 @@ const RecipesMain = ({recipes,findRecipe}) => {
         <p className="text-black"> Prix: {recipe.price} £ </p>
         </Carousel.Caption>
         </Carousel.Item>
-        })} 
-        </Carousel>
+         }
 
-        { /*
-        <Carousel.Item>
-            <img className="d-block w-100 max-height" src="src/ressources/pictures/ramen.jpg" alt="Second slide"/>
-        <Carousel.Caption>
-        <h3 className="recipes-name-title">Ramen</h3>  
-        <button className="details-btn btn"><a href="/Recipe">Details</a></button>
-        <p class="text-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-            <img className="d-block w-100 max-height" src="src/ressources/pictures/soup.jpg" alt="Third slide"/>
-        <Carousel.Caption>
-            <h3 className="recipes-name-title">Soupe du siecle</h3> 
-        <button className="details-btn btn"> <a href="/Recipe">Details</a></button>
-        <p className="text-black">
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-        </p>
-        </Carousel.Caption>
-        </Carousel.Item>
-        */}
-        
-        
-    </div> 
+        })} 
+        </Carousel>  
+        :<h3 className="recipes-title"> Vieullez Choisir</h3> }
+      
+     </div>
+ 
+    
     </div>
+    } 
+    else{
+        return <div> Recipes Are Loading </div> 
     }
+} 
+ 
+
+
+    
+
+   
 
 
 
@@ -87,14 +84,15 @@ const connectionStrategies = connect(
     //console.log(state.recipes);
     return {
       recipes:state.recipes,
-      recipe:state.recipe
+      recipe:state.recipe,
+      recipeType:state.recipeType
     };
   },
 
   // 2d argument : stratégie d'écriture (dans le state privé global)
   (dispatch, ownProps) => {
     return {
-      
+    
       findRecipe:(id,recipes) =>{ 
         const url = recipes[id].url;
         var token=sessionStorage.getItem('jwtToken')
@@ -102,7 +100,13 @@ const connectionStrategies = connect(
           const action={type:'See-Recipe',value:response};
           dispatch(action);
         })
-      }
+      },
+
+     getStateType(event){
+         const action={type:'Choose-Recipe-Type',value:event.target.textContent}
+         dispatch(action);
+     }
+     
       
     
       
