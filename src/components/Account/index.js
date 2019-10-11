@@ -32,9 +32,8 @@ const AccountInfo = ({currentUser}) => (
             <div className="col-lg-10 container">
                 <img src ='src/ressources/pictures/default-avatar.png' className ='avatar-img img-fluid rounded float-left'></img>
                 <p className='user mt-2 mb-1'>Utilisateur: <span> {sessionStorage.getItem('firstname')+' '+sessionStorage.getItem('lastname')} </span> </p>
-                <p className='password mb-1'>Password : <span>*********</span></p>
-                <p className ='objectif mb-1'>Objectif : <span> {sessionStorage.getItem('budget')} € </span></p>
-                <button className='change-password btn'>Changer mot de passe</button> 
+                <p className ='objectif mb-1'>Votre Objectif : <span> {sessionStorage.getItem('budget')} € </span></p>
+                <button className='change-password btn'>Changer votre mot de passe</button>
             </div> 
           </div>
         </form>

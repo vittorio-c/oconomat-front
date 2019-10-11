@@ -69,18 +69,19 @@ const Steps = () => {
 const Explanations = () => {
     return(
         <div>
-            <h3 className= 'text-center font-weight-bold'>Inscrivez vous via le formulaire</h3>
-            <img src="src/ressources/pictures/form.png" className="img-fluid img" alt="Responsive image"></img>
+            <h3 className= 'title-explaination text-center font-weight-bold'>Inscrivez vous via le formulaire</h3>
+            <center><img src="src/ressources/pictures/inscription.png" className="exemple-img img-fluid img" alt="Responsive image"></img></center>
         
-            <h3 className= 'text-center font-weight-bold mt-4'>Définissez le budget de la semaine dans la rubrique Mes objectifs</h3>
-            <img src="src/ressources/pictures/objectives.png" className="img-fluid img" alt="Responsive image"></img>
-            <h3 className= 'text-center font-weight-bold mt-4'>Decouvrez vos recettes</h3>
-            <img src="src/ressources/pictures/recipe.png" className="img-fluid img" alt="Responsive image"></img>
+            <h3 className= 'title-explaination text-center font-weight-bold mt-4'>Définissez le budget de la semaine dans la rubrique Mes objectifs</h3>
+            <center><img src="src/ressources/pictures/objectives.png" className="exemple-img img-fluid img" alt="Responsive image"></img></center>
+            
+            <h3 className= 'title-explaination text-center font-weight-bold mt-4'>Decouvrez vos recettes</h3>
+            <center><img src="src/ressources/pictures/recipe.png" className="exemple-img img-fluid img" alt="Responsive image"></img></center>
    
-            <h3 className= 'text-center font-weight-bold mt-4'>Achetez vos ingredients en suivant votre liste de course</h3>
-            <img src="src/ressources/pictures/list.png" className=" img-center img-fluid img" alt="Responsive image"></img>
+            <h3 className= 'title-explaination text-center font-weight-bold mt-4'>Achetez vos ingredients en suivant votre liste de course</h3>
+            <center><img src="src/ressources/pictures/list.png" className="exemple-img img-fluid img" alt="Responsive image"></img></center>
  
-            <h3 className= 'text-center font-weight-bold mt-4'>
+            <h3 className= 'title-explaination text-center font-weight-bold mt-4'>
                 C'est facile Pourquoi ne pas commencer maintenant ?
             </h3>
             <div className="box">
