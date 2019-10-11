@@ -10,7 +10,8 @@ const initialState = {
   inputValueMDP:{},
   inputValueMDPConfirm:{},
   inputValues: [],
-  objectives : ''
+  objectives : '',
+  recipeType:''
 };
 
 const defaultAction = {};
@@ -108,6 +109,10 @@ const reducer = (state = initialState, action = defaultAction) => {
           return{...state,
             recipes:action.value
           } 
+        }
+
+        case 'Choose-Recipe-Type' :{
+          return{...state,recipeType:action.value}
         }
 
 
