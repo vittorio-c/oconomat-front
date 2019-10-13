@@ -6,11 +6,7 @@ import './Home.sass'
 
 const Home = () => {
     return (
-          <div className="Site-content">
-              <main className="main">
                   <HomePage/>
-              </main>
-          </div>
     )
 }
 
@@ -39,7 +35,7 @@ const Logo = () => {
 const Steps = () => {
     return (
         <div>
-            <div className = "mt-3 pt-3 mb-3 pb-3 col-xs-12 ">
+            <div className = "mt-3 pt-3 mb-3 pb-3 col-xs-12 col-lg-6 offset-lg-3">
                 <table className="table table-striped">
                 <thead>
                 </thead>
@@ -64,38 +60,53 @@ const Steps = () => {
                         </tr>
                     </tbody>
                 </table>
-            
-                <div >
-                    <h3 className= 'title-explaination text-center font-weight-bold '>Inscrivez vous via le formulaire</h3>
-                    <center><img src="src/ressources/pictures/inscription.png" className="exemple-img img-fluid img" alt="Responsive image"></img></center>
-                    <div></div>
                 </div>
-                <div >
-                    <h3 className= 'title-explaination text-center font-weight-bold mt-4'>Définissez le budget de la semaine dans la rubrique Mes objectifs</h3>
-                    <center><img src="src/ressources/pictures/objectives.png" className="exemple-img img-fluid img" alt="Responsive image"></img></center>
-                    
-                </div>  
-                <div >  
-                    <h3 className= 'title-explaination text-center font-weight-bold mt-4'>Decouvrez vos recettes</h3>
-                    <center><img src="src/ressources/pictures/recipe.png" className="exemple-img img-fluid img" alt="Responsive image"></img></center>
-                    </div>
-                <div >
-                    <h3 className= 'title-explaination text-center font-weight-bold mt-4'>Achetez vos ingredients en suivant votre liste de course</h3>
-                    <center><img src="src/ressources/pictures/list.png" className="exemple-img img-fluid img" alt="Responsive image"></img></center>
-                    </div>
-                <div >
-                    <h3 className= 'title-explaination text-center font-weight-bold mt-4'>
-                        C'est facile Pourquoi ne pas commencer maintenant ?
-                    </h3>
-                </div>
+                    <div className = 'justify-content-lg-center d-lg-flex'>
+                
+                        <div className ='col-xs-12 ' >
+                            <h3 className= 'title-explaination text-center font-weight-bold '>Inscrivez vous via le formulaire</h3>
+                            <img src="src/ressources/pictures/inscription.png" className="exemple-img img-fluid img mx-auto d-block" alt="Responsive image"/>
+                         </div>    
+                        
 
-                <div > 
-                    <div className="box">
-                    <a className ="start btn btn-success btn-md mt-3 center-block" href="/SignUp" role="button">Je commence maintenant</a>
+                            <div className = 'd-none d-lg-block' >
+                             <img src="src/ressources/pictures/arrow.png" className="exemple-img img-fluid img arrow" alt="arrow image"/>
+                        
+                            </div>
+                       
+                        <div >
+                            <h3 className= 'title-explaination text-center font-weight-bold mt-4'>Définissez le budget de la semaine dans la rubrique Mes objectifs</h3>
+                            <img src="src/ressources/pictures/objectives.png" className="img-fluid img img-objective mx-auto d-block" alt="Responsive image"/>
+                        </div>  
+
+                        <div className ='d-none d-lg-block' >
+                            <img src="src/ressources/pictures/arrow.png" className="img-fluid img arrow" alt="arrow image"></img>
+                        </div>
+
+                        <div >  
+                            <h3 className= 'title-explaination text-center font-weight-bold'>Decouvrez vos recettes</h3>
+                            <img src="src/ressources/pictures/recipe.png" className="img-fluid img mx-auto d-block" alt="Responsive image"/>
+                        </div>
+
+                        <div className ='d-none d-lg-block' >
+                            <img src="src/ressources/pictures/arrow.png" className="img-fluid img arrow" alt="arrow image"></img>
+                        </div>
+
+                        <div>
+                            <h3 className= 'title-explaination text-center font-weight-bold'>Achetez vos ingredients en suivant votre liste de course</h3>
+                            <img src="src/ressources/pictures/list.png" className="img-fluid img mx-auto d-block" alt="Responsive image"/>
+                        </div>
+                        <div className ='d-none d-lg-block' >
+                        <img src="src/ressources/pictures/arrow.png" className="img-fluid img arrow" alt="arrow image"></img>
+                    </div>
+
+                        <div> 
+                            <div className="box">
+                                <a className ="start btn btn-success" href="/signup" role="button">Je commence maintenant</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
-            </div>
     )
 }
 
