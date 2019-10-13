@@ -24,7 +24,7 @@ const Logo = () => {
             <div className ='food-image img-thumbnail text-light  pt-4'>
                 <div className = "text-box">
                     <h2 className='home-catch-sentence m-3 '>Une panne d'inspiration ?</h2>
-                    <h1 className='home-title'>OCONOMAT</h1>
+                    <h1 className='home-title text-success'>OCONOMAT</h1>
                     <h3 className='home-catch-sentence m-3 '>vous propose des repas en respectant votre budget</h3>
                 </div>
             </div>
@@ -34,28 +34,28 @@ const Logo = () => {
 
 const Steps = () => {
     return (
-        <div>
+        <div><p className='display-4 text-center text-success'>Le principe en quelque lignes </p> 
             <div className = "mt-3 pt-3 mb-3 pb-3 col-xs-12 col-lg-6 offset-lg-3">
                 <table className="table table-striped">
                 <thead>
                 </thead>
                     <tbody>
                         <tr>
-                            <th scope="row" className = "text-warning font-weight-bold display-4 ">1</th>
+                            <th scope="row" className = "text-success font-weight-bold display-4">1</th>
                             <th scope="col" className ="font-weight-bold">Oconomat vous propose des petits-déjeuners, des déjeuners et des dîners pendant 7 jours.</th>
                         </tr>
                         <tr>
-                            <th scope="row" className = "text-warning font-weight-bold display-4" >2</th>
+                            <th scope="row" className = "text-success font-weight-bold display-4" >2</th>
                             <td ><span className ="font-weight-bold">Faites vos courses.</span>
                                 <th className="font-italic">Oconomat vous fourni une liste de course déjà tout prête avec les ingredients dont vous aurez besoin pour la semaine.</th>
                             </td>
                         </tr>
                         <tr>
-                        <th scope="row" className = "text-warning font-weight-bold display-4">3</th>
+                        <th scope="row" className = "text-success font-weight-bold display-4">3</th>
                         <td className ="font-weight-bold"> Enfilez votre tablier et suivez les étapes de préparation.</td>
                         </tr>
                         <tr>
-                        <th scope="row" className = "text-warning font-weight-bold display-4">4</th>
+                        <th scope="row" className = "text-success font-weight-bold display-4">4</th>
                         <td className ="font-weight-bold">Régalez-vous !</td>
                         </tr>
                     </tbody>
