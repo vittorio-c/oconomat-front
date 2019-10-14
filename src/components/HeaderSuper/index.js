@@ -47,11 +47,11 @@ const HeaderSuperStatic =({getRecipes,disconnectUser}) => {
             </div>
         </div>
         <div className ='largescreen d-none d-lg-block'>
-              <div className="d-flex justify-content-around navbar-dark bg-dark text-light ">
+              <div className="d-flex justify-content-around navbar-dark bg-dark text-light">
                   <div> <Link to="/dashboard">Tableau de bord</Link></div> 
                   <div> <Link to="/recipes" onClick={getRecipes}>Recettes</Link></div> 
                   <div> <Link to="/marketlist">Liste de course</Link></div>    
-                  <div > <Link to="/" onClick={disconnectUser} className ='deco '>Déconnexion</Link></div>    
+                  <div> <Link to="/" onClick={disconnectUser} className ='deco '>Déconnexion</Link></div>    
 
               </div>
             </div>    
@@ -80,8 +80,8 @@ const connectionStrategies = connect(
             
             document.location.reload();
             sessionStorage.clear();
-            console.log(ownProps);
-            ownProps.history.push('/');
+            console.log(ownProps)
+            //ownProps.history.push('/');
         },
         getRecipes:(event) => { 
           

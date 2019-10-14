@@ -11,7 +11,9 @@ const initialState = {
   inputValueMDPConfirm:{},
   inputValues: [],
   objectives : '',
-  recipeType:''
+  recipeType:'',
+  welcomeMessage:'',
+  budgetError:''
 };
 
 const defaultAction = {};
@@ -121,6 +123,13 @@ const reducer = (state = initialState, action = defaultAction) => {
           return{...state,recipeType:action.value}
         }
 
+        case 'Show-Message-SignUp' :{
+          return {...state,welcomeMessage:action.value}
+        } 
+
+        case 'Detect-Budget-Error' :{
+           return{...state,budgetError:action.value}
+        }
 
        /*  case 'ENTER-OBJECTIVES' : {
           console.log('objectif saisi !')
