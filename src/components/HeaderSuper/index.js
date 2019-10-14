@@ -83,7 +83,7 @@ const connectionStrategies = connect(
             ownProps.history.push('/');
         },
         getRecipes:(event) => { 
-
+          
           var token=sessionStorage.getItem('jwtToken')
           var url ='http://api.oconomat.fr/api/menu/user/last';
           axios.get(
