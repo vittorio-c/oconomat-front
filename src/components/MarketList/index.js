@@ -44,7 +44,7 @@ const Ingredients = ({doCheck,buttonClass,textClass,shoppingList}) => {
                     </td>
                     <td className= 'align-middle zonename'>
                         <span className= 'font-weight-bold text-success'>{ingredient.quantity}</span>
-                        <span className= 'font-weight-bold'>{ingredient.unit}</span>
+                        <span className= 'font-weight-bold'> {ingredient.unit}</span>
                     </td>
                     <td>
                         <button onClick= {doCheck} className={buttonClass}/>
@@ -54,7 +54,6 @@ const Ingredients = ({doCheck,buttonClass,textClass,shoppingList}) => {
         })
 )
 }
-
 
 const MarketList = ({doCheck,buttonClass,textClass,stockBase,shoppingList}) => {
     if (shoppingList !== ""){
