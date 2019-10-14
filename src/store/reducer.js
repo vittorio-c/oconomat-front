@@ -159,6 +159,18 @@ const reducer = (state = initialState, action = defaultAction) => {
             objectives: '',
           } 
         }
+        case 'TYPE_OLD_PASSWORD' : {
+          return {
+            ...state,
+            oldPassword : action.value
+          }
+        }
+        case 'TYPE_NEW_PASSWORD' : {
+          return {
+            ...state,
+            newPassword : action.value
+          }
+        }
     default: {
       // return state;
       // Dans le cas où on ne comprend pas quelle est l'action à

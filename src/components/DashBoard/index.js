@@ -5,12 +5,12 @@ import  axios  from 'axios';
 
 import './style.sass';
 
-const DashBoard= ({submitObjectives,objectivesInputUpdate,objectives,currentUser,budgetError}) => {
+const DashBoard= ({submitNewPassword,newPassword,oldPassword,typeOldPassword,typeNewPassword,submitObjectives,objectivesInputUpdate,objectives,currentUser,budgetError}) => {
     return (
             <main>
                 <div className="Site-content">
                     <main className="main">
-                        <AccountInfo submitObjectives = {submitObjectives} objectivesInputUpdate = {objectivesInputUpdate}objectives ={objectives} budgetError={budgetError}/>
+                        <AccountInfo submitNewPassword={submitNewPassword} newPassword = {newPassword} oldPassword= {oldPassword} typeOldPassword= {typeOldPassword} typeNewPassword= {typeNewPassword} submitObjectives = {submitObjectives} objectivesInputUpdate = {objectivesInputUpdate}objectives ={objectives} budgetError={budgetError}/>
                     </main>
                 </div>
             </main>
@@ -21,7 +21,7 @@ const DashBoard= ({submitObjectives,objectivesInputUpdate,objectives,currentUser
     )
 }
 
-const AccountInfo = ({submitPassword,submitNewPassword,submitObjectives,objectivesInputUpdate,objectives,budgetError}) => ( 
+const AccountInfo = ({submitNewPassword,newPassword,oldPassword,typeOldPassword,typeNewPassword,submitObjectives,objectivesInputUpdate,objectives,budgetError}) => ( 
 
     <div className="AccountInfoMain"> 
     <h2 className="objectives-title text-center">Tableau de bord</h2> 
@@ -61,19 +61,20 @@ const AccountInfo = ({submitPassword,submitNewPassword,submitObjectives,objectiv
                       <div className="modal-body">
 
                         <div className="md-form mb-5">
-                          <input onChange = {submitPassword} type="password" id="Form-pass5" className="form-control validate white-text" placeholder="Mot de passe actuel" />
+                          <input onChange = {typeOldPassword} type="password" id="Form-pass5" className="form-control validate white-text" placeholder="Mot de passe actuel" />
                           <label data-error="wrong" data-success="right" for="Form-pass5"></label>
                         </div>
 
                         <div className="md-form pb-3">
-                          <input onChange = {submitNewPassword} type="password" id="Form-newpass5" className="form-control validate white-text" placeholder="Nouveau mot de passe" />
+                          <input onChange = {typeNewPassword} type="password" id="Form-newpass5" className="form-control validate white-text" placeholder="Nouveau mot de passe" />
                           <label data-error="wrong" data-success="right" for="Form-newpass5"></label>
                         </div>
 
                         <div className="row d-flex align-items-center mb-4">
 
                           <div className="text-center mb-3 col-md-12">
-                            <button type="button" className="btn-submit-password btn-success btn-block btn-rounded z-depth-1" onClick={()=>{submitNewPassword(inputValueMDP,event)}}>Valider</button>
+                            <button type="button" className="btn-submit-password btn-success btn-block btn-rounded z-depth-1" onClick={() =>{submitNewPassword(newPassword,event)}}>{oldPassword !== newPassword ? 'Valider' : 'Error'}</button>
+                               
                           </div>
 
                         </div>
@@ -111,14 +112,12 @@ const AccountInfo = ({submitPassword,submitNewPassword,submitObjectives,objectiv
                   </div>
                 </div>
               </div>
-            
             </div> 
           </div>
         </form>
       </div>
     </div>
 ) 
-
 
 
 const connectionStrategies = connect(
@@ -128,6 +127,8 @@ const connectionStrategies = connect(
       objectives:state.objectives,
       currentUser:state.currentUser,
       // FOR THE PASSWORD RESET
+      oldPassword: state.oldPassword,
+      newPassword: state.newPassword,
       MDPState:state.MDPState,
       budgetError:state.budgetError
     };
@@ -150,6 +151,27 @@ const connectionStrategies = connect(
           dispatch(action);
 
         },
+        typeOldPassword: (event) => {
+          console.log('ancien Password  en cours de saisie')
+          event.preventDefault();  
+          const action={
+              type:'TYPE_OLD_PASSWORD',
+              value: event.target.value
+            };
+ 
+            dispatch(action);
+        },
+        typeNewPassword: (event) => {
+          console.log('Nouveau Password  en cours de saisie')
+
+          event.preventDefault();  
+          const action={
+              type:'TYPE_NEW_PASSWORD',
+              value: event.target.value
+            };
+ 
+            dispatch(action);
+        },
         submitPassword:(event) =>{
           event.preventDefault();  
           const action={
@@ -161,17 +183,20 @@ const connectionStrategies = connect(
         },
 
         // FOR THE PASSWORD RESET L142 TO L167
-        submitNewPassword:(event) => {
+        submitNewPassword:(newPassword,event) => {
           event.preventDefault();
-          console.log('ma valeur d\'input'+inputValueMDP.mdp)
-          var inputValues= inputValueMDP;
-          var stringifyInput=JSON.stringify(inputValues);
+          var token = sessionStorage.getItem('jwtToken');
           var formData= new FormData();
-          formData.set('mdp',inputValueMDP.mdp);
+          formData.set('newPassword',newPassword);
+          console.log('mon nouveau mdp'+newPassword);
+
           console.log('inputValueMDP.mdp'+formData)
           axios({
           method: 'post',
           url: 'http://api.oconomat.fr/api/password/change', 
+          headers:{
+            'Authorization':`bearer ${token}`
+          },
           data: {
             formData
           }
