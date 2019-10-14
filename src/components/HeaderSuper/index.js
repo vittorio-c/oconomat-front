@@ -13,7 +13,7 @@ const HeaderSuperStatic =({getRecipes,disconnectUser}) => {
         return (
           <div className="sticky-top">
             <div className = 'phonescreen d-lg-none'>
-                <div className="d-flex justify-content-around navbar-dark bg-dark ">
+                <div className="d-flex justify-content-around navbar-dark bg-dark">
                   <Link to="/">  <button className=" btn btn-light fa fa-home fa-2x my-1"> </button>  </Link>
                   <Link to="/Contact"> <button className="btn btn-light fa fa-phone fa-2x my-1"></button></Link>
                   <Link to="/SignUp"> <button className="btn btn-light fa fa-file-signature fa-2x my-1"></button></Link>
