@@ -19,28 +19,74 @@ const DashBoard= ({submitObjectives,objectivesInputUpdate,objectives,currentUser
     )
 }
 
-const AccountInfo = ({submitObjectives,objectivesInputUpdate,objectives}) => ( 
+const AccountInfo = ({submitPassword,submitNewPassword,submitObjectives,objectivesInputUpdate,objectives}) => ( 
 
     <div className="AccountInfoMain"> 
-    <h2 className="objectives-title text-center">Tableau de bord</h2> 
+      <h2 className="objectives-title text-center">Tableau de bord</h2> 
 
       <div className="AccountBackground">
         <form>
           <div className="Account-info row pt-4">
             <div className="col-lg-10 container pl-0">
-            <div className = 'container '>
+              <div className = 'container '>
                 <img src ='src/ressources/pictures/cookingmama.png' className ='avatar-img img-thumbnail max-width:10%'></img>
-            </div>
-           
-                <p className='user mt-2 mb-2 text-center'><span> {sessionStorage.getItem('firstname')} </span> </p>
-                <p className='user mt-2 mb-2 text-center'><span> {sessionStorage.getItem('lastname')} </span> </p>
-                <p className='password mb-2 text-center'>Password : <span>*********</span></p>
-                <p className ='objectif mb-2 text-center'>Objectif : <span> {sessionStorage.getItem('budget') === 'null' ? 0 : sessionStorage.getItem('budget') } € </span></p>
-                <button className='change-password btn'>Modifier mot de passe</button> 
-                <button type="button" class="btn btn-primary text-center" data-toggle="modal" data-target="#exampleModal">
-                { sessionStorage.getItem('budget') !== null || sessionStorage.getItem('budget') !== '' ? 'Modifier vos objectifs' : 'Saisir vos premiers objectifs'}
-                </button>
+              </div>
+              <p className='user mt-2 mb-2 text-center'><span> {sessionStorage.getItem('firstname')} </span> </p>
+              <p className='user mt-2 mb-2 text-center'><span> {sessionStorage.getItem('lastname')} </span> </p>
+              <p className='password mb-2 text-center'>Password : <span>*********</span></p>
+              <p className ='objectif mb-2 text-center'>Objectif : <span> {sessionStorage.getItem('budget') === 'null' ? 0 : sessionStorage.getItem('budget') } € </span></p>
 
+              <div className="text-center">
+                <a href="" className="btn-password btn-default btn" data-toggle="modal" data-target="#darkModalForm">Changer de mot de passe</a>
+              </div>
+              <div className="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div className="modal-dialog form-dark" role="document">
+                  
+                  <div className="modal-content card card-image">
+                    <div className="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
+                      
+                            <div className="modal-header text-center pb-4">
+                              <h3 className="modal-title w-100 white-text font-weight-bold" id="myModalLabel"><strong>Changer de </strong> 
+                              <a className="Up font-weight-bold"><strong> mot de passe</strong>
+                              </a>
+                              </h3>
+                              <button type="button" className="close white-text" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                    
+                      <div className="modal-body">
+
+                        <div className="md-form mb-5">
+                          <input onChange = {submitPassword} type="password" id="Form-pass5" className="form-control validate white-text" placeholder="Mot de passe actuel" />
+                          <label data-error="wrong" data-success="right" for="Form-pass5"></label>
+                        </div>
+
+                        <div className="md-form pb-3">
+                          <input onChange = {submitNewPassword} type="password" id="Form-pass5" className="form-control validate white-text" placeholder="Nouveau mot de passe" />
+                          <label data-error="wrong" data-success="right" for="Form-pass5"></label>
+                        </div>
+
+                        <div className="row d-flex align-items-center mb-4">
+
+                          <div className="text-center mb-3 col-md-12">
+                            <button type="button" className="btn-submit-password btn-success btn-block btn-rounded z-depth-1">Valider</button>
+                          </div>
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              
+
+              <button type="button" class="btn btn-primary text-center" data-toggle="modal" data-target="#exampleModal">
+              { sessionStorage.getItem('budget') !== null || sessionStorage.getItem('budget') !== '' ? 'Modifier vos objectifs' : 'Saisir vos premiers objectifs'}
+              </button>
               <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
@@ -51,15 +97,16 @@ const AccountInfo = ({submitObjectives,objectivesInputUpdate,objectives}) => (
                       </button>
                     </div>
                     <form>
-                    <input onChange = {objectivesInputUpdate}  type="number" className="form-control form-control-sm" id="colFormLabelLg" placeholder="Inserez votre nouveau budget"/>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                    { objectives >0 ? <button type="button" onClick = {submitObjectives} onSubmit = {submitObjectives} className="btn btn-success" type="submit"> Valider {objectives} { objectives >0 ? ' € ?' : '' } </button> : '' }
-                    </div>
+                      <input onChange = {objectivesInputUpdate}  type="number" className="form-control form-control-sm" id="colFormLabelLg" placeholder="Inserez votre nouveau budget"/>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                      { objectives >0 ? <button type="button" onClick = {submitObjectives} onSubmit = {submitObjectives} className="btn btn-success" type="submit"> Valider {objectives} { objectives >0 ? ' € ?' : '' } </button> : '' }
+                      </div>
                     </form>
                   </div>
                 </div>
               </div>
+            
             </div> 
           </div>
         </form>
