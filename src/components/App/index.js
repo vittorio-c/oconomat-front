@@ -13,14 +13,13 @@ import Recipe from 'src/components/Recipe';
 import HeaderSuper from 'src/components/HeaderSuper';
 import Footer from 'src/components/Footer';
 import DashBoard from '../DashBoard';
-
 // Styles and assets
 
 import './app.sass'; 
 
 
 
-const AppContainer=() => {
+const AppContainer = ( {getMarketList}) => {
   if (sessionStorage.jwtToken === '' || sessionStorage.jwtToken === undefined ){
     return (
       
@@ -30,10 +29,10 @@ const AppContainer=() => {
             <Switch>
               <Route exact path="/" component={Home} /> 
               <Route exact path="/contact" component={Contact} />
-              <Route exact path="/SignIn" component={SignIn} />
-              <Route exact path="/SignUp" component={SignUp} />
-              <Route exact path="/ForgottenPassword" component={ForgottenPassword} />
-              <Route exact path="/PasswordSend" component={PasswordSend} />
+              <Route exact path="/signin" component={SignIn} />
+              <Route exact path="/signup" component={SignUp} />
+              <Route exact path="/forgottenPassword" component={ForgottenPassword} />
+              <Route exact path="/passwordSend" component={PasswordSend} />
               <Route component={NoFound} />
             </Switch>
         <Footer />
@@ -53,7 +52,7 @@ return (
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/dashboard" component={DashBoard} />
           <Route exact path="/recipes" component={Recipes} />
-          <Route exact path="/marketlist" component={MarketList} />
+          <Route exact path="/marketlist" component={MarketList}  />
           <Route exact path="/recipe" component={Recipe} /> 
           <Route component={NoFound} />
         </Switch>
@@ -63,5 +62,7 @@ return (
 )
 }
 
-export default AppContainer;
 
+
+      
+export default AppContainer;

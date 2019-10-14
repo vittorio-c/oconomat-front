@@ -11,7 +11,11 @@ const initialState = {
   inputValueMDPConfirm:{},
   inputValues: [],
   objectives : '',
-  recipeType:''
+  recipeType:'',
+  shoppingList:'',
+  buttonClass : "btn btn-success btn-lg btn-block fa fa-square disabled",
+  welcomeMessage:'',
+  budgetError:''
 };
 
 const defaultAction = {};
@@ -122,21 +126,22 @@ const reducer = (state = initialState, action = defaultAction) => {
           return{...state,recipeType:action.value}
         }
 
+        case 'Show-Message-SignUp' :{
+          return {...state,welcomeMessage:action.value}
+        } 
 
-       /*  case 'ENTER-OBJECTIVES' : {
-          console.log('objectif saisi !')
+        case 'Detect-Budget-Error' :{
+           return{...state,budgetError:action.value}
+        }
+
+         case 'SHOW_SHOPPINGLIST' : {
+          console.log('SHOW_SHOPPINGLIST !')
           return{...state,
-            objectives:action.value
+            shoppingList: action.value
           }
-        } */
+        } 
 
-/*            case 'CHECKED' : {
-          console.log("cliqué !")
-          return {
-            ...state,
-            buttonClass : event.target.className = "btn btn-success btn-lg btn-block fa fa-check-square disabled",
-            textClass :  'blabla'}
-        }     */
+
         case 'STOCK' : {
           return {
             ...state,

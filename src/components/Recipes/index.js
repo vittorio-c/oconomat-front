@@ -6,12 +6,12 @@ import axios from 'axios'
 
 import './Recipes.sass';
 
-const RecettesStatic = ({recipes,findRecipe,getStateType,recipeType}) => {
+const RecettesStatic = ({recipes,findRecipe,getStateType,recipeType,recipe}) => {
     return (
         <main>
             <div className="Site-content">
                 <main className="main">
-                    <RecipesMain recipes={recipes} findRecipe={findRecipe} getStateType={getStateType} recipeType={recipeType}/>
+                    <RecipesMain recipes={recipes} findRecipe={findRecipe} getStateType={getStateType} recipeType={recipeType} recipe={recipe}/>
                 </main>
             </div>
         </main>
@@ -19,24 +19,24 @@ const RecettesStatic = ({recipes,findRecipe,getStateType,recipeType}) => {
     )
 } 
 
-const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType}) => { 
+const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType,recipe}) => { 
 
     if(recipes.length!=0){ 
-    
-    return <div className="recipes-main"> 
-    <h2 className="recipes-title col-sm-6">Liste de vos Recettes Pour la Semaine Test </h2>  
+        {console.log(recipe)}
+    return <div class="container"> <div className="d-none d-sm-block recipes-main"> 
+    <h2 className="recipes-title">Liste de vos Recettes Pour la Semaine Test </h2>  
     
 
      <div class="row">
-        <div class="col-sm-12 col-md-4"> <button class="btn btn-warning" onClick={getStateType}> petit déjeuner  </button></div> 
-        <div class="col-sm-12 col-md-4"> <button class="btn btn-warning" onClick={getStateType}> déjeuner  </button></div>
-        <div class="col-sm-12 col-md-4"> <button class="btn btn-warning" onClick={getStateType}> dîner </button></div>
+        <div class="d-none d-md-block col-md-4"> <button class="btn btn-warning" onClick={getStateType}> petit déjeuner  </button></div> 
+        <div class="d-none d-md-block col-md-4"> <button class="btn btn-warning" onClick={getStateType}> déjeuner  </button></div>
+        <div class="d-none d-md-block col-md-4"> <button class="btn btn-warning" onClick={getStateType}> dîner </button></div>
      
-     </div>
+     </div> 
 
    
         
-        <div className="d-none d-md-block col-xs-12 col-md-8 offset-md-2 recipe-box"> 
+        <div className="d-none d-sm-block col-md-8 offset-md-2 recipe-box"> 
         {recipeType.length!=0 ?
        
         <Carousel> 
@@ -47,7 +47,7 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
             <img className="d-block w-100 max-height" src={recipe.image}/>
         <Carousel.Caption>
         <h3 className="recipes-name-title">{recipe.title} </h3> 
-        <Link to="/Recipe"> <button className="details-btn btn" onClick={()=>{findRecipe(index,recipes)}}>   <a >Details</a>  </button> </Link>
+        <Link to="/Recipe"> <button className="details-btn btn" onClick={()=>{findRecipe(index,recipes)}}> <a>Details</a>  </button> </Link>
         <p className="text-black">A manger pour le {recipe.type}</p> 
         <p className="text-black"> Prix: {recipe.price} £ </p>
         </Carousel.Caption>
@@ -56,15 +56,73 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
 
         })} 
         </Carousel>  
-        :<h3 className="recipes-title"> Veuillez Choisir</h3> }
+        :<h3 className="recipes-title"> Veuillez Choisir</h3> } 
+
+        
+
+
       
-     </div>
- 
+     </div> 
+
+
+     
+     
+     
+</div> 
+ <div class="d-block d-sm-none">  
+    <div>
+      <Carousel>
+        {recipes.map(function(recipe,index){
+            if(recipe.type==recipeType.trim()){ 
+             if(recipe.title.length<=30){
+            return<Carousel.Item>  
+              
+                <img className="d-block w-100 max-height" src={recipe.image}/>
+                <Carousel.Caption> 
+                
+               <div class="col-xs-12 bg-yellow title-height"> <p className="recipes-title-small"> {recipe.title} </p>  </div>
+               <div class="col-xs-12 bg-yellow">  <p className="recipes-title-small"> Prix: {recipe.price} £ </p>  </div> 
+               
+                  
+                <Link to="/Recipe"> <button className="details-btn btn" onClick={()=>{findRecipe(index,recipes)}}> <a>Details</a>  </button> </Link> 
+                </Carousel.Caption> 
+
+            </Carousel.Item>
+             } 
+
+             else{
+                return<Carousel.Item>  
+              
+                <img className="d-block w-100 max-height" src={recipe.image}/>
+                <Carousel.Caption> 
+                
+               <div class="col-xs-12 bg-yellow title-height"> <p className="recipes-title-xs"> {recipe.title} </p>  </div>
+               <div class="col-xs-12 bg-yellow">  <p className="recipes-title-small"> Prix: {recipe.price} £ </p>  </div> 
+               
+                  
+                <Link to="/Recipe"> <button className="details-btn btn" onClick={()=>{findRecipe(index,recipes)}}> <a>Details</a>  </button> </Link> 
+                </Carousel.Caption> 
+
+            </Carousel.Item>
+             }
+             
+            }
+        })} 
+     </Carousel> 
+     </div> 
+     
+     
+     
+        <div class="col-xs-12"> <button class="btn btn-warning width-full" onClick={getStateType}> petit déjeuner </button> </div> 
+        <div class="col-xs-12"> <button class="btn btn-warning width-full " onClick={getStateType}> déjeuner </button> </div>
+        <div class="col-xs-12"> <button class="btn btn-warning width-full" onClick={getStateType}> dîner </button>  </div>
     
-    </div>
+    
+    </div> 
+</div>
     } 
     else{
-        return <div> Recipes Are Loading </div> 
+        return <div> Recipes  Are Loading </div> 
     }
 } 
  
@@ -79,7 +137,7 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
 const connectionStrategies = connect(
   // 1er argument : stratégie de lecture (dans le state privé global)
   (state, ownProps) => { 
-    {console.log(state.recipes)};
+
     
     //console.log(state.recipes);
     return {
@@ -102,7 +160,7 @@ const connectionStrategies = connect(
         })
       },
 
-     getStateType(event){
+     getStateType(event){ 
          const action={type:'Choose-Recipe-Type',value:event.target.textContent}
          dispatch(action);
      }

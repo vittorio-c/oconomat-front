@@ -5,22 +5,28 @@ import  axios  from 'axios';
 
 import './style.sass';
 
-const DashBoard= ({submitObjectives,objectivesInputUpdate,objectives,currentUser}) => {
+const DashBoard= ({submitObjectives,objectivesInputUpdate,objectives,currentUser,budgetError}) => {
     return (
             <main>
                 <div className="Site-content">
                     <main className="main">
-                        <AccountInfo submitObjectives = {submitObjectives} objectivesInputUpdate = {objectivesInputUpdate}objectives ={objectives}/>
+                        <AccountInfo submitObjectives = {submitObjectives} objectivesInputUpdate = {objectivesInputUpdate}objectives ={objectives} budgetError={budgetError}/>
                     </main>
                 </div>
             </main>
+
+  
+           
+        
     )
 }
 
-const AccountInfo = ({submitPassword,submitNewPassword,submitObjectives,objectivesInputUpdate,objectives}) => ( 
+const AccountInfo = ({submitPassword,submitNewPassword,submitObjectives,objectivesInputUpdate,objectives,budgetError}) => ( 
 
     <div className="AccountInfoMain"> 
-      <h2 className="objectives-title text-center">Tableau de bord</h2> 
+    <h2 className="objectives-title text-center">Tableau de bord</h2> 
+    
+
       <div className="AccountBackground">
         <form>
           <div className="Account-info row pt-4">
@@ -86,8 +92,10 @@ const AccountInfo = ({submitPassword,submitNewPassword,submitObjectives,objectiv
               </button>
               <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
+                  <div class="modal-content"> 
+                  {budgetError!='' ? <div class="alert alert-danger" role="alert"> {budgetError} </div> : <span> </span>}
+                    <div class="modal-header"> 
+                    
                       <h5 class="modal-title" id="exampleModalLabel">Modifier vos objectifs</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -121,6 +129,7 @@ const connectionStrategies = connect(
       currentUser:state.currentUser,
       // FOR THE PASSWORD RESET
       MDPState:state.MDPState,
+      budgetError:state.budgetError
     };
   },
 
@@ -140,6 +149,15 @@ const connectionStrategies = connect(
           }
           dispatch(action);
 
+        },
+        submitPassword:(event) =>{
+          event.preventDefault();  
+          const action={
+              type:'ENTER_PASSWORD',
+              value: event.target.value
+            };
+ 
+            dispatch(action);
         },
 
         // FOR THE PASSWORD RESET L142 TO L167
@@ -183,7 +201,7 @@ const connectionStrategies = connect(
                   budget:sessionStorage.getItem('objectives')
                 },  
               }).then((response)=>{
-
+                console.log(response)
                 const action = {
                   type:'RESET_OBJECTIVES',
                   objectives: ''
@@ -196,18 +214,24 @@ const connectionStrategies = connect(
                   headers:{
                   'Authorization':`bearer ${token}`,
                   }, 
-                 }).then((response1)=>{
+                 }).then((response1)=>{ 
+                   console.log('hello world')
+                  console.log(response1);
                 sessionStorage.setItem('budget',response1.data);
                 document.location.reload();
                 ownProps.history.push('/dashboard') ;
-              }).catch((error)=>{
-                console.log('failure')
-                console.log(error)
+              }).catch((error)=>{ 
+               
+                
               })
               ownProps.history.push('/dashboard') ;
-            }).catch((error)=>{
-              console.log('failure')
-              console.log(error)
+            }).catch((error)=>{ 
+              const action={type:'Detect-Budget-Error',value:'Vieullez saisir un budget entre 25 et 75 euro'}
+                dispatch(action);
+                console.log('failure')
+                console.log(error.response.status)
+                ownProps.history.push('/dashboard')
+             
             })
       }
     }
