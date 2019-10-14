@@ -13,10 +13,9 @@ const Footer =() =>{
                     <div className="col-xs-6 col-sm-6 text-center col-lg-3"> <a href="/Contact">Contact</a></div>
                 </div>
                  <div className="green-footer p-1">
-                    <img className="logo-white" src="src/images/logo_oconomat_white.png"></img>
+                    <img className="logo-white" src="src/ressources/pictures/logo_oconomat_white.png"></img>
                  </div>
            </div> 
-
     </div> 
 } 
 
