@@ -72,6 +72,7 @@ const reducer = (state = initialState, action = defaultAction) => {
             passwordState:{password:action.value}
           }
         } 
+
         case 'ENTER_EMAIL' : {
           /* console.log("mot de passe saisi") */
           return {

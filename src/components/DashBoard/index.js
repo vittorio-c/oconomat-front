@@ -14,8 +14,6 @@ const DashBoard= ({submitObjectives,objectivesInputUpdate,objectives,currentUser
                     </main>
                 </div>
             </main>
-           
-        
     )
 }
 
@@ -23,7 +21,6 @@ const AccountInfo = ({submitPassword,submitNewPassword,submitObjectives,objectiv
 
     <div className="AccountInfoMain"> 
       <h2 className="objectives-title text-center">Tableau de bord</h2> 
-
       <div className="AccountBackground">
         <form>
           <div className="Account-info row pt-4">
@@ -63,14 +60,14 @@ const AccountInfo = ({submitPassword,submitNewPassword,submitObjectives,objectiv
                         </div>
 
                         <div className="md-form pb-3">
-                          <input onChange = {submitNewPassword} type="password" id="Form-pass5" className="form-control validate white-text" placeholder="Nouveau mot de passe" />
-                          <label data-error="wrong" data-success="right" for="Form-pass5"></label>
+                          <input onChange = {submitNewPassword} type="password" id="Form-newpass5" className="form-control validate white-text" placeholder="Nouveau mot de passe" />
+                          <label data-error="wrong" data-success="right" for="Form-newpass5"></label>
                         </div>
 
                         <div className="row d-flex align-items-center mb-4">
 
                           <div className="text-center mb-3 col-md-12">
-                            <button type="button" className="btn-submit-password btn-success btn-block btn-rounded z-depth-1">Valider</button>
+                            <button type="button" className="btn-submit-password btn-success btn-block btn-rounded z-depth-1" onClick={()=>{submitNewPassword(inputValueMDP,event)}}>Valider</button>
                           </div>
 
                         </div>
@@ -121,7 +118,9 @@ const connectionStrategies = connect(
   (state, ownProps) => { 
     return {
       objectives:state.objectives,
-      currentUser:state.currentUser
+      currentUser:state.currentUser,
+      // FOR THE PASSWORD RESET
+      MDPState:state.MDPState,
     };
   },
 
@@ -130,7 +129,11 @@ const connectionStrategies = connect(
     return {
       objectivesInputUpdate:(event) => {
         event.preventDefault();
+        // FOR THE PASSWORD RESET
+        sessionStorage.setItem('mdp',event.target.value);
+        // FOR SUBMITOBJECTIVES
         sessionStorage.setItem('objectives',event.target.value);
+        
         const action = {
           type:'OBJECTIVES_UPDATE',
           objectives: event.target.value,
@@ -138,13 +141,42 @@ const connectionStrategies = connect(
           dispatch(action);
 
         },
-      submitObjectives:(event) => {
-         event.preventDefault(); 
-         var token = sessionStorage.getItem('jwtToken'); 
-           axios({
+
+        // FOR THE PASSWORD RESET L142 TO L167
+        submitNewPassword:(event) => {
+          event.preventDefault();
+          console.log('ma valeur d\'input'+inputValueMDP.mdp)
+          var inputValues= inputValueMDP;
+          var stringifyInput=JSON.stringify(inputValues);
+          var formData= new FormData();
+          formData.set('mdp',inputValueMDP.mdp);
+          console.log('inputValueMDP.mdp'+formData)
+          axios({
+          method: 'post',
+          url: 'http://api.oconomat.fr/api/password/change', 
+          data: {
+            formData
+          }
+          })
+          .then(function (response) {
+              //On traite la suite une fois la réponse obtenue 
+              console.log('hello world')
+              console.log(response)
+              
+          })
+          .catch(function (erreur) {
+              //On traite ici les erreurs éventuellement survenues
+              console.log(erreur);
+          });
+
+        // FOR SUBMITOBJECTIVES
+        submitObjectives:(event) => {
+          event.preventDefault(); 
+          var token = sessionStorage.getItem('jwtToken'); 
+            axios({
                method: 'post',
                url: 'http://api.oconomat.fr/api/objectif/menu/generate',
-              headers:{
+               headers:{
                 'Authorization':`bearer ${token}`,
                 }, 
                 data: {
@@ -179,7 +211,7 @@ const connectionStrategies = connect(
             })
       }
     }
-  }
+  }}
 )
 // Étape 2 : on applique ces stratégies à un composant spécifique.
 const DashBoardContainer = connectionStrategies(DashBoard);
