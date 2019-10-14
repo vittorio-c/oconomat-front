@@ -23,19 +23,17 @@ const RecettesStatic = ({recipes,findRecipe,getStateType,recipeType,recipe}) => 
 const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType,recipe}) => { 
 
     if(recipes.length!=0){ 
-<<<<<<< HEAD
     
     return <div className="recipes-main"> 
-<<<<<<< HEAD
+
     <h2 className="recipes-title col-sm-6">Liste de vos Recettes Pour la Semaine Test </h2>  
-=======
+
     <h2 className="recipes-title col-sm-6 offset-sm-3">Liste de vos Recettes Pour la Semaine</h2>  
->>>>>>> 6ca610cef580cb286646d3dc4e0d42ff327a770f
-=======
+
         {console.log(recipe)}
     return <div class="container"> <div className="d-none d-sm-block recipes-main"> 
     <h2 className="recipes-title">Liste de vos Recettes Pour la Semaine Test </h2>  
->>>>>>> carousel_peaufinement
+
     
 
      <div class="row">
