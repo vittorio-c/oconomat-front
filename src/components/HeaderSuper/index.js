@@ -49,6 +49,7 @@ const HeaderSuperStatic =({getRecipes,disconnectUser}) => {
               <Link to="/"> <button onClick={disconnectUser} className="bg-danger btn btn-dark fa fa-user-slash fa-2x my-1"></button> </Link> 
             </div>
         </div>
+<<<<<<< HEAD
         <div className ='font-size largescreen d-none d-lg-block'>
               <div className="d-flex radius justify-content-start bg-light py-3 border-bottom border-success mt-0 mb-2">
                   <img className="logo" src="src/images/logo_oconomat_vert.png"></img>
@@ -61,6 +62,14 @@ const HeaderSuperStatic =({getRecipes,disconnectUser}) => {
               </div>
 
               <div className="d-flex justify-content-around navbar-dark bg-dark text-light ">
+=======
+        <div className ='largescreen d-none d-lg-block'>
+              <div className="d-flex justify-content-around navbar-dark bg-dark text-light">
+                  <div> <Link to="/dashboard">Tableau de bord</Link></div> 
+                  <div> <Link to="/recipes" onClick={getRecipes}>Recettes</Link></div> 
+                  <div> <Link to="/marketlist">Liste de course</Link></div>    
+                  <div> <Link to="/" onClick={disconnectUser} className ='deco '>Déconnexion</Link></div>    
+>>>>>>> redirection
 
               </div>
             </div>    
@@ -89,8 +98,8 @@ const connectionStrategies = connect(
             
             document.location.reload();
             sessionStorage.clear();
-            console.log(ownProps);
-            ownProps.history.push('/');
+            console.log(ownProps)
+            //ownProps.history.push('/');
         },
         getRecipes:(event) => { 
           

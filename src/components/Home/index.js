@@ -1,28 +1,32 @@
 /* import './style.sass' */
 import React from 'react';
+import {connect} from 'react-redux';
 
 /* Import du fichier Sass */
 import './Home.sass'
 
-const Home = () => {
+const HomePageStatic = ({welcomeMessage}) => {
     return (
-                  <HomePage/>
+         <HomePage welcomeMessage={welcomeMessage}/>
     )
 }
 
-const HomePage = () => {
+const HomePage = ({welcomeMessage}) => {
     return <div className ="bg-light">
-    <Logo />
+    <Logo welcomeMessage={welcomeMessage} />
     <Steps />
 </div>
 
 }
 
-const Logo = () => {
+const Logo = ({welcomeMessage}) => {
     return(
         <div className ='container text-center col-xs-12 col-lg-10'>
             <div className ='food-image img-thumbnail text-light  pt-4'>
-                <div className = "text-box">
+                <div className = "text-box"> 
+                {console.log(welcomeMessage)}
+                    {welcomeMessage!='' ? <h4 className="alert alert-success" role="alert"> {welcomeMessage} </h4> : <span> </span> }
+                    
                     <h2 className='home-catch-sentence m-3 '>Une panne d'inspiration ?</h2>
                     <h1 className='home-title text-success'>OCONOMAT</h1>
                     <h3 className='home-catch-sentence m-3 '>vous propose des repas en respectant votre budget</h3>
@@ -109,5 +113,35 @@ const Steps = () => {
                 </div>
     )
 }
+
+
+const connectionStrategies = connect(
+    // 1er argument : stratégie de lecture (dans le state privé global)
+    (state, ownProps) => { 
+        console.log(state.welcomeMessage)
+      return {
+        welcomeMessage: state.welcomeMessage
+        
+       
+      };
+    },
+  
+    // 2d argument : stratégie d'écriture (dans le state privé global)
+    (dispatch, ownProps) => {
+      return {
+        
+       
+// var inputValues = new FormData();
+ 
+     
+    
+      };
+    },
+  );
+  
+  // Étape 2 : on applique ces stratégies à un composant spécifique.
+  const Home = connectionStrategies(HomePageStatic);
+
+
 
 export default Home ;
