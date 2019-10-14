@@ -21,12 +21,15 @@ const HeaderSuperStatic =({getRecipes,disconnectUser}) => {
                 </div>
             </div>
 
-            <div className ='largescreen d-none d-lg-block'>
-              <div className="d-flex justify-content-around navbar-dark bg-dark text-light ">
-                  <div> <Link to="/">Accueil</Link></div> 
-                  <div> <Link to="/Contact">Contact</Link></div> 
-                  <div> <Link to="/SignUp">S'inscrire</Link></div> 
-                  <div> <Link to="/SignIn">Se connecter</Link></div>    
+            <div className ='font-size largescreen d-none d-lg-block'>
+              <div className="d-flex radius justify-content-start bg-light py-3 border-bottom border-success mt-0 mb-2">
+                  <Link className="mr-3" to="/"><img className="logo" src="src/images/logo_oconomat_vert.png"></img></Link>
+                  <div className="row align-content-center ml-5">
+                    <Link className="mr-3" to="/">Accueil</Link>
+                    <Link className="mr-3" to="/Contact">Contact</Link> 
+                    <Link className="mr-3" to="/SignUp">S'inscrire</Link>
+                    <Link className="mr-3" to="/SignIn">Se connecter</Link>  
+                  </div>
               </div>
             </div>    
               
@@ -46,12 +49,18 @@ const HeaderSuperStatic =({getRecipes,disconnectUser}) => {
               <Link to="/"> <button onClick={disconnectUser} className="bg-danger btn btn-dark fa fa-user-slash fa-2x my-1"></button> </Link> 
             </div>
         </div>
-        <div className ='largescreen d-none d-lg-block'>
+        <div className ='font-size largescreen d-none d-lg-block'>
+              <div className="d-flex radius justify-content-start bg-light py-3 border-bottom border-success mt-0 mb-2">
+                  <img className="logo" src="src/images/logo_oconomat_vert.png"></img>
+                  <div className="row align-content-center ml-5">
+                      <Link className="mr-3" to="/dashboard">Tableau de bord</Link>
+                      <Link className="mr-3" to="/recipes" onClick={getRecipes}>Recettes</Link>
+                      <Link className="mr-3" to="/marketlist">Liste de course</Link>
+                      <Link className="mr-3" to="/" onClick={disconnectUser} className ='deco '>Déconnexion</Link>  
+                  </div>
+              </div>
+
               <div className="d-flex justify-content-around navbar-dark bg-dark text-light ">
-                  <div> <Link to="/dashboard">Tableau de bord</Link></div> 
-                  <div> <Link to="/recipes" onClick={getRecipes}>Recettes</Link></div> 
-                  <div> <Link to="/marketlist">Liste de course</Link></div>    
-                  <div > <Link to="/" onClick={disconnectUser} className ='deco '>Déconnexion</Link></div>    
 
               </div>
             </div>    
