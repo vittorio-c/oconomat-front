@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { BrowserRouter as Router, Route,Switch,Redirect, Link } from "react-router-dom";
 import Carousel from 'react-bootstrap/Carousel'
-import CarouselResponsive from 'react-responsive-carousel'
 import axios from 'axios' 
 
 import './Recipes.sass';
