@@ -67,27 +67,41 @@ const connectionStrategies = connect(
         },
         submitForm:(emailState,passwordState,event) =>{
            event.preventDefault();  
+
             axios({
                  method: 'post',
                  url: 'http://api.oconomat.fr/api/login_check',
                  data: {
                    email:emailState.email,
                    password:passwordState.password
-                  },
-                                 
+                  },       
               }).then((response)=>{
-                /* console.log(response); */
                 const action={type:'Persist-User',value:response.data};
-                dispatch(action)
+                  dispatch(action)
 
-                sessionStorage.setItem('jwtToken', response.data.payload.token);
-                sessionStorage.setItem('firstname',response.data.firstname);
-                sessionStorage.setItem('lastname',response.data.lastname);
-                sessionStorage.setItem('id',response.data.id);
-                sessionStorage.setItem('budget',response.data.budget);
-                
-                ownProps.history.push('/dashboard');
-                document.location.reload(); 
+                  sessionStorage.setItem('jwtToken', response.data.payload.token);
+                  sessionStorage.setItem('firstname',response.data.firstname);
+                  sessionStorage.setItem('lastname',response.data.lastname);
+                  sessionStorage.setItem('id',response.data.id);
+                  sessionStorage.setItem('budget',response.data.budget);
+                  
+                var token = sessionStorage.getItem('jwtToken');
+                axios({
+                  method: 'get',
+                  url: 'http://api.oconomat.fr/api/menu/user/last',
+                  headers:{
+                    'Authorization':`bearer ${token}`
+                  },
+                                  
+                    }).then((response1)=>{
+                      sessionStorage.setItem('idMenu',response1.data.idMenu);
+                      console.log('ma réponse de mon id ? ?'+response1.data.idMenu); 
+                      ownProps.history.push('/dashboard');
+                      document.location.reload();  
+                  }).catch((error)=>{
+                    console.log('failure')
+                    console.log(error)
+                  })
               }).catch((error)=>{
                 console.log('failure')
                 console.log(error)
