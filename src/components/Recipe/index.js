@@ -3,17 +3,22 @@ import React from 'react';
 /* Import du fichier Sass */
 import './Recipe.sass'
 import {connect} from 'react-redux';
+import { BrowserRouter as Router, Route,Switch,Redirect, Link } from "react-router-dom";
 
-const RecipeMain = ({recipe}) => {
-    return (
-        <div>
+const RecipeMain = ({recipe,clearRecipe}) => { 
+    
+    return ( 
+        <div> 
+         
         <main> 
             {recipe.data!=undefined ? 
-            
+                
             <div className="recipe-page">
                 
-                    <h2 className='recipe-page-title m-3'>Voici votre recette</h2>
-                         <div className="recipe-detail">
+                    <h2 className='recipe-page-title m-3'>Voici votre recette</h2> 
+                    
+                         <div className="recipe-detail"> 
+                          <Link to="/recipes"><button class="btn btn-warning margin-top" onClick={clearRecipe}> Go Back To Carousel </button></Link>
                             <div className="recipe-name">
                                  <h3>{recipe.data.title} </h3>
                             </div>
@@ -25,6 +30,7 @@ const RecipeMain = ({recipe}) => {
                                 <h3 className="ingredients-title">Vos ingredients</h3>
                                 <ul>
                                  {recipe.data.ingredients.map(function(element){
+                                     
                                        return <li> <span> {element.quantity} {element.aliment.unit} </span> <span> {element.aliment.name} </span> </li>
                                     })}
                                 </ul>
@@ -39,8 +45,11 @@ const RecipeMain = ({recipe}) => {
                                     })}
                                  
                                 </ol> 
-                            </div>
-                        </div>
+                                
+                            </div> 
+                            
+                        </div> 
+                        
                 </div>
             : <h2> Recipe Loading </h2>}
             </main>
@@ -65,7 +74,10 @@ const connectionStrategies = connect(
     // 2d argument : stratégie d'écriture (dans le state privé global)
     (dispatch, ownProps) => {
       return {
-        
+        clearRecipe:()=>{
+            const action={type:'Clear-Recipe', value:{}}
+            dispatch(action);
+        }
         
       };
     },

@@ -103,6 +103,12 @@ const reducer = (state = initialState, action = defaultAction) => {
             ...state,recipe:action.value
           }
         }
+
+        case 'Clear-Recipe' :{
+          return {
+            ...state, recipe:action.value
+          }
+        }
     
         case 'Show-Recipes' : { 
           /* console.log('RECIPES FETCHED') */
