@@ -35,7 +35,7 @@ const AccountInfo = ({submitObjectives,objectivesInputUpdate,objectives}) => (
                 <p className='user mt-2 mb-2 text-center'><span> {sessionStorage.getItem('firstname')} </span> </p>
                 <p className='user mt-2 mb-2 text-center'><span> {sessionStorage.getItem('lastname')} </span> </p>
                 <p className='password mb-2 text-center'>Password : <span>*********</span></p>
-                <p className ='objectif mb-2 text-center'>Objectif : <span> {sessionStorage.getItem('budget')} € </span></p>
+                <p className ='objectif mb-2 text-center'>Objectif : <span> {sessionStorage.getItem('budget') === 'null' ? 0 : sessionStorage.getItem('budget') } € </span></p>
                 <button className='change-password btn'>Modifier mot de passe</button> 
                 <button type="button" class="btn btn-primary text-center" data-toggle="modal" data-target="#exampleModal">
                 { sessionStorage.getItem('budget') !== null || sessionStorage.getItem('budget') !== '' ? 'Modifier vos objectifs' : 'Saisir vos premiers objectifs'}

@@ -10,22 +10,51 @@ const HeaderSuperStatic =({getRecipes,disconnectUser}) => {
 
     if (sessionStorage.jwtToken === '' || sessionStorage.jwtToken === undefined ){
      
-        return <div className="sticky-top d-flex justify-content-around navbar-dark bg-dark ">
-            
-            <Link to="/">  <button className=" btn btn-light fa fa-home fa-2x my-1"></button>  </Link>
-            <Link to="/Contact"> <button className="btn btn-light fa fa-phone fa-2x my-1"> </button></Link>
-            <Link to="/SignUp"> <button className="btn btn-light fa fa-file-signature fa-2x my-1"></button></Link>
-            <Link to="/SignIn">  <button className="btn btn-light fa fa-plug fa-2x my-1"> </button></Link>
-      </div>  
+        return (
+          <div className="sticky-top">
+            <div className = 'phonescreen d-lg-none'>
+                <div className="d-flex justify-content-around navbar-dark bg-dark ">
+                  <Link to="/">  <button className=" btn btn-light fa fa-home fa-2x my-1"> </button>  </Link>
+                  <Link to="/Contact"> <button className="btn btn-light fa fa-phone fa-2x my-1"></button></Link>
+                  <Link to="/SignUp"> <button className="btn btn-light fa fa-file-signature fa-2x my-1"></button></Link>
+                  <Link to="/SignIn">  <button className="btn btn-light fa fa-plug fa-2x my-1"></button></Link>
+                </div>
+            </div>
 
+            <div className ='largescreen d-none d-lg-block'>
+              <div className="d-flex justify-content-around navbar-dark bg-dark text-light ">
+                  <div> <Link to="/">Accueil</Link></div> 
+                  <div> <Link to="/Contact">Contact</Link></div> 
+                  <div> <Link to="/SignUp">S'inscrire</Link></div> 
+                  <div> <Link to="/SignIn">Se connecter</Link></div>    
+              </div>
+            </div>    
+              
+          </div>
+          
+          
+        )
     } else
     return(
-      <div className="sticky-top d-flex justify-content-around navbar-dark bg-dark">
-              <Link to="/Contact"> <button className="btn btn-light fa fa-phone fa-2x my-1"></button></Link>
-              <Link to="/dashboard"> <button className="btn btn-light fa fa-user fa-2x my-1"> </button></Link>
-              <Link to="/Recipes"> <button onClick={getRecipes} className="btn btn-light fa fa-book-open fa-2x my-1 "> </button> </Link> 
-              <Link to="/MarketList"> <button className="btn btn-light fa fa-shopping-cart fa-2x my-1"> </button></Link>
-              <Link to="/"> <button onClick={disconnectUser} className="bg-danger btn btn-dark fa fa-user-slash fa-2x my-1"> </button> </Link> 
+      <div className="sticky-top">
+        <div className = 'phonescreen d-lg-none'>
+            <div className="d-flex justify-content-around navbar-dark bg-dark ">
+              <Link to="/contact"> <button className="btn btn-light fa fa-phone fa-2x my-1"></button></Link>
+              <Link to="/dashboard"><button className="btn btn-light fa fa-user fa-2x my-1"></button></Link>
+              <Link to="/Recipes"> <button onClick={getRecipes} className="btn btn-light fa fa-book-open fa-2x my-1 "></button> </Link> 
+              <Link to="/marketList"> <button className="btn btn-light fa fa-shopping-cart fa-2x my-1"></button></Link>
+              <Link to="/"> <button onClick={disconnectUser} className="bg-danger btn btn-dark fa fa-user-slash fa-2x my-1"></button> </Link> 
+            </div>
+        </div>
+        <div className ='largescreen d-none d-lg-block'>
+              <div className="d-flex justify-content-around navbar-dark bg-dark text-light ">
+                  <div> <Link to="/dashboard">Tableau de bord</Link></div> 
+                  <div> <Link to="/recipes">Recettes</Link></div> 
+                  <div> <Link to="/marketlist">Liste de course</Link></div>    
+                  <div > <Link to="/" onClick={disconnectUser} className ='deco '>Déconnexion</Link></div>    
+
+              </div>
+            </div>    
       </div>
     )
 } 

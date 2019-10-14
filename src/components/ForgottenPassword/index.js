@@ -1,80 +1,68 @@
 import React from 'react' 
-import './ForgottenPassword.sass';
 import axios from 'axios'
+import { connect } from 'react-redux';
 
-import {connect} from 'react-redux';
+import './ForgottenPassword.sass';
 
-const ForgottenPassword =({insertInputEmail,inputValueEmail})=>{
+const ForgottenPassword =({insertInputEmail,inputValueEmail,validRestart})=>{
+
   return (
     
           <div className="Site-content Site">
               <main className="main">
-                  <ForgottenPasswordStaticPage  insertInputEmail={insertInputEmail}  onFormSubmitManipulateArray={()=>{onFormSubmitManipulateArray(inputValueEmail, event)}}/>
+              <div className ='food-background mt-3'>
+              <form className="d-flex flex-column"  >
+                  <div className="formBlock">
+                      <h2 className="inscription-title">Mot de passe oublié</h2>
+                      <div className="form-group mt-4">
+                          <div className="form-group">
+                          <input onChange={insertInputEmail} type="email" className="form-control rounded-left rounded-right" name="email" placeholder ='Votre email'/>
+                          </div> 
+                          <div className="information">
+                              <p>
+                                  Vous allez recevoir votre nouveau mot de passe.<br/>
+                                  N'oubliez pas de verifier vos spams.
+                              </p>
+                          </div>
+                          <button className="validation btn" onClick={()=>{validRestart(inputValueEmail,event)}}>Envoyer</button>
+                      </div>
+                   </div>
+              </form>      
+          </div>
+ 
               </main>
           </div>
       
     )
 } 
 
-const ForgottenPasswordStaticPage =({insertInputEmail,onFormSubmitManipulateArray}) => {
-  return <div className ='food-background mt-3'>
-    <form className="d-flex flex-column" onSubmit={onFormSubmitManipulateArray}>
-        <div className="formBlock">
-            <h2 className="inscription-title">Mot de passe oublié</h2>
-            <div className="form-group mt-4">
-                <div className="form-group">
-                <input type="email" onChange={insertInputEmail} className="form-control rounded-left rounded-right" name="email" placeholder ='Votre email'/>
-                </div> 
-                <div className="information">
-                    <p>
-                        Vous allez recevoir votre nouveau mot de passe.<br/>
-                        N'oubliez pas de verifier vos spams.
-                    </p>
-                </div>
-                <button className="validation btn" type="submit"><a href="/PasswordSend">Envoyer</a></button>
-            </div>
-         </div>
-    </form>      
-</div>
-}
-
-
-
-
-
-
 const connectionStrategies = connect(
     // 1er argument : stratégie de lecture (dans le state privé global)
-    (state, ownProps) => { 
-   
+    (state) => { 
       return {
         letters: state.letters,
         inputValues:state.inputValues,
         storedValues: state.storedValues,
         inputValueEmail:state.inputValueEmail,
-      };
+      }
     },
   
     // 2d argument : stratégie d'écriture (dans le state privé global)
-    (dispatch, ownProps) => {
+    (dispatch,inputValueEmail) => {
       return {
-       insertInputEmail: (event) => { 
-         console.log('change detected')
-         const action={type:'Insert-Input-Email',value:event.target.value} 
-         dispatch(action)
-       },
-       
-// var inputValues = new FormData();
-      
-      onFormSubmitManipulateArray:(inputValueEmail,event) => { 
+        insertInputEmail: (event) => { 
+          console.log('change detected')
+          const action={type:'Insert-Input-Email',value:event.target.value} 
+          dispatch(action)
+        },
+      validRestart:(inputValueEmail,event) => { 
         event.preventDefault();
+        console.log('ma valeur d\'input'+inputValueEmail.email)
         var inputValues= inputValueEmail;
-       
         var stringifyInput=JSON.stringify(inputValues);
         var formData= new FormData();
-        console.log('hello world')
         formData.set('email',inputValueEmail.email);
-       
+       console.log('inputValueEmail.email'+formData)
 
         axios({
           method: 'post',
@@ -96,6 +84,10 @@ const connectionStrategies = connect(
     },
   );
   
+  const ForgottenPasswordContainer = connectionStrategies(ForgottenPassword);
+  
   
 
-export default ForgottenPassword
+  
+
+export default ForgottenPasswordContainer
