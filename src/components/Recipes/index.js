@@ -70,25 +70,47 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
      
 </div> 
  <div class="d-block d-sm-none">  
-     
+    <div>
       <Carousel>
         {recipes.map(function(recipe,index){
             if(recipe.type==recipeType.trim()){ 
-                
-            return <Carousel.Item>  
+             if(recipe.title.length<=30){
+            return<Carousel.Item>  
+              
                 <img className="d-block w-100 max-height" src={recipe.image}/>
                 <Carousel.Caption> 
                 
-                <h6 className="col bg-yellow"> <span class="recipes-title-small"> {recipe.title} </span> </h6> 
-                <h6 className="col bg-yellow"> <span class="recipes-title-small"> Prix: {recipe.price} £ </span> </h6> 
-             
+               <div class="col-xs-12 bg-yellow title-height"> <p className="recipes-title-small"> {recipe.title} </p>  </div>
+               <div class="col-xs-12 bg-yellow">  <p className="recipes-title-small"> Prix: {recipe.price} £ </p>  </div> 
+               
+                  
                 <Link to="/Recipe"> <button className="details-btn btn" onClick={()=>{findRecipe(index,recipes)}}> <a>Details</a>  </button> </Link> 
-                </Carousel.Caption>
+                </Carousel.Caption> 
 
             </Carousel.Item>
+             } 
+
+             else{
+                return<Carousel.Item>  
+              
+                <img className="d-block w-100 max-height" src={recipe.image}/>
+                <Carousel.Caption> 
+                
+               <div class="col-xs-12 bg-yellow title-height"> <p className="recipes-title-xs"> {recipe.title} </p>  </div>
+               <div class="col-xs-12 bg-yellow">  <p className="recipes-title-small"> Prix: {recipe.price} £ </p>  </div> 
+               
+                  
+                <Link to="/Recipe"> <button className="details-btn btn" onClick={()=>{findRecipe(index,recipes)}}> <a>Details</a>  </button> </Link> 
+                </Carousel.Caption> 
+
+            </Carousel.Item>
+             }
+             
             }
         })} 
-     </Carousel>
+     </Carousel> 
+     </div> 
+     
      
      
         <div class="col-xs-12"> <button class="btn btn-warning width-full" onClick={getStateType}> petit déjeuner </button> </div> 

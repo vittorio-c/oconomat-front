@@ -20,9 +20,9 @@ const InscriptionStatic =({insertInputFirstName,insertInputLastName,insertInputE
 const InscriptionStaticPage =({insertInputFirstName,insertInputLastName,insertInputEmail,insertMDP,insertMDPConfirm,onFormSubmitManipulateArray}) => {
   return <div className ='food-background mt-3'>
   <form className="d-flex flex-column" onSubmit={onFormSubmitManipulateArray}>
-  <div className="formBlock">
+  <div className="formBlockSignUp">
           
-          <h2 className="inscription-title">Inscription</h2>
+          <h2 className="inscription-title-signUp">Inscription</h2>
               <div className="form-group mt-4">
                 <input type="text" onChange={insertInputLastName} className="form-control rounded-left rounded-right" name="lastname" placeholder ='Nom'/>
               </div> 
@@ -124,8 +124,11 @@ const connectionStrategies = connect(
       .then(function (response) {
           //On traite la suite une fois la réponse obtenue 
           console.log('hello world')
+          console.log('la soumission a bien abouti')
           console.log(response)
-          
+          const action={type:'Show-Message-SignUp',value:'Merci De Votre Inscription, vieulliez bien vous connecter et definir vos objectifs pour recevoir vos recettes!'}
+          dispatch(action);
+          ownProps.history.push('/')
       })
       .catch(function (erreur) {
           //On traite ici les erreurs éventuellement survenues
