@@ -171,35 +171,27 @@ const connectionStrategies = connect(
  
             dispatch(action);
         },
-        submitPassword:(event) =>{
-          event.preventDefault();  
-          const action={
-              type:'ENTER_PASSWORD',
-              value: event.target.value
-            };
- 
-            dispatch(action);
-        },
+      
 
         // FOR THE PASSWORD RESET L142 TO L167
         submitNewPassword:(password,newPassword,event) => {
           event.preventDefault();
-          var token = sessionStorage.getItem('jwtToken');
-          var formData= new FormData();
-          formData.set('password',password);
-          formData.set('newPassword',newPassword);
-          console.log('mon nouveau mdp'+newPassword);
-          console.log('mon ancien mdp'+ password);
-
-          axios({
+          var token = sessionStorage.getItem('jwtToken');         
+          var formData = new FormData();
+          formData.set('password',password.password);
+          formData.set('newPassword',newPassword.newPassword);
+          console.log(password.password);
+          console.log(newPassword.newPassword);
+          console.log('mon formdata => ' + formData);
+          
+          
+           axios({
           method: 'post',
           url: 'http://api.oconomat.fr/api/password/change', 
           headers:{
             'Authorization':`bearer ${token}`
           },
-          data: {
-            formData
-          }
+          data:formData
           })
           .then(function (response) {
               //On traite la suite une fois la réponse obtenue 
@@ -211,7 +203,8 @@ const connectionStrategies = connect(
               //On traite ici les erreurs éventuellement survenues
               console.log(erreur);
           });
-
+        },
+          
         // FOR SUBMITOBJECTIVES
         submitObjectives:(event) => {
           event.preventDefault(); 
@@ -258,9 +251,9 @@ const connectionStrategies = connect(
                 ownProps.history.push('/dashboard')
              
             })
-      }
+      },
     }
-  }}
+  }
 )
 // Étape 2 : on applique ces stratégies à un composant spécifique.
 const DashBoardContainer = connectionStrategies(DashBoard);

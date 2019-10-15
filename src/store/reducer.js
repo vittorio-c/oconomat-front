@@ -15,7 +15,9 @@ const initialState = {
   shoppingList:'',
   buttonClass : "btn btn-success btn-lg btn-block fa fa-square disabled",
   welcomeMessage:'',
-  budgetError:''
+  budgetError:'',
+  password:{},
+  newPassword:{}
 };
 
 const defaultAction = {};
@@ -162,13 +164,13 @@ const reducer = (state = initialState, action = defaultAction) => {
         case 'TYPE_OLD_PASSWORD' : {
           return {
             ...state,
-            password : action.value
+            password: {password:action.value}
           }
         }
         case 'TYPE_NEW_PASSWORD' : {
           return {
             ...state,
-            newPassword : action.value
+            newPassword: {newPassword:action.value}
           }
         }
     default: {
