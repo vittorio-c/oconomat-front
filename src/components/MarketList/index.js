@@ -62,21 +62,26 @@ const MarketList = ({doCheck,buttonClass,textClass,stockBase,shoppingList}) => {
                 <main className="main">
                 <div className ="main-frame">
                 <h2 className="pt-4 pb-4 text-center font-weight-bolder text-warning">Ma liste de course</h2>
-                <table className="table ">
-                    <thead className="thead-light">
-                        <tr className = {textClass}>
-                            <th scope="col">Nom</th>
-                            <th scope="col">Quantité</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                <Ingredients doCheck = {doCheck} buttonClass = {buttonClass} textClass = {textClass} stockBase = {stockBase} shoppingList ={shoppingList} />
-                    </tbody>
-                </table>
-                <button type="button" className="btn btn-danger btn-block" data-toggle="modal" data-target="#exampleModal">
-                Nettoyer votre liste
-                </button>
+
+                <div className="row justify-content-center m-5">
+                    <div className="container col-10">
+                        <table className="table ">
+                            <thead className="thead-light">
+                                <tr className = {textClass}>
+                                    <th scope="col">Nom</th>
+                                    <th scope="col">Quantité</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                        <Ingredients doCheck = {doCheck} buttonClass = {buttonClass} textClass = {textClass} stockBase = {stockBase} shoppingList ={shoppingList} />
+                            </tbody>
+                        </table>
+                        <button type="button" className="btn btn-danger btn-block" data-toggle="modal" data-target="#exampleModal">
+                        Nettoyer votre liste
+                        </button>
+                    </div>
+                </div>
     
                 <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog" role="document">
