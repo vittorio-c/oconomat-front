@@ -88,16 +88,11 @@ const AccountInfo = ({isCheck,isCheckbox,submitNewPassword,newPassword,password,
               
 
               <button type="button" class="btn btn-primary text-center" data-toggle="modal" data-target="#exampleModal">
-<<<<<<< HEAD
-              { sessionStorage.getItem('budget') !== null || sessionStorage.getItem('budget') !== '' ? 'Modifier vos objectifs' : 'Saisir votre premier objectif'}
-              </button>
-=======
               { sessionStorage.getItem('budget') !== null || sessionStorage.getItem('budget') !== '' ? 'Modifier vos objectifs' : 'Saisir vos premiers objectifs'}
               </button> 
               {console.log('budget error'+messages.budgetError)} 
               {console.log(messages.budgetError==undefined)}
               {console.log(messages.budgetError=='')}
->>>>>>> 5a1e968bf84c2e722a52091c51910c4ddf6a3790
               <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content"> 
