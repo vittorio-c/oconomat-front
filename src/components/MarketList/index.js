@@ -56,6 +56,8 @@ const Ingredients = ({doCheck,buttonClass,textClass,shoppingList}) => {
 }
 
 
+
+
 const MarketList = ({doCheck,buttonClass,textClass,stockBase,shoppingList}) => {
     if (shoppingList !== ""){
     return (
