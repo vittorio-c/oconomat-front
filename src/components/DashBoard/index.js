@@ -74,8 +74,7 @@ const AccountInfo = ({submitNewPassword,newPassword,oldPassword,typeOldPassword,
 
                           <div className="text-center mb-3 col-md-12">
                             <button type="button" className="btn-submit-password btn-success btn-block btn-rounded z-depth-1" onClick={() =>{submitNewPassword(newPassword,event)}}>{oldPassword !== newPassword ? 'Valider' : 'Error'}</button>
-                               
-                          </div>
+                           </div>
 
                         </div>
 
@@ -85,7 +84,7 @@ const AccountInfo = ({submitNewPassword,newPassword,oldPassword,typeOldPassword,
 
                 </div>
               </div>
-
+              
               
 
               <button type="button" class="btn btn-primary text-center" data-toggle="modal" data-target="#exampleModal">
@@ -119,7 +118,6 @@ const AccountInfo = ({submitNewPassword,newPassword,oldPassword,typeOldPassword,
     </div>
 ) 
 
- 
 
 const connectionStrategies = connect(
   // 1er argument : stratégie de lecture (dans le state privé global)
