@@ -11,9 +11,9 @@ const SignIn =({submitForm,submitEmail,submitPassword,emailState,passwordState})
           <div className="Site-content">
               <main className="main">
               <div className ='food-background mt-3'>
-              <form action='/Account' method ='post' className="d-flex flex-column" onSubmit={()=>{submitForm(emailState,passwordState,event)}} >
+              <form action='/Account' method ='post' className="row justify-content-center" onSubmit={()=>{submitForm(emailState,passwordState,event)}} >
                   
-                  <div className="formBlockSignIn">
+                  <div className="container formBlockSignIn">
                     <h2 className="connection-title">Connexion</h2>
                     <div className="form-group mt-4">
                         <input type="email" onChange = {submitEmail} className="form-control rounded-left rounded-right" name='email' placeholder="Votre email"/>             

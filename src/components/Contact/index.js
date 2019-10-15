@@ -25,17 +25,29 @@ const Contact = () => {
 
 const Contactpage = () => {
     return <div className ='contactpage-background'>
-    <div className="nomansland">
-    <div className="contact-zone">
-        <h1 className="contact-title">Nous contacter</h1>
-        <p className="contact mt-4">contact@Oconomat.fr</p>
-        <p className="contact mt-4">25 avenue du 
-        <br/>General Leclerc
-        <br/>75 008 Paris
-        </p>
-    </div>
-    </div>
-</div>
+                <div className="nomansland">
+                    <div className="row justify-content-center contact-zone">
+                        <div className="col-12 col-md-6 container contact p-5">
+                            <h1 className="col-12 contact-title">Nous contacter</h1>
+                            <p className="mt-4"><strong>Email de contact</strong> : oconomat.fr@mrblackway.fr</p>
+                            <p className="mt-4"><strong>Adresse </strong>: 25 avenue du 
+                            <br/>General Lecler
+                            <br/>75 008 Paris
+                            </p>
+                        </div>
+
+                        <div className="col-12 col-md-6 container contact p-5">
+                            <h1 className="col-12 contact-title">L'équipe</h1>
+                            <p className="mt-4"><strong>Product Owner</strong> : Robin Ollmann</p>
+                            <p className="mt-4"><strong>Scrum master</strong> : Vittorio Chillemi</p>
+                            <p className="mt-4"><strong>Product Owner</strong> : Jérôme Mesic</p>
+                            <p className="mt-4"><strong>Lead dev front</strong> : Reuben Chouraki</p>
+                            <p className="mt-4"><strong>Lead dev back</strong> : Joffrey Cormont</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
 }
 
 export default Contact;

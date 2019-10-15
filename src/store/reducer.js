@@ -14,7 +14,9 @@ const initialState = {
   recipeType:'',
   shoppingList:'',
   buttonClass : "btn btn-success btn-lg btn-block fa fa-square disabled",
-  messages:{recipeListErrMessage:'',shoppingListErrMessage:'',budgetError:'',welcomeMessage:''}
+  messages:{recipeListErrMessage:'',shoppingListErrMessage:'',budgetError:'',welcomeMessage:''},
+  password:{},
+  newPassword:{}
 };
 
 const defaultAction = {};
@@ -75,6 +77,7 @@ const reducer = (state = initialState, action = defaultAction) => {
             passwordState:{password:action.value}
           }
         } 
+
         case 'ENTER_EMAIL' : {
           /* console.log("mot de passe saisi") */
           return {
@@ -169,6 +172,18 @@ const reducer = (state = initialState, action = defaultAction) => {
           return{...state,
             objectives: '',
           } 
+        }
+        case 'TYPE_OLD_PASSWORD' : {
+          return {
+            ...state,
+            password: {password:action.value}
+          }
+        }
+        case 'TYPE_NEW_PASSWORD' : {
+          return {
+            ...state,
+            newPassword: {newPassword:action.value}
+          }
         }
     default: {
       // return state;
