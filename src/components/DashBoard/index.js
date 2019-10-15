@@ -93,9 +93,9 @@ const AccountInfo = ({submitNewPassword,newPassword,password,typeOldPassword,typ
               <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content"> 
+                  {console.log('budget error' +messages.budgetError)}
                   
-                  
-                   {messages.budgetError!='' ? <div class="alert alert-danger" role="alert"> {messages.budgetError} </div> : <span> </span>}
+                   {messages.budgetError!=undefined && messages.bugetError!='' ? <div class="alert alert-danger" role="alert"> {messages.budgetError} </div> : <span> </span>}
                     <div class="modal-header"> 
                     
                       <h5 class="modal-title" id="exampleModalLabel">Modifier vos objectifs</h5>
