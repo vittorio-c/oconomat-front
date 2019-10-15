@@ -14,7 +14,7 @@ const HeaderSuperStatic =({getRecipes,disconnectUser,getMarketList}) => {
           <div className="sticky-top">
             <div className = 'phonescreen d-lg-none'>
                 <div className="d-flex justify-content-around navbar-dark bg-dark">
-                  <Link to="/">  <button className=" btn btn-light fa fa-home fa-2x my-1"> </button>  </Link>
+                  <Link to="/"> <button className=" btn btn-light fa fa-home fa-2x my-1"> </button>  </Link>
                   <Link to="/Contact"> <button className="btn btn-light fa fa-phone fa-2x my-1"></button></Link>
                   <Link to="/SignUp"> <button className="btn btn-light fa fa-file-signature fa-2x my-1"></button></Link>
                   <Link to="/SignIn">  <button className="btn btn-light fa fa-plug fa-2x my-1"></button></Link>
@@ -82,24 +82,47 @@ const connectionStrategies = connect(
       return {
         getMarketList:(event) => {
           var token = sessionStorage.getItem('jwtToken');
-          var idMenu = sessionStorage.getItem('idMenu');
-          var url ='http://api.oconomat.fr/api/menu/'+ idMenu +'/shopping-list';
+
+          var url ='http://api.oconomat.fr/api/menu/user/last';
           axios.get(
+            url,{
+            headers:{
+              'Authorization':`bearer ${token}`
+            }
+          }
+          ).then((response)=>{
+            var recipes=response.data.recipes 
+           
+            const action={type:'Show-Recipes',value:recipes} 
+            dispatch(action);
+            console.log(response.data);
+            sessionStorage.setItem('idMenu',response.data.idMenu);
+            var idMenu=sessionStorage.getItem('idMenu');
+            console.log(idMenu);
+            var url ='http://api.oconomat.fr/api/menu/'+ idMenu +'/shopping-list';
+            axios.get(
             url,
             {
               headers:{
                 'Authorization':`bearer ${token}`
             }
           }
-          ).then((response)=>{
+          ).then((response1)=>{
             console.log('on a une reponse de la liste de course')
-          var marketList = response.data.shoppingList;
+          var marketList = response1.data.shoppingList;
           const action = {
               type:'SHOW_SHOPPINGLIST',
               value: marketList
           }
             dispatch(action);
           })
+        
+
+          })
+
+
+        
+          
         },
 
         disconnectUser:()=>{
@@ -120,7 +143,8 @@ const connectionStrategies = connect(
             }
           }
           ).then((response)=>{
-            var recipes=response.data.recipes
+            var recipes=response.data.recipes 
+           
             const action={type:'Show-Recipes',value:recipes} 
             dispatch(action);
           })
