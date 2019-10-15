@@ -119,6 +119,7 @@ const AccountInfo = ({submitNewPassword,newPassword,oldPassword,typeOldPassword,
     </div>
 ) 
 
+ 
 
 const connectionStrategies = connect(
   // 1er argument : stratégie de lecture (dans le state privé global)
@@ -187,6 +188,7 @@ const connectionStrategies = connect(
           event.preventDefault();
           var token = sessionStorage.getItem('jwtToken');
           var formData= new FormData();
+          formData.set('oldPassword',oldPassword);
           formData.set('newPassword',newPassword);
           console.log('mon nouveau mdp'+newPassword);
 
