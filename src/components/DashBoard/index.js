@@ -5,20 +5,12 @@ import  axios  from 'axios';
 
 import './style.sass';
 
-<<<<<<< HEAD
-const DashBoard= ({submitObjectives,objectivesInputUpdate,objectives,currentUser,messages}) => {
-=======
-const DashBoard= ({submitNewPassword,newPassword,password,typeOldPassword,typeNewPassword,submitObjectives,objectivesInputUpdate,objectives,currentUser,budgetError}) => {
->>>>>>> 0fca6ada213c25b2e50fd6a93f817a88bb44957b
+const DashBoard= ({submitNewPassword,newPassword,password,typeOldPassword,typeNewPassword,submitObjectives,objectivesInputUpdate,objectives,currentUser,budgetError,messages}) => {
     return (
             <main>
                 <div className="Site-content">
                     <main className="main">
-<<<<<<< HEAD
-                        <AccountInfo submitObjectives = {submitObjectives} objectivesInputUpdate = {objectivesInputUpdate}objectives ={objectives} messages={messages}/>
-=======
-                        <AccountInfo submitNewPassword={submitNewPassword} newPassword = {newPassword} password= {password} typeOldPassword= {typeOldPassword} typeNewPassword= {typeNewPassword} submitObjectives = {submitObjectives} objectivesInputUpdate = {objectivesInputUpdate}objectives ={objectives} budgetError={budgetError}/>
->>>>>>> 0fca6ada213c25b2e50fd6a93f817a88bb44957b
+                        <AccountInfo submitNewPassword={submitNewPassword} newPassword = {newPassword} password= {password} typeOldPassword= {typeOldPassword} typeNewPassword= {typeNewPassword} submitObjectives = {submitObjectives} objectivesInputUpdate = {objectivesInputUpdate}objectives ={objectives} messages={messages}/>
                     </main>
                 </div>
             </main>
