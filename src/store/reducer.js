@@ -14,8 +14,7 @@ const initialState = {
   recipeType:'',
   shoppingList:'',
   buttonClass : "btn btn-success btn-lg btn-block fa fa-square disabled",
-  welcomeMessage:'',
-  budgetError:''
+  messages:{recipeListErrMessage:'',shoppingListErrMessage:'',budgetError:'',welcomeMessage:''}
 };
 
 const defaultAction = {};
@@ -126,19 +125,32 @@ const reducer = (state = initialState, action = defaultAction) => {
         }
 
         case 'Show-Message-SignUp' :{
-          return {...state,welcomeMessage:action.value}
+          return {...state,messages:{welcomeMessage:action.value}}
         } 
 
         case 'Detect-Budget-Error' :{
-           return{...state,budgetError:action.value}
+           return{...state,messages:{budgetError:action.value}}
+        } 
+
+        case 'Set-Shopping-List-Error' : {
+          return {...state,messages:{shoppingListErrMessage:action.value}}
+        } 
+
+        case 'Set-Recipe-Error-Message' :{
+          return {...state,messages:{recipeListErrMessage:action.value}}
         }
 
+        case 'Reset-Messages' :{
+          return {...state,messages:{recipeListErrMessage:'',shoppingListErrMessage:'',budgetError:''}}
+        }
          case 'SHOW_SHOPPINGLIST' : {
           console.log('SHOW_SHOPPINGLIST !')
           return{...state,
             shoppingList: action.value
           }
         } 
+        
+      
 
 
         case 'STOCK' : {

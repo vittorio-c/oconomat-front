@@ -5,27 +5,27 @@ import {connect} from 'react-redux';
 /* Import du fichier Sass */
 import './Home.sass'
 
-const HomePageStatic = ({welcomeMessage}) => {
+const HomePageStatic = ({messages}) => {
     return (
-         <HomePage welcomeMessage={welcomeMessage}/>
+         <HomePage messages={messages}/>
     )
 }
 
-const HomePage = ({welcomeMessage}) => {
+const HomePage = ({messages}) => {
     return <div className ="bg-light">
-    <Logo welcomeMessage={welcomeMessage} />
+    <Logo messages={messages} />
     <Steps />
 </div>
 
 }
 
-const Logo = ({welcomeMessage}) => {
+const Logo = ({messages}) => {
     return(
         <div className ='container text-center col-xs-12 col-lg-10'>
             <div className ='food-image img-thumbnail text-light  pt-4'>
                 <div className = "text-box"> 
-                {console.log(welcomeMessage)}
-                    {welcomeMessage!='' ? <h4 className="alert alert-success" role="alert"> {welcomeMessage} </h4> : <span> </span> }
+                {console.log(messages)}
+                    {messages.welcomeMessage!='' ? <h4 className="alert alert-success" role="alert"> {messages.welcomeMessage} </h4> : <span> </span> }
                     
                     <h2 className='home-catch-sentence m-3 '>Une panne d'inspiration ?</h2>
                     <h1 className='home-title text-success'>OCONOMAT</h1>
@@ -118,9 +118,9 @@ const Steps = () => {
 const connectionStrategies = connect(
     // 1er argument : stratégie de lecture (dans le state privé global)
     (state, ownProps) => { 
-        console.log(state.welcomeMessage)
+        console.log(state.messages)
       return {
-        welcomeMessage: state.welcomeMessage
+        messages: state.messages
         
        
       };

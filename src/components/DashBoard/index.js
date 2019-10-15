@@ -5,12 +5,12 @@ import  axios  from 'axios';
 
 import './style.sass';
 
-const DashBoard= ({submitObjectives,objectivesInputUpdate,objectives,currentUser,budgetError}) => {
+const DashBoard= ({submitObjectives,objectivesInputUpdate,objectives,currentUser,messages}) => {
     return (
             <main>
                 <div className="Site-content">
                     <main className="main">
-                        <AccountInfo submitObjectives = {submitObjectives} objectivesInputUpdate = {objectivesInputUpdate}objectives ={objectives} budgetError={budgetError}/>
+                        <AccountInfo submitObjectives = {submitObjectives} objectivesInputUpdate = {objectivesInputUpdate}objectives ={objectives} messages={messages}/>
                     </main>
                 </div>
             </main>
@@ -21,7 +21,7 @@ const DashBoard= ({submitObjectives,objectivesInputUpdate,objectives,currentUser
     )
 }
 
-const AccountInfo = ({submitObjectives,objectivesInputUpdate,objectives,budgetError}) => ( 
+const AccountInfo = ({submitObjectives,objectivesInputUpdate,objectives,messages}) => ( 
 
     <div className="AccountInfoMain"> 
     <h2 className="objectives-title text-center">Tableau de bord</h2> 
@@ -47,7 +47,9 @@ const AccountInfo = ({submitObjectives,objectivesInputUpdate,objectives,budgetEr
               <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content"> 
-                  {budgetError!='' ? <div class="alert alert-danger" role="alert"> {budgetError} </div> : <span> </span>}
+                  
+                  
+                   {messages.budgetError!=undefined ? <div class="alert alert-danger" role="alert"> {messages.budgetError} </div> : <span> </span>}
                     <div class="modal-header"> 
                     
                       <h5 class="modal-title" id="exampleModalLabel">Modifier vos objectifs</h5>
@@ -77,10 +79,11 @@ const AccountInfo = ({submitObjectives,objectivesInputUpdate,objectives,budgetEr
 const connectionStrategies = connect(
   // 1er argument : stratégie de lecture (dans le state privé global)
   (state, ownProps) => { 
+    console.log(state.messages);
     return {
       objectives:state.objectives,
       currentUser:state.currentUser,
-      budgetError:state.budgetError
+      messages:state.messages
     };
   },
 

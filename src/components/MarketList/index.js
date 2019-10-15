@@ -55,7 +55,7 @@ const Ingredients = ({doCheck,buttonClass,textClass,shoppingList}) => {
 )
 }
 
-const MarketList = ({doCheck,buttonClass,textClass,stockBase,shoppingList}) => {
+const MarketList = ({doCheck,buttonClass,textClass,stockBase,shoppingList,messages,reInitializeMessages}) => {
     if (shoppingList !== ""){
     return (
             <div className="Site-content">
@@ -107,7 +107,10 @@ else
 return(
     <div className =''>
     <div className ="d-flex justify-content-center m-5 text-center spinner-border"><span class="sr-only">Chargement de votre liste de course en cours veuillez patienter</span></div>
-    <div>Chargement de votre liste de course en cours veuillez patienter</div>
+    <div>Chargement de votre liste de course en cours veuillez patienter</div> 
+    {messages.shoppingListErrMessage!='' ?<div> <div class="alert alert-danger text-center" role="alert"> {messages.shoppingListErrMessage} </div> </div>  : <span></span>} 
+    
+    
     </div>
 );
 }
@@ -116,10 +119,12 @@ return(
 
 const connectionStrategies = connect(
     (state, ownProps) => { 
+     console.log(state.messages)
       return {
       shoppingList:state.shoppingList,
       buttonClass:state.buttonClass,
-      textClass: state.textClass
+      textClass: state.textClass,
+      messages:state.messages
     };
 },
     (dispatch,ownProps) => {
@@ -139,6 +144,10 @@ const connectionStrategies = connect(
             textClass :  event.currentTarget.parentNode.parentNode.className = 'bg-dark text-light'
           }; 
            dispatch(action); 
+        },
+        reInitializeMessages:() =>{
+            const action={type:'Reset-Messages',value:''}
+            dispatch(action)
         }
       }
     }
