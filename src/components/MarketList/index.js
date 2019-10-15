@@ -28,11 +28,21 @@ const Ingredients = ({doCheck,buttonClass,textClass,shoppingList}) => {
                 break;
                 case 'botte' :
                 ingredient.quantity = Math.ceil(ingredient.quantity)
+                if (ingredient.quantity >1){Ingredient.unit = 'bottes'}
                 break;
                 case 'barquette' :
-                ingredient.quantity = Math.ceil(ingredient.quantity)f
+                ingredient.quantity = Math.ceil(ingredient.quantity)
                 if (ingredient.quantity >1){Ingredient.unit = 'barquettes'}
                 break;
+                case 'gousse' :
+                    ingredient.quantity = Math.ceil(ingredient.quantity);
+                    ingredient.quantity > 1 ? ingredient.unit ='gousses': ingredient.unit ='gousse'
+                    break;
+                case 'tranche' :
+                ingredient.quantity = Math.ceil(ingredient.quantity);
+                ingredient.quantity > 1 ? ingredient.unit ='tranches': ingredient.unit ='tranche'
+                break;
+
                 case 'barquettes' :
                 ingredient.quantity = Math.ceil(ingredient.quantity)
                 break;
@@ -55,31 +65,33 @@ const Ingredients = ({doCheck,buttonClass,textClass,shoppingList}) => {
 )
 }
 
-
-
-
-const MarketList = ({doCheck,buttonClass,textClass,stockBase,shoppingList}) => {
+const MarketList = ({doCheck,buttonClass,textClass,stockBase,shoppingList,messages,reInitializeMessages}) => {
     if (shoppingList !== ""){
     return (
             <div className="Site-content">
                 <main className="main">
                 <div className ="main-frame">
                 <h2 className="pt-4 pb-4 text-center font-weight-bolder text-warning">Ma liste de course</h2>
-                <table className="table ">
-                    <thead className="thead-light">
-                        <tr className = {textClass}>
-                            <th scope="col">Nom</th>
-                            <th scope="col">Quantité</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                <Ingredients doCheck = {doCheck} buttonClass = {buttonClass} textClass = {textClass} stockBase = {stockBase} shoppingList ={shoppingList} />
-                    </tbody>
-                </table>
-                <button type="button" className="btn btn-danger btn-block" data-toggle="modal" data-target="#exampleModal">
-                Nettoyer votre liste
-                </button>
+
+                <div className="row justify-content-center my-5 p-2">
+                    <div className="container col-12 col-md-10">
+                        <table className="table ">
+                            <thead className="thead-light">
+                                <tr className = {textClass}>
+                                    <th scope="col">Nom</th>
+                                    <th scope="col">Quantité</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                        <Ingredients doCheck = {doCheck} buttonClass = {buttonClass} textClass = {textClass} stockBase = {stockBase} shoppingList ={shoppingList} />
+                            </tbody>
+                        </table>
+                        <button type="button" className="btn btn-danger btn-block" data-toggle="modal" data-target="#exampleModal">
+                        Nettoyer votre liste
+                        </button>
+                    </div>
+                </div>
     
                 <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog" role="document">
@@ -110,7 +122,10 @@ else
 return(
     <div className =''>
     <div className ="d-flex justify-content-center m-5 text-center spinner-border"><span class="sr-only">Chargement de votre liste de course en cours veuillez patienter</span></div>
-    <div>Chargement de votre liste de course en cours veuillez patienter</div>
+    <div>Chargement de votre liste de course en cours veuillez patienter</div> 
+    {messages.shoppingListErrMessage!='' ?<div> <div class="alert alert-danger text-center" role="alert"> {messages.shoppingListErrMessage} </div> </div>  : <span></span>} 
+    
+    
     </div>
 );
 }
@@ -119,10 +134,12 @@ return(
 
 const connectionStrategies = connect(
     (state, ownProps) => { 
+     console.log(state.messages)
       return {
       shoppingList:state.shoppingList,
       buttonClass:state.buttonClass,
-      textClass: state.textClass
+      textClass: state.textClass,
+      messages:state.messages
     };
 },
     (dispatch,ownProps) => {
@@ -142,6 +159,10 @@ const connectionStrategies = connect(
             textClass :  event.currentTarget.parentNode.parentNode.className = 'bg-dark text-light'
           }; 
            dispatch(action); 
+        },
+        reInitializeMessages:() =>{
+            const action={type:'Reset-Messages',value:''}
+            dispatch(action)
         }
       }
     }

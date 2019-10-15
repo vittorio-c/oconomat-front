@@ -6,12 +6,12 @@ import axios from 'axios'
 
 import './Recipes.sass';
 
-const RecettesStatic = ({recipes,findRecipe,getStateType,recipeType,recipe}) => {
+const RecettesStatic = ({recipes,findRecipe,getStateType,recipeType,recipe,messages}) => {
     return (
         <main>
             <div className="Site-content">
                 <main className="main">
-                    <RecipesMain recipes={recipes} findRecipe={findRecipe} getStateType={getStateType} recipeType={recipeType} recipe={recipe}/>
+                    <RecipesMain recipes={recipes} findRecipe={findRecipe} getStateType={getStateType} recipeType={recipeType} recipe={recipe} messages={messages}/>
                 </main>
             </div>
         </main>
@@ -19,12 +19,16 @@ const RecettesStatic = ({recipes,findRecipe,getStateType,recipeType,recipe}) => 
     )
 } 
 
-const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType,recipe}) => { 
-
+const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType,recipe,messages}) => { 
+    if(recipes.length==0){
+        
+    }
     if(recipes.length!=0){ 
         {console.log(recipe)}
     return <div class="container"> <div className="d-none d-sm-block recipes-main"> 
-    <h2 className="recipes-title">Liste de vos Recettes Pour la Semaine Test </h2>  
+   
+    <h2 className="recipes-title">Liste de vos Recettes Pour la Semaine </h2>  
+    
     
 
      <div class="row">
@@ -70,25 +74,47 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
      
 </div> 
  <div class="d-block d-sm-none">  
-     
+    <div>
       <Carousel>
         {recipes.map(function(recipe,index){
             if(recipe.type==recipeType.trim()){ 
-                
-            return <Carousel.Item>  
+             if(recipe.title.length<=30){
+            return<Carousel.Item>  
+              
                 <img className="d-block w-100 max-height" src={recipe.image}/>
                 <Carousel.Caption> 
                 
-                <h6 className="col bg-yellow"> <span class="recipes-title-small"> {recipe.title} </span> </h6> 
-                <h6 className="col bg-yellow"> <span class="recipes-title-small"> Prix: {recipe.price} £ </span> </h6> 
-             
+               <div class="col-xs-12 bg-yellow title-height"> <p className="recipes-title-small"> {recipe.title} </p>  </div>
+               <div class="col-xs-12 bg-yellow">  <p className="recipes-title-small"> Prix: {recipe.price} £ </p>  </div> 
+               
+                  
                 <Link to="/Recipe"> <button className="details-btn btn" onClick={()=>{findRecipe(index,recipes)}}> <a>Details</a>  </button> </Link> 
-                </Carousel.Caption>
+                </Carousel.Caption> 
 
             </Carousel.Item>
+             } 
+
+             else{
+                return<Carousel.Item>  
+              
+                <img className="d-block w-100 max-height" src={recipe.image}/>
+                <Carousel.Caption> 
+                
+               <div class="col-xs-12 bg-yellow title-height"> <p className="recipes-title-xs"> {recipe.title} </p>  </div>
+               <div class="col-xs-12 bg-yellow">  <p className="recipes-title-small"> Prix: {recipe.price} £ </p>  </div> 
+               
+                  
+                <Link to="/Recipe"> <button className="details-btn btn" onClick={()=>{findRecipe(index,recipes)}}> <a>Details</a>  </button> </Link> 
+                </Carousel.Caption> 
+
+            </Carousel.Item>
+             }
+             
             }
         })} 
-     </Carousel>
+     </Carousel> 
+     </div> 
+     
      
      
         <div class="col-xs-12"> <button class="btn btn-warning width-full" onClick={getStateType}> petit déjeuner </button> </div> 
@@ -100,7 +126,8 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
 </div>
     } 
     else{
-        return <div> Recipes  Are Loading </div> 
+        return  (<div>{messages.recipeListErrMessage!='' ? <div class="alert alert-danger text-center" role="alert"> {messages.recipeListErrMessage} </div> : <span> </span> } 
+        <div> Recipes  Are Loading </div> </div>)
     }
 } 
  
@@ -115,13 +142,14 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
 const connectionStrategies = connect(
   // 1er argument : stratégie de lecture (dans le state privé global)
   (state, ownProps) => { 
-
+    console.log(state.messages);
     
     //console.log(state.recipes);
     return {
       recipes:state.recipes,
       recipe:state.recipe,
-      recipeType:state.recipeType
+      recipeType:state.recipeType,
+      messages:state.messages
     };
   },
 
@@ -141,7 +169,11 @@ const connectionStrategies = connect(
      getStateType(event){ 
          const action={type:'Choose-Recipe-Type',value:event.target.textContent}
          dispatch(action);
-     }
+     },
+     reInitializeMessages:() =>{
+        const action={type:'Reset-Messages',value:''}
+        dispatch(action)
+    }
      
       
     
