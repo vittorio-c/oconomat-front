@@ -89,13 +89,17 @@ const AccountInfo = ({submitNewPassword,newPassword,password,typeOldPassword,typ
 
               <button type="button" class="btn btn-primary text-center" data-toggle="modal" data-target="#exampleModal">
               { sessionStorage.getItem('budget') !== null || sessionStorage.getItem('budget') !== '' ? 'Modifier vos objectifs' : 'Saisir vos premiers objectifs'}
-              </button>
+              </button> 
+              {console.log('budget error'+messages.budgetError)} 
+              {console.log(messages.budgetError==undefined)}
+              {console.log(messages.budgetError=='')}
               <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content"> 
-                  {console.log('budget error' +messages.budgetError)}
+                 
                   
-                   {messages.budgetError!=undefined && messages.bugetError!='' ? <div class="alert alert-danger" role="alert"> {messages.budgetError} </div> : <span> </span>}
+                   {messages.budgetError!='' && messages.budgetError!=undefined ? <div class="alert alert-danger" role="alert"> {messages.budgetError} yessir</div> : <span> </span>} 
+                  
                     <div class="modal-header"> 
                     
                       <h5 class="modal-title" id="exampleModalLabel">Modifier vos objectifs</h5>
