@@ -73,24 +73,47 @@ const connectionStrategies = connect(
       return {
         getMarketList:(event) => {
           var token = sessionStorage.getItem('jwtToken');
-          var idMenu = sessionStorage.getItem('idMenu');
-          var url ='http://api.oconomat.fr/api/menu/'+ idMenu +'/shopping-list';
+
+          var url ='http://api.oconomat.fr/api/menu/user/last';
           axios.get(
+            url,{
+            headers:{
+              'Authorization':`bearer ${token}`
+            }
+          }
+          ).then((response)=>{
+            var recipes=response.data.recipes 
+           
+            const action={type:'Show-Recipes',value:recipes} 
+            dispatch(action);
+            console.log(response.data);
+            sessionStorage.setItem('idMenu',response.data.idMenu);
+            var idMenu=sessionStorage.getItem('idMenu');
+            console.log(idMenu);
+            var url ='http://api.oconomat.fr/api/menu/'+ idMenu +'/shopping-list';
+            axios.get(
             url,
             {
               headers:{
                 'Authorization':`bearer ${token}`
             }
           }
-          ).then((response)=>{
+          ).then((response1)=>{
             console.log('on a une reponse de la liste de course')
-          var marketList = response.data.shoppingList;
+          var marketList = response1.data.shoppingList;
           const action = {
               type:'SHOW_SHOPPINGLIST',
               value: marketList
           }
             dispatch(action);
           })
+        
+
+          })
+
+
+        
+          
         },
 
         disconnectUser:()=>{
@@ -111,7 +134,8 @@ const connectionStrategies = connect(
             }
           }
           ).then((response)=>{
-            var recipes=response.data.recipes
+            var recipes=response.data.recipes 
+           
             const action={type:'Show-Recipes',value:recipes} 
             dispatch(action);
           })
