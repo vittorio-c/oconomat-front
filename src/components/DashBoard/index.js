@@ -253,7 +253,7 @@ const connectionStrategies = connect(
               })
               ownProps.history.push('/dashboard') ;
             }).catch((error)=>{ 
-              const action={type:'Detect-Budget-Error',value:'Vieullez saisir un budget entre 25 et 75 euro'}
+              const action={type:'Detect-Budget-Error',value:'Vieullez saisir un budget entre 25 et 75 euro par personne'}
                 dispatch(action);
                 console.log('failure')
                 console.log(error.response.status)
