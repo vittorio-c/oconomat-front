@@ -63,8 +63,8 @@ const MarketList = ({doCheck,buttonClass,textClass,stockBase,shoppingList}) => {
                 <div className ="main-frame">
                 <h2 className="pt-4 pb-4 text-center font-weight-bolder text-warning">Ma liste de course</h2>
 
-                <div className="row justify-content-center m-5">
-                    <div className="container col-10">
+                <div className="row justify-content-center my-5 p-2">
+                    <div className="container col-12 col-md-10">
                         <table className="table ">
                             <thead className="thead-light">
                                 <tr className = {textClass}>
