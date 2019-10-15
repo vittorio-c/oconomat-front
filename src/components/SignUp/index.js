@@ -19,9 +19,8 @@ const InscriptionStatic =({insertInputFirstName,insertInputLastName,insertInputE
 
 const InscriptionStaticPage =({insertInputFirstName,insertInputLastName,insertInputEmail,insertMDP,insertMDPConfirm,onFormSubmitManipulateArray}) => {
   return <div className ='food-background mt-3'>
-  <form className="d-flex flex-column" onSubmit={onFormSubmitManipulateArray}>
-  <div className="formBlockSignUp">
-          
+  <form className="row justify-content-center" onSubmit={onFormSubmitManipulateArray}>
+  <div className="container formBlockSignUp">
           <h2 className="inscription-title-signUp">Inscription</h2>
               <div className="form-group mt-4">
                 <input type="text" onChange={insertInputLastName} className="form-control rounded-left rounded-right" name="lastname" placeholder ='Nom'/>
