@@ -162,7 +162,7 @@ const reducer = (state = initialState, action = defaultAction) => {
         case 'TYPE_OLD_PASSWORD' : {
           return {
             ...state,
-            oldPassword : action.value
+            password : action.value
           }
         }
         case 'TYPE_NEW_PASSWORD' : {

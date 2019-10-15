@@ -5,12 +5,12 @@ import  axios  from 'axios';
 
 import './style.sass';
 
-const DashBoard= ({submitNewPassword,newPassword,oldPassword,typeOldPassword,typeNewPassword,submitObjectives,objectivesInputUpdate,objectives,currentUser,budgetError}) => {
+const DashBoard= ({submitNewPassword,newPassword,password,typeOldPassword,typeNewPassword,submitObjectives,objectivesInputUpdate,objectives,currentUser,budgetError}) => {
     return (
             <main>
                 <div className="Site-content">
                     <main className="main">
-                        <AccountInfo submitNewPassword={submitNewPassword} newPassword = {newPassword} oldPassword= {oldPassword} typeOldPassword= {typeOldPassword} typeNewPassword= {typeNewPassword} submitObjectives = {submitObjectives} objectivesInputUpdate = {objectivesInputUpdate}objectives ={objectives} budgetError={budgetError}/>
+                        <AccountInfo submitNewPassword={submitNewPassword} newPassword = {newPassword} password= {password} typeOldPassword= {typeOldPassword} typeNewPassword= {typeNewPassword} submitObjectives = {submitObjectives} objectivesInputUpdate = {objectivesInputUpdate}objectives ={objectives} budgetError={budgetError}/>
                     </main>
                 </div>
             </main>
@@ -21,7 +21,7 @@ const DashBoard= ({submitNewPassword,newPassword,oldPassword,typeOldPassword,typ
     )
 }
 
-const AccountInfo = ({submitNewPassword,newPassword,oldPassword,typeOldPassword,typeNewPassword,submitObjectives,objectivesInputUpdate,objectives,budgetError}) => ( 
+const AccountInfo = ({submitNewPassword,newPassword,password,typeOldPassword,typeNewPassword,submitObjectives,objectivesInputUpdate,objectives,budgetError}) => ( 
 
     <div className="AccountInfoMain"> 
     <h2 className="objectives-title text-center">Tableau de bord</h2> 
@@ -73,7 +73,7 @@ const AccountInfo = ({submitNewPassword,newPassword,oldPassword,typeOldPassword,
                         <div className="row d-flex align-items-center mb-4">
 
                           <div className="text-center mb-3 col-md-12">
-                            <button type="button" className="btn-submit-password btn-success btn-block btn-rounded z-depth-1" onClick={() =>{submitNewPassword(newPassword,event)}}>{oldPassword !== newPassword ? 'Valider' : 'Error'}</button>
+                            <button type="button" className="btn-submit-password btn-success btn-block btn-rounded z-depth-1" onClick={() =>{submitNewPassword(password,newPassword,event)}}>{password !== newPassword ? 'Valider' : 'Error'}</button>
                            </div>
 
                         </div>
@@ -126,7 +126,7 @@ const connectionStrategies = connect(
       objectives:state.objectives,
       currentUser:state.currentUser,
       // FOR THE PASSWORD RESET
-      oldPassword: state.oldPassword,
+      password: state.password,
       newPassword: state.newPassword,
       MDPState:state.MDPState,
       budgetError:state.budgetError
@@ -182,15 +182,15 @@ const connectionStrategies = connect(
         },
 
         // FOR THE PASSWORD RESET L142 TO L167
-        submitNewPassword:(newPassword,event) => {
+        submitNewPassword:(password,newPassword,event) => {
           event.preventDefault();
           var token = sessionStorage.getItem('jwtToken');
           var formData= new FormData();
-          formData.set('oldPassword',oldPassword);
+          formData.set('password',password);
           formData.set('newPassword',newPassword);
           console.log('mon nouveau mdp'+newPassword);
+          console.log('mon ancien mdp'+ password);
 
-          console.log('inputValueMDP.mdp'+formData)
           axios({
           method: 'post',
           url: 'http://api.oconomat.fr/api/password/change', 
