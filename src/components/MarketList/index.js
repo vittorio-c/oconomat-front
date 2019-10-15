@@ -30,7 +30,7 @@ const Ingredients = ({doCheck,buttonClass,textClass,shoppingList}) => {
                 ingredient.quantity = Math.ceil(ingredient.quantity)
                 break;
                 case 'barquette' :
-                ingredient.quantity = Math.ceil(ingredient.quantity)
+                ingredient.quantity = Math.ceil(ingredient.quantity)f
                 if (ingredient.quantity >1){Ingredient.unit = 'barquettes'}
                 break;
                 case 'barquettes' :
