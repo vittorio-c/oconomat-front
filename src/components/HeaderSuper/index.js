@@ -71,6 +71,7 @@ https://getbootstrap.com/docs/4.3/components/buttons/
 const connectionStrategies = connect(
     // 1er argument : stratégie de lecture (dans le state privé global)
     (state, ownProps) => { 
+      
       return {
         recipes:state.recipes,
         shoppingList: state.shoppingList
@@ -118,6 +119,12 @@ const connectionStrategies = connect(
           })
         
 
+          }).catch((error)=>{
+            console.log(error);
+            console.log('thiere is an error')
+            const action={type:'Set-Shopping-List-Error',value:'Viellez definir vos objectifs avant d\'aceder a votre liste de courses' }
+            dispatch(action)
+            
           })
 
 
@@ -147,6 +154,10 @@ const connectionStrategies = connect(
            
             const action={type:'Show-Recipes',value:recipes} 
             dispatch(action);
+          }).catch((error)=>{ 
+             const action={type:'Set-Recipe-Error-Message',value: 'Viellez definir vos objectifs avant de consulter vos recettes'};
+             dispatch(action)
+            
           })
         }
         
