@@ -29,7 +29,37 @@ const RecipeMain = ({recipe,clearRecipe}) => {
                             <div className="recipe-ingredients">
                                 <h3 className="ingredients-title">Vos ingredients</h3>
                                 <ul>
-                                 {recipe.data.ingredients.map(function(element){
+                                 {recipe.data.ingredients.map(function(element){ 
+                                     console.log(element.aliment.unit);
+                                       switch (element.aliment.unit){ 
+                                           
+                                        case 'unité' : 
+                                        element.quantity = Math.ceil(element.quantity)
+                                        if (element.quantity > 1 ){element.aliment.unit = 'unités'}
+                                        element.aliment.unit = ''
+                                        break;
+                                        case 'kg' : 
+                                        element.quantity = Math.round(element.quantity * 1000),
+                                        element.aliment.unit = 'g'
+                                        break;
+                                        case 'l' :
+                                        element.quantity = Math.round(element.quantity * 100),
+                                        element.aliment.unit = 'cl'
+                                        break;
+                                        case 'sachet' :
+                                        element.quantity = Math.ceil(element.quantity)
+                                        break;
+                                        case 'botte' :
+                                        element.quantity = Math.ceil(element.quantity)
+                                        break;
+                                        case 'barquette' :
+                                        element.quantity = Math.ceil(element.quantity)
+                                        if (element.quantity >1){element.unit = 'barquettes'}
+                                        break;
+                                        case 'barquettes' :
+                                        element.quantity = Math.ceil(element.quantity)
+                                        break;
+                                        }  
                                      
                                        return <li> <span> {element.quantity} {element.aliment.unit} </span> <span> {element.aliment.name} </span> </li>
                                     })}
