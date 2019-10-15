@@ -95,7 +95,7 @@ const AccountInfo = ({submitNewPassword,newPassword,password,typeOldPassword,typ
                   <div class="modal-content"> 
                   
                   
-                   {messages.budgetError!=undefined ? <div class="alert alert-danger" role="alert"> {messages.budgetError} </div> : <span> </span>}
+                   {messages.budgetError!='' ? <div class="alert alert-danger" role="alert"> {messages.budgetError} </div> : <span> </span>}
                     <div class="modal-header"> 
                     
                       <h5 class="modal-title" id="exampleModalLabel">Modifier vos objectifs</h5>
@@ -252,7 +252,11 @@ const connectionStrategies = connect(
                 dispatch(action);
                 console.log('failure')
                 console.log(error.response.status)
-                ownProps.history.push('/dashboard')
+                ownProps.history.push('/dashboard') 
+                setTimeout(function(){
+                  document.location.reload()
+                },5000)
+
              
             })
       },
