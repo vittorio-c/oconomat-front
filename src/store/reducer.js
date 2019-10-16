@@ -16,7 +16,8 @@ const initialState = {
   buttonClass : "btn btn-success btn-lg btn-block fa fa-square disabled",
   messages:{recipeListErrMessage:'',shoppingListErrMessage:'',budgetError:'',welcomeMessage:''},
   password:{},
-  newPassword:{}
+  newPassword:{},
+  isCheck: false
 };
 
 const defaultAction = {};
@@ -183,6 +184,12 @@ const reducer = (state = initialState, action = defaultAction) => {
           return {
             ...state,
             newPassword: {newPassword:action.value}
+          }
+        }
+        case 'SWITCH_VEGAN' :{
+          return {
+            ...state,
+            isCheck : event.target.checked
           }
         }
     default: {

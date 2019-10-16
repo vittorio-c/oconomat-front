@@ -5,12 +5,12 @@ import  axios  from 'axios';
 
 import './style.sass';
 
-const DashBoard= ({submitNewPassword,newPassword,password,typeOldPassword,typeNewPassword,submitObjectives,objectivesInputUpdate,objectives,currentUser,budgetError,messages}) => {
+const DashBoard= ({isCheck,isCheckbox,submitNewPassword,newPassword,password,typeOldPassword,typeNewPassword,submitObjectives,objectivesInputUpdate,objectives,currentUser,budgetError,messages}) => {
     return (
             <main>
                 <div className="Site-content">
                     <main className="main">
-                        <AccountInfo submitNewPassword={submitNewPassword} newPassword = {newPassword} password= {password} typeOldPassword= {typeOldPassword} typeNewPassword= {typeNewPassword} submitObjectives = {submitObjectives} objectivesInputUpdate = {objectivesInputUpdate}objectives ={objectives} messages={messages}/>
+                        <AccountInfo isCheck={isCheck} isCheckbox ={isCheckbox} submitNewPassword={submitNewPassword} newPassword = {newPassword} password= {password} typeOldPassword= {typeOldPassword} typeNewPassword= {typeNewPassword} submitObjectives = {submitObjectives} objectivesInputUpdate = {objectivesInputUpdate}objectives ={objectives} messages={messages}/>
                     </main>
                 </div>
             </main>
@@ -21,7 +21,7 @@ const DashBoard= ({submitNewPassword,newPassword,password,typeOldPassword,typeNe
     )
 }
 
-const AccountInfo = ({submitNewPassword,newPassword,password,typeOldPassword,typeNewPassword,submitObjectives,objectivesInputUpdate,objectives,budgetError,messages}) => ( 
+const AccountInfo = ({isCheck,isCheckbox,submitNewPassword,newPassword,password,typeOldPassword,typeNewPassword,submitObjectives,objectivesInputUpdate,objectives,budgetError,messages}) => ( 
 
     <div className="AccountInfoMain"> 
     <h2 className="objectives-title text-center">Tableau de bord</h2> 
@@ -109,9 +109,11 @@ const AccountInfo = ({submitNewPassword,newPassword,password,typeOldPassword,typ
                     </div>
                     <form>
                       <input onChange = {objectivesInputUpdate}  type="number" className="form-control form-control-sm" id="colFormLabelLg" placeholder="Inserez votre nouveau budget"/>
+                      <div className = "text-left text-secondary mt-5">Vos préférences alimentaires</div>
+                      <div className = "text-left text-success my-2"><input type="checkbox" aria-label="vegetarian checkbox" className = "" onChange = {() => {isCheckbox(isCheck,event)}}/>Végétarien </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                      { objectives >0 ? <button type="button" onClick = {submitObjectives} onSubmit = {submitObjectives} className="btn btn-success" type="submit"> Valider {objectives} { objectives >0 ? ' € ?' : '' } </button> : '' }
+                      { objectives >0 ? <button type="button" onClick = {() => {submitObjectives(isCheck,event)}} onSubmit = {() => {submitObjectives(isCheck,event)}} className="btn btn-success" type="submit"> Valider {objectives} { objectives >0 ? ' € ?' : '' } </button> : '' }
                       </div>
                     </form>
                   </div>
@@ -137,13 +139,21 @@ const connectionStrategies = connect(
       newPassword: state.newPassword,
       MDPState:state.MDPState,
       budgetError:state.budgetError,
-      messages:state.messages
+      messages:state.messages,
+      isCheck : state.isCheck
     };
   },
 
   // 2d argument : stratégie d'écriture (dans le state privé global)
   (dispatch,ownProps) => {
     return {
+      isCheckbox: () => {
+        const action = {
+          type : 'SWITCH_VEGAN',
+          isCheck:event.target.checked
+        }
+        dispatch(action);
+      },
       objectivesInputUpdate:(event) => {
         event.preventDefault();
         // FOR THE PASSWORD RESET
@@ -214,7 +224,8 @@ const connectionStrategies = connect(
         },
           
         // FOR SUBMITOBJECTIVES
-        submitObjectives:(event) => {
+        submitObjectives:(isCheck,event) => {
+          console.log('isChecked =>'+isCheck)
           event.preventDefault(); 
           var token = sessionStorage.getItem('jwtToken'); 
             axios({
@@ -224,7 +235,8 @@ const connectionStrategies = connect(
                 'Authorization':`bearer ${token}`,
                 }, 
                 data: {
-                  budget:sessionStorage.getItem('objectives')
+                  budget:sessionStorage.getItem('objectives'),
+                  vegetarian: isCheck
                 },  
               }).then((response)=>{
                 console.log(response)

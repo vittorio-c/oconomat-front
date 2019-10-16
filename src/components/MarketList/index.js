@@ -10,17 +10,17 @@ const Ingredients = ({doCheck,buttonClass,textClass,shoppingList}) => {
         shoppingList.map(function(ingredient,index) { 
             const ingredientName = ingredient.name;
             switch (ingredient.unit){
+                case 'kg' : 
+                ingredient.quantity = Math.round(ingredient.quantity * 1000),
+                ingredient.unit = 'g'
+                break;
                 case 'unité' : 
                 ingredient.quantity = Math.ceil(ingredient.quantity)
                 if (ingredient.quantity > 1 ){ingredient.unit = 'unités'}
                 ingredient.unit = ''
                 break;
-                case 'kg' : 
-                ingredient.quantity = Math.round(ingredient.quantity * 1000),
-                ingredient.unit = 'g'
-                break;
                 case 'l' :
-                ingredient.quantity = Math.round(ingredient.quantity * 100),
+                ingredient.quantity = Math.ceil(ingredient.quantity * 100),
                 ingredient.unit = 'cl'
                 break;
                 case 'sachet' :
@@ -28,11 +28,21 @@ const Ingredients = ({doCheck,buttonClass,textClass,shoppingList}) => {
                 break;
                 case 'botte' :
                 ingredient.quantity = Math.ceil(ingredient.quantity)
+                if (ingredient.quantity >1){Ingredient.unit = 'bottes'}
                 break;
                 case 'barquette' :
                 ingredient.quantity = Math.ceil(ingredient.quantity)
                 if (ingredient.quantity >1){Ingredient.unit = 'barquettes'}
                 break;
+                case 'gousse' :
+                    ingredient.quantity = Math.ceil(ingredient.quantity);
+                    ingredient.quantity > 1 ? ingredient.unit ='gousses': ingredient.unit ='gousse'
+                    break;
+                case 'tranche' :
+                ingredient.quantity = Math.ceil(ingredient.quantity);
+                ingredient.quantity > 1 ? ingredient.unit ='tranches': ingredient.unit ='tranche'
+                break;
+
                 case 'barquettes' :
                 ingredient.quantity = Math.ceil(ingredient.quantity)
                 break;
