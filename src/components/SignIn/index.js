@@ -80,7 +80,6 @@ const connectionStrategies = connect(
 
                 const Swal = require('sweetalert2')
                 Swal.fire({
-                  position: 'top-end',
                   type: 'success',
                   title: 'Connexion',
                   showConfirmButton: false,
