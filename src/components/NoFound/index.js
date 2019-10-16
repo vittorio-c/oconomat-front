@@ -14,8 +14,6 @@ const NoFound = () => {
                 </h1>
                 <h2 className="pt-4 pb-4 text-center font-weight-bolder text-warning">
                     Vous vous êtes perdu, ou n'avez tout simplement pas accès à cette page , pas d'inquiètude, il suffit de vous inscrire ou de vous connecter</h2>
-                <div className='gif pt-4 pb-4 text-center font-weight-bolder text-warning display-2' >
-                </div>
                 <a type='button' href='/' className='btn-goback btn-success btn-block'>Go Back</a>
             </div>
         </div>

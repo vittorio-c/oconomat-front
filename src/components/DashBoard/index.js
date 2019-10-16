@@ -91,17 +91,23 @@ const AccountInfo = ({nbPeople,nbPeopleInputUpdate,isCheck,isCheckbox,submitNewP
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <form className = 'container'>
-                      <input onChange = {objectivesInputUpdate}  type="number" className="form-control form-control-sm my-2" id="inputforobjectives" placeholder="Inserez votre nouveau budget"/>
-                      <input onChange = {nbPeopleInputUpdate}  type="number" className="form-control form-control-sm" id="inputfornumberofpeople" placeholder="Inserez le nombre de personne dans votre foyer"/>
 
-                      <div className = "text-left text-secondary mt-5">Vos préférences alimentaires</div>
-                      <div className = "text-left text-success my-2"><input type="checkbox" aria-label="vegetarian checkbox" className = "" onChange = {() => {isCheckbox(isCheck,event)}}/>Végétarien </div>
-                      <div className="modal-footer">
+                    <div className="modal-body">
+                        <div className="md-form mb-5">
+                          <input onChange = {objectivesInputUpdate}  type="number" id="inputforobjectives5" className="form-control validate white-text" placeholder="Inserez votre nouveau budget" />
+                          <label data-error="wrong" data-success="right" for="inputforobjectives5"></label>
+                        </div>
+                        <div className="md-form pb-3">
+                          <input onChange = {nbPeopleInputUpdate}  type="number" id="inputfornumberofpeople5" className="form-control validate white-text" placeholder="Inserez le nombre de personne dans votre foyer"/>
+                          <label data-error="wrong" data-success="right" for="inputfornumberofpeople5"></label>
+                        </div>
+                        <div className = "text-left text-secondary mt-5">Vos préférences alimentaires</div>
+                        <div className = "text-left text-success my-2"><input type="checkbox" aria-label="vegetarian checkbox" className = "" onChange = {() => {isCheckbox(isCheck,event)}}/>Végétarien </div>
+                        <div className="modal-footer">
                         <button type ="button" className="btn btn-secondary" data-dismiss="modal">Annuler</button>
                       { objectives >0 && nbPeople > 0? <button type="button" className='text-center' onClick = {() => {submitObjectives(nbPeople,isCheck,event)}} onSubmit = {() => {submitObjectives(nbPeople,isCheck,event)}} className="btn btn-success" type="submit"> Valider {objectives} { objectives >0 ? ' €' : '' } pour {nbPeople} {nbPeople < 1 ? 'personnes' :'personnes' } </button> : '' }
                       </div>
-                    </form>
+                      </div>
                   </div>
                 </div>
               </div>
@@ -206,10 +212,9 @@ const connectionStrategies = connect(
             //On traite la suite une fois la réponse obtenue 
             console.log('hello world')
             console.log(response)
-            // We are tying to bring an Alert when the ResetPassword Worked
+            // We show an Alert when the ResetPassword Worked
             const Swal = require('sweetalert2')
             Swal.fire({
-              position: 'top-end',
               type: 'success',
               title: 'Votre mot de passe à été changé.',
               showConfirmButton: false,
@@ -247,6 +252,12 @@ const connectionStrategies = connect(
                 },  
               }).then((response)=>{
                 sessionStorage.setItem('userQuantity',response.data.userQuantity);
+                Swal.fire({
+                  type: 'success',
+                  title: 'Vos objéctifs ont été pris en compte',
+                  showConfirmButton: false,
+                  timer: 5000
+                })
                 const action = {
                   type:'RESET_OBJECTIVES',
                   objectives: '',
@@ -269,14 +280,11 @@ const connectionStrategies = connect(
               })
                ownProps.history.push('/dashboard') ; 
             }).catch((error)=>{ 
-              const action={type:'Detect-Budget-Error',value:'Veuillez saisir un budget entre 25 et 75 euro par personne'}
-                dispatch(action);
-                console.log('failure')
-                 ownProps.history.push('/dashboard') 
-                setTimeout(function(){
-                  document.location.reload()
-                },5000) 
-
+              Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: "Veuillez saisir un budget entre 25 et 75 euro par personne",
+              })
             })
           
       },
