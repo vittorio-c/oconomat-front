@@ -145,23 +145,6 @@ const connectionStrategies = connect(
         
         }).then((response)=>{
           //On traite la suite une fois la réponse obtenue 
-<<<<<<< HEAD
-          console.log('hello world')
-          console.log('la soumission a bien abouti')
-          console.log(response)
-          const Swal = require('sweetalert2')
-          Swal.fire({
-            position: 'top-end',
-            type: 'success',
-            title: 'Inscription validée',
-            showConfirmButton: false,
-            timer: 2000
-          })
-
-        const action={type:'Show-Message-SignUp',value:'Merci De Votre Inscription, veuillez bien vous connecter et definir vos objectifs pour recevoir vos recettes!'}
-          dispatch(action);
-          ownProps.history.push('/')
-=======
     
           console.log(response) 
           if(response.data=="Tout les champs doivent être remplis"){
@@ -187,18 +170,8 @@ const connectionStrategies = connect(
           //On traite ici les erreurs éventuellement survenues
           console.log(erreur);
       });
->>>>>>> master
         
-        }).catch((error)=>{
-          //On traite ici les erreurs éventuellement survenues
-          Swal.fire({
-            type: 'error',
-            title: 'Oops...',
-            text: "Une erreur s'est produite",
-          })
-          console.log('failure')
-          console.log(error);
-          });
+        
         
       },
      
