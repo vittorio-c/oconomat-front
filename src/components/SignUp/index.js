@@ -5,23 +5,25 @@ import {connect} from 'react-redux';
 
 import './SignUp.sass'
 
-const InscriptionStatic =({insertInputFirstName,insertInputLastName,insertInputEmail,insertMDP,insertMDPConfirm,onFormSubmitManipulateArray,inputValueFirstName,inputValueLastName,inputValueEmail,inputValueMDP,inputValueMDPConfirm})=>{
+const InscriptionStatic =({insertInputFirstName,insertInputLastName,insertInputEmail,insertMDP,insertMDPConfirm,onFormSubmitManipulateArray,inputValueFirstName,inputValueLastName,inputValueEmail,inputValueMDP,inputValueMDPConfirm,messages})=>{
   return (
     
           <div className="Site-content Site">
               <main className="main">
-                  <InscriptionStaticPage insertInputFirstName={insertInputFirstName} insertInputLastName={insertInputLastName} insertInputEmail={insertInputEmail} insertMDP={insertMDP} insertMDPConfirm={insertMDPConfirm} onFormSubmitManipulateArray={()=>{onFormSubmitManipulateArray(inputValueFirstName,inputValueLastName,inputValueEmail,inputValueMDP,inputValueMDPConfirm, event)}}/>
+                  <InscriptionStaticPage insertInputFirstName={insertInputFirstName} insertInputLastName={insertInputLastName} insertInputEmail={insertInputEmail} insertMDP={insertMDP} insertMDPConfirm={insertMDPConfirm} messages={messages} onFormSubmitManipulateArray={()=>{onFormSubmitManipulateArray(inputValueFirstName,inputValueLastName,inputValueEmail,inputValueMDP,inputValueMDPConfirm, event)}}/>
               </main>
           </div>
       
     )
 } 
 
-const InscriptionStaticPage =({insertInputFirstName,insertInputLastName,insertInputEmail,insertMDP,insertMDPConfirm,onFormSubmitManipulateArray}) => {
+const InscriptionStaticPage =({insertInputFirstName,insertInputLastName,insertInputEmail,insertMDP,insertMDPConfirm,onFormSubmitManipulateArray,messages}) => {
   return <div className ='food-background mt-3'>
   <form className="row justify-content-center" onSubmit={onFormSubmitManipulateArray}>
-  <div className="container formBlockSignUp">
-          <h2 className="inscription-title-signUp">Inscription</h2>
+  <div className="my-5 container">
+          <h2 className="inscription-title-signUp">Inscription</h2> 
+           {messages.inscriptionError!='' && messages.inscriptionError!=undefined ? <div class="alert alert-danger" role="alert">{messages.inscriptionError} </div> : <span></span>} 
+           {messages.inscriptionEmptyFields!='' && messages.inscriptionEmptyFields!=undefined ? <div class="alert alert-danger" role="alert">{messages.inscriptionEmptyFields} </div> : <span></span>}
               <div className="form-group mt-4">
                 <input type="text" onChange={insertInputLastName} className="form-control rounded-left rounded-right" name="lastname" placeholder ='Nom'/>
               </div> 
@@ -50,6 +52,7 @@ const InscriptionStaticPage =({insertInputFirstName,insertInputLastName,insertIn
 const connectionStrategies = connect(
     // 1er argument : stratégie de lecture (dans le state privé global)
     (state, ownProps) => { 
+      console.log(state.messages)
    
       return {
         letters: state.letters,
@@ -59,7 +62,8 @@ const connectionStrategies = connect(
         inputValueLastName:state.inputValueLastName,
         inputValueEmail:state.inputValueEmail,
         inputValueMDP:state.inputValueMDP,
-        inputValueMDPConfirm:state.inputValueMDPConfirm
+        inputValueMDPConfirm:state.inputValueMDPConfirm,
+        messages:state.messages
         
       };
     },
@@ -99,16 +103,40 @@ const connectionStrategies = connect(
       onFormSubmitManipulateArray:(inputValueFirstName,inputValueLastName,inputValueEmail,inputValueMDP,inputValueMDPConfirm,event) => { 
         event.preventDefault();
         var inputValues=[inputValueFirstName,inputValueLastName,inputValueEmail,inputValueMDP,inputValueMDPConfirm];
+        if(inputValueFirstName.firstname==undefined){
+           inputValueFirstName={firstname:''}
+         
+          
+        }
+
+        if(inputValueLastName.lastname==undefined){
+           inputValueLastName={lastname:''}
+        }
+
+        if(inputValueEmail.email==undefined){
+          inputValueEmail.email==''
+          inputValueEmail={email:''}
+        } 
+
+        if(inputValueMDP.password==undefined){
+          inputValueMDP={password:''}
+        }
+
+        if(inputValueMDPConfirm.passwordConfirm==undefined){
+          inputValueMDPConfirm={passwordConfirm:''}
+        }
+        
        
         var stringifyInput=JSON.stringify(inputValues);
         var formData= new FormData();
-        console.log('hello world')
+        console.log('hello world') 
+
         formData.set('firstname',inputValueFirstName.firstname);
         formData.set('lastname',inputValueLastName.lastname);
         formData.set('email',inputValueEmail.email);
         formData.set('password',inputValueMDP.password);
         formData.set('passwordConfirm',inputValueMDPConfirm.passwordConfirm)
-       
+        
 
         axios({
           method: 'post',
@@ -117,6 +145,7 @@ const connectionStrategies = connect(
         
         }).then((response)=>{
           //On traite la suite une fois la réponse obtenue 
+<<<<<<< HEAD
           console.log('hello world')
           console.log('la soumission a bien abouti')
           console.log(response)
@@ -132,6 +161,33 @@ const connectionStrategies = connect(
         const action={type:'Show-Message-SignUp',value:'Merci De Votre Inscription, veuillez bien vous connecter et definir vos objectifs pour recevoir vos recettes!'}
           dispatch(action);
           ownProps.history.push('/')
+=======
+    
+          console.log(response) 
+          if(response.data=="Tout les champs doivent être remplis"){
+            const action={type:'Show-Inscription-Empty-Fields-Error',value:'viuellez bien remplir tout les champs'}
+            dispatch(action)
+          }
+
+          else if(response.data=='Email déjà existante'){ 
+            console.log('email deja existant')
+            const action={type:'Show-Inscription-Error',value:'l\'email existe deja'}
+            dispatch(action);
+          } 
+
+          
+          else{
+          const action={type:'Show-Message-SignUp',value:'Merci De Votre Inscription, vieulliez bien vous connecter et definir vos objectifs pour recevoir vos recettes!'}
+          dispatch(action);
+          ownProps.history.push('/')
+          }
+         
+      })
+      .catch(function (erreur) {
+          //On traite ici les erreurs éventuellement survenues
+          console.log(erreur);
+      });
+>>>>>>> master
         
         }).catch((error)=>{
           //On traite ici les erreurs éventuellement survenues

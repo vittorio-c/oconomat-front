@@ -14,9 +14,10 @@ const initialState = {
   recipeType:'',
   shoppingList:'',
   buttonClass : "btn btn-success btn-lg btn-block fa fa-square disabled",
-  messages:{recipeListErrMessage:'',shoppingListErrMessage:'',budgetError:'',welcomeMessage:''},
+  messages:{recipeListErrMessage:'',shoppingListErrMessage:'',budgetError:'',welcomeMessage:'',inscriptionError:''},
   password:{},
-  newPassword:{}
+  newPassword:{},
+  isCheck: false
 };
 
 const defaultAction = {};
@@ -141,6 +142,14 @@ const reducer = (state = initialState, action = defaultAction) => {
 
         case 'Set-Recipe-Error-Message' :{
           return {...state,messages:{recipeListErrMessage:action.value}}
+        } 
+
+        case 'Show-Inscription-Error' :{
+          return{...state,messages:{inscriptionError:action.value}}
+        } 
+
+        case 'Show-Inscription-Empty-Fields-Error' :{
+          return{...state,messages:{inscriptionEmptyFields:action.value}}
         }
 
         case 'Reset-Messages' :{
@@ -183,6 +192,12 @@ const reducer = (state = initialState, action = defaultAction) => {
           return {
             ...state,
             newPassword: {newPassword:action.value}
+          }
+        }
+        case 'SWITCH_VEGAN' :{
+          return {
+            ...state,
+            isCheck : event.target.checked
           }
         }
     default: {

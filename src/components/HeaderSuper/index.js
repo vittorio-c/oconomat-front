@@ -42,19 +42,19 @@ const HeaderSuperStatic =({getRecipes,disconnectUser,getMarketList}) => {
             <div className="d-flex justify-content-around navbar-dark bg-dark ">
               <Link to="/contact"> <button className="btn btn-light fa fa-phone fa-2x my-1"></button></Link>
               <Link to="/dashboard"><button className="btn btn-light fa fa-user fa-2x my-1"></button></Link>
-              <Link to="/Recipes" onClick={getRecipes} > <button className="btn btn-light fa fa-book-open fa-2x my-1 "></button> </Link> 
+              <Link to="/recipes" onClick={getRecipes} > <button className="btn btn-light fa fa-book-open fa-2x my-1 "></button> </Link> 
               <Link to="/marketList" onClick={getMarketList} ><button  className="btn btn-light fa fa-shopping-cart fa-2x my-1" ></button></Link>
-              <Link to="/"> <button onClick={disconnectUser} className="bg-danger btn btn-dark fa fa-user-slash fa-2x my-1"></button> </Link> 
+              <Link to="/" onClick={disconnectUser}> <button  className="bg-danger btn btn-dark fa fa-user-slash fa-2x my-1"></button> </Link> 
             </div>
         </div>
         <div className ='font-size largescreen d-none d-lg-block'>
               <div className="d-flex radius justify-content-start bg-light py-3 border-bottom border-success mt-0 mb-2">
-                  <img className="logo" src="src/ressources/pictures/logo_oconomat_vert.png"></img>
+                  <div className="mr-3"><img className="logo img-fluid" src="src/ressources/pictures/logo_oconomat_vert.png"></img> </div>
                   <div className="row align-content-center ml-5">
                       <Link className="mr-3" to="/dashboard">Tableau de bord</Link>
                       <Link className="mr-3" to="/recipes" onClick={getRecipes}>Recettes</Link>
                       <Link className="mr-3" to="/marketlist" onClick={getMarketList}>Liste de course</Link>
-                      <Link className="mr-3" to="/" onClick={disconnectUser} className ='deco '>Déconnexion</Link>  
+                      <Link className="mr-3" to="/" onClick={disconnectUser} className ='deco ' href ='/'>Déconnexion</Link>  
                   </div>
               </div>
 
@@ -122,22 +122,18 @@ const connectionStrategies = connect(
           }).catch((error)=>{
             console.log(error);
             console.log('thiere is an error')
-            const action={type:'Set-Shopping-List-Error',value:'Viellez definir vos objectifs avant d\'aceder a votre liste de courses' }
+            const action={type:'Set-Shopping-List-Error',value:'Veuillez définir vos objectifs avant d\'accéder a votre liste de course' }
             dispatch(action)
             
           })
 
-
-        
-          
         },
 
-        disconnectUser:()=>{
-            
-            document.location.reload();
-            sessionStorage.clear();
-            console.log(ownProps)
-            //ownProps.history.push('/');
+        disconnectUser:()=>{ 
+          sessionStorage.clear();
+          setTimeout(function(){
+            window.location.reload()
+          },100)
         },
         getRecipes:(event) => { 
           
@@ -151,11 +147,10 @@ const connectionStrategies = connect(
           }
           ).then((response)=>{
             var recipes=response.data.recipes 
-           
             const action={type:'Show-Recipes',value:recipes} 
             dispatch(action);
           }).catch((error)=>{ 
-             const action={type:'Set-Recipe-Error-Message',value: 'Viellez definir vos objectifs avant de consulter vos recettes'};
+             const action={type:'Set-Recipe-Error-Message',value: 'Veuillez définir vos objectifs avant de consulter vos recettes'};
              dispatch(action)
             
           })
