@@ -7016,6 +7016,10 @@ svgo@^1.0.0:
 sweetalert2@^8.18.4:
   version "8.18.4"
   resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-8.18.4.tgz#2b3ecf6ad455feed89a93b038c75e7a8c8095798"
+<<<<<<< HEAD
+=======
+  integrity sha512-U5e2DWL4ljwqIojkA58It7T+pnFKiYeZYoNXavUwWPcn0JWJ2CKfN08Kb9ygxVBJJDMlk+NNV7DK9K9R5coefQ==
+>>>>>>> ff8850b39a92bd6353479c5e122757d28305611c
 
 symbol-observable@^1.2.0:
   version "1.2.0"

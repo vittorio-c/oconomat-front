@@ -62,5 +62,6 @@
     "redux-persist": "^6.0.0",
     "rfs": "^9.0.0",
     "sweetalert2": "^8.18.4"
+
   }
 }
