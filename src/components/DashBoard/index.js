@@ -2,6 +2,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import  axios  from 'axios';
+import Swal from 'sweetalert2';
 
 import './style.sass';
 
@@ -14,9 +15,6 @@ const DashBoard= ({nbPeople,nbPeopleInputUpdate,isCheck,isCheckbox,submitNewPass
                     </main>
                 </div>
             </main>
-
-  
-           
         
     )
 }
@@ -34,22 +32,20 @@ const AccountInfo = ({nbPeople,nbPeopleInputUpdate,isCheck,isCheckbox,submitNewP
               <div className = 'container pt-sm-5'>
                 <img src ='src/ressources/pictures/cookingmama.png' className ='avatar-img img-thumbnail max-width:10% pt-sm-2'></img>
               </div>
-              <p className='user mt-2 mb-2 text-center'><span> {sessionStorage.getItem('firstname')} </span> </p>
-              <p className='user mt-2 mb-2 text-center'><span> {sessionStorage.getItem('lastname')} </span> </p>
-              <p className='user mt-2 mb-2 text-center'><span> Pour {sessionStorage.getItem('userQuantity') > 1 ? sessionStorage.getItem('userQuantity')+' personnes' : sessionStorage.getItem('userQuantity')+' personne'} </span> </p>
+              <p className='user mt-2 mb-2 text-center'><span>Prénom : <span className ='text-success'>{sessionStorage.getItem('firstname')}</span> </span> </p>
+              <p className='user mt-2 mb-2 text-center'><span>Nom de famille :<span className ='text-success'> {sessionStorage.getItem('lastname')}</span> </span> </p>
+              <p className='user mt-2 mb-2 text-center'> <span className ='text-success'> {sessionStorage.getItem('userQuantity') > 1 ? sessionStorage.getItem('userQuantity')+' personnes' : sessionStorage.getItem('userQuantity')+' personne'}</span> </p>
               
-              <p className='password mb-2 text-center'>Password : <span>*********</span></p>
-              <p className ='objectif mb-2 text-center'>Objectif : <span> {sessionStorage.getItem('budget') === 'null' ? 0 : sessionStorage.getItem('budget') } € </span></p>
+              <p className='password mb-2 text-center'>Password : <span className = 'text-secondary'>*********</span></p>
+              <p className ='objectif mb-2 text-center'>Objectif : <span className = 'text-success'> {sessionStorage.getItem('budget') === 'null' ? 0 : sessionStorage.getItem('budget') } € </span></p>
 
               <div className="text-center">
                 <a href="" className="btn-password btn-default btn" data-toggle="modal" data-target="#darkModalForm">Changer de mot de passe</a>
               </div>
               <div className="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div className="modal-dialog form-dark" role="document">
-                  
                   <div className="modal-content card card-image">
                     <div className="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
-                      
                             <div className="modal-header text-center pb-4">
                               <h3 className="modal-title w-100 white-text font-weight-bold" id="myModalLabel"><strong>Changer de </strong> 
                               <a className="Up font-weight-bold"><strong> mot de passe</strong>
@@ -59,35 +55,25 @@ const AccountInfo = ({nbPeople,nbPeopleInputUpdate,isCheck,isCheckbox,submitNewP
                                 <span aria-hidden="true">&times;</span>
                               </button>
                             </div>
-                    
                       <div className="modal-body">
-
                         <div className="md-form mb-5">
                           <input onChange = {typeOldPassword} type="password" id="Form-pass5" className="form-control validate white-text" placeholder="Mot de passe actuel" />
                           <label data-error="wrong" data-success="right" for="Form-pass5"></label>
                         </div>
-
                         <div className="md-form pb-3">
                           <input onChange = {typeNewPassword} type="password" id="Form-newpass5" className="form-control validate white-text" placeholder="Nouveau mot de passe" />
                           <label data-error="wrong" data-success="right" for="Form-newpass5"></label>
                         </div>
-
                         <div className="row d-flex align-items-center mb-4">
-
                           <div className="text-center mb-3 col-md-12">
                             <button type="button" className="btn-submit-password btn-success btn-block btn-rounded z-depth-1" onClick={() =>{submitNewPassword(password,newPassword,event)}}>{password !== newPassword ? 'Valider' : 'Error'}</button>
                            </div>
-
                         </div>
-
                       </div>
                     </div>
                   </div>
-
                 </div>
               </div>
-              
-              
 
               <button type="button" className="btn btn-primary text-center" data-toggle="modal" data-target="#exampleModal">
               { sessionStorage.getItem('budget') !== null || sessionStorage.getItem('budget') !== '' ? 'Modifier vos objectifs' : 'Saisir vos premiers objectifs'}
@@ -125,6 +111,7 @@ const AccountInfo = ({nbPeople,nbPeopleInputUpdate,isCheck,isCheckbox,submitNewP
       </div>
     </div>
 ) 
+
 
 
 const connectionStrategies = connect(
@@ -199,7 +186,6 @@ const connectionStrategies = connect(
             dispatch(action);
         },
       
-
         // FOR THE PASSWORD RESET L142 TO L167
         submitNewPassword:(password,newPassword,event) => {
           event.preventDefault();
@@ -217,14 +203,30 @@ const connectionStrategies = connect(
           data:formData
           })
           .then(function (response) {
-              //On traite la suite une fois la réponse obtenue 
-              console.log('hello world')
-              console.log(response)
+            //On traite la suite une fois la réponse obtenue 
+            console.log('hello world')
+            console.log(response)
+            // We are tying to bring an Alert when the ResetPassword Worked
+            const Swal = require('sweetalert2')
+            Swal.fire({
+              position: 'top-end',
+              type: 'success',
+              title: 'Votre mot de passe à été changé.',
+              showConfirmButton: false,
+              timer: 2000
+            })
+            
               
-          })
-          .catch(function (erreur) {
-              //On traite ici les erreurs éventuellement survenues
-              console.log(erreur);
+          }).catch((error)=>{
+            //On traite ici les erreurs éventuellement survenues
+            Swal.fire({
+              type: 'error',
+              title: 'Oops...',
+              text: "Une erreur s'est produite",
+            })
+            console.log('failure')
+            console.log(error);
+             
           });
         },
           
@@ -244,6 +246,7 @@ const connectionStrategies = connect(
                   vegetarian: isCheck
                 },  
               }).then((response)=>{
+                sessionStorage.setItem('userQuantity',response.data.userQuantity);
                 const action = {
                   type:'RESET_OBJECTIVES',
                   objectives: '',
@@ -266,7 +269,7 @@ const connectionStrategies = connect(
               })
                ownProps.history.push('/dashboard') ; 
             }).catch((error)=>{ 
-              const action={type:'Detect-Budget-Error',value:'Vieullez saisir un budget entre 25 et 75 euro par personne'}
+              const action={type:'Detect-Budget-Error',value:'Veuillez saisir un budget entre 25 et 75 euro par personne'}
                 dispatch(action);
                 console.log('failure')
                 console.log(error.response.status)

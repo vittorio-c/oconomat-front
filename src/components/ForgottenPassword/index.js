@@ -68,16 +68,30 @@ const connectionStrategies = connect(
           method: 'post',
           url: 'http://api.oconomat.fr/api/password/new',
           data: formData
-      })
-      .then(function (response) {
+        })
+        .then(function (response) {
           //On traite la suite une fois la réponse obtenue 
           console.log('hello world')
           console.log(response)
+          // We are tying to bring an Alert when the ResetPassword Worked
+          const Swal = require('sweetalert2')
+          Swal.fire({
+            position: 'top-end',
+            type: 'success',
+            title: 'Votre mot de passe temporaire a été envoyé ',
+            showConfirmButton: false,
+            timer: 3000
+          })
           
-      })
-      .catch(function (erreur) {
+        }).catch((error)=>{
           //On traite ici les erreurs éventuellement survenues
-          console.log(erreur);
+          Swal.fire({
+            type: 'error',
+            title: 'Oops...',
+            text: "Votre email n'est pas valide, veuillez recommencer.",
+          })
+          console.log('failure')
+          console.log(error);
       });
       },
      };
