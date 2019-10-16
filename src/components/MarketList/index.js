@@ -77,7 +77,7 @@ const MarketList = ({doCheck,buttonClass,textClass,stockBase,shoppingList,messag
                 <h2 className="marketList-title pt-4 pb-4 text-center font-weight-bolder">Ma liste de course</h2>
 
                 <div className="row justify-content-center my-5 p-2">
-                    <div className="container col-12 col-md-10">
+                    <div className="container col-xs-12 col-md-7">
                         <table className="table ">
                             <thead className="thead-light">
                                 <tr className = {textClass}>
