@@ -47,10 +47,6 @@ const InscriptionStaticPage =({insertInputFirstName,insertInputLastName,insertIn
 }
 
 
-
-
-
-
 const connectionStrategies = connect(
     // 1er argument : stratégie de lecture (dans le state privé global)
     (state, ownProps) => { 
@@ -65,38 +61,37 @@ const connectionStrategies = connect(
         inputValueMDP:state.inputValueMDP,
         inputValueMDPConfirm:state.inputValueMDPConfirm
         
-       
       };
     },
   
     // 2d argument : stratégie d'écriture (dans le state privé global)
     (dispatch, ownProps) => {
       return {
-       insertInputFirstName:(event) => { 
-         console.log('change-detected');
+        insertInputFirstName:(event) => { 
+          console.log('change-detected');
           const action={type:'Insert-Input-FirstName',value:event.target.value}
           dispatch(action)
-       },
-       insertInputLastName :(event) => { 
-         console.log('change detected')
-         const action={type:'Insert-Input-LastName',value:event.target.value}
-         dispatch(action)
-       },
-
-       insertInputEmail: (event) => { 
-         console.log('change detected')
-         const action={type:'Insert-Input-Email',value:event.target.value} 
-         dispatch(action)
+        },
+        insertInputLastName :(event) => { 
+          console.log('change detected')
+          const action={type:'Insert-Input-LastName',value:event.target.value}
+          dispatch(action)
        },
 
-       insertMDP:(event) => { 
-         console.log('change detected')
-         const action={type:'Insert-Input-MDP',value:event.target.value} 
-         dispatch(action)
+        insertInputEmail: (event) => { 
+          console.log('change detected')
+          const action={type:'Insert-Input-Email',value:event.target.value} 
+          dispatch(action)
        },
-       insertMDPConfirm:(event) =>{
-         const action={type:'Confirm-Input-MDP',value:event.target.value}
-         dispatch(action);
+
+        insertMDP:(event) => { 
+          console.log('change detected')
+          const action={type:'Insert-Input-MDP',value:event.target.value} 
+          dispatch(action)
+       },
+        insertMDPConfirm:(event) =>{
+          const action={type:'Confirm-Input-MDP',value:event.target.value}
+          dispatch(action);
        },
        
 // var inputValues = new FormData();
@@ -119,27 +114,38 @@ const connectionStrategies = connect(
           method: 'post',
           url: 'https://api.oconomat.fr/api/register',
           data: formData
-      })
-      .then(function (response) {
+        
+        }).then((response)=>{
           //On traite la suite une fois la réponse obtenue 
           console.log('hello world')
           console.log('la soumission a bien abouti')
           console.log(response)
-          const action={type:'Show-Message-SignUp',value:'Merci De Votre Inscription, vieulliez bien vous connecter et definir vos objectifs pour recevoir vos recettes!'}
+          const Swal = require('sweetalert2')
+          Swal.fire({
+            position: 'top-end',
+            type: 'success',
+            title: 'Inscription validée',
+            showConfirmButton: false,
+            timer: 2000
+          })
+
+        const action={type:'Show-Message-SignUp',value:'Merci De Votre Inscription, veuillez bien vous connecter et definir vos objectifs pour recevoir vos recettes!'}
           dispatch(action);
           ownProps.history.push('/')
-      })
-      .catch(function (erreur) {
+        
+        }).catch((error)=>{
           //On traite ici les erreurs éventuellement survenues
-          console.log(erreur);
-      });
+          Swal.fire({
+            type: 'error',
+            title: 'Oops...',
+            text: "Une erreur s'est produite",
+          })
+          console.log('failure')
+          console.log(error);
+          });
         
-       
-        
-       
       },
      
-    
       };
     },
   );
