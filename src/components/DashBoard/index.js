@@ -34,7 +34,7 @@ const AccountInfo = ({nbPeople,nbPeopleInputUpdate,isCheck,isCheckbox,submitNewP
               </div>
               <p className='user mt-2 mb-2 text-center'><span>Prénom : <span className ='text-success'>{sessionStorage.getItem('firstname')}</span> </span> </p>
               <p className='user mt-2 mb-2 text-center'><span>Nom de famille :<span className ='text-success'> {sessionStorage.getItem('lastname')}</span> </span> </p>
-              <p className='user mt-2 mb-2 text-center'> <span className ='text-success'> {sessionStorage.getItem('userQuantity') > 1 ? sessionStorage.getItem('userQuantity')+' personnes' : sessionStorage.getItem('userQuantity')+' personne'}</span> </p>
+              <p className='user mt-2 mb-2 text-center'> <span className ='text-success'> {sessionStorage.getItem('userQuantity') > 1 ? sessionStorage.getItem('userQuantity') +' personnes' : sessionStorage.getItem('userQuantity')+' personne'} </span> </p>
               
               <p className='password mb-2 text-center'>Password : <span className = 'text-secondary'>*********</span></p>
               <p className ='objectif mb-2 text-center'>Objectif : <span className = 'text-success'> {sessionStorage.getItem('budget') === 'null' ? 0 : sessionStorage.getItem('budget') } € </span></p>
@@ -98,8 +98,8 @@ const AccountInfo = ({nbPeople,nbPeopleInputUpdate,isCheck,isCheckbox,submitNewP
                       <div className = "text-left text-secondary mt-5">Vos préférences alimentaires</div>
                       <div className = "text-left text-success my-2"><input type="checkbox" aria-label="vegetarian checkbox" className = "" onChange = {() => {isCheckbox(isCheck,event)}}/>Végétarien </div>
                       <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                      { objectives >0 ? <button type="button" onClick = {() => {submitObjectives(nbPeople,isCheck,event)}} onSubmit = {() => {submitObjectives(nbPeople,isCheck,event)}} className="btn btn-success" type="submit"> Valider {objectives} { objectives >0 ? ' € ?' : '' } </button> : '' }
+                        <button type ="button" className="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                      { objectives >0 && nbPeople > 0? <button type="button" className='text-center' onClick = {() => {submitObjectives(nbPeople,isCheck,event)}} onSubmit = {() => {submitObjectives(nbPeople,isCheck,event)}} className="btn btn-success" type="submit"> Valider {objectives} { objectives >0 ? ' €' : '' } pour {nbPeople} {nbPeople < 1 ? 'personnes' :'personnes' } </button> : '' }
                       </div>
                     </form>
                   </div>
