@@ -272,7 +272,6 @@ const connectionStrategies = connect(
               const action={type:'Detect-Budget-Error',value:'Veuillez saisir un budget entre 25 et 75 euro par personne'}
                 dispatch(action);
                 console.log('failure')
-                console.log(error.response.status)
                  ownProps.history.push('/dashboard') 
                 setTimeout(function(){
                   document.location.reload()
