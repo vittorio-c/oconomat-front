@@ -76,7 +76,6 @@ const connectionStrategies = connect(
           // We are tying to bring an Alert when the ResetPassword Worked
           const Swal = require('sweetalert2')
           Swal.fire({
-            position: 'top-end',
             type: 'success',
             title: 'Votre mot de passe temporaire a été envoyé ',
             showConfirmButton: false,
