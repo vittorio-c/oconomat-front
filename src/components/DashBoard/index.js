@@ -5,12 +5,12 @@ import  axios  from 'axios';
 
 import './style.sass';
 
-const DashBoard= ({isCheck,isCheckbox,submitNewPassword,newPassword,password,typeOldPassword,typeNewPassword,submitObjectives,objectivesInputUpdate,objectives,currentUser,budgetError,messages}) => {
+const DashBoard= ({nbPeople,nbPeopleInputUpdate,isCheck,isCheckbox,submitNewPassword,newPassword,password,typeOldPassword,typeNewPassword,submitObjectives,objectivesInputUpdate,objectives,currentUser,budgetError,messages}) => {
     return (
             <main>
                 <div className="Site-content">
                     <main className="main">
-                        <AccountInfo isCheck={isCheck} isCheckbox ={isCheckbox} submitNewPassword={submitNewPassword} newPassword = {newPassword} password= {password} typeOldPassword= {typeOldPassword} typeNewPassword= {typeNewPassword} submitObjectives = {submitObjectives} objectivesInputUpdate = {objectivesInputUpdate}objectives ={objectives} messages={messages}/>
+                        <AccountInfo nbPeople={nbPeople} nbPeopleInputUpdate ={nbPeopleInputUpdate} isCheck={isCheck} isCheckbox ={isCheckbox} submitNewPassword={submitNewPassword} newPassword = {newPassword} password= {password} typeOldPassword= {typeOldPassword} typeNewPassword= {typeNewPassword} submitObjectives = {submitObjectives} objectivesInputUpdate = {objectivesInputUpdate}objectives ={objectives} messages={messages}/>
                     </main>
                 </div>
             </main>
@@ -21,7 +21,7 @@ const DashBoard= ({isCheck,isCheckbox,submitNewPassword,newPassword,password,typ
     )
 }
 
-const AccountInfo = ({isCheck,isCheckbox,submitNewPassword,newPassword,password,typeOldPassword,typeNewPassword,submitObjectives,objectivesInputUpdate,objectives,budgetError,messages}) => ( 
+const AccountInfo = ({nbPeople,nbPeopleInputUpdate,isCheck,isCheckbox,submitNewPassword,newPassword,password,typeOldPassword,typeNewPassword,submitObjectives,objectivesInputUpdate,objectives,budgetError,messages}) => ( 
 
     <div className="AccountInfoMain"> 
     <h2 className="objectives-title text-center">Tableau de bord</h2> 
@@ -36,6 +36,8 @@ const AccountInfo = ({isCheck,isCheckbox,submitNewPassword,newPassword,password,
               </div>
               <p className='user mt-2 mb-2 text-center'><span> {sessionStorage.getItem('firstname')} </span> </p>
               <p className='user mt-2 mb-2 text-center'><span> {sessionStorage.getItem('lastname')} </span> </p>
+              <p className='user mt-2 mb-2 text-center'><span> Pour {sessionStorage.getItem('userQuantity') > 1 ? sessionStorage.getItem('userQuantity')+' personnes' : sessionStorage.getItem('userQuantity')+' personne'} </span> </p>
+              
               <p className='password mb-2 text-center'>Password : <span>*********</span></p>
               <p className ='objectif mb-2 text-center'>Objectif : <span> {sessionStorage.getItem('budget') === 'null' ? 0 : sessionStorage.getItem('budget') } € </span></p>
 
@@ -87,33 +89,31 @@ const AccountInfo = ({isCheck,isCheckbox,submitNewPassword,newPassword,password,
               
               
 
-              <button type="button" class="btn btn-primary text-center" data-toggle="modal" data-target="#exampleModal">
+              <button type="button" className="btn btn-primary text-center" data-toggle="modal" data-target="#exampleModal">
               { sessionStorage.getItem('budget') !== null || sessionStorage.getItem('budget') !== '' ? 'Modifier vos objectifs' : 'Saisir vos premiers objectifs'}
               </button> 
-              {console.log('budget error'+messages.budgetError)} 
-              {console.log(messages.budgetError==undefined)}
-              {console.log(messages.budgetError=='')}
-              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content"> 
-                 
+              <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog" role="document">
+                  <div className="modal-content"> 
+
+                   {messages.budgetError!='' && messages.budgetError!=undefined ? <div className="alert alert-danger" role="alert"> {messages.budgetError} </div> : <span> </span>} 
                   
-                   {messages.budgetError!='' && messages.budgetError!=undefined ? <div class="alert alert-danger" role="alert"> {messages.budgetError} </div> : <span> </span>} 
-                  
-                    <div class="modal-header"> 
+                    <div className="modal-header"> 
                     
-                      <h5 class="modal-title" id="exampleModalLabel">Modifier vos objectifs</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <h5 className="modal-title" id="exampleModalLabel">Modifier vos objectifs</h5>
+                      <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
                     <form>
-                      <input onChange = {objectivesInputUpdate}  type="number" className="form-control form-control-sm" id="colFormLabelLg" placeholder="Inserez votre nouveau budget"/>
+                      <input onChange = {objectivesInputUpdate}  type="number" className="form-control form-control-sm" id="inputforobjectives" placeholder="Inserez votre nouveau budget"/>
+                      <input onChange = {nbPeopleInputUpdate}  type="number" className="form-control form-control-sm" id="inputfornumberofpeople" placeholder="Inserez le nombre de personne dans votre foyer"/>
+
                       <div className = "text-left text-secondary mt-5">Vos préférences alimentaires</div>
                       <div className = "text-left text-success my-2"><input type="checkbox" aria-label="vegetarian checkbox" className = "" onChange = {() => {isCheckbox(isCheck,event)}}/>Végétarien </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                      { objectives >0 ? <button type="button" onClick = {() => {submitObjectives(isCheck,event)}} onSubmit = {() => {submitObjectives(isCheck,event)}} className="btn btn-success" type="submit"> Valider {objectives} { objectives >0 ? ' € ?' : '' } </button> : '' }
+                      <div className="modal-footer">
+                        <button type="button" className="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                      { objectives >0 ? <button type="button" onClick = {() => {submitObjectives(nbPeople,isCheck,event)}} onSubmit = {() => {submitObjectives(nbPeople,isCheck,event)}} className="btn btn-success" type="submit"> Valider {objectives} { objectives >0 ? ' € ?' : '' } </button> : '' }
                       </div>
                     </form>
                   </div>
@@ -140,7 +140,8 @@ const connectionStrategies = connect(
       MDPState:state.MDPState,
       budgetError:state.budgetError,
       messages:state.messages,
-      isCheck : state.isCheck
+      isCheck : state.isCheck,
+      nbPeople: state.nbPeople
     };
   },
 
@@ -151,6 +152,14 @@ const connectionStrategies = connect(
         const action = {
           type : 'SWITCH_VEGAN',
           isCheck:event.target.checked
+        }
+        dispatch(action);
+      },
+      nbPeopleInputUpdate:(event) => {
+        event.preventDefault();
+        const action = {
+          type: 'TYPE_NBPEOPLE',
+          nbPeople: event.target.value
         }
         dispatch(action);
       },
@@ -198,10 +207,6 @@ const connectionStrategies = connect(
           var formData = new FormData();
           formData.set('password',password.password);
           formData.set('newPassword',newPassword.newPassword);
-          console.log(password.password);
-          console.log(newPassword.newPassword);
-          console.log('mon formdata => ' + formData);
-          
           
            axios({
           method: 'post',
@@ -224,10 +229,9 @@ const connectionStrategies = connect(
         },
           
         // FOR SUBMITOBJECTIVES
-        submitObjectives:(isCheck,event) => {
-          console.log('isChecked =>'+isCheck)
+        submitObjectives:(nbPeople,isCheck,event) => {
           event.preventDefault(); 
-          var token = sessionStorage.getItem('jwtToken'); 
+          var token = sessionStorage.getItem('jwtToken');
             axios({
                method: 'post',
                url: 'http://api.oconomat.fr/api/objectif/menu/generate',
@@ -236,16 +240,18 @@ const connectionStrategies = connect(
                 }, 
                 data: {
                   budget:sessionStorage.getItem('objectives'),
+                  userQuantity : nbPeople ,
                   vegetarian: isCheck
                 },  
               }).then((response)=>{
-                console.log(response)
                 const action = {
                   type:'RESET_OBJECTIVES',
-                  objectives: ''
+                  objectives: '',
+                  userQuanntity: '',
+                  vegetarian : false
+
                   }
                   dispatch(action);
-        
                 axios({
                   method: 'get',
                   url: 'http://api.oconomat.fr/api/objectif/budget/last/'+ sessionStorage.getItem('id'),
@@ -253,28 +259,24 @@ const connectionStrategies = connect(
                   'Authorization':`bearer ${token}`,
                   }, 
                  }).then((response1)=>{ 
-                   console.log('hello world')
-                  console.log(response1);
-                sessionStorage.setItem('budget',response1.data);
-                document.location.reload();
-                ownProps.history.push('/dashboard') ;
+                  sessionStorage.setItem('budget',response1.data);
+                 document.location.reload();
+                 ownProps.history.push('/dashboard') ; 
               }).catch((error)=>{ 
-               
-                
               })
-              ownProps.history.push('/dashboard') ;
+               ownProps.history.push('/dashboard') ; 
             }).catch((error)=>{ 
               const action={type:'Detect-Budget-Error',value:'Vieullez saisir un budget entre 25 et 75 euro par personne'}
                 dispatch(action);
                 console.log('failure')
                 console.log(error.response.status)
-                ownProps.history.push('/dashboard') 
+                 ownProps.history.push('/dashboard') 
                 setTimeout(function(){
                   document.location.reload()
-                },5000)
+                },5000) 
 
-             
             })
+          
       },
     }
   }

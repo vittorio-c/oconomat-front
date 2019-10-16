@@ -17,7 +17,8 @@ const initialState = {
   messages:{recipeListErrMessage:'',shoppingListErrMessage:'',budgetError:'',welcomeMessage:''},
   password:{},
   newPassword:{},
-  isCheck: false
+  isCheck: false,
+  nbPeople : ''
 };
 
 const defaultAction = {};
@@ -148,7 +149,6 @@ const reducer = (state = initialState, action = defaultAction) => {
           return {...state,messages:{recipeListErrMessage:'',shoppingListErrMessage:'',budgetError:''}}
         }
          case 'SHOW_SHOPPINGLIST' : {
-          console.log('SHOW_SHOPPINGLIST !')
           return{...state,
             shoppingList: action.value
           }
@@ -192,6 +192,12 @@ const reducer = (state = initialState, action = defaultAction) => {
             isCheck : event.target.checked
           }
         }
+        case 'TYPE_NBPEOPLE':{
+        return {
+          ...state,
+          nbPeople:event.target.value
+        }
+      }
     default: {
       // return state;
       // Dans le cas où on ne comprend pas quelle est l'action à

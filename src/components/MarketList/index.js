@@ -8,6 +8,7 @@ const Ingredients = ({doCheck,buttonClass,textClass,shoppingList}) => {
         
     return(
         shoppingList.map(function(ingredient,index) { 
+            console.log(ingredient);
             const ingredientName = ingredient.name;
             switch (ingredient.unit){
                 case 'kg' : 
@@ -108,7 +109,6 @@ const MarketList = ({doCheck,buttonClass,textClass,stockBase,shoppingList,messag
                 <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Annuler</button>
                 <button type="button" className="btn btn-danger btn-block">Supprimer la liste</button>
-
                 </div>
                 </div>
                 </div>
@@ -129,9 +129,6 @@ return(
     </div>
 );
 }
-
-
-
 const connectionStrategies = connect(
     (state, ownProps) => { 
      console.log(state.messages)
@@ -153,6 +150,7 @@ const connectionStrategies = connect(
           },
         doCheck:(event) => {
           event.preventDefault();
+
            const action = {
             type:'CHECKED',
             buttonClass : event.target.className = "btn btn-success btn-lg btn-block fa fa-check-square disabled",

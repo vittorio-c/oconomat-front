@@ -109,7 +109,7 @@ const connectionStrategies = connect(
             }
           }
           ).then((response1)=>{
-            console.log('on a une reponse de la liste de course')
+            
           var marketList = response1.data.shoppingList;
           const action = {
               type:'SHOW_SHOPPINGLIST',
