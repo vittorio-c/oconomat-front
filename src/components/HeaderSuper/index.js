@@ -54,7 +54,7 @@ const HeaderSuperStatic =({getRecipes,disconnectUser,getMarketList}) => {
                       <Link className="mr-3" to="/dashboard">Tableau de bord</Link>
                       <Link className="mr-3" to="/recipes" onClick={getRecipes}>Recettes</Link>
                       <Link className="mr-3" to="/marketlist" onClick={getMarketList}>Liste de course</Link>
-                      <Link className="mr-3" to="/" onClick={disconnectUser} className ='deco '>Déconnexion</Link>  
+                      <Link className="mr-3" to="/" onClick={disconnectUser} className ='deco ' href ='/'>Déconnexion</Link>  
                   </div>
               </div>
 
