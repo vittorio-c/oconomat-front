@@ -244,6 +244,7 @@ const connectionStrategies = connect(
                   vegetarian: isCheck
                 },  
               }).then((response)=>{
+                sessionStorage.setItem('userQuantity',response.data.userQuantity);
                 const action = {
                   type:'RESET_OBJECTIVES',
                   objectives: '',
