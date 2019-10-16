@@ -91,8 +91,8 @@ const AccountInfo = ({nbPeople,nbPeopleInputUpdate,isCheck,isCheckbox,submitNewP
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <form>
-                      <input onChange = {objectivesInputUpdate}  type="number" className="form-control form-control-sm" id="inputforobjectives" placeholder="Inserez votre nouveau budget"/>
+                    <form className = 'container'>
+                      <input onChange = {objectivesInputUpdate}  type="number" className="form-control form-control-sm my-2" id="inputforobjectives" placeholder="Inserez votre nouveau budget"/>
                       <input onChange = {nbPeopleInputUpdate}  type="number" className="form-control form-control-sm" id="inputfornumberofpeople" placeholder="Inserez le nombre de personne dans votre foyer"/>
 
                       <div className = "text-left text-secondary mt-5">Vos préférences alimentaires</div>
@@ -272,7 +272,6 @@ const connectionStrategies = connect(
               const action={type:'Detect-Budget-Error',value:'Veuillez saisir un budget entre 25 et 75 euro par personne'}
                 dispatch(action);
                 console.log('failure')
-                console.log(error.response.status)
                  ownProps.history.push('/dashboard') 
                 setTimeout(function(){
                   document.location.reload()

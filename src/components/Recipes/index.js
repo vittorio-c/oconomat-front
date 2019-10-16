@@ -25,16 +25,16 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
     }
     if(recipes.length!=0){ 
         {console.log(recipe)}
-    return <div class="container"> <div className="d-none d-sm-block recipes-main"> 
+    return <div className="container"> <div className="d-none d-sm-block recipes-main"> 
    
     <h2 className="recipes-title">Liste de vos Recettes Pour la Semaine </h2>  
     
     
 
-     <div class="row">
-        <div class="d-none d-md-block col-md-4"> <button class="btn btn-warning" onClick={getStateType}> petit déjeuner  </button></div> 
-        <div class="d-none d-md-block col-md-4"> <button class="btn btn-warning" onClick={getStateType}> déjeuner  </button></div>
-        <div class="d-none d-md-block col-md-4"> <button class="btn btn-warning" onClick={getStateType}> dîner </button></div>
+     <div className="row">
+        <div className="d-none d-md-block col-md-4"> <button className="btn-recipes btn width-full" onClick={getStateType}> petit déjeuner  </button></div> 
+        <div className="d-none d-md-block col-md-4"> <button className="btn-recipes btn width-full" onClick={getStateType}> déjeuner  </button></div>
+        <div className="d-none d-md-block col-md-4"> <button className="btn-recipes btn width-full" onClick={getStateType}> dîner </button></div>
      
      </div> 
 
@@ -73,7 +73,7 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
      
      
 </div> 
- <div class="d-block d-sm-none">  
+ <div className="d-block d-sm-none">  
     <div>
       <Carousel>
         {recipes.map(function(recipe,index){
@@ -117,16 +117,16 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
      
      
      
-        <div class="col-xs-12"> <button class="btn btn-warning width-full" onClick={getStateType}> petit déjeuner </button> </div> 
-        <div class="col-xs-12"> <button class="btn btn-warning width-full " onClick={getStateType}> déjeuner </button> </div>
-        <div class="col-xs-12"> <button class="btn btn-warning width-full" onClick={getStateType}> dîner </button>  </div>
+        <div className="col-xs-12"> <button className="btn-recipes btn width-full" onClick={getStateType}> petit déjeuner </button> </div> 
+        <div className="col-xs-12"> <button className="btn-recipes btn width-full " onClick={getStateType}> déjeuner </button> </div>
+        <div className="col-xs-12"> <button className="btn-recipes btn width-full" onClick={getStateType}> dîner </button>  </div>
     
     
     </div> 
 </div>
     } 
     else{
-        return  (<div>{messages.recipeListErrMessage!='' ? <div class="alert alert-danger text-center" role="alert"> {messages.recipeListErrMessage} </div> : <span> </span> } 
+        return  (<div>{messages.recipeListErrMessage!='' ? <div className="alert alert-danger text-center" role="alert"> {messages.recipeListErrMessage} </div> : <span> </span> } 
         <div> Recipes  Are Loading </div> </div>)
     }
 } 
