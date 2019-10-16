@@ -24,15 +24,15 @@ const DashBoard= ({isCheck,isCheckbox,submitNewPassword,newPassword,password,typ
 const AccountInfo = ({isCheck,isCheckbox,submitNewPassword,newPassword,password,typeOldPassword,typeNewPassword,submitObjectives,objectivesInputUpdate,objectives,budgetError,messages}) => ( 
 
     <div className="AccountInfoMain"> 
-    <h2 className="objectives-title text-center">Tableau de bord</h2> 
+    <h2 className="objectives-title text-center pt-sm-5">Tableau de bord</h2> 
     
 
-      <div className="AccountBackground">
+      <div className="AccountBackground m-5 py-sm-5">
         <form>
           <div className="Account-info row pt-4">
-            <div className="col-lg-10 container pl-0">
-              <div className = 'container '>
-                <img src ='src/ressources/pictures/cookingmama.png' className ='avatar-img img-thumbnail max-width:10%'></img>
+            <div className="col-lg-10 container pl-0 py-5">
+              <div className = 'container pt-sm-5'>
+                <img src ='src/ressources/pictures/cookingmama.png' className ='avatar-img img-thumbnail max-width:10% pt-sm-2'></img>
               </div>
               <p className='user mt-2 mb-2 text-center'><span> {sessionStorage.getItem('firstname')} </span> </p>
               <p className='user mt-2 mb-2 text-center'><span> {sessionStorage.getItem('lastname')} </span> </p>
