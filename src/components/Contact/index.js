@@ -40,7 +40,7 @@ const Contactpage = () => {
                             <h1 className="col-12 contact-title">L'équipe</h1>
                             <p className="mt-4"><strong>Product Owner</strong> : Robin Ollmann</p>
                             <p className="mt-4"><strong>Scrum master</strong> : Vittorio Chillemi</p>
-                            <p className="mt-4"><strong>Product Owner</strong> : Jérôme Mesic</p>
+                            <p className="mt-4"><strong>Référent technique</strong> : Jérôme Mesic</p>
                             <p className="mt-4"><strong>Lead dev front</strong> : Reuben Chouraki</p>
                             <p className="mt-4"><strong>Lead dev back</strong> : Joffrey Cormont</p>
 

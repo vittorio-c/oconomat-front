@@ -18,7 +18,7 @@ const RecipeMain = ({recipe,clearRecipe}) => {
                     <h2 className='recipe-page-title m-3'>Voici votre recette</h2> 
                     
                          <div className="recipe-detail"> 
-                          <Link to="/recipes"><button class="btn btn-warning margin-top" onClick={clearRecipe}> Go Back To Carousel </button></Link>
+                          <Link to="/recipes"><button class="btn margin-top" onClick={clearRecipe}> Go Back To Carousel </button></Link>
                             <div className="recipe-name">
                                  <h3>{recipe.data.title} </h3>
                             </div>

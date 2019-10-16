@@ -22,7 +22,7 @@ const DashBoard= ({nbPeople,nbPeopleInputUpdate,isCheck,isCheckbox,submitNewPass
 const AccountInfo = ({nbPeople,nbPeopleInputUpdate,isCheck,isCheckbox,submitNewPassword,newPassword,password,typeOldPassword,typeNewPassword,submitObjectives,objectivesInputUpdate,objectives,budgetError,messages}) => ( 
 
     <div className="AccountInfoMain"> 
-    <h2 className="objectives-title text-center pt-sm-5">Tableau de bord</h2> 
+    <h2 className="dashboard-title pt-4 pb-4 text-center font-weight-bolder">Tableau de bord</h2> 
     
 
       <div className="AccountBackground m-5 py-sm-5">
@@ -66,7 +66,7 @@ const AccountInfo = ({nbPeople,nbPeopleInputUpdate,isCheck,isCheckbox,submitNewP
                         </div>
                         <div className="row d-flex align-items-center mb-4">
                           <div className="text-center mb-3 col-md-12">
-                            <button type="button" className="btn-submit-password btn-success btn-block btn-rounded z-depth-1" onClick={() =>{submitNewPassword(password,newPassword,event)}}>{password !== newPassword ? 'Valider' : 'Error'}</button>
+                            <button type="button" className="btn-submit-password btn-block btn-rounded z-depth-1" onClick={() =>{submitNewPassword(password,newPassword,event)}}>{password !== newPassword ? 'Valider' : 'Error'}</button>
                            </div>
                         </div>
                       </div>
