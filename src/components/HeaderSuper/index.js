@@ -42,7 +42,7 @@ const HeaderSuperStatic =({getRecipes,disconnectUser,getMarketList}) => {
             <div className="d-flex justify-content-around navbar-dark bg-dark ">
               <Link to="/contact"> <button className="btn btn-light fa fa-phone fa-2x my-1"></button></Link>
               <Link to="/dashboard"><button className="btn btn-light fa fa-user fa-2x my-1"></button></Link>
-              <Link to="/Recipes" onClick={getRecipes} > <button className="btn btn-light fa fa-book-open fa-2x my-1 "></button> </Link> 
+              <Link to="/recipes" onClick={getRecipes} > <button className="btn btn-light fa fa-book-open fa-2x my-1 "></button> </Link> 
               <Link to="/marketList" onClick={getMarketList} ><button  className="btn btn-light fa fa-shopping-cart fa-2x my-1" ></button></Link>
               <Link to="/"> <button onClick={disconnectUser} className="bg-danger btn btn-dark fa fa-user-slash fa-2x my-1"></button> </Link> 
             </div>
@@ -134,9 +134,9 @@ const connectionStrategies = connect(
 
         disconnectUser:()=>{
             
-            document.location.reload();
-            sessionStorage.clear();
-            console.log(ownProps)
+            
+         /*    sessionStorage.clear(); */
+           
             //ownProps.history.push('/');
         },
         getRecipes:(event) => { 
@@ -151,7 +151,9 @@ const connectionStrategies = connect(
           }
           ).then((response)=>{
             var recipes=response.data.recipes 
-           
+            sessionStorage.clear();
+            document.location.reload();
+            ownProps.history.push('/');
             const action={type:'Show-Recipes',value:recipes} 
             dispatch(action);
           }).catch((error)=>{ 
