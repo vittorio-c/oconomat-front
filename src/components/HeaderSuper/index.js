@@ -134,9 +134,8 @@ const connectionStrategies = connect(
 
         disconnectUser:()=>{
             
-            
           sessionStorage.clear();
-          document.location.reload();
+          window.location.reload();
         },
         getRecipes:(event) => { 
           
