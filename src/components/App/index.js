@@ -26,15 +26,16 @@ const AppContainer = () => {
         <Router>
         <div id="app">
         <HeaderSuper />
-            <Switch>
+            
               <Route exact path="/" component={Home} /> 
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/signin" component={SignIn} />
               <Route exact path="/signup" component={SignUp} />
               <Route exact path="/forgottenPassword" component={ForgottenPassword} />
               <Route exact path="/passwordSend" component={PasswordSend} />
-              <Route component={NoFound} />
-              <Redirect to ="/" />
+              <Switch>
+                <Route component={NoFound} />
+                <Redirect to ="/" component={Home}/>
             </Switch>
         <Footer />
         </div>
