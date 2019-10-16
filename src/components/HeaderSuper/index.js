@@ -132,12 +132,13 @@ const connectionStrategies = connect(
           
         },
 
-        disconnectUser:()=>{
-            
+        disconnectUser:()=>{ 
           sessionStorage.clear();
           setTimeout(function(){
             window.location.reload()
-          },3000)
+          },500)
+          
+          
         },
         getRecipes:(event) => { 
           
