@@ -84,13 +84,8 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
                 <img className="d-block w-100 max-height" src={recipe.image}/>
                 <Carousel.Caption> 
                 
-<<<<<<< HEAD
                <div class="col-xs-12 bg-yellow title-height"> <p className="recipes-title-small"> {recipe.title} </p>  </div>
                <div class="col-xs-12 bg-yellow">  <p className="recipes-title-small"> Prix: {recipe.price} € </p>  </div> 
-=======
-               <div className="col-xs-12 title-height"> <p className="recipes-title-small"> {recipe.title} </p>  </div>
-               <div className="col-xs-12 ">  <p className="recipes-title-small"> Prix: {recipe.price} £ </p>  </div> 
->>>>>>> final-lap
                
                   
                 <Link to="/Recipe"> <button className="details-btn btn" onClick={()=>{findRecipe(index,recipes)}}> <a>Details</a>  </button> </Link> 
@@ -105,13 +100,8 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
                 <img className="d-block w-100 max-height" src={recipe.image}/>
                 <Carousel.Caption> 
                 
-<<<<<<< HEAD
                <div class="col-xs-12 bg-yellow title-height"> <p className="recipes-title-xs"> {recipe.title} </p>  </div>
                <div class="col-xs-12 bg-yellow">  <p className="recipes-title-small"> Prix: {recipe.price} € </p>  </div> 
-=======
-               <div className="col-xs-12 title-height"> <p className="recipes-title-xs"> {recipe.title} </p>  </div>
-               <div className="col-xs-12 ">  <p className="recipes-title-small"> Prix: {recipe.price} £ </p>  </div> 
->>>>>>> final-lap
                
                   
                 <Link to="/Recipe"> <button className="details-btn btn" onClick={()=>{findRecipe(index,recipes)}}> <a>Details</a>  </button> </Link> 
