@@ -42,30 +42,27 @@ const Steps = () => {
     return (
         <div><p className='display-4 text-center text-success'>Le principe en quelque lignes </p> 
             <div className = "mt-3 pt-3 mb-3 pb-3 col-xs-12 col-lg-6 offset-lg-3">
-                <table className="table table-striped">
-                <thead>
-                </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row" className = "text-success font-weight-bold display-4">1</th>
-                            <th scope="col" className ="font-weight-bold">Oconomat vous propose des petits-déjeuners, des déjeuners et des dîners pendant 7 jours.</th>
-                        </tr>
-                        <tr>
-                            <th scope="row" className = "text-success font-weight-bold display-4" >2</th>
-                            <td ><span className ="font-weight-bold">Faites vos courses.</span>
-                                <th className="font-italic">Oconomat vous fourni une liste de course déjà tout prête avec les ingredients dont vous aurez besoin pour la semaine.</th>
-                            </td>
-                        </tr>
-                        <tr>
-                        <th scope="row" className = "text-success font-weight-bold display-4">3</th>
-                        <td className ="font-weight-bold"> Enfilez votre tablier et suivez les étapes de préparation.</td>
-                        </tr>
-                        <tr>
-                        <th scope="row" className = "text-success font-weight-bold display-4">4</th>
-                        <td className ="font-weight-bold">Régalez-vous !</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <ul className="list-group">
+                    <li className="list-group-item d-flex align-items-center">
+                    <span className="badge">1</span>
+                    Oconomat vous propose des petits-déjeuners, des déjeuners et des dîners pendant 7 jours.
+                    </li> 
+                    <li className="list-group-item d-flex align-items-center">
+                    <span className="badge">2</span>
+                    Faites vos courses.<br/>
+                    
+                    Oconomat vous fourni une liste de course déjà tout prête avec les ingredients dont vous aurez besoin pour la semaine.
+                    </li> 
+                    <li className="list-group-item d-flex align-items-center">
+                    <span className="badge">3</span>
+                    Enfilez votre tablier et suivez les étapes de préparation.
+                    </li> 
+                    <li className="list-group-item d-flex align-items-center">
+                    <span className="badge">4</span>
+                    Régalez-vous !
+                    </li>
+                </ul>
+                
                 </div>
                     <div className = 'justify-content-lg-center d-lg-flex'>
                 
