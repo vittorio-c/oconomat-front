@@ -122,7 +122,7 @@ const connectionStrategies = connect(
           }).catch((error)=>{
             console.log(error);
             console.log('thiere is an error')
-            const action={type:'Set-Shopping-List-Error',value:'Vueillez définir vos objectifs avant d\'accéder a votre liste de course' }
+            const action={type:'Set-Shopping-List-Error',value:'Veuillez définir vos objectifs avant d\'accéder a votre liste de course' }
             dispatch(action)
             
           })
