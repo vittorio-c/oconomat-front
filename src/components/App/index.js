@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route,Switch} from "react-router-dom";
+import { BrowserRouter as Router, Route,Switch,Redirect} from "react-router-dom";
 import Home from 'src/components/Home';
 import Recipes from 'src/components/Recipes';
 import MarketList from 'src/components/MarketList'
@@ -19,7 +19,7 @@ import './app.sass';
 
 
 
-const AppContainer = ( {getMarketList}) => {
+const AppContainer = () => {
   if (sessionStorage.jwtToken === '' || sessionStorage.jwtToken === undefined ){
     return (
       
@@ -34,6 +34,7 @@ const AppContainer = ( {getMarketList}) => {
               <Route exact path="/forgottenPassword" component={ForgottenPassword} />
               <Route exact path="/passwordSend" component={PasswordSend} />
               <Route component={NoFound} />
+              <Redirect to ="/" />
             </Switch>
         <Footer />
         </div>
