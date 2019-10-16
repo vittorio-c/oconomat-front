@@ -122,7 +122,7 @@ const connectionStrategies = connect(
           }).catch((error)=>{
             console.log(error);
             console.log('thiere is an error')
-            const action={type:'Set-Shopping-List-Error',value:'Viellez definir vos objectifs avant d\'aceder a votre liste de courses' }
+            const action={type:'Set-Shopping-List-Error',value:'Veuillez définir vos objectifs avant d\'accéder a votre liste de course' }
             dispatch(action)
             
           })
@@ -152,7 +152,7 @@ const connectionStrategies = connect(
             const action={type:'Show-Recipes',value:recipes} 
             dispatch(action);
           }).catch((error)=>{ 
-             const action={type:'Set-Recipe-Error-Message',value: 'Viellez definir vos objectifs avant de consulter vos recettes'};
+             const action={type:'Set-Recipe-Error-Message',value: 'Veuillez définir vos objectifs avant de consulter vos recettes'};
              dispatch(action)
             
           })
