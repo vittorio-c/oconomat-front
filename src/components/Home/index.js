@@ -25,7 +25,7 @@ const Logo = ({messages}) => {
             <div className ='food-image img-thumbnail text-light  pt-4'>
                 <div className = "text-box"> 
                 {console.log(messages)}
-                    {messages.welcomeMessage!='' ? <h4 className="alert alert-success" role="alert"> {messages.welcomeMessage} </h4> : <span> </span> }
+                    {messages.welcomeMessage!='' && messages.welcomeMessage!=undefined ? <h4 className="alert alert-success" role="alert"> {messages.welcomeMessage} </h4> : <span> </span> }
                     
                     <h2 className='home-catch-sentence m-3 '>Une panne d'inspiration ?</h2>
                     <h1 className='home-title text-success'>OCONOMAT</h1>
