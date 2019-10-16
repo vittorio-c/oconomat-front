@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import  axios  from 'axios';
 import { resolve } from 'path';
+import Swal from 'sweetalert2';
 
 import './SignIn.sass'
 
@@ -76,6 +77,16 @@ const connectionStrategies = connect(
                    password:passwordState.password
                   },       
               }).then((response)=>{
+
+                const Swal = require('sweetalert2')
+                Swal.fire({
+                  position: 'top-end',
+                  type: 'success',
+                  title: 'Connexion',
+                  showConfirmButton: false,
+                  timer: 2000
+                })
+
                 const action={type:'Persist-User',value:response.data};
                   dispatch(action)
 
@@ -90,8 +101,14 @@ const connectionStrategies = connect(
                
             
               }).catch((error)=>{
+                Swal.fire({
+                  type: 'error',
+                  title: 'Oops...',
+                  text: "Une erreur s'est produite",
+                })
                 console.log('failure')
                 console.log(error)
+
               })
         },
       }
