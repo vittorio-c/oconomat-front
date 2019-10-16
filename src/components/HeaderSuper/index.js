@@ -137,7 +137,6 @@ const connectionStrategies = connect(
             
           sessionStorage.clear();
           document.location.reload();
-          ownProps.history.push('/');
         },
         getRecipes:(event) => { 
           
