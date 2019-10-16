@@ -150,12 +150,18 @@ const connectionStrategies = connect(
           if(response.data=="Tout les champs doivent être remplis"){
             const action={type:'Show-Inscription-Empty-Fields-Error',value:'viuellez bien remplir tout les champs'}
             dispatch(action)
+            setTimeout(function(){
+              document.location.reload()
+            },3000)
           }
 
           else if(response.data=='Email déjà existante'){ 
             console.log('email deja existant')
             const action={type:'Show-Inscription-Error',value:'l\'email existe deja'}
             dispatch(action);
+            setTimeout(function(){
+              document.location.reload()
+            },3000)
           } 
 
           
