@@ -98,7 +98,7 @@ const AccountInfo = ({submitNewPassword,newPassword,password,typeOldPassword,typ
                   <div class="modal-content"> 
                  
                   
-                   {messages.budgetError!='' && messages.budgetError!=undefined ? <div class="alert alert-danger" role="alert"> {messages.budgetError} yessir</div> : <span> </span>} 
+                   {messages.budgetError!='' && messages.budgetError!=undefined ? <div class="alert alert-danger" role="alert"> {messages.budgetError} </div> : <span> </span>} 
                   
                     <div class="modal-header"> 
                     

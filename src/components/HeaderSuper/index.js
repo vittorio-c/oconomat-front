@@ -49,7 +49,7 @@ const HeaderSuperStatic =({getRecipes,disconnectUser,getMarketList}) => {
         </div>
         <div className ='font-size largescreen d-none d-lg-block'>
               <div className="d-flex radius justify-content-start bg-light py-3 border-bottom border-success mt-0 mb-2">
-                  <img className="logo" src="src/ressources/pictures/logo_oconomat_vert.png"></img>
+                  <div className="mr-3"><img className="logo img-fluid" src="src/ressources/pictures/logo_oconomat_vert.png"></img> </div>
                   <div className="row align-content-center ml-5">
                       <Link className="mr-3" to="/dashboard">Tableau de bord</Link>
                       <Link className="mr-3" to="/recipes" onClick={getRecipes}>Recettes</Link>
