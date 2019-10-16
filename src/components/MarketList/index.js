@@ -72,7 +72,7 @@ const MarketList = ({doCheck,buttonClass,textClass,stockBase,shoppingList,messag
             <div className="Site-content">
                 <main className="main">
                 <div className ="main-frame">
-                <h2 className="pt-4 pb-4 text-center font-weight-bolder text-warning">Ma liste de course</h2>
+                <h2 className="marketList-title pt-4 pb-4 text-center font-weight-bolder">Ma liste de course</h2>
 
                 <div className="row justify-content-center my-5 p-2">
                     <div className="container col-12 col-md-10">
