@@ -53,7 +53,7 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
         <h3 className="recipes-name-title">{recipe.title} </h3> 
         <Link to="/Recipe"> <button className="details-btn btn" onClick={()=>{findRecipe(index,recipes)}}> <a>Details</a>  </button> </Link>
         <p className="text-black">A manger pour le {recipe.type}</p> 
-        <p className="text-black"> Prix: {recipe.price} £ </p>
+        <p className="text-black"> Prix: {recipe.price} € </p>
         </Carousel.Caption>
         </Carousel.Item>
          }
@@ -101,7 +101,7 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
                 <Carousel.Caption> 
                 
                <div class="col-xs-12 bg-yellow title-height"> <p className="recipes-title-xs"> {recipe.title} </p>  </div>
-               <div class="col-xs-12 bg-yellow">  <p className="recipes-title-small"> Prix: {recipe.price} £ </p>  </div> 
+               <div class="col-xs-12 bg-yellow">  <p className="recipes-title-small"> Prix: {recipe.price} € </p>  </div> 
                
                   
                 <Link to="/Recipe"> <button className="details-btn btn" onClick={()=>{findRecipe(index,recipes)}}> <a>Details</a>  </button> </Link> 
