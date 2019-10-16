@@ -12,7 +12,7 @@ const Ingredients = ({doCheck,buttonClass,textClass,shoppingList}) => {
             const ingredientName = ingredient.name;
             switch (ingredient.unit){
                 case 'kg' : 
-                if (ingredient.quantity >=1 ){ingredient.quantity = ingredient.quantity, ingredient.unit = 'kg'}
+                if (ingredient.quantity >=1 ){ingredient.quantity = Math.round(ingredient.quantity*100)/100, ingredient.unit = 'kg'}
                 else
                 ingredient.quantity = Math.round(ingredient.quantity * 1000),
                 ingredient.unit = 'g'
