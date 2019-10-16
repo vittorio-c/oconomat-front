@@ -15,9 +15,9 @@ const HeaderSuperStatic =({getRecipes,disconnectUser,getMarketList}) => {
             <div className = 'phonescreen d-lg-none'>
                 <div className="d-flex justify-content-around navbar-dark bg-dark">
                   <Link to="/"> <button className=" btn btn-light fa fa-home fa-2x my-1"> </button>  </Link>
-                  <Link to="/Contact"> <button className="btn btn-light fa fa-phone fa-2x my-1"></button></Link>
-                  <Link to="/SignUp"> <button className="btn btn-light fa fa-file-signature fa-2x my-1"></button></Link>
-                  <Link to="/SignIn">  <button className="btn btn-light fa fa-plug fa-2x my-1"></button></Link>
+                  <Link to="/contact"> <button className="btn btn-light fa fa-phone fa-2x my-1"></button></Link>
+                  <Link to="/signUp"> <button className="btn btn-light fa fa-file-signature fa-2x my-1"></button></Link>
+                  <Link to="/signIn">  <button className="btn btn-light fa fa-plug fa-2x my-1"></button></Link>
                 </div>
             </div>
 
@@ -26,9 +26,9 @@ const HeaderSuperStatic =({getRecipes,disconnectUser,getMarketList}) => {
                   <Link className="mr-3" to="/"><img className="logo" src="src/ressources/pictures/logo_oconomat_vert.png"></img></Link>
                   <div className="row align-content-center ml-5">
                     <Link className="mr-3" to="/">Accueil</Link>
-                    <Link className="mr-3" to="/Contact">Contact</Link> 
-                    <Link className="mr-3" to="/SignUp">S'inscrire</Link>
-                    <Link className="mr-3" to="/SignIn">Se connecter</Link>  
+                    <Link className="mr-3" to="/contact">Contact</Link> 
+                    <Link className="mr-3" to="/signUp">S'inscrire</Link>
+                    <Link className="mr-3" to="/signIn">Se connecter</Link>  
                   </div>
               </div>
             </div>    

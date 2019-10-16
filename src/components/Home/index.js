@@ -21,10 +21,9 @@ const HomePage = ({messages}) => {
 
 const Logo = ({messages}) => {
     return(
-        <div className ='container px-0 text-center col-xs-12 col-lg-10'>
-            <div className ='food-image img-thumbnail text-light  pt-4'>
+        <div className ='container px-0 text-center col-xs-12 col-lg-9 '>
+            <div className ='food-image fluid-width img-thumbnail text-light  pt-4'>
                 <div className = "text-box"> 
-                {console.log(messages)}
                     {messages.welcomeMessage!='' && messages.welcomeMessage!=undefined ? <h4 className="alert alert-success" role="alert"> {messages.welcomeMessage} </h4> : <span> </span> }
                     
                     <h2 className='home-catch-sentence m-3 '>Une panne d'inspiration ?</h2>
@@ -52,9 +51,9 @@ const Steps = () => {
                         </tr>
                         <tr>
                             <th scope="row" className = "text-success font-weight-bold display-4" >2</th>
-                            <td ><span className ="font-weight-bold">Faites vos courses.</span>
-                                <th className="font-italic">Oconomat vous fourni une liste de course déjà tout prête avec les ingredients dont vous aurez besoin pour la semaine.</th>
-                            </td>
+                            
+                                <th className="font-weight-bold"><p>Faites vos courses.<br/>Oconomat vous fourni une liste de course déjà tout prête avec les ingredients dont vous aurez besoin pour la semaine.</p></th>
+                            
                         </tr>
                         <tr>
                         <th scope="row" className = "text-success font-weight-bold display-4">3</th>
@@ -71,39 +70,39 @@ const Steps = () => {
                 
                         <div className ='col-xs-12 ' >
                             <h3 className= 'title-explaination text-center font-weight-bold '>Inscrivez vous via le formulaire</h3>
-                            <img src="src/ressources/pictures/inscription.png" className="exemple-img img-fluid img mx-auto d-block" alt="Responsive image"/>
+                            <img src="src/ressources/pictures/inscription.png" className="exemple-img img mx-auto d-block" alt="Responsive image"/>
                          </div>    
                         
 
                             <div className = 'd-none d-lg-block' >
-                             <img src="src/ressources/pictures/arrow.png" className="exemple-img img-fluid img arrow" alt="arrow image"/>
+                             <img src="src/ressources/pictures/arrow.png" className="exemple-img  img arrow" alt="arrow image"/>
                         
                             </div>
                        
                         <div >
                             <h3 className= 'title-explaination text-center font-weight-bold mt-4'>Définissez le budget de la semaine dans la rubrique Mes objectifs</h3>
-                            <img src="src/ressources/pictures/objectives.png" className="img-fluid img img-objective mx-auto d-block" alt="Responsive image"/>
+                            <img src="src/ressources/pictures/objectives.png" className="img img-objective mx-auto d-block" alt="Responsive image"/>
                         </div>  
 
                         <div className ='d-none d-lg-block' >
-                            <img src="src/ressources/pictures/arrow.png" className="img-fluid img arrow" alt="arrow image"></img>
+                            <img src="src/ressources/pictures/arrow.png" className=" img arrow" alt="arrow image"></img>
                         </div>
 
                         <div >  
                             <h3 className= 'title-explaination text-center font-weight-bold'>Decouvrez vos recettes</h3>
-                            <img src="src/ressources/pictures/recipe.png" className="img-fluid img mx-auto d-block" alt="Responsive image"/>
+                            <img src="src/ressources/pictures/recipe.png" className=" img mx-auto d-block" alt="Responsive image"/>
                         </div>
 
                         <div className ='d-none d-lg-block' >
-                            <img src="src/ressources/pictures/arrow.png" className="img-fluid img arrow" alt="arrow image"></img>
+                            <img src="src/ressources/pictures/arrow.png" className=" img arrow" alt="arrow image"></img>
                         </div>
 
                         <div>
                             <h3 className= 'title-explaination text-center font-weight-bold'>Achetez vos ingredients en suivant votre liste de course</h3>
-                            <img src="src/ressources/pictures/list.png" className="img-fluid img mx-auto d-block" alt="Responsive image"/>
+                            <img src="src/ressources/pictures/list.png" className=" img mx-auto d-block" alt="Responsive image"/>
                         </div>
                         <div className ='d-none d-lg-block' >
-                        <img src="src/ressources/pictures/arrow.png" className="img-fluid img arrow" alt="arrow image"></img>
+                        <img src="src/ressources/pictures/arrow.png" className=" img arrow" alt="arrow image"></img>
                     </div>
 
                         <div> 
@@ -120,7 +119,6 @@ const Steps = () => {
 const connectionStrategies = connect(
     // 1er argument : stratégie de lecture (dans le state privé global)
     (state, ownProps) => { 
-        console.log(state.messages)
       return {
         messages: state.messages
         
