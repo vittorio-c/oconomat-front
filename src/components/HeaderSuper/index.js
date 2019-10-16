@@ -133,11 +133,10 @@ const connectionStrategies = connect(
         },
 
         disconnectUser:()=>{
-            
-            document.location.reload();
-            sessionStorage.clear();
-            console.log(ownProps)
-            //ownProps.history.push('/');
+          sessionStorage.clear();
+          document.location.reload();
+          console.log(ownProps)
+          //ownProps.history.push('/');
         },
         getRecipes:(event) => { 
           
