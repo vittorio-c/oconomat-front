@@ -136,9 +136,7 @@ const connectionStrategies = connect(
           sessionStorage.clear();
           setTimeout(function(){
             window.location.reload()
-          },500)
-          
-          
+          },100)
         },
         getRecipes:(event) => { 
           
