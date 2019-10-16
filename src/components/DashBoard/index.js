@@ -32,12 +32,12 @@ const AccountInfo = ({nbPeople,nbPeopleInputUpdate,isCheck,isCheckbox,submitNewP
               <div className = 'container pt-sm-5'>
                 <img src ='src/ressources/pictures/cookingmama.png' className ='avatar-img img-thumbnail max-width:10% pt-sm-2'></img>
               </div>
-              <p className='user mt-2 mb-2 text-center'><span> {sessionStorage.getItem('firstname')} </span> </p>
-              <p className='user mt-2 mb-2 text-center'><span> {sessionStorage.getItem('lastname')} </span> </p>
-              <p className='user mt-2 mb-2 text-center'><span> Pour {sessionStorage.getItem('userQuantity') > 1 ? sessionStorage.getItem('userQuantity')+' personnes' : sessionStorage.getItem('userQuantity')+' personne'} </span> </p>
+              <p className='user mt-2 mb-2 text-center'><span>Prénom : <span className ='text-success'>{sessionStorage.getItem('firstname')}</span> </span> </p>
+              <p className='user mt-2 mb-2 text-center'><span>Nom de famille :<span className ='text-success'> {sessionStorage.getItem('lastname')}</span> </span> </p>
+              <p className='user mt-2 mb-2 text-center'> <span className ='text-success'> {sessionStorage.getItem('userQuantity') > 1 ? sessionStorage.getItem('userQuantity')+' personnes' : sessionStorage.getItem('userQuantity')+' personne'}</span> </p>
               
-              <p className='password mb-2 text-center'>Password : <span>*********</span></p>
-              <p className ='objectif mb-2 text-center'>Objectif : <span> {sessionStorage.getItem('budget') === 'null' ? 0 : sessionStorage.getItem('budget') } € </span></p>
+              <p className='password mb-2 text-center'>Password : <span className = 'text-secondary'>*********</span></p>
+              <p className ='objectif mb-2 text-center'>Objectif : <span className = 'text-success'> {sessionStorage.getItem('budget') === 'null' ? 0 : sessionStorage.getItem('budget') } € </span></p>
 
               <div className="text-center">
                 <a href="" className="btn-password btn-default btn" data-toggle="modal" data-target="#darkModalForm">Changer de mot de passe</a>

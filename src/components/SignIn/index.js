@@ -94,6 +94,7 @@ const connectionStrategies = connect(
                   sessionStorage.setItem('firstname',response.data.firstname);
                   sessionStorage.setItem('lastname',response.data.lastname);
                   sessionStorage.setItem('id',response.data.id);
+                  sessionStorage.setItem('userQuantity',response.data.userQuantity);
                   sessionStorage.setItem('budget',response.data.budget);
                   ownProps.history.push('/dashboard');
                   document.location.reload(); 
