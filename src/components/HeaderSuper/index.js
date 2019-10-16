@@ -22,7 +22,7 @@ const HeaderSuperStatic =({getRecipes,disconnectUser,getMarketList}) => {
             </div>
 
             <div className ='font-size largescreen d-none d-lg-block'>
-              <div className="d-flex radius justify-content-start bg-light py-3 border-bottom border-success mt-0 mb-2">
+              <div className="d-flex radius justify-content-start bg-light py-3 border-bottom border-success mt-0">
                   <Link className="mr-3" to="/"><img className="logo" src="src/ressources/pictures/logo_oconomat_vert.png"></img></Link>
                   <div className="row align-content-center ml-5">
                     <Link className="mr-3" to="/">Accueil</Link>
@@ -39,7 +39,7 @@ const HeaderSuperStatic =({getRecipes,disconnectUser,getMarketList}) => {
     return(
       <div className="sticky-top">
         <div className = 'phonescreen d-lg-none'>
-            <div className="d-flex justify-content-around navbar-dark bg-dark ">
+            <div className="d-flex justify-content-around navbar-dark bg-dark py-2">
               <Link to="/contact"> <button className="btn btn-light fa fa-phone fa-2x my-1"></button></Link>
               <Link to="/dashboard"><button className="btn btn-light fa fa-user fa-2x my-1"></button></Link>
               <Link to="/recipes" onClick={getRecipes} > <button className="btn btn-light fa fa-book-open fa-2x my-1 "></button> </Link> 
@@ -50,7 +50,7 @@ const HeaderSuperStatic =({getRecipes,disconnectUser,getMarketList}) => {
         <div className ='font-size largescreen d-none d-lg-block'>
               <div className="d-flex radius justify-content-start bg-light py-3 border-bottom border-success mt-0 mb-2">
                   <div className="mr-3"><img className="logo img-fluid" src="src/ressources/pictures/logo_oconomat_vert.png"></img> </div>
-                  <div className="row align-content-center ml-5">
+                  <div className="row align-content-center ml-5 ">
                       <Link className="mr-3" to="/dashboard">Tableau de bord</Link>
                       <Link className="mr-3" to="/recipes" onClick={getRecipes}>Recettes</Link>
                       <Link className="mr-3" to="/marketlist" onClick={getMarketList}>Liste de course</Link>

@@ -21,14 +21,16 @@ const HomePage = ({messages}) => {
 
 const Logo = ({messages}) => {
     return(
-        <div className ='container text-center col-xs-12 col-lg-10'>
+        <div className ='container px-0 text-center col-xs-12 col-lg-10'>
             <div className ='food-image img-thumbnail text-light  pt-4'>
                 <div className = "text-box"> 
                 {console.log(messages)}
                     {messages.welcomeMessage!='' && messages.welcomeMessage!=undefined ? <h4 className="alert alert-success" role="alert"> {messages.welcomeMessage} </h4> : <span> </span> }
                     
                     <h2 className='home-catch-sentence m-3 '>Une panne d'inspiration ?</h2>
-                    <h1 className='home-title text-success'>OCONOMAT</h1>
+                    <div className="row justify-content-center">
+                        <div className="bg-light p-1 rounded col-12 col-md-5 col-lg-4 col-xl-3"><img className="logo" src="src/ressources/pictures/logo_oconomat_vert.png"></img></div>
+                    </div>
                     <h3 className='home-catch-sentence m-3 '>vous propose des repas en respectant votre budget</h3>
                 </div>
             </div>
