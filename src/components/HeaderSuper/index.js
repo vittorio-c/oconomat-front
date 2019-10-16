@@ -132,8 +132,7 @@ const connectionStrategies = connect(
           
         },
 
-        disconnectUser:()=>{
-            
+        disconnectUser:()=>{ 
           sessionStorage.clear();
           setTimeout(function(){
             window.location.reload()
