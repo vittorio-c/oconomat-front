@@ -135,9 +135,9 @@ const connectionStrategies = connect(
         disconnectUser:()=>{
             
             
-         /*    sessionStorage.clear(); */
-           
-            //ownProps.history.push('/');
+          sessionStorage.clear();
+          document.location.reload();
+          ownProps.history.push('/');
         },
         getRecipes:(event) => { 
           
@@ -151,9 +151,6 @@ const connectionStrategies = connect(
           }
           ).then((response)=>{
             var recipes=response.data.recipes 
-            sessionStorage.clear();
-            document.location.reload();
-            ownProps.history.push('/');
             const action={type:'Show-Recipes',value:recipes} 
             dispatch(action);
           }).catch((error)=>{ 
