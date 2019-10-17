@@ -40,11 +40,7 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
      
      </div> 
     
-     {recipes.map(function(recipe,index){
-         if(recipe.type=='petit déjeuner'){
-         recipeIndex.push(index);
-         }
-     })}
+  
 
      
 
@@ -57,13 +53,12 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
         <Carousel class="p-y-5"> 
         {recipes.map(function(recipe,index){  
          if(recipe.type==recipeType.trim()){ 
-             console.log(recipe.type)
-            console.log(recipeIndex)
+            console.log(recipe.image)
          
         return <Carousel.Item> 
-            {recipe.type=='petit déjeuner' && index==recipeIndex[recipeIndex.length-1] ? <img className="d-block w-100 max-height" src="src/ressources/pictures/website-construction.jpg" alt="responsive image"/>  :  
-            <img className="d-block w-100 max-height" src={recipe.image}/>}
-        <Carousel.Caption>
+            
+            <img className="d-block w-100 max-height" src={recipe.image}/>
+        <Carousel.Caption key={index}>
         <h3 className="recipes-name-title">{recipe.title} </h3> 
         <Link to="/Recipe"> <button className="details-btn btn" onClick={()=>{findRecipe(index,recipes)}}> <a>Details</a>  </button> </Link>
         <p className="text-black">A manger pour le {recipe.type}</p> 
