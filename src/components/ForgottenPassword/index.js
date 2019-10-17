@@ -51,19 +51,15 @@ const connectionStrategies = connect(
     (dispatch,inputValueEmail) => {
       return {
         insertInputEmail: (event) => { 
-          console.log('change detected')
           const action={type:'Insert-Input-Email',value:event.target.value} 
           dispatch(action)
         },
       validRestart:(inputValueEmail,event) => { 
         event.preventDefault();
-        console.log('ma valeur d\'input'+inputValueEmail.email)
         var inputValues= inputValueEmail;
         var stringifyInput=JSON.stringify(inputValues);
         var formData= new FormData();
         formData.set('email',inputValueEmail.email);
-       console.log('inputValueEmail.email'+formData)
-
         axios({
           method: 'post',
           url: 'http://api.oconomat.fr/api/password/new',
@@ -71,8 +67,6 @@ const connectionStrategies = connect(
         })
         .then(function (response) {
           //On traite la suite une fois la réponse obtenue 
-          console.log('hello world')
-          console.log(response)
           // We are tying to bring an Alert when the ResetPassword Worked
           const Swal = require('sweetalert2')
           Swal.fire({

@@ -30,7 +30,6 @@ const RecipeMain = ({recipe,clearRecipe}) => {
                                 <h3 className="ingredients-title">Vos ingredients</h3>
                                 <ul>
                                  {recipe.data.ingredients.map(function(element){ 
-                                     console.log(element.aliment.unit);
                                        switch (element.aliment.unit){ 
                                            
                                         case 'unité' : 
@@ -93,8 +92,7 @@ const connectionStrategies = connect(
     // 1er argument : stratégie de lecture (dans le state privé global)
     (state, ownProps) => { 
      
-      console.log(state.recipe);
-      //console.log(state.recipes);
+
       return {
         recipes:state.recipes,
         recipe:state.recipe

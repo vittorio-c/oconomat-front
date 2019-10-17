@@ -96,10 +96,8 @@ const connectionStrategies = connect(
            
             const action={type:'Show-Recipes',value:recipes} 
             dispatch(action);
-            console.log(response.data);
             sessionStorage.setItem('idMenu',response.data.idMenu);
             var idMenu=sessionStorage.getItem('idMenu');
-            console.log(idMenu);
             var url ='http://api.oconomat.fr/api/menu/'+ idMenu +'/shopping-list';
             axios.get(
             url,
@@ -121,8 +119,8 @@ const connectionStrategies = connect(
 
           }).catch((error)=>{
             console.log(error);
-            console.log('thiere is an error')
-            const action={type:'Set-Shopping-List-Error',value:'Veuillez définir vos objectifs avant d\'accéder a votre liste de course' }
+            console.log('failure')
+            const action={type:'Set-Shopping-List-Error',value:'Veuillez définir vos objectifs avant d\'accéder à votre liste de course' }
             dispatch(action)
             
           })

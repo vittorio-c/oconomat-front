@@ -52,7 +52,7 @@ const InscriptionStaticPage =({insertInputFirstName,insertInputLastName,insertIn
 const connectionStrategies = connect(
     // 1er argument : stratégie de lecture (dans le state privé global)
     (state, ownProps) => { 
-      console.log(state.messages)
+
    
       return {
         letters: state.letters,
@@ -72,24 +72,20 @@ const connectionStrategies = connect(
     (dispatch, ownProps) => {
       return {
         insertInputFirstName:(event) => { 
-          console.log('change-detected');
           const action={type:'Insert-Input-FirstName',value:event.target.value}
           dispatch(action)
         },
         insertInputLastName :(event) => { 
-          console.log('change detected')
           const action={type:'Insert-Input-LastName',value:event.target.value}
           dispatch(action)
        },
 
         insertInputEmail: (event) => { 
-          console.log('change detected')
           const action={type:'Insert-Input-Email',value:event.target.value} 
           dispatch(action)
        },
 
         insertMDP:(event) => { 
-          console.log('change detected')
           const action={type:'Insert-Input-MDP',value:event.target.value} 
           dispatch(action)
        },
@@ -129,8 +125,7 @@ const connectionStrategies = connect(
        
         var stringifyInput=JSON.stringify(inputValues);
         var formData= new FormData();
-        console.log('hello world') 
-
+        
         formData.set('firstname',inputValueFirstName.firstname);
         formData.set('lastname',inputValueLastName.lastname);
         formData.set('email',inputValueEmail.email);
@@ -146,9 +141,8 @@ const connectionStrategies = connect(
         }).then((response)=>{
           //On traite la suite une fois la réponse obtenue 
     
-          console.log(response) 
           if(response.data=="Tout les champs doivent être remplis"){
-            const action={type:'Show-Inscription-Empty-Fields-Error',value:'viuellez bien remplir tout les champs'}
+            const action={type:'Show-Inscription-Empty-Fields-Error',value:'Tout les champs doivent être remplis'}
             dispatch(action)
             setTimeout(function(){
               document.location.reload()
@@ -156,8 +150,7 @@ const connectionStrategies = connect(
           }
 
           else if(response.data=='Email déjà existante'){ 
-            console.log('email deja existant')
-            const action={type:'Show-Inscription-Error',value:'l\'email existe deja'}
+            const action={type:'Show-Inscription-Error',value:'l\'email existe déjà'}
             dispatch(action);
             setTimeout(function(){
               document.location.reload()
@@ -166,15 +159,15 @@ const connectionStrategies = connect(
 
           
           else{
-          const action={type:'Show-Message-SignUp',value:'Merci De Votre Inscription, vieulliez bien vous connecter et definir vos objectifs pour recevoir vos recettes!'}
+          const action={type:'Show-Message-SignUp',value:'Merci pour votre inscription, connectez-vous pour définir vos objectifs afin de recevoir vos premières recettes'}
           dispatch(action);
           ownProps.history.push('/')
           }
          
       })
-      .catch(function (erreur) {
+      .catch(function (error) {
           //On traite ici les erreurs éventuellement survenues
-          console.log(erreur);
+          console.log(error);
       });
         
         

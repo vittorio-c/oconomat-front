@@ -31,7 +31,7 @@ const Contactpage = () => {
                             <h1 className="col-12 contact-title">Nous contacter</h1>
                             <p className="mt-4"><strong>Email de contact</strong> : oconomat.fr@mrblackway.fr</p>
                             <p className="mt-4"><strong>Adresse </strong>: 25 avenue du 
-                            <br/>General Lecler
+                            <br/>Général Leclerc
                             <br/>75 008 Paris
                             </p>
                         </div>

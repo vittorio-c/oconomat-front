@@ -38,7 +38,6 @@ const SignIn =({submitForm,submitEmail,submitPassword,emailState,passwordState})
 const connectionStrategies = connect(
     // 1er argument : stratégie de lecture (dans le state privé global)
     (state, ownProps) => { 
-      //console.log(state.recipes);
       return {
         emailState:state.emailState,
         passwordState:state.passwordState,

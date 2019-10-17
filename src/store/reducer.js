@@ -59,8 +59,6 @@ const reducer = (state = initialState, action = defaultAction) => {
         ...state.inputValues
       }
     }
-  
-    
     case 'See-Recipe' :{
       return {
         ...state,recipe:action.value
@@ -68,7 +66,6 @@ const reducer = (state = initialState, action = defaultAction) => {
     }
 
     case 'Show-Recipes' : { 
-      console.log('RECIPES FETCHED')
       return{...state,recipes:action.value} 
     } 
     

@@ -17,7 +17,6 @@ const AccountInfoStatic = ({currentUser}) => {
                     </main>
                 </div>
             </main>
-           
     )
 }
 
@@ -40,33 +39,18 @@ const AccountInfo = ({currentUser}) => (
       </div>
     </div>
 ) 
-
 const connectionStrategies = connect(
-    // 1er argument : stratégie de lecture (dans le state privé global)
     (state, ownProps) => { 
         return {
         currentUser:state.currentUser
       };
     },
-  
-    // 2d argument : stratégie d'écriture (dans le state privé global)
+
     (dispatch, ownProps) => {
       return {
-        
-        
       };
     },
   );
-
   const Account = connectionStrategies(AccountInfoStatic);
-
-// Étape 3 : on exporte le composant connecté qui a été généré 
-
-
-
-
-
-
-
 
 export default Account ;

@@ -24,7 +24,6 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
         
     }
     if(recipes.length!=0){ 
-        {console.log(recipe)}
     return <div class="container"> <div className="d-none d-sm-block recipes-main"> 
    
     <h2 className="recipes-title">Liste de vos Recettes Pour la Semaine </h2>  
@@ -142,9 +141,6 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
 const connectionStrategies = connect(
   // 1er argument : stratégie de lecture (dans le state privé global)
   (state, ownProps) => { 
-    console.log(state.messages);
-    
-    //console.log(state.recipes);
     return {
       recipes:state.recipes,
       recipe:state.recipe,

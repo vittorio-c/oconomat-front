@@ -123,7 +123,6 @@ const AccountInfo = ({nbPeople,nbPeopleInputUpdate,isCheck,isCheckbox,submitNewP
 const connectionStrategies = connect(
   // 1er argument : stratégie de lecture (dans le state privé global)
   (state, ownProps) => { 
-    console.log(state.messages);
     return {
       objectives:state.objectives,
       currentUser:state.currentUser,
@@ -171,7 +170,6 @@ const connectionStrategies = connect(
 
         },
         typeOldPassword: (event) => {
-          console.log('ancien Password  en cours de saisie')
           event.preventDefault();  
           const action={
               type:'TYPE_OLD_PASSWORD',
@@ -181,7 +179,6 @@ const connectionStrategies = connect(
             dispatch(action);
         },
         typeNewPassword: (event) => {
-          console.log('Nouveau Password  en cours de saisie')
 
           event.preventDefault();  
           const action={
@@ -209,10 +206,6 @@ const connectionStrategies = connect(
           data:formData
           })
           .then(function (response) {
-            //On traite la suite une fois la réponse obtenue 
-            console.log('hello world')
-            console.log(response)
-            // We show an Alert when the ResetPassword Worked
             const Swal = require('sweetalert2')
             Swal.fire({
               type: 'success',

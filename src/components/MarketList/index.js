@@ -8,7 +8,6 @@ const Ingredients = ({doCheck,buttonClass,textClass,shoppingList}) => {
         
     return(
         shoppingList.map(function(ingredient,index) { 
-            console.log(ingredient);
             const ingredientName = ingredient.name;
             switch (ingredient.unit){
                 case 'kg' : 
@@ -131,7 +130,6 @@ return(
 }
 const connectionStrategies = connect(
     (state, ownProps) => { 
-     console.log(state.messages)
       return {
       shoppingList:state.shoppingList,
       buttonClass:state.buttonClass,
