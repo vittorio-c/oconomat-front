@@ -34,7 +34,7 @@ const AccountInfo = ({nbPeople,nbPeopleInputUpdate,isCheck,isCheckbox,submitNewP
               </div>
               <p className='user mt-2 mb-2 text-center'><span>Prénom : <span className ='text-success'>{sessionStorage.getItem('firstname')}</span> </span> </p>
               <p className='user mt-2 mb-2 text-center'><span>Nom de famille :<span className ='text-success'> {sessionStorage.getItem('lastname')}</span> </span> </p>
-              <p className='user mt-2 mb-2 text-center'> <span className ='text-success'> {sessionStorage.getItem('userQuantity') > 1 ? sessionStorage.getItem('userQuantity') +' personnes' : sessionStorage.getItem('userQuantity')+' personne'} </span> </p>
+              <p className='user mt-2 mb-2 text-center'> <span className ='text-success'>{ sessionStorage.getItem('userQuantity') === 'null' || sessionStorage.getItem('userQuantity') === '1' ? '1' +' personne' : sessionStorage.getItem('userQuantity')+' personnes'} </span> </p>
               
               <p className='password mb-2 text-center'>Password : <span className = 'text-secondary'>*********</span></p>
               <p className ='objectif mb-2 text-center'>Objectif : <span className = 'text-success'> {sessionStorage.getItem('budget') === 'null' ? 0 : sessionStorage.getItem('budget') } € </span></p>
