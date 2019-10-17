@@ -37,11 +37,34 @@ const Contactpage = () => {
                         </div>
                         <div className="col-12 col-md-6 container contact p-5">
                             <h1 className="col-12 contact-title">L'équipe</h1>
-                            <p className="mt-4"><strong>Product Owner</strong> : Robin Ollmann</p>
-                            <p className="mt-4"><strong>Scrum master</strong> : Vittorio Chillemi</p>
-                            <p className="mt-4"><strong>Technical referent</strong> : Jérôme Mesic</p>
-                            <p className="mt-4"><strong>Lead dev front</strong> : Reuben Chouraki</p>
-                            <p className="mt-4"><strong>Lead dev back</strong> : Joffrey Cormont</p>
+                            <div className="row justify-content-center">
+                                <div className="photo-container m-1 rounded">
+                                    <img className="photo-contact" src="src/ressources/pictures/robin.jpg"></img>
+                                    <p className="mt-4"><strong>Product Owner</strong> : Robin Ollmann</p>
+                                    <a href="" className="btn btn-light mt-2">LinkedIn</a>
+                                </div>
+                                <div className="photo-container m-1 rounded">
+                                    <img className="photo-contact" src="src/ressources/pictures/vittorio.jpg"></img>
+                                    <p className="mt-4"><strong>Scrum master</strong> : Vittorio Chillemi</p>
+                                    <a href="" className="btn btn-light mt-2">LinkedIn</a>
+                                </div>
+                                <div className="photo-container m-1 rounded">
+                                    <img className="photo-contact" src="src/ressources/pictures/jerome.jpg"></img>
+                                    <p className="mt-4"><strong>Technical referent</strong> : Jérôme Mesic</p>
+                                    <a href="" className="btn btn-light mt-2">LinkedIn</a>
+                                </div>
+                                <div className="photo-container m-1 rounded">
+                                    <img className="photo-contact" src="src/ressources/pictures/nofound.png"></img>
+                                    <p className="mt-4"><strong>Lead dev front</strong> : Reuben Chouraki</p>
+                                    <a href="" className="btn btn-light mt-2">LinkedIn</a>
+                                </div>
+                                <div className="photo-container m-1 rounded">
+                                    <img className="photo-contact" src="src/ressources/pictures/nnew.jpg"></img>
+                                    <p className="mt-4"><strong>Lead dev back</strong> : Joffrey Cormont</p>
+                                    <a href="" className="btn btn-light mt-2">LinkedIn</a>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
