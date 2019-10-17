@@ -53,6 +53,8 @@
     "pug-as-jsx-loader": "^1.0.79",
     "raw-loader": "^3.1.0",
     "react": "*",
+    "react-animated-css": "^1.2.1",
+    "react-animations": "^1.0.0",
     "react-bootstrap": "^1.0.0-beta.12",
     "react-dom": "*",
     "react-redux": "^7.1.1",

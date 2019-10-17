@@ -1,7 +1,7 @@
 /* import './style.sass' */
 import React from 'react';
 import {connect} from 'react-redux';
-
+import {Animated} from "react-animated-css";
 /* Import du fichier Sass */
 import './Home.sass'
 
@@ -39,7 +39,10 @@ const Logo = ({messages}) => {
 
 const Steps = () => {
     return (
-        <div><p className='display-4 text-center text-success'>Le principe en quelques lignes </p> 
+        <div>
+            <Animated animationIn="zoomInUp" animationOut="slideOutRight" animationInDuration={1400} animationOutDuration={2000} isVisible={true}>
+            <p className='display-4 text-center text-success'>Le principe en quelques lignes </p> 
+            </Animated>
             <div className = "mt-3 pt-3 mb-3 pb-3 col-xs-12 col-lg-6 offset-lg-3">
                 <ul className="list-group">
                     <li className="list-group-item d-flex align-items-center">
