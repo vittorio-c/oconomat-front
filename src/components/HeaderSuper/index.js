@@ -107,7 +107,6 @@ const connectionStrategies = connect(
             }
           }
           ).then((response1)=>{
-            
           var marketList = response1.data.shoppingList;
           const action = {
               type:'SHOW_SHOPPINGLIST',
