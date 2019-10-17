@@ -99,7 +99,7 @@ const AccountInfo = ({nbPeople,nbPeopleInputUpdate,isCheck,isCheckbox,submitNewP
                       <div className = "text-left text-success my-2"><input type="checkbox" aria-label="vegetarian checkbox" className = "" onChange = {() => {isCheckbox(isCheck,event)}}/>Végétarien </div>
                       <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                      { objectives >0 ? <button type="button" onClick = {() => {submitObjectives(nbPeople,isCheck,event)}} onSubmit = {() => {submitObjectives(nbPeople,isCheck,event)}} className="btn btn-success" type="submit"> Valider {objectives} { objectives >0 ? ' € ?' : '' } </button> : '' }
+                      { objectives >0 && nbPeople!=undefined &&nbPeople!=0 ? <button type="button" onClick = {() => {submitObjectives(nbPeople,isCheck,event)}} onSubmit = {() => {submitObjectives(nbPeople,isCheck,event)}} className="btn btn-success" type="submit"> Valider {objectives} { objectives >0 ? ' € ?' : '' } </button> : '' }
                       </div>
                     </form>
                   </div>
@@ -247,6 +247,7 @@ const connectionStrategies = connect(
                 },  
               }).then((response)=>{
                 sessionStorage.setItem('userQuantity',response.data.userQuantity);
+                console.log(sessionStorage.getItem('userQuantity'));
                 const action = {
                   type:'RESET_OBJECTIVES',
                   objectives: '',
@@ -272,11 +273,13 @@ const connectionStrategies = connect(
               const action={type:'Detect-Budget-Error',value:'Veuillez saisir un budget entre 25 et 75 euro par personne'}
                 dispatch(action);
                 console.log('failure')
-                console.log(error.response.status)
-                 ownProps.history.push('/dashboard') 
+                console.log(error.status)
+                 ownProps.history.push('/dashboard')  
+                 
                 setTimeout(function(){
                   document.location.reload()
                 },5000) 
+                
 
             })
           
