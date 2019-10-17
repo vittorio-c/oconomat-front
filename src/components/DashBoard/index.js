@@ -99,7 +99,7 @@ const AccountInfo = ({nbPeople,nbPeopleInputUpdate,isCheck,isCheckbox,submitNewP
                       <div className = "text-left text-success my-2"><input type="checkbox" aria-label="vegetarian checkbox" className = "" onChange = {() => {isCheckbox(isCheck,event)}}/>Végétarien </div>
                       <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                      { objectives >0 && nbPeople!=undefined &&nbPeople!=0 ? <button type="button" onClick = {() => {submitObjectives(nbPeople,isCheck,event)}} onSubmit = {() => {submitObjectives(nbPeople,isCheck,event)}} className="btn btn-success" type="submit"> Valider {objectives} { objectives >0 ? ' € ?' : '' } </button> : '' }
+                      { objectives >0 ? <button type="button" onClick = {() => {submitObjectives(nbPeople,isCheck,event)}} onSubmit = {() => {submitObjectives(nbPeople,isCheck,event)}} className="btn btn-success" type="submit"> Valider {objectives} { objectives >0 ? ' € ?' : '' } </button> : '' }
                       </div>
                     </form>
                   </div>
