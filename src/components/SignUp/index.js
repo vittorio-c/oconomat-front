@@ -18,7 +18,7 @@ const InscriptionStatic =({insertInputFirstName,insertInputLastName,insertInputE
 } 
 
 const InscriptionStaticPage =({insertInputFirstName,insertInputLastName,insertInputEmail,insertMDP,insertMDPConfirm,onFormSubmitManipulateArray,messages}) => {
-  return <div className ='food-background mt-3'>
+  return <div className ='food-background'>
   <form className="row justify-content-center m-0" onSubmit={onFormSubmitManipulateArray}>
   <div className="my-5 container">
           <h2 className="inscription-title-signUp">Inscription</h2> 

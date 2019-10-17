@@ -26,7 +26,7 @@ const Contactpage = () => {
     return <div className ='contactpage-background'>
                 <Animated animationIn="flipInX" animationOut="slideOutRight" animationInDuration={2000} animationOutDuration={2000} isVisible={true}>
                 <div className="nomansland">
-                    <div className="row justify-content-center contact-zone">
+                    <div className="row justify-content-center contact-zone my-0">
                         <div className="col-12 col-md-6 container contact p-5">
                             <h1 className="col-12 contact-title">Nous contacter</h1>
                             <p className="mt-4"><strong>Email de contact</strong> : oconomat.fr@mrblackway.fr</p>
