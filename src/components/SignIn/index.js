@@ -11,8 +11,8 @@ const SignIn =({submitForm,submitEmail,submitPassword,emailState,passwordState})
     return(
           <div className="Site-content">
               <main className="main">
-              <div className ='food-background mt-3'>
-              <form action='/Account' method ='post' className="row justify-content-center" onSubmit={()=>{submitForm(emailState,passwordState,event)}} >
+              <div className ='food-background'>
+              <form action='/Account' method ='post' className="row justify-content-center my-0" onSubmit={()=>{submitForm(emailState,passwordState,event)}} >
                   
                   <div className="container formBlockSignIn">
                     <h2 className="connection-title">Connexion</h2>
