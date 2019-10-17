@@ -152,7 +152,7 @@ const connectionStrategies = connect(
            const action = {
             type:'CHECKED',
             buttonClass : event.target.className = "btn btn-success btn-lg btn-block fa fa-check-square disabled",
-            textClass :  event.currentTarget.parentNode.parentNode.className = 'bg-dark text-light'
+            textClass :  event.currentTarget.parentNode.parentNode.className = 'bg-dark text-light line-through'
           }; 
            dispatch(action); 
         },
