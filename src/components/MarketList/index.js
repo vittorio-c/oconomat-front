@@ -12,6 +12,8 @@ const Ingredients = ({doCheck,buttonClass,textClass,shoppingList}) => {
             const ingredientName = ingredient.name;
             switch (ingredient.unit){
                 case 'kg' : 
+                if (ingredient.quantity >=1 ){ingredient.quantity = Math.round(ingredient.quantity*100)/100, ingredient.unit = 'kg'}
+                else
                 ingredient.quantity = Math.round(ingredient.quantity * 1000),
                 ingredient.unit = 'g'
                 break;
@@ -29,11 +31,11 @@ const Ingredients = ({doCheck,buttonClass,textClass,shoppingList}) => {
                 break;
                 case 'botte' :
                 ingredient.quantity = Math.ceil(ingredient.quantity)
-                if (ingredient.quantity >1){Ingredient.unit = 'bottes'}
+                if (ingredient.quantity >1){ingredient.unit = 'bottes'}
                 break;
                 case 'barquette' :
                 ingredient.quantity = Math.ceil(ingredient.quantity)
-                if (ingredient.quantity >1){Ingredient.unit = 'barquettes'}
+                if (ingredient.quantity >1){ingredient.unit = 'barquettes'}
                 break;
                 case 'gousse' :
                     ingredient.quantity = Math.ceil(ingredient.quantity);
@@ -72,10 +74,10 @@ const MarketList = ({doCheck,buttonClass,textClass,stockBase,shoppingList,messag
             <div className="Site-content">
                 <main className="main">
                 <div className ="main-frame">
-                <h2 className="pt-4 pb-4 text-center font-weight-bolder text-warning">Ma liste de course</h2>
+                <h2 className="marketList-title pt-4 pb-4 text-center font-weight-bolder">Ma liste de course</h2>
 
                 <div className="row justify-content-center my-5 p-2">
-                    <div className="container col-12 col-md-10">
+                    <div className="container col-xs-12 col-md-7">
                         <table className="table ">
                             <thead className="thead-light">
                                 <tr className = {textClass}>
@@ -124,8 +126,6 @@ return(
     <div className ="d-flex justify-content-center m-5 text-center spinner-border"><span class="sr-only">Chargement de votre liste de course en cours veuillez patienter</span></div>
     <div>Chargement de votre liste de course en cours veuillez patienter</div> 
     {messages.shoppingListErrMessage!='' ?<div> <div class="alert alert-danger text-center" role="alert"> {messages.shoppingListErrMessage} </div> </div>  : <span></span>} 
-    
-    
     </div>
 );
 }

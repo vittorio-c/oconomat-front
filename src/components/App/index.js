@@ -13,7 +13,6 @@ import Recipe from 'src/components/Recipe';
 import HeaderSuper from 'src/components/HeaderSuper';
 import Footer from 'src/components/Footer';
 import DashBoard from '../DashBoard';
-
 // Styles and assets
 
 import './app.sass'; 
