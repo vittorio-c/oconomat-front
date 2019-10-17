@@ -24,7 +24,7 @@ const Contact = () => {
 
 const Contactpage = () => {
     return <div className ='contactpage-background'>
-                <Animated animationIn="headShake" animationOut="slideOutRight" animationInDuration={2000} animationOutDuration={2000} isVisible={true}>
+                <Animated animationIn="flipInX" animationOut="slideOutRight" animationInDuration={2000} animationOutDuration={2000} isVisible={true}>
                 <div className="nomansland">
                     <div className="row justify-content-center contact-zone my-0">
                         <div className="col-12 col-md-6 container contact p-5">
