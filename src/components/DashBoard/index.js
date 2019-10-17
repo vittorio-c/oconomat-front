@@ -276,7 +276,7 @@ const connectionStrategies = connect(
               Swal.fire({
                 type: 'error',
                 title: 'Oops...',
-                text: "Veuillez saisir un budget entre 25 et 75 euro par personne",
+                text: "Veuillez saisir un budget entre 30 et 75 euro par personne",
               })
             })
           
