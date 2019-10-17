@@ -81,7 +81,7 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
              if(recipe.title.length<=30){
             return<Carousel.Item>  
               
-                <img className="d-block w-100 max-height" src={recipe.image}/>
+                <img className="d-block w-100 max-height-mobile" src={recipe.image}/>
                 <Carousel.Caption> 
                 
                <div class="col-xs-12 bg-yellow title-height"> <p className="recipes-title-small"> {recipe.title} </p>  </div>
