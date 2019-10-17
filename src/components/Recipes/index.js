@@ -5,6 +5,7 @@ import Carousel from 'react-bootstrap/Carousel'
 import axios from 'axios' 
 
 import './Recipes.sass';
+import { isFulfilled } from 'q';
 
 const RecettesStatic = ({recipes,findRecipe,getStateType,recipeType,recipe,messages}) => {
     return (
@@ -24,41 +25,58 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
         
     }
     if(recipes.length!=0){ 
+    const recipeIndex=[]
+        
     return <div class="container"> <div className="d-none d-sm-block recipes-main"> 
    
     <h2 className="recipes-title">Liste de vos Recettes Pour la Semaine </h2>  
     
     
-
+ 
      <div class="row">
         <div class="d-none d-md-block col-md-4"> <button class="btn btn-warning" onClick={getStateType}> petit déjeuner  </button></div> 
         <div class="d-none d-md-block col-md-4"> <button class="btn btn-warning" onClick={getStateType}> déjeuner  </button></div>
         <div class="d-none d-md-block col-md-4"> <button class="btn btn-warning" onClick={getStateType}> dîner </button></div>
      
      </div> 
+    
+     {recipes.map(function(recipe,index){
+         if(recipe.type=='petit déjeuner'){
+         recipeIndex.push(index);
+         }
+     })}
+
+     
 
    
         
         <div className="d-none d-sm-block col-md-8 offset-md-2 recipe-box"> 
         {recipeType.length!=0 ?
-       
-        <Carousel> 
+        
+      
+        <Carousel class="p-y-5"> 
         {recipes.map(function(recipe,index){  
-         if(recipe.type==recipeType.trim()){
+         if(recipe.type==recipeType.trim()){ 
+             console.log(recipe.type)
+            console.log(recipeIndex)
          
-        return <Carousel.Item>
-            <img className="d-block w-100 max-height" src={recipe.image}/>
+        return <Carousel.Item> 
+            {recipe.type=='petit déjeuner' && index==recipeIndex[recipeIndex.length-1] ? <img className="d-block w-100 max-height" src="src/ressources/pictures/website-construction.jpg" alt="responsive image"/>  :  
+            <img className="d-block w-100 max-height" src={recipe.image}/>}
         <Carousel.Caption>
         <h3 className="recipes-name-title">{recipe.title} </h3> 
         <Link to="/Recipe"> <button className="details-btn btn" onClick={()=>{findRecipe(index,recipes)}}> <a>Details</a>  </button> </Link>
         <p className="text-black">A manger pour le {recipe.type}</p> 
-        <p className="text-black"> Prix: {recipe.price} € </p>
+        <p className="text-black"> Prix: {recipe.price} € </p> 
+        
+        
         </Carousel.Caption>
         </Carousel.Item>
          }
 
         })} 
-        </Carousel>  
+        </Carousel>   
+       
         :<h3 className="recipes-title"> Veuillez Choisir</h3> } 
 
         
@@ -74,7 +92,7 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
 </div> 
  <div class="d-block d-sm-none">  
     <div>
-      <Carousel>
+      <Carousel className="p-y-5">
         {recipes.map(function(recipe,index){
             if(recipe.type==recipeType.trim()){ 
              if(recipe.title.length<=30){
