@@ -83,18 +83,17 @@ const connectionStrategies = connect(
       return {
         getMarketList:(event) => {
           var token = sessionStorage.getItem('jwtToken');
-
           var url ='http://api.oconomat.fr/api/menu/user/last';
+
           axios.get(
             url,{
             headers:{
               'Authorization':`bearer ${token}`
             }
-          }
-          ).then((response)=>{
-            var recipes=response.data.recipes 
-           
-            const action={type:'Show-Recipes',value:recipes} 
+          }).then(
+            (response)=>{
+            var recipes=response.data.recipes; 
+            const action={type:'Show-Recipes',value:recipes} ;
             dispatch(action);
             sessionStorage.setItem('idMenu',response.data.idMenu);
             var idMenu=sessionStorage.getItem('idMenu');
@@ -107,7 +106,16 @@ const connectionStrategies = connect(
             }
           }
           ).then((response1)=>{
+            const SessionList = JSON.stringify(response1.data.shoppingList);
+            sessionStorage.setItem('SessionList', SessionList);
           var marketList = response1.data.shoppingList;
+          if (SessionList !== 'null') {
+          setTimeout(function(){
+            window.location.reload()
+          },0)
+        }
+            
+            
           const action = {
               type:'SHOW_SHOPPINGLIST',
               value: marketList

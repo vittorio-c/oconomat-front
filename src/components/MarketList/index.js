@@ -3,11 +3,15 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import './marketList.sass'
+
+const SessionList = JSON.parse(sessionStorage.getItem('SessionList'));
+
+console.log(SessionList);
+
 const Ingredients = ({doCheck,buttonClass,textClass,shoppingList}) => {
-    
-        
+   
     return(
-        shoppingList.map(function(ingredient,index) { 
+        SessionList.map(function(ingredient,index) { 
             const ingredientName = ingredient.name;
             switch (ingredient.unit){
                 case 'kg' : 
@@ -67,8 +71,8 @@ const Ingredients = ({doCheck,buttonClass,textClass,shoppingList}) => {
 )
 }
 
-const MarketList = ({doCheck,buttonClass,textClass,stockBase,shoppingList,messages,reInitializeMessages}) => {
-    if (shoppingList !== ""){
+const MarketList = ({doCheck,buttonClass,textClass,shoppingList,messages,reInitializeMessages,}) => {
+    if (SessionList !== null){
     return (
             <div className="Site-content">
                 <main className="main">
@@ -86,7 +90,7 @@ const MarketList = ({doCheck,buttonClass,textClass,stockBase,shoppingList,messag
                                 </tr>
                             </thead>
                             <tbody>
-                        <Ingredients doCheck = {doCheck} buttonClass = {buttonClass} textClass = {textClass} stockBase = {stockBase} shoppingList ={shoppingList} />
+                        <Ingredients doCheck = {doCheck} buttonClass = {buttonClass} textClass = {textClass} shoppingList ={shoppingList} />
                             </tbody>
                         </table>
                         <button type="button" className="btn btn-danger btn-block" data-toggle="modal" data-target="#exampleModal">
@@ -119,7 +123,7 @@ const MarketList = ({doCheck,buttonClass,textClass,stockBase,shoppingList,messag
             </div>
     )
 }
-else
+else 
 return(
     <div className =''>
     <div className ="d-flex justify-content-center m-5 text-center spinner-border"><span class="sr-only">Chargement de votre liste de course en cours veuillez patienter</span></div>
@@ -139,13 +143,6 @@ const connectionStrategies = connect(
 },
     (dispatch,ownProps) => {
       return {
-          stockBase:() => {
-        const action = {
-            type:'STOCK',
-            marketList : {...ingredient}
-        }
-        dispatch(action)
-          },
         doCheck:(event) => {
           event.preventDefault();
 

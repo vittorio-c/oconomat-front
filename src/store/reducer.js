@@ -154,13 +154,10 @@ const reducer = (state = initialState, action = defaultAction) => {
           return {...state,messages:{recipeListErrMessage:'',shoppingListErrMessage:'',budgetError:''}}
         }
          case 'SHOW_SHOPPINGLIST' : {
-            sessionStorage.setItem('sessionList',...action.value)
-            console.log(sessionStorage.getItem('sessionList'));
             return{
             ...state,
             shoppingList: action.value,
           }
-            sessionStorage.setItem(sessionList,action.value)
 
         } 
         
