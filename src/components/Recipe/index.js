@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Route,Switch,Redirect, Link } from "react-rout
 const RecipeMain = ({recipe,clearRecipe}) => { 
     
     return ( 
-        <div> 
+        <div className="page"> 
          
         <main> 
             {recipe.data!=undefined ? 
@@ -64,7 +64,7 @@ const RecipeMain = ({recipe,clearRecipe}) => {
                                     })}
                                 </ul>
                             </div>
-                            <div className="recipe-steps">
+                            <div className="recipe-steps mb-5">
                                 <ol> 
                                     {recipe.data.recipeSteps.map(function(element,index){
                                         return <div><h3 className="steps"> Etape {index+1}</h3> 
