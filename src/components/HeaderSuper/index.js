@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import { BrowserRouter as Router, Route,Switch,Link,Redirect} from "react-router-dom";
 import axios from 'axios'
 import './HeaderSuper.sass';
-
+z
 
 const HeaderSuperStatic =({getRecipes,disconnectUser,getMarketList}) => {
 
@@ -114,8 +114,6 @@ const connectionStrategies = connect(
             window.location.reload()
           },0)
         }
-            
-            
           const action = {
               type:'SHOW_SHOPPINGLIST',
               value: marketList
