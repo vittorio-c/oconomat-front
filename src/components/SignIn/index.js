@@ -84,10 +84,8 @@ const connectionStrategies = connect(
                   showConfirmButton: false,
                   timer: 2000
                 })
-
                 const action={type:'Persist-User',value:response.data};
                   dispatch(action)
-
                   sessionStorage.setItem('jwtToken', response.data.payload.token);
                   sessionStorage.setItem('firstname',response.data.firstname);
                   sessionStorage.setItem('lastname',response.data.lastname);
@@ -96,18 +94,16 @@ const connectionStrategies = connect(
                   sessionStorage.setItem('budget',response.data.budget);
                   ownProps.history.push('/dashboard');
                   document.location.reload(); 
-                  
-               
-            
               }).catch((error)=>{
                 Swal.fire({
                   type: 'error',
                   title: 'Oops...',
                   text: "Une erreur s'est produite",
                 })
-                console.log('failure')
-                console.log(error)
-
+                if (error.response.status === 401 ){
+                  sessionStorage.clear();
+                  window.location.href = '/signin'
+                  }
               })
         },
       }

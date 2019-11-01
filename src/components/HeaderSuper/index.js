@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import { BrowserRouter as Router, Route,Switch,Link,Redirect} from "react-router-dom";
 import axios from 'axios'
 import './HeaderSuper.sass';
-z
 
 const HeaderSuperStatic =({getRecipes,disconnectUser,getMarketList}) => {
 
@@ -109,11 +108,11 @@ const connectionStrategies = connect(
             const SessionList = JSON.stringify(response1.data.shoppingList);
             sessionStorage.setItem('SessionList', SessionList);
           var marketList = response1.data.shoppingList;
-          if (SessionList !== 'null') {
+        if (SessionList !== 'null') {
           setTimeout(function(){
             window.location.reload()
           },0)
-        }
+        } 
           const action = {
               type:'SHOW_SHOPPINGLIST',
               value: marketList
@@ -124,9 +123,12 @@ const connectionStrategies = connect(
 
           }).catch((error)=>{
             console.log(error);
-            console.log('failure')
+            if (error.response.status === 401 ){
+              sessionStorage.clear();
+              window.location.href = '/signin'
+              }
             const action={type:'Set-Shopping-List-Error',value:'Veuillez définir vos objectifs avant d\'accéder à votre liste de course' }
-            dispatch(action)
+            dispatch(action) 
             
           })
 
@@ -153,6 +155,10 @@ const connectionStrategies = connect(
             const action={type:'Show-Recipes',value:recipes} 
             dispatch(action);
           }).catch((error)=>{ 
+            if (error.response.status === 401 ){
+              sessionStorage.clear();
+              window.location.href = '/signin'
+              }
              const action={type:'Set-Recipe-Error-Message',value: 'Veuillez définir vos objectifs avant de consulter vos recettes'};
              dispatch(action)
             

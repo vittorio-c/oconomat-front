@@ -169,12 +169,32 @@ const connectionStrategies = connect(
       findRecipe:(id,recipes) =>{ 
         const url = recipes[id].url;
         var token=sessionStorage.getItem('jwtToken')
-        axios.get(url,{headers:{'Authorization':`bearer ${token}`}}).then((response)=>{ 
+        axios.get(
+          url,
+          {
+            headers:{
+              'Authorization':`bearer ${token}`
+            }
+          }).then((response)=>{ 
           const action={type:'See-Recipe',value:response};
           dispatch(action);
-        })
-      },
 
+          }).catch((error) => {
+            if (error.response.status === 401 ){
+              Swal.fire({
+                type: 'error',
+                title: 'Session non valide',
+                text: "Votre session n'est plus valide, veuillez vous reconnecter",
+              })
+              sessionStorage.clear();
+              window.location.href = '/signin'
+              }
+          if (error.response.status === 401 ){
+            sessionStorage.clear();
+            window.location.href = '/signin'
+            }
+          })
+        },
      getStateType(event){ 
          const action={type:'Choose-Recipe-Type',value:event.target.textContent}
          dispatch(action);
@@ -187,7 +207,7 @@ const connectionStrategies = connect(
       
     
       
-    };
+  }
   },
 );
 

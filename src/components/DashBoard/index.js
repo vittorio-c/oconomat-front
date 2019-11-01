@@ -206,16 +206,31 @@ const connectionStrategies = connect(
           data:formData
           })
           .then(function (response) {
+            if (response.data === "Les mots de passe ne correspondent pas"){
+
+            }
+
             const Swal = require('sweetalert2')
             Swal.fire({
               type: 'success',
-              title: 'Votre mot de passe à été changé.',
+              title: response.data,
               showConfirmButton: false,
               timer: 2000
             })
             
               
           }).catch((error)=>{
+            
+            if (error.response.status === 401 ){
+              Swal.fire({
+                type: 'error',
+                title: 'Session non valide',
+                text: "Votre session n'est plus valide, veuillez vous reconnecter",
+              })
+              sessionStorage.clear();
+              window.location.href = '/signin'
+              }
+              else
             //On traite ici les erreurs éventuellement survenues
             Swal.fire({
               type: 'error',
@@ -270,9 +285,27 @@ const connectionStrategies = connect(
                  document.location.reload();
                  ownProps.history.push('/dashboard') ; 
               }).catch((error)=>{ 
+                if (error.response.status === 401 ){
+                  Swal.fire({
+                    type: 'error',
+                    title: 'Session non valide',
+                    text: "Votre session n'est plus valide, veuillez vous reconnecter",
+                  })
+                  sessionStorage.clear();
+                  window.location.href = '/signin'
+                  }
               })
                ownProps.history.push('/dashboard') ; 
             }).catch((error)=>{ 
+              if (error.response.status === 401 ){
+                Swal.fire({
+                  type: 'error',
+                  title: 'Session non valide',
+                  text: "Votre session n'est plus valide, veuillez vous reconnecter",
+                })
+                sessionStorage.clear();
+                window.location.href = '/signin'
+                }else
               Swal.fire({
                 type: 'error',
                 title: 'Oops...',

@@ -168,6 +168,10 @@ const connectionStrategies = connect(
       .catch(function (error) {
           //On traite ici les erreurs éventuellement survenues
           console.log(error);
+          if (error.response.status === 401 ){
+            sessionStorage.clear();
+            window.location.href = '/signin'
+            }
       });
         
         
