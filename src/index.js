@@ -18,12 +18,12 @@ import kastore from 'src/store';
 /**
  * Code
  */ 
-
-
-const reactRootElement =<Router><Provider store={kastore}>
-  <AppContainer />
-</Provider></Router>;
-
+const reactRootElement =
+    <Router>
+    <Provider store={kastore}>
+    <AppContainer />
+    </Provider>
+    </Router>;
 
 const renderingArea = document.querySelector('#root');
 render(reactRootElement, renderingArea);

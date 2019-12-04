@@ -5,7 +5,8 @@ import { BrowserRouter as Router, Route,Switch,Link,Redirect} from "react-router
 import axios from 'axios'
 import './HeaderSuper.sass';
 
-const HeaderSuperStatic =({getRecipes,disconnectUser,getMarketList}) => {
+// PRESENTATIONAL COMPONENT
+const HeaderSuperStatic = ({getRecipes,disconnectUser,getMarketList}) => {
 
     if (sessionStorage.jwtToken === '' || sessionStorage.jwtToken === undefined ){
      
@@ -67,6 +68,7 @@ const HeaderSuperStatic =({getRecipes,disconnectUser,getMarketList}) => {
 https://getbootstrap.com/docs/4.3/components/buttons/
 */
 
+// CONTAINER COMPONENT
 const connectionStrategies = connect(
     // 1er argument : stratégie de lecture (dans le state privé global)
     (state, ownProps) => { 
@@ -168,9 +170,9 @@ const connectionStrategies = connect(
       };
     },
   );
-  // Étape 2 : on applique ces stratégies à un composant spécifique.
-  const HeaderSuper = connectionStrategies(HeaderSuperStatic);
+
+// Étape 2 : on applique ces stratégies à un composant spécifique.
+const HeaderSuper = connectionStrategies(HeaderSuperStatic);
   
-  // Étape 3 : on exporte le composant connecté qui a été généré
-  
+// Étape 3 : on exporte le composant connecté qui a été généré
 export default HeaderSuper;

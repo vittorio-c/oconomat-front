@@ -7,8 +7,8 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 // Config pour le devServer
-const host = 'localhost';
-const port = 3000;
+//const host = '0.0.0.0';
+//const port = 3000;
 const devMode = process.env.NODE_ENV !== 'production';
 // Config de Webpack
 module.exports = {
@@ -118,8 +118,9 @@ module.exports = {
     inline: true, // Rechargement du navigateur en cas de changement
     open: true, // on ouvre le navigateur
     historyApiFallback: true,
-    host: host,
-    port: port,
+    //host: host,
+    //port: port,
+    disableHostCheck: true,
   },
   plugins: [
     // Permet de prendre le index.html de src comme base pour le fichier de dist/
