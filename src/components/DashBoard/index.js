@@ -199,7 +199,7 @@ const connectionStrategies = connect(
           
            axios({
           method: 'post',
-          url: 'http://api.oconomat.fr/api/password/change', 
+               url: 'http://vmdev:8000/api/password/change', 
           headers:{
             'Authorization':`bearer ${token}`
           },
@@ -249,7 +249,7 @@ const connectionStrategies = connect(
           var token = sessionStorage.getItem('jwtToken');
             axios({
                method: 'post',
-               url: 'http://api.oconomat.fr/api/objectif/menu/generate',
+                url: 'http://vmdev:8000/api/objectif/menu/generate',
                headers:{
                 'Authorization':`bearer ${token}`,
                 }, 
@@ -276,7 +276,7 @@ const connectionStrategies = connect(
                   dispatch(action);
                 axios({
                   method: 'get',
-                  url: 'http://api.oconomat.fr/api/objectif/budget/last/'+ sessionStorage.getItem('id'),
+                    url: 'http://vmdev:8000/api/objectif/budget/last/'+ sessionStorage.getItem('id'),
                   headers:{
                   'Authorization':`bearer ${token}`,
                   }, 

@@ -6,26 +6,31 @@ import {Animated} from "react-animated-css";
 import './Home.sass'
 
 const HomePageStatic = ({messages}) => {
+    console.log(messages);
     return (
          <HomePage messages={messages}/>
     )
 }
 
 const HomePage = ({messages}) => {
-    return <div className ="bg-light">
-    <Logo messages={messages} />
-    <Steps />
-</div>
-
+    return ( 
+    <div className ="bg-light">
+        <Logo messages={messages} />
+        <Steps />
+    </div>
+    )
 }
 
 const Logo = ({messages}) => {
-    return(
+    return (
         <div className ='container px-0 text-center col-xs-12 col-lg-9 '>
             <div className ='food-image fluid-width img-thumbnail text-light  pt-4'>
                 <div className = "text-box"> 
-                    {messages.welcomeMessage!='' && messages.welcomeMessage!=undefined ? <h4 className="alert alert-success" role="alert"> {messages.welcomeMessage} </h4> : <span> </span> }
-                    
+                    {
+                        messages.welcomeMessage != '' && messages.welcomeMessage != undefined ? 
+                            <h4 className="alert alert-success" role="alert"> {messages.welcomeMessage} </h4> : 
+                            <span> </span> 
+                    }
                     <h2 className='home-catch-sentence m-3 '>Une panne d'inspiration ?</h2>
                     <div className="row justify-content-center">
                         <div className="bg-light p-1 rounded col-12 col-md-5 col-lg-4 col-xl-3"><img className="logo" src="src/ressources/pictures/logo_oconomat_vert.png"></img></div>

@@ -84,7 +84,7 @@ const connectionStrategies = connect(
       return {
         getMarketList:(event) => {
           var token = sessionStorage.getItem('jwtToken');
-          var url ='http://api.oconomat.fr/api/menu/user/last';
+            var url ='http://vmdev:8000/api/menu/user/last';
 
           axios.get(
             url,{
@@ -98,7 +98,7 @@ const connectionStrategies = connect(
             dispatch(action);
             sessionStorage.setItem('idMenu',response.data.idMenu);
             var idMenu=sessionStorage.getItem('idMenu');
-            var url ='http://api.oconomat.fr/api/menu/'+ idMenu +'/shopping-list';
+            var url ='http://vmdev:8000/api/menu/'+ idMenu +'/shopping-list';
             axios.get(
             url,
             {
@@ -145,7 +145,7 @@ const connectionStrategies = connect(
         getRecipes:(event) => { 
           
           var token=sessionStorage.getItem('jwtToken')
-          var url ='http://api.oconomat.fr/api/menu/user/last';
+          var url ='http://vmdev:8000/api/menu/user/last';
           axios.get(
             url,{
             headers:{

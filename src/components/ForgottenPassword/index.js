@@ -62,7 +62,7 @@ const connectionStrategies = connect(
         formData.set('email',inputValueEmail.email);
         axios({
           method: 'post',
-          url: 'http://api.oconomat.fr/api/password/new',
+            url: 'http://vmdev:8000/api/password/new',
           data: formData
         })
         .then(function (response) {
