@@ -37,7 +37,7 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
                 <div className="d-none d-sm-block col-md-8 offset-md-2 recipe-box"> 
                     {
                         recipeType.length != 0 ?  
-                            <Carousel class="p-y-5" interval={500}, pauseOnHover={true}> 
+                            <Carousel class="p-y-5" interval={4000} pauseOnHover={true}> 
                                 {
                                     recipes.map(function(recipe,index) {
                                         if(recipe.type==recipeType.trim()){ 
