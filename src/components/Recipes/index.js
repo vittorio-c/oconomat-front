@@ -26,18 +26,18 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
     if(recipes.length!=0){ 
         const recipeIndex=[]
 
-        return <div class="container"> 
+        return <div className="container"> 
             <div className="d-sm-block recipes-main"> 
                 <h2 className="recipes-title">Liste de vos Recettes Pour la Semaine </h2>  
-                <div class="row">
-                    <div class="d-none d-md-block col-md-4"> <button class="btn btn-warning" onClick={getStateType}> petit déjeuner  </button></div> 
-                    <div class="d-none d-md-block col-md-4"> <button class="btn btn-warning" onClick={getStateType}> déjeuner  </button></div>
-                    <div class="d-none d-md-block col-md-4"> <button class="btn btn-warning" onClick={getStateType}> dîner </button></div>
+                <div className="row">
+                    <div className="d-none d-md-block col-md-4"> <button className="btn btn-warning" onClick={getStateType}> petit déjeuner  </button></div> 
+                    <div className="d-none d-md-block col-md-4"> <button className="btn btn-warning" onClick={getStateType}> déjeuner  </button></div>
+                    <div className="d-none d-md-block col-md-4"> <button className="btn btn-warning" onClick={getStateType}> dîner </button></div>
                 </div> 
                 <div className="d-none d-sm-block col-md-8 offset-md-2 recipe-box"> 
                     {
                         recipeType.length != 0 ?  
-                            <Carousel class="p-y-5" interval={4000} pauseOnHover={true}> 
+                            <Carousel className="p-y-5" interval={4000} pauseOnHover={true}> 
                                 {
                                     recipes.map(function(recipe,index) {
                                         if(recipe.type==recipeType.trim()){ 
@@ -58,7 +58,7 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
                     } 
                 </div> 
             </div> 
-            <div class="d-block d-sm-none">  
+            <div className="d-block d-sm-none">  
                 <div>
                     <Carousel className="p-y-5">
                         {recipes.map(function(recipe,index){
@@ -67,8 +67,8 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
                                     return<Carousel.Item>  
                                         <img className="d-block w-100 max-height-mobile" src={recipe.image}/>
                                         <Carousel.Caption> 
-                                            <div class="col-xs-12 bg-yellow title-height"> <p className="recipes-title-small"> {recipe.title} </p>  </div>
-                                            <div class="col-xs-12 bg-yellow">  <p className="recipes-title-small"> Prix: {recipe.price} € </p>  </div> 
+                                            <div className="col-xs-12 bg-yellow title-height"> <p className="recipes-title-small"> {recipe.title} </p>  </div>
+                                            <div className="col-xs-12 bg-yellow">  <p className="recipes-title-small"> Prix: {recipe.price} € </p>  </div> 
                                             <Link to="/Recipe"> <button className="details-btn btn" onClick={()=>{findRecipe(index,recipes)}}> <a>Details</a>  </button> </Link> 
                                         </Carousel.Caption> 
                                         </Carousel.Item>
@@ -77,8 +77,8 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
                                     return<Carousel.Item>  
                                         <img className="d-block w-100 max-height" src={recipe.image}/>
                                         <Carousel.Caption> 
-                                            <div class="col-xs-12 bg-yellow title-height"> <p className="recipes-title-xs"> {recipe.title} </p>  </div>
-                                            <div class="col-xs-12 bg-yellow">  <p className="recipes-title-small"> Prix: {recipe.price} € </p>  </div> 
+                                            <div className="col-xs-12 bg-yellow title-height"> <p className="recipes-title-xs"> {recipe.title} </p>  </div>
+                                            <div className="col-xs-12 bg-yellow">  <p className="recipes-title-small"> Prix: {recipe.price} € </p>  </div> 
                                             <Link to="/Recipe"> <button className="details-btn btn" onClick={()=>{findRecipe(index,recipes)}}> <a>Details</a>  </button> </Link> 
                                         </Carousel.Caption> 
                                         </Carousel.Item>
@@ -87,14 +87,14 @@ const RecipesMain = ({recipes,findRecipe,showRecipeTypes,getStateType,recipeType
                         })} 
                     </Carousel> 
                 </div> 
-                <div class="col-xs-12"> <button class="btn btn-warning width-full" onClick={getStateType}> petit déjeuner </button> </div> 
-                <div class="col-xs-12"> <button class="btn btn-warning width-full " onClick={getStateType}> déjeuner </button> </div>
-                <div class="col-xs-12"> <button class="btn btn-warning width-full" onClick={getStateType}> dîner </button>  </div>
+                <div className="col-xs-12"> <button className="btn btn-warning width-full" onClick={getStateType}> petit déjeuner </button> </div> 
+                <div className="col-xs-12"> <button className="btn btn-warning width-full " onClick={getStateType}> déjeuner </button> </div>
+                <div className="col-xs-12"> <button className="btn btn-warning width-full" onClick={getStateType}> dîner </button>  </div>
             </div> 
         </div>
     } 
     else{
-        return  (<div>{messages.recipeListErrMessage!='' ? <div class="alert alert-danger text-center" role="alert"> {messages.recipeListErrMessage} </div> : <span> </span> } 
+        return  (<div>{messages.recipeListErrMessage!='' ? <div className="alert alert-danger text-center" role="alert"> {messages.recipeListErrMessage} </div> : <span> </span> } 
             <div> Recipes  Are Loading </div> </div>)
     }
 } 

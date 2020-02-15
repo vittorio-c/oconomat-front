@@ -32,10 +32,10 @@ const NoFound = () => {
     } else {
         return(
             <div>
-                <div class="wrap">
-                <div class="loading">
-                <div class="bounceball"></div>
-                <div class="text">NOW LOADING, PLEASE WAIT</div>
+                <div className="wrap">
+                <div className="loading">
+                <div className="bounceball"></div>
+                <div className="text">NOW LOADING, PLEASE WAIT</div>
                 </div>
                 </div>
             </div>

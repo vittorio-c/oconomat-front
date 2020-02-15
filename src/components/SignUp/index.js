@@ -22,8 +22,8 @@ const InscriptionStaticPage =({insertInputFirstName,insertInputLastName,insertIn
         <form className="row justify-content-center m-0" onSubmit={onFormSubmitManipulateArray}>
             <div className="my-5 container rounded">
                 <h2 className="inscription-title-signUp">Inscription</h2> 
-                {messages.inscriptionError!='' && messages.inscriptionError!=undefined ? <div class="alert alert-danger" role="alert">{messages.inscriptionError} </div> : <span></span>} 
-                {messages.inscriptionEmptyFields!='' && messages.inscriptionEmptyFields!=undefined ? <div class="alert alert-danger" role="alert">{messages.inscriptionEmptyFields} </div> : <span></span>}
+                {messages.inscriptionError!='' && messages.inscriptionError!=undefined ? <div className="alert alert-danger" role="alert">{messages.inscriptionError} </div> : <span></span>} 
+                {messages.inscriptionEmptyFields!='' && messages.inscriptionEmptyFields!=undefined ? <div className="alert alert-danger" role="alert">{messages.inscriptionEmptyFields} </div> : <span></span>}
                 <div className="form-group mt-4">
                     <input type="text" onChange={insertInputLastName} className="form-control rounded-left rounded-right" name="lastname" placeholder ='Nom'/>
                 </div> 
