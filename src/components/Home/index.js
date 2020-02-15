@@ -6,7 +6,6 @@ import {Animated} from "react-animated-css";
 import './Home.sass'
 
 const HomePageStatic = ({messages}) => {
-    console.log(messages);
     return (
          <HomePage messages={messages}/>
     )
