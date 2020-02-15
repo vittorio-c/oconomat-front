@@ -97,7 +97,7 @@ const AccountInfo = ({
                         <div className="text-center">
                             <a href="" className="btn-password btn-default btn" data-toggle="modal" data-target="#darkModalForm">Changer de mot de passe</a>
                         </div>
-                        <div className="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div className="modal fade" id="darkModalForm" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div className="modal-dialog form-dark" role="document">
                                 <div className="modal-content card card-image">
                                     <div className="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
@@ -119,7 +119,7 @@ const AccountInfo = ({
                                                     className="form-control validate white-text" 
                                                     placeholder="Mot de passe actuel" 
                                                 />
-                                                <label data-error="wrong" data-success="right" for="Form-pass5"></label>
+                                                <label data-error="wrong" data-success="right" htmlFor="Form-pass5"></label>
                                             </div>
                                             <div className="md-form pb-3">
                                                 <input 
@@ -129,7 +129,7 @@ const AccountInfo = ({
                                                     className="form-control validate white-text" 
                                                     placeholder="Nouveau mot de passe" 
                                                 />
-                                                <label data-error="wrong" data-success="right" for="Form-newpass5"></label>
+                                                <label data-error="wrong" data-success="right" htmlFor="Form-newpass5"></label>
                                             </div>
                                             <div className="row d-flex align-items-center mb-4">
                                                 <div className="text-center mb-3 col-md-12">
@@ -155,7 +155,7 @@ const AccountInfo = ({
                             { sessionStorage.getItem('budget') !== null || sessionStorage.getItem('budget') !== '' ?  'Modifier vos objectifs' : 'Saisir vos premiers objectifs'}
                         </button> 
 
-                        <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div className="modal-dialog" role="document">
                                 <div className="modal-content"> 
                                     {messages.budgetError!='' && messages.budgetError!=undefined ? 
@@ -184,7 +184,7 @@ const AccountInfo = ({
                                                 className="form-control validate white-text" 
                                                 placeholder="Inserez votre nouveau budget" 
                                             />
-                                            <label data-error="wrong" data-success="right" for="inputforobjectives5"></label>
+                                            <label data-error="wrong" data-success="right" htmlFor="inputforobjectives5"></label>
                                         </div>
 
                                         <div className="md-form pb-3">
@@ -195,7 +195,7 @@ const AccountInfo = ({
                                                 className="form-control validate white-text" 
                                                 placeholder="Inserez le nombre de personne dans votre foyer"
                                             />
-                                            <label data-error="wrong" data-success="right" for="inputfornumberofpeople5"></label>
+                                            <label data-error="wrong" data-success="right" htmlFor="inputfornumberofpeople5"></label>
                                         </div>
                                         <div className = "text-left text-secondary mt-5">Vos préférences alimentaires</div>
                                         <div className = "text-left text-success my-2">

@@ -79,12 +79,10 @@ const connectionStrategies = connect(
                 const action={type:'Insert-Input-LastName',value:event.target.value}
                 dispatch(action)
             },
-
             insertInputEmail: (event) => { 
                 const action={type:'Insert-Input-Email',value:event.target.value} 
                 dispatch(action)
             },
-
             insertMDP:(event) => { 
                 const action={type:'Insert-Input-MDP',value:event.target.value} 
                 dispatch(action)
@@ -93,16 +91,11 @@ const connectionStrategies = connect(
                 const action={type:'Confirm-Input-MDP',value:event.target.value}
                 dispatch(action);
             },
-
-            // var inputValues = new FormData();
-
             onFormSubmitManipulateArray:(inputValueFirstName,inputValueLastName,inputValueEmail,inputValueMDP,inputValueMDPConfirm,event) => { 
                 event.preventDefault();
                 var inputValues=[inputValueFirstName,inputValueLastName,inputValueEmail,inputValueMDP,inputValueMDPConfirm];
-                if(inputValueFirstName.firstname==undefined){
+                if (inputValueFirstName.firstname==undefined) {
                     inputValueFirstName={firstname:''}
-
-
                 }
 
                 if(inputValueLastName.lastname==undefined){
