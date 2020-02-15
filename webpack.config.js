@@ -50,7 +50,7 @@ module.exports = {
             new UglifyJsPlugin({
                 cache: true,
                 parallel: true,
-                sourceMap: false // passer à true pour JS source maps
+                sourceMap: true // passer à true pour JS source maps
             }),
             new OptimizeCSSAssetsPlugin({})
         ]
