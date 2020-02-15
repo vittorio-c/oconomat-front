@@ -389,7 +389,6 @@ const connectionStrategies = connect(
 
                     }
                     dispatch(action);
-                    debugger;
                     axios({
                         method: 'get',
                         url: 'http://vmdev:8000/api/objectif/budget/last/'+ sessionStorage.getItem('id'),
