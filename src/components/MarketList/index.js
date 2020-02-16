@@ -6,7 +6,9 @@ import './marketList.sass'
 
 const SessionList = JSON.parse(sessionStorage.getItem('SessionList'));
 
-const Ingredients = ({doCheck,buttonClass,textClass,shoppingList}) => {
+const Ingredients = ({doCheck,textClass,shoppingList}) => {
+    console.log('session list : ');
+    console.log(SessionList);
 
     return(
         SessionList.map(function(ingredient,index) { 
@@ -61,7 +63,7 @@ const Ingredients = ({doCheck,buttonClass,textClass,shoppingList}) => {
                         <span className= 'font-weight-bold'> {ingredient.unit}</span>
                     </td>
                     <td>
-                        <button onClick= {doCheck} className={buttonClass}/>
+                        <button onClick= {doCheck} className="btn btn-success btn-lg btn-block fa disabled fa-square"/>
                     </td>
                 </tr>
             )
@@ -69,7 +71,7 @@ const Ingredients = ({doCheck,buttonClass,textClass,shoppingList}) => {
     )
 }
 
-const MarketList = ({doCheck,buttonClass,textClass,shoppingList,messages,reInitializeMessages,}) => {
+const MarketList = ({doCheck,textClass,shoppingList,messages,reInitializeMessages,}) => {
     if (SessionList !== null){
         return (
             <div className="Site-content">
@@ -84,15 +86,19 @@ const MarketList = ({doCheck,buttonClass,textClass,shoppingList,messages,reIniti
                                         <tr className = {textClass}>
                                             <th scope="col">Nom</th>
                                             <th scope="col">Quantité</th>
-                                            <th scope="col"></th>
+                                            <th scope="col">En stock</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <Ingredients doCheck = {doCheck} buttonClass = {buttonClass} textClass = {textClass} shoppingList ={shoppingList} />
+                                        <Ingredients 
+                                            doCheck = {doCheck} 
+                                            textClass = {textClass} 
+                                            shoppingList ={shoppingList} 
+                                        />
                                     </tbody>
                                 </table>
                                 <button type="button" className="btn btn-danger btn-block" data-toggle="modal" data-target="#exampleModal">
-                                    Nettoyer votre liste
+                                    Vider la liste
                                 </button>
                             </div>
                         </div>
@@ -124,9 +130,11 @@ const MarketList = ({doCheck,buttonClass,textClass,shoppingList,messages,reIniti
     else 
         return(
             <div className =''>
-                <div className ="d-flex justify-content-center m-5 text-center spinner-border"><span className="sr-only">Chargement de votre liste de course en cours veuillez patienter</span></div>
+                <div className ="d-flex justify-content-center m-5 text-center spinner-border">
+                    <span className="sr-only">Chargement de votre liste de course en cours veuillez patienter</span>
+                </div>
                 <div>Chargement de votre liste de course en cours veuillez patienter</div> 
-                {messages.shoppingListErrMessage!='' ?<div> <div className="alert alert-danger text-center" role="alert"> {messages.shoppingListErrMessage} </div> </div>  : <span></span>} 
+                {messages.shoppingListErrMessage!='' ? <div> <div className="alert alert-danger text-center" role="alert"> {messages.shoppingListErrMessage} </div> </div>  : <span></span>} 
             </div>
         );
 }
@@ -134,7 +142,7 @@ const connectionStrategies = connect(
     (state, ownProps) => { 
         return {
             shoppingList:state.shoppingList,
-            buttonClass:state.buttonClass,
+            //buttonClass:state.buttonClass,
             textClass: state.textClass,
             messages:state.messages
         };
@@ -143,13 +151,30 @@ const connectionStrategies = connect(
         return {
             doCheck:(event) => {
                 event.preventDefault();
+                var classes = event.target.className;
+                var newClasses = '';
 
-                const action = {
-                    type:'CHECKED',
-                    buttonClass : event.target.className = "btn btn-success btn-lg btn-block fa fa-check-square disabled",
-                    textClass :  event.currentTarget.parentNode.parentNode.className = 'bg-dark text-light line-through'
-                }; 
-                dispatch(action); 
+                if (classes.includes("fa-square")) {
+                    newClasses = classes.replace("fa-square", "fa-check-square");
+                } else if (classes.includes("fa-check-square")) {
+                    newClasses = classes.replace("fa-check-square", "fa-square");
+                }
+                event.target.className = newClasses;
+                    
+
+
+
+
+
+                //event.currentTarget.parentNode.parentNode.className = 'bg-dark text-light line-through';
+
+                //const action = {
+                //type:'CHECKED',
+                //value: "btn btn-success btn-lg btn-block fa fa-check-square disabled"
+                //buttonClass : event.target.className = "btn btn-success btn-lg btn-block fa fa-check-square disabled",
+                //textClass :  event.currentTarget.parentNode.parentNode.className = 'bg-dark text-light line-through'
+                //}; 
+                //dispatch(action); 
             },
             reInitializeMessages:() =>{
                 const action={type:'Reset-Messages',value:''}

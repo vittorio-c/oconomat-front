@@ -13,7 +13,7 @@ const initialState = {
     objectives : '',
     recipeType:'',
     shoppingList:'',
-    buttonClass : "btn btn-success btn-lg btn-block fa fa-square disabled",
+    //buttonClass : "btn btn-success btn-lg btn-block fa fa-square disabled",
     messages:{recipeListErrMessage:'',shoppingListErrMessage:'',budgetError:'',welcomeMessage:'',inscriptionError:''},
     password:{},
     newPassword:{},
