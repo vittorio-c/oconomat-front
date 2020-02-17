@@ -14,6 +14,7 @@ const devMode = process.env.NODE_ENV !== 'production';
 module.exports = {
     // Passe le build par dèfaut en déeveloppement
     mode: 'development',
+    //"mode": process.env.NODE_ENV === "production" ? "production" : "development",
     // Expose le dossier src/ pour les imports
     resolve: {
         alias: {
@@ -120,10 +121,10 @@ module.exports = {
         historyApiFallback: true,
         //host: host,
         //port: port,
-        disableHostCheck: true,
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-        },
+        //disableHostCheck: true,
+        //headers: {
+            //"Access-Control-Allow-Origin": "*",
+        //},
         //contentBase: DIST_FOLDER,
     },
     plugins: [
@@ -141,6 +142,7 @@ module.exports = {
             { from: 'src/ressources/pictures', to: 'src/ressources/pictures' }
         ])
     ],
+    cache: true
 }
 
 

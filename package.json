@@ -36,7 +36,7 @@
   },
   "scripts": {
     "test": "NODE_PATH=./ mocha --require babel-core/register --require tests/.setup.js tests/**/*.test.js",
-    "start": "webpack-dev-server --host 0.0.0.0 --public vmdev:8080 --disable-host-check --watch-poll",
+    "start": "webpack-dev-server --host 0.0.0.0 --public vmdev:8080 --watch-poll",
     "clean": "rm -rf dist",
     "clean:all": "rm -rf dist node_modules",
     "build:dev": "NODE_ENV=development webpack",
